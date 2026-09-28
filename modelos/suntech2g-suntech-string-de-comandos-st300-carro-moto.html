@@ -28,22 +28,63 @@
     <ul><li><strong>Modelo(s):</strong> Suntech protocolo ST300 (linha ST3XX; perfil &quot;recomendado manual ST310U&quot;)</li><li><strong>Pasta:</strong> SUNTECH2G</li><li><strong>Fabricante/Protocolo:</strong> Suntech — protocolo ST300</li><li><strong>Arquivos-fonte:</strong> <code>SUNTECH STRING DE COMANDOS (3).pdf</code></li></ul>
 <blockquote><code>SERIAL</code> = número de série do equipamento (<code>ID_EQUIPAMENTO</code>).</blockquote>
 <h2 id="consultas">Consultas</h2>
-<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>ST300CMD;SERIAL;02;StatusReq</code></td><td>Solicita posição</td></tr><tr><td><code>ST300CMD;SERIAL;02;Preset</code></td><td>Solicita configuração básica</td></tr><tr><td><code>ST300CMD;SERIAL;02;PresetA</code></td><td>Solicita configuração completa</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqIMSI</code></td><td>Solicita IMSI</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqICCID</code></td><td>Solicita ICCID</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqVer</code></td><td>Solicita versão</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqShortTest</code></td><td>Teste curto</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqTest</code></td><td>Teste</td></tr><tr><td><code>ST300CMD;SERIAL;02;InitMsgNo</code></td><td>Requisitar número</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;StatusReq</code></pre></div>
+<p>Solicita posição.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Preset</code></pre></div>
+<p>Solicita configuração básica.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;PresetA</code></pre></div>
+<p>Solicita configuração completa.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqIMSI</code></pre></div>
+<p>Solicita IMSI.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqICCID</code></pre></div>
+<p>Solicita ICCID.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqVer</code></pre></div>
+<p>Solicita versão.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqShortTest</code></pre></div>
+<p>Teste curto.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqTest</code></pre></div>
+<p>Teste.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;InitMsgNo</code></pre></div>
+<p>Requisitar número.</p>
 <h2 id="configuracao">Configuração</h2>
 <h3 id="comandos-gerais">Comandos gerais</h3>
-<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>ST300CMD;SERIAL;02;Reboot</code></td><td>Reiniciar sem apagar</td></tr><tr><td><code>ST300CMD;SERIAL;02;Reset</code></td><td>Reiniciar formatando</td></tr><tr><td><code>ST300CMD;SERIAL;02;Enable1</code></td><td>Bloqueio (observar lógica de ativação)</td></tr><tr><td><code>ST300CMD;SERIAL;02;Disable1</code></td><td>Desbloqueio (observar lógica de ativação)</td></tr><tr><td><code>ST300CMD;SERIAL;02;EraseAll</code></td><td>Apaga memória de posições</td></tr><tr><td><code>ST300CMD;SERIAL;02;InitDist</code></td><td>Zera distância</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetOwnNo=NUMERO_CELULAR</code></td><td>Define número próprio (formato +55DDDNÚMERO)</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetHMeter=1</code></td><td>Setar contador de horas trabalhadas</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetOdometer=12</code></td><td>Setar odômetro total</td></tr><tr><td><code>ST300CMD;SERIAL;02;RestartAntiTheft2</code></td><td>Reinicia antifurto 2</td></tr><tr><td><code>ST300CMD;SERIAL;02;ImproveBatteryLife=1</code></td><td>Otimização da bateria de backup</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetOdoIgn=0</code></td><td>Incrementação do odômetro com ignição desligada</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Reboot</code></pre></div>
+<p>Reiniciar sem apagar.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Reset</code></pre></div>
+<p>Reiniciar formatando.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Enable1</code></pre></div>
+<p>Bloqueio (observar lógica de ativação).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Disable1</code></pre></div>
+<p>Desbloqueio (observar lógica de ativação).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;EraseAll</code></pre></div>
+<p>Apaga memória de posições.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;InitDist</code></pre></div>
+<p>Zera distância.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;SetOwnNo=NUMERO_CELULAR</code></pre></div>
+<p>Define número próprio (formato +55DDDNÚMERO).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;SetHMeter=1</code></pre></div>
+<p>Setar contador de horas trabalhadas.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;SetOdometer=12</code></pre></div>
+<p>Setar odômetro total.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;RestartAntiTheft2</code></pre></div>
+<p>Reinicia antifurto 2.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ImproveBatteryLife=1</code></pre></div>
+<p>Otimização da bateria de backup.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;SetOdoIgn=0</code></pre></div>
+<p>Incrementação do odômetro com ignição desligada.</p>
 <h3 id="parametros-de-rede">Parâmetros de rede</h3>
-<p>Campos: autenticação (0 = Vivo, 1 = outros); APN; usuário; senha; IP1; porta1; IP2; porta2; número SMS (0); PIN (0).</p>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Exemplo da tabela do documento</th></tr></thead><tbody><tr><td>Autenticação</td><td>0 (0-vivo / 1-outros)</td></tr><tr><td>APN</td><td>smart.m2m.vivo.com.br</td></tr><tr><td>USR</td><td>Vivo</td></tr><tr><td>PASSWD</td><td>Vivo</td></tr><tr><td>IP1 / PORTA1</td><td>193.193.165.166 / 7210</td></tr><tr><td>IP2 / PORTA2</td><td>(vazio)</td></tr><tr><td>NUMERO SMS</td><td>0</td></tr><tr><td>NUMERO PIN</td><td>0</td></tr></tbody></table></div>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;SERIAL;02;0;smart.m2m.vivo.com.br;vivo;vivo;200.98.204.151;7210;200.98.204.152;7210;0;0</code></pre></div>
 <p>Vivo Smart M2M com IP primário e secundário (exemplo do documento).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;SERIAL;02;0;smart.m2m.vivo.com.br;vivo;vivo;200.98.204.151;7210;;;0;0</code></pre></div>
 <p>Somente IP primário.</p>
 <h3 id="parametros-de-tensao">Parâmetros de tensão</h3>
-<p>Campos: parar de carregar bateria 12V (0); parar de carregar 24V (0); tensão que decide 12/24 V (17.20); tensão de proteção 12V (8.00); tensão de proteção 24V (18.00); ignição virtual alta (0.00); ignição virtual baixa (0.00).</p>
+<div class="table-wrap"><table><thead><tr><th>Nomenclatura</th><th>Serial</th><th>Padrão</th><th>Parar de carregar bateria 12V</th><th>Parar de carregar bateria 24V</th><th>Tensão que decide voltagem (12/24)</th><th>Tensão de proteção 12V</th><th>Tensão de proteção 24V</th><th>Ign virt alta</th><th>Ign virt baixa</th></tr></thead><tbody><tr><td>ST300MBV</td><td>SERIAL</td><td>02</td><td>0</td><td>0</td><td>17.20</td><td>8.00</td><td>18.00</td><td>0.00</td><td>0.00</td></tr></tbody></table></div>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MBV;SERIAL;02;0;0;17.20;8.00;18.00;0.00;0.00</code></pre></div>
 <p>Parâmetros de tensão padrão.</p>
 <h3 id="parametros-de-envio">Parâmetros de envio</h3>
-<p>Campos: tempo parado; envio em movimento; envio emergência; ...; keep alive; ...</p>
+<div class="table-wrap"><table><thead><tr><th>Nomenclatura</th><th>Serial</th><th>Padrão</th><th>Envio parado</th><th>Envio movimento</th><th>Envio emergência</th><th>Distância envio posições</th><th>Keep alive</th><th>Parado SMS</th><th>Movimento SMS</th><th>Nº de posições SMS</th></tr></thead><tbody><tr><td>ST300RPT</td><td>SERIAL</td><td>02</td><td>3000</td><td>60</td><td>60</td><td>0</td><td>600</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div>
+<p>(Tabela reproduzida como está no documento; o comando completo abaixo tem um campo <code>3</code> a mais após a emergência.)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3000;60;60;3;0;600;0;0;0</code></pre></div>
 <p>Carro.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3600;60;60;3;0;0;0;0;0</code></pre></div>

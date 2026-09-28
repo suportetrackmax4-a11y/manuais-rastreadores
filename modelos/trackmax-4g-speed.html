@@ -19,7 +19,7 @@
   <nav class="toc" aria-label="Nesta página">
     <a class="back" href="../index.html">← Todos os modelos</a>
     <p class="toc-title">Nesta página</p>
-    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li></ul>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#anotacoes-originais-texto-do-arquivo-speed-txt">Anotações originais (texto do arquivo SPEED.txt)</a></li></ul>
   </nav>
   <main class="doc">
     <p class="crumb"><a href="../index.html">Início</a> / TRACKMAX 4G / SPEED</p>
@@ -215,6 +215,108 @@ FORMAT#</code></pre></div>
 <ol><li>Enviar o comando de ajuste de firmware e aguardar 3 minutos:</li></ol>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>OTASTART#</code></pre></div>
 <ol><li>Enviar <code>RESET#</code>, depois <code>FORMAT</code> e depois <code>FACTORY#</code>.</li><li>Iniciar as configurações (ver &quot;Configuração completa&quot; ou &quot;Forma rápida&quot; acima).</li></ol>
+<h2 id="anotacoes-originais-texto-do-arquivo-speed-txt">Anotações originais (texto do arquivo SPEED.txt)</h2>
+<p>Comandos com as anotações exatamente como estão no arquivo original, na mesma ordem.</p>
+<p>ATIVAR SIREME</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>jdqmd,0#</code></pre></div>
+<p>LIMITE DE VELOCIDADE</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SPEED,ON,5,40,1#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,app.redsat.com.br,5023,0#</code></pre></div>
+<p>SERVIDOR E PORTA DA PLATAFORMA TRACKMAX:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,app.redsat.com.br,2410,0#</code></pre></div>
+<p>APN, USUARIO E SENHA = VIVO TRACKMAX:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,0#
+#SLEEPT=5
+HBT,300,300#
+GMT,W,0,0#</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Anotação original</th><th>Comando</th></tr></thead><tbody><tr><td>Para selecionar automático 4G/2G  (PADRÃO) :</td><td><code>SETCNMP,0#</code></td></tr><tr><td>Para selecionar somente 2G :</td><td><code>SETCNMP,1#</code></td></tr><tr><td>Para selecionar somente 4G :</td><td><code>SETCNMP,2#</code></td></tr><tr><td>bloquear o veículo:</td><td><code>RELAY,1#</code></td></tr><tr><td>desbloquear o veículo:</td><td><code>RELAY,0#</code></td></tr><tr><td>DESLIGAR IGNIÇÃO VIRTUAL POR MOVIMENTO:</td><td><code>ACCVIRT,OFF#</code></td></tr><tr><td>LIGAR ATIVAR IGNIÇÃO VIRTUAL POR MOVIMENTO:</td><td><code>ACCVIRT,ON#</code></td></tr><tr><td>CONSULTAR IGNIÇÃO VIRTUAL POR MOVIMENTO:</td><td><code>ACCVIRT#</code></td></tr><tr><td>CONSULTAR SERVIDOR PLATAFORMA:</td><td><code>SERVER#</code></td></tr></tbody></table></div>
+<h3 id="reconfigurar-equipamento-2">RECONFIGURAR EQUIPAMENTO</h3>
+<p>Reinício automático blind zone:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SYSRST,1#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SYSRST,0#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FREQ,123456,60#
+GMT,W,0,0#
+ANGLEVAL,30#
+#ACC_OFF_FREQ=1800
+#FREQ=60</code></pre></div>
+<h3 id="solucao-em-teste-para-rastreadores-speed-com-auto-consumo-historico-com-exesso-de-posicoes">SOLUÇÃO EM TESTE PARA RASTREADORES SPEED COM AUTO CONSUMO - HISTORICO COM EXESSO DE POSIÇÕES</h3>
+<p>ENVIAR O COMANDO PARA ATUALIZAR O FW, AGUARDE 3 MINUTOS E EM SEGUIDA ENVIE RESET#</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FOTAURL,http://183.57.42.234:888/uploadfile/dt16/70sa_lasc_cd/09/track.bin#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FOTAURL:http://183.57.42.234:888/uploadfile/dt16/70sa_lasc_cd/09/track.bin</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>fotaurl#</code></pre></div>
+<p>ENVIAR COMANDO DE AJUSTE DE FW</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>OTASTART#</code></pre></div>
+<ul><li>AGUARDE 3 MINUTOS</li><li>ENVIE RESET#</li><li>ENVIE FORMAT</li><li>ENVIE FACTORY#</li></ul>
+<p>INICIAR AS CONFIGURAÇÕES</p>
+<blockquote>DNS E PORTA TRACKMAX</blockquote>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2410,0#</code></pre></div>
+<blockquote>APN CHIP MAX</blockquote>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SYSRST,1#
+FREQ,123456,60#
+#FREQ=60
+GMT,W,0,0#
+#SLEEPT=5
+voltup,1#
+ACCOFFALM,OFF#
+ACCALM,OFF#
+EACCELE,OFF#
+EDECELE,OFF#
+EANGLE,OFF#
+DELAYACC,60,300#
+MOVING,ON,1000,0#
+ANGLEVAL,30#
+HBT,300,300#
+SENLEVEL,5#
+DEFENSE,60#
+#ACC_OFF_FREQ=1800
+FREQ,123456,60#
+hdopgl,123456,80#
+nobspot,123456,1
+#SLPDISCONNECT=1
+BATALM,ON,1#
+POWERALM,ON,0,60,60#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FORMAT
+FREQ,123456,60#
+SERVER,1,dns.trackmax.com.br,2410,0#
+APN,trackmax.br,max,max#
+GMT,W,0,0#
+ANGLEVAL,30#
+protmd,0#
+#QHXY=1
+#ACC_OFF_FREQ=3600
+#FREQ=60</code></pre></div>
+<h3 id="comandos-explicados-texto-original">Comandos explicados (texto original)</h3>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Anotação original</th></tr></thead><tbody><tr><td><code>#SLPDISCONNECT=1</code></td><td>Ativa o modo de economia de energia e permite desconectar o GPRS quando entra em sleep</td></tr><tr><td><code>GMT,W,0,0#</code></td><td>Define o fuso horário do equipamento</td></tr><tr><td><code>tzw03</code></td><td>Configuração de fuso horário automático do dispositivo</td></tr><tr><td><code>EACCELE,OFF#</code></td><td>Desativa o alerta de aceleração brusca</td></tr><tr><td><code>EDECELE,OFF#</code></td><td>Desativa o alerta de desaceleração brusca (freada forte)</td></tr><tr><td><code>EANGLE,OFF#</code></td><td>Desativa o alerta de inclinação do rastreador</td></tr><tr><td><code>ANGLEVAL,45#</code></td><td>Define o ângulo máximo de inclinação para gerar alerta</td></tr><tr><td><code>voltup,1#</code></td><td>Ativa o alerta de aumento de tensão quando recebe alimentação</td></tr><tr><td><code>#QHXY=1</code></td><td>Ativa algoritmo interno de correção de posicionamento GPS</td></tr><tr><td><code>protmd,0#</code></td><td>Define o modo de protocolo de comunicação do equipamento</td></tr><tr><td><code>HBT,600,600#</code></td><td>Define o intervalo de heartbeat enviado ao servidor</td></tr><tr><td><code>SENALM,OFF#</code></td><td>Desativa o alarme do sensor de vibração</td></tr><tr><td><code>SENLEVEL,5#</code></td><td>Define o nível de sensibilidade do sensor de vibração</td></tr><tr><td><code>ACCALM,OFF#</code></td><td>Desativa o alarme de ignição (ACC)</td></tr><tr><td><code>ACCOFFALM,OFF#</code></td><td>Desativa o alerta quando a ignição é desligada</td></tr><tr><td><code>DELAYACC,60,300#</code></td><td>Define atraso para detectar ignição ligada ou desligada</td></tr><tr><td><code>FORMAT#</code></td><td>Restaura ou formata as configurações do equipamento</td></tr><tr><td><code>TIMER,120,0#</code></td><td>Define intervalo de envio de localização por tempo</td></tr><tr><td><code>FREQ,123456,120#</code></td><td>Define intervalo de envio de localização quando em movimento</td></tr><tr><td><code>#FREQ=120</code></td><td>Define intervalo padrão de envio de localização</td></tr><tr><td><code>#ACC_OFF_FREQ=600</code></td><td>Define o intervalo de envio quando a ignição está desligada</td></tr></tbody></table></div>
+<h3 id="forma-rapida-para-enviar-2">FORMA RAPIDA PARA ENVIAR</h3>
+<ul><li>AGUARDE 3 MINUTOS</li><li>ENVIE RESET#</li><li>ENVIE FORMAT</li><li>ENVIE FACTORY#</li></ul>
+<p>INICIAR AS CONFIGURAÇÕES</p>
+<blockquote>DNS E PORTA TRACKMAX</blockquote>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2410,0#</code></pre></div>
+<blockquote>APN CHIP MAX</blockquote>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#SLPDISCONNECT=1
+GMT,W,0,0#
+tzw03
+EACCELE,OFF#
+EDECELE,OFF#
+EANGLE,OFF#
+ANGLEVAL,45#
+voltup,1#
+#QHXY=1
+protmd,0#
+HBT,600,600#
+SENALM,OFF#
+SENLEVEL,5#
+ACCALM,OFF#
+ACCOFFALM,OFF#
+DELAYACC,60,300#
+TIMER,120,0#
+FREQ,123456,120#
+#FREQ=120
+#ACC_OFF_FREQ=600</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FORMAT#</code></pre></div>
     
     <nav class="pager"><a href="trackmax-4g-sl44.html">← SL44</a><a href="v1-2g.html">V1 2G →</a></nav>
   </main>

@@ -28,14 +28,15 @@
     <ul><li><strong>Modelo(s):</strong> TKSTAR TK905, TK915, TK913 (rastreadores magnéticos/portáteis)</li><li><strong>Pasta:</strong> LINHA TK</li><li><strong>Fabricante/Protocolo:</strong> TKSTAR — comandos SMS com senha (padrão <code>123456</code>)</li><li><strong>Arquivos-fonte:</strong> <code>TK905 TK915.txt</code></li></ul>
 <h2 id="consultas">Consultas</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXZT</code></pre></div>
-<p>Retorna dados do equipamento.</p>
+<p>RETORNA DADOS</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>G123456#</code></pre></div>
-<p>Retorna dados e localização.</p>
+<p>Retorna com dados e localização</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>check123456</code></pre></div>
-<p>Retorna dados do equipamento.</p>
+<p>Retorna com dados do equipamento</p>
 <h2 id="configuracao">Configuração</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 35.230.168.225 5093</code></pre></div>
-<p>Aponta para a plataforma TrackMax (IP 35.230.168.225, porta 5093).</p>
+<p>Plataforma TrackMax</p>
+<p>Outras Funções:</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456</code></pre></div>
 <p>Ativa GPRS.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456 on</code></pre></div>
@@ -51,9 +52,9 @@
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>timezone123456 -3</code></pre></div>
 <p>Fuso horário de Brasília.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>begin123456</code></pre></div>
-<p>Reinicia o equipamento.</p>
+<p>REINICIA O EQUIPAMENTO</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset123456</code></pre></div>
-<p>Inicia de fábrica (volta para a plataforma original).</p>
+<p>Inicia de Fabrica (volta para a plataforma original)</p>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
 <h3 id="chip-vivo-trackmax">Chip Vivo TrackMax</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 tmax.m2m.vivo.com.br
@@ -69,11 +70,14 @@ apnuser123456 tim
 apnpasswd123456 tim</code></pre></div>
 <h3 id="plataforma-original-tkstar">Plataforma original TKSTAR</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 47.88.85.196 7700</code></pre></div>
-<p>Volta para a plataforma original (ou use <code>reset123456</code>).</p>
+<p>reset123456 ou comando a baixo para utilizar plataforma original: <code>adminip123456 47.88.85.196 7700</code></p>
 <div class="table-wrap"><table><thead><tr><th>Acesso</th><th>Endereço</th></tr></thead><tbody><tr><td>Web</td><td><a href="https://www.mytkstar.net/index.aspx" target="_blank" rel="noopener">https://www.mytkstar.net/index.aspx</a></td></tr><tr><td>App Android</td><td><a href="https://play.google.com/store/apps/details?id=com.fw.gps.lhyk" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id=com.fw.gps.lhyk</a></td></tr><tr><td>App iOS</td><td><a href="https://apps.apple.com/gb/app/tkstar-gps/id1508123897" target="_blank" rel="noopener">https://apps.apple.com/gb/app/tkstar-gps/id1508123897</a></td></tr></tbody></table></div>
-<ul><li>Usuário: ID da etiqueta do equipamento (<code>ID_EQUIPAMENTO</code>).</li><li>Senha padrão: <code>123456</code> (se não conectar, a senha foi mudada). Outras senhas possíveis da plataforma original: 6 últimos ou 4 últimos dígitos do ID.</li></ul>
+<ul><li>Usuário: ID da etiqueta (<code>ID_EQUIPAMENTO</code>)</li><li>Senha: 123456        (se não conectar foi mudado a senha)</li><li>senha da plataforma original: 123456, 6 ultimos digitos do id ou 4 ultimos digitos do id</li></ul>
 <h2 id="problemas-e-solucoes">Problemas e soluções</h2>
-<ul><li><strong>Equipamento não comunica:</strong> verificar se está no protocolo <code>TK905ZF690CJTS39138#240416</code>. Se estiver nesse protocolo é necessário usar a <strong>porta 5015</strong> e <strong>inserir dois zeros na frente do ID</strong> (ex.: <code>00</code> + <code>ID_EQUIPAMENTO</code>).</li><li>Conferir sempre o ID do equipamento.</li></ul>
+<p>Caso o equipamento não comunicar, verificar se está configurado no protocolo TK905ZF690CJTS39138#240416.</p>
+<p>Se estiver nesse protocolo, será necessário:</p>
+<ul><li>Utilizar a porta 5015;</li><li>Inserir dois zeros na frente do ID.</li><li>Exemplo: <code>00</code> + <code>ID_EQUIPAMENTO</code> (ex.: 00XXXXXXXXXX)</li></ul>
+<p>CONFERIR SEMPRE O ID DO EQUIPAMENTO</p>
     
     <nav class="pager"><a href="linha-tk-tk303-tk311.html">← TK303 TK311</a><a href="linha-tk-treinamento-e-lembretes.html">Treinamento e lembretes →</a></nav>
   </main>

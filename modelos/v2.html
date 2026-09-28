@@ -29,8 +29,20 @@
 <blockquote>OBS (manual): TODOS OS COMANDOS SÃO EM MAIÚSCULO, EXCETO: IP, PORTA E APN DO CHIP.</blockquote>
 <hr>
 <h2 id="consultas">Consultas</h2>
-<p>Se o chip tiver retorno de SMS:</p>
-<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Função</th></tr></thead><tbody><tr><td><code>STATUS#</code></td><td>Verificação de STATUS do Rastreador (também &quot;Comando para Forçar Conexão&quot;)</td></tr><tr><td><code>GPRSSET#</code></td><td>Verificação de Configurações e Conexão</td></tr><tr><td><code>IMEI#</code></td><td>Retorno com o IMEI do Rastreador</td></tr><tr><td><code>TIMER#</code></td><td>Conferir configuração de posições temporizadas</td></tr><tr><td><code>GMT#</code></td><td>Conferir configuração de Fuso Horário GMT</td></tr><tr><td><code>URL#</code> OU <code>POSITION#</code></td><td>Solicitar posição</td></tr></tbody></table></div>
+<p>Se o chip utilizado tiver retorno de SMS, segue as consultas disponíveis (manual):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STATUS#</code></pre></div>
+<p>Verificação de STATUS do Rastreador. Nos arquivos .txt: &quot;Comando para Forçar Conexão&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRSSET#</code></pre></div>
+<p>Verificação de Configurações e Conexão.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IMEI#</code></pre></div>
+<p>Retorno com o IMEI do Rastreador.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER#</code></pre></div>
+<p>Conferir configuração de posições temporizadas.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT#</code></pre></div>
+<p>Conferir configuração de Fuso Horário GMT.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>URL#
+POSITION#</code></pre></div>
+<p>Comando para solicitar posição: URL# OU POSITION#.</p>
 <hr>
 <h2 id="configuracao">Configuração</h2>
 <h3 id="apn">APN</h3>
@@ -39,6 +51,8 @@
 APN,tim.br,tim,tim#
 APN,zap.vivo.com.br,vivo,vivo#
 APN,claro.com.br,claro,claro#</code></pre></div>
+<p>APN no formato SZCS (anotado nos arquivos do EV02 como &quot;COMANDO V2 APN&quot;):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#APN=ss.algar.br#USERPPP=algar#PWPPP=algar</code></pre></div>
 <h3 id="ip-dns-e-porta">IP / DNS e porta</h3>
 <p>Formato IP: <code>SERVER,0,IP,PORTA,0#</code></p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,0,35.230.168.225,2002,0#</code></pre></div>
@@ -60,7 +74,7 @@ APN,claro.com.br,claro,claro#</code></pre></div>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORY#</code></pre></div>
 <p>RESET DE FÁBRICA — reseta todas as configurações; só envie quando solicitado pelo suporte técnico.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
-<p>RESET REBOOT — reinicia o Rastreador somente, a fim de forçar uma nova conexão.</p>
+<p>RESET REBOOT — reinicia o Rastreador somente, a fim de forçar uma nova conexão. (No arquivo TRACKMAX_V2_2G_E_4G também aparece como &quot;Comando para Resetar: RESET#&quot;.)</p>
 <h3 id="bloqueio-desbloqueio">Bloqueio / desbloqueio</h3>
 <p>Conforme o manual V2 (verbatim):</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
@@ -77,6 +91,7 @@ APN,claro.com.br,claro,claro#</code></pre></div>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RLYMD,2#</code></pre></div>
 <p>ou</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SOURCE_OFF_TYPE=1</code></pre></div>
+<p>&quot;Após enviar esse comando o Rastreador irá efetuar o bloqueio sem validação de gps e velocidade.&quot; No arquivo TRACKMAX_V2_2G_E_4G: &quot;Comando para ATIVAR o bloqueio instantâneo ignorando velocidade e GPS: SZCS#SOURCE_OFF_TYPE=1&quot;.</p>
 <hr>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
 <h3 id="trackmax-v2-padrao-do-manual-porta-2002">TrackMax V2 — padrão do manual (porta 2002)</h3>
@@ -115,8 +130,41 @@ GMT,W,0,0#</code></pre></div>
 #VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
 <div class="table-wrap"><table><thead><tr><th>Protocolo</th><th>SERVPORT</th></tr></thead><tbody><tr><td>PROTOCOLO 1</td><td>2222</td></tr><tr><td>PROTOCOLO 2</td><td>2223</td></tr></tbody></table></div>
 <div class="table-wrap"><table><thead><tr><th>Operadora</th><th>APN</th><th>USERPPP / PWPPP</th></tr></thead><tbody><tr><td>TMAX ALGAR</td><td>tmax.algar.br</td><td>algar / algar</td></tr><tr><td>TMAX VIVO</td><td>tmax.m2m.vivo.com.br</td><td>vivo / vivo</td></tr><tr><td>TMAX CLARO</td><td>tmax.claro.com.br</td><td>claro / claro</td></tr><tr><td>TMAX ARQIA</td><td>wl.vodafone.br</td><td>arqia / arqia</td></tr><tr><td>TMAX TIM</td><td>ss.tim.br</td><td>tim / tim</td></tr></tbody></table></div>
-<p>Exemplo (V2 PROTOCOLO 1, VIVO):</p>
+<p>Comandos completos do arquivo (EQUIPAMENTO V2):</p>
+<h4 id="apn-tmax-algar">APN TMAX ALGAR</h4>
+<p>V2 PROTOCOLO 2</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2223#APN=tmax.algar.br#USERPPP=algar#PWPPP=algar
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<p>V2 PROTOCOLO 1</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2222#APN=tmax.algar.br#USERPPP=algar#PWPPP=algar
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<h4 id="apn-tmax-vivo">APN TMAX VIVO</h4>
+<p>V2 PROTOCOLO 2</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2223#APN=tmax.m2m.vivo.com.br#USERPPP=vivo#PWPPP=vivo
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<p>V2 PROTOCOLO 1</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2222#APN=tmax.m2m.vivo.com.br#USERPPP=vivo#PWPPP=vivo
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<h4 id="apn-tmax-claro">APN TMAX CLARO</h4>
+<p>V2 PROTOCOLO 2</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2223#APN=tmax.claro.com.br#USERPPP=claro#PWPPP=claro
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<p>V2 PROTOCOLO 1</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2222#APN=tmax.claro.com.br#USERPPP=claro#PWPPP=claro
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<h4 id="apn-tmax-arqia">APN TMAX ARQIA</h4>
+<p>V2 PROTOCOLO 2</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2223#APN=wl.vodafone.br#USERPPP=arqia#PWPPP=arqia
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<p>V2 PROTOCOLO 1</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2222#APN=wl.vodafone.br#USERPPP=arqia#PWPPP=arqia
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<h4 id="apn-tmax-tim">APN TMAX TIM</h4>
+<p>V2 PROTOCOLO 2</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2223#APN=ss.tim.br#USERPPP=tim#PWPPP=tim
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<p>V2 PROTOCOLO 1</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2222#APN=ss.tim.br#USERPPP=tim#PWPPP=tim
 #VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
 <h2 id="problemas-e-solucoes">Problemas e soluções</h2>
 <div class="table-wrap"><table><thead><tr><th>Problema</th><th>Descrição</th><th>Solução</th></tr></thead><tbody><tr><td>NÃO FICA ONLINE OU CONECTA NA PLATAFORMA DE RASTREAMENTO</td><td>CHIP SIM CARD não inserido, mal inserido, sem rede ou sinal fraco de GSM/GPRS</td><td>Verifique a posição a ser inserido no manual; verifique se seu chip está ativo e pronto; mude de local a fim de melhorar o sinal GSM/GPRS</td></tr><tr><td>SEM LOCALIZAÇÃO, PORÉM FICA ONLINE</td><td>Ficou online, porém mostrando em outro local. Visada GPS</td><td>Ligue o RASTREADOR com pós-chave e deixe fora do veículo com visada livre até atualizar o GPS; nada metálico entre o rastreador e o céu; visada livre de 180 graus; rastreador fixo, nivelado com os LEDs para cima</td></tr></tbody></table></div>
@@ -135,6 +183,7 @@ GMT,W,0,0#</code></pre></div>
 <hr>
 <h2 id="observacoes-especificacoes-tecnicas-trackmax-v2">Observações — Especificações técnicas (TrackMax V2)</h2>
 <div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Modem GSM/GPRS</td><td>Frequência 850/900/1800/1900 MHz</td></tr><tr><td>Chip SET Processador</td><td>MTK2503</td></tr><tr><td>Transmissão de Dados</td><td>TCP</td></tr><tr><td>Desempenho Máximo</td><td>EGSM900:33dBm±2dB/5dBm±5dB</td></tr><tr><td>Módulo GPS</td><td>2503 Código C/AL1,1575,42Mhz</td></tr><tr><td>Canais GPS</td><td>66</td></tr><tr><td>Precisão do GPS</td><td>&lt;/&gt; 5 Metros</td></tr><tr><td>Sensibilidade Rastreamento / Fixação</td><td>-165dBm / -148dBm</td></tr><tr><td>Tempo para posicionamento</td><td>Avg.hot start &lt;5s Avg.cold start&lt;32s</td></tr><tr><td>Tensão de entrada</td><td>DC9V a 90V</td></tr><tr><td>Consumo funcionamento / economia</td><td>25ma / 10mA</td></tr><tr><td>Bateria backup interna</td><td>100mAH 3.7 volts</td></tr><tr><td>Temperatura trabalho / armazenagem</td><td>-20°C~+60°C / -20°C~+70°C</td></tr><tr><td>Dimensões</td><td>7.4\*1.3\*2.4 cm (C\*A\*L)</td></tr><tr><td>Peso sem chicote</td><td>30 gramas</td></tr><tr><td>Proteção contra água</td><td>IP65</td></tr><tr><td>Bloqueio e Desbloqueio</td><td>1 Saída Negativa. 20KM/h (bloqueio total)</td></tr><tr><td>Ignição Pós Chave</td><td>1 Entrada Positiva ACC +</td></tr><tr><td>Garantia</td><td>12 meses</td></tr><tr><td>Armazenamento</td><td>32 + 32Mb — Memória para 3000 posições</td></tr></tbody></table></div>
+<p>Características (manual): Rastreador GPS/GSM/GPRS; 1 entrada positiva pós-chave ACC; 1 saída negativa para bloqueio e desbloqueio; slot para Micro CHIP / SIM CARD; antenas GPS e GSM internas; configuração via Cabo Giga, SMS e Plataforma; 2 LEDs de status GPS e GSM; envio de posições temporizadas configuráveis; envio de posições por ângulo; alarme por corte de energia; alarme de bateria interna fraca; alarme por vibração e movimento; alarme excesso de velocidade; tensão de entrada de 9 a 90 volts; bateria interna de 100 mAh de 3.7 volts; chave on/off da bateria interna; modo sleep com desligamento de LEDs.</p>
 <p>&quot;Nesse manual constam os comandos SMS considerados essenciais para o bom funcionamento do Equipamento. Na necessidade de outras funcionalidades contactem o suporte técnico.&quot;</p>
     <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/v2/MANUAL%20RASTREADOR%20TRACKMAX%20%20V2%20(5)%20-%20Copia.pdf" target="_blank" rel="noopener">MANUAL RASTREADOR TRACKMAX  V2 (5) - Copia.pdf</a> <span class="muted">1.4 MB</span></li></ul></section>
     <nav class="pager"><a href="v1-2g.html">← V1 2G</a><a href="vitana.html">VITANA →</a></nav>

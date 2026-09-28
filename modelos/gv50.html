@@ -19,15 +19,49 @@
   <nav class="toc" aria-label="Nesta página">
     <a class="back" href="../index.html">← Todos os modelos</a>
     <p class="toc-title">Nesta página</p>
-    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#consultas-2">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#consultas-3">Consultas</a></li><li><a href="#consultas-4">Consultas</a></li><li><a href="#configuracao-2">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
   </nav>
   <main class="doc">
     <p class="crumb"><a href="../index.html">Início</a> / GV50</p>
     <h1>GV50 (Queclink GV50P)</h1>
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
-    <ul><li><strong>Modelo(s):</strong> Queclink GV50P (hardware <code>GV50hw_version:1.05</code>, firmware <code>GV50R00A02V14N32</code>, versão do dispositivo <code>GV50R00A02V20N32</code>)</li><li><strong>Fabricante/Protocolo:</strong> Queclink, protocolo @Track (comandos <code>AT+GTxxx=senha,...$</code>). Senha configurada: <code>gv50</code>. Ferramenta: Queclink GV50P Manage Tool V1.2.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>GV50/gv50-multi-prorrac_at.ini</code>: configuração básica em AT (08/2021)</li><li><code>GV50/gv50-multi-prorrac-29-12-2021_at.ini</code>: configuração completa em AT (29/12/2021)</li><li><code>GV50/gv50-multi-prorrac.gv50</code> e <code>GV50/gv50-multi-prorrac-29-12-2021.gv50</code>: os mesmos perfis em XML da Manage Tool (IMEIs 86508303XXXXXXX e 86508303XXXXXXX). O conteúdo equivale aos <code>_at.ini</code>.</li><li><code>GV50/Config/MetaData</code>: dicas (tooltips) da Manage Tool, usadas para explicar os parâmetros abaixo</li><li><code>GV50/Config/app.config</code>: configurações da ferramenta (sem conteúdo útil)</li><li>Ignorados: <code>.exe</code>/<code>.dll</code>, <code>GV50.zip</code> (contém a mesma ferramenta e os mesmos arquivos), <code>GV50P Manage Tool Logfile.txt</code> e <code>GV50P Manage Tool Systemfile.txt</code> (logs, com 0 bytes na pasta)</li></ul></li></ul>
+    <ul><li><strong>Modelo(s):</strong> Queclink GV50P (hardware <code>GV50hw_version:1.05</code>, firmware <code>GV50R00A02V14N32</code>, versão do dispositivo <code>GV50R00A02V20N32</code>)</li><li><strong>Fabricante/Protocolo:</strong> Queclink, protocolo @Track (comandos <code>AT+GTxxx=senha,...$</code>). Senha configurada: <code>gv50</code>. Ferramenta: Queclink GV50P Manage Tool V1.2.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>GV50/gv50-multi-prorrac_at.ini</code>: configuração básica em AT (08/2021)</li><li><code>GV50/gv50-multi-prorrac-29-12-2021_at.ini</code>: configuração completa em AT (29/12/2021)</li><li><code>GV50/gv50-multi-prorrac.gv50</code> e <code>GV50/gv50-multi-prorrac-29-12-2021.gv50</code>: os mesmos perfis em XML da Manage Tool (IMEIs 86508303XXXXXXX e 86508303XXXXXXX). O conteúdo equivale aos <code>_at.ini</code>.</li><li><code>GV50/Config/MetaData</code>: dicas (tooltips) da Manage Tool, usadas para explicar os parâmetros abaixo</li><li><code>GV50/Config/app.config</code>: configurações da ferramenta (sem conteúdo útil)</li><li><code>GV50.zip</code>: contém a mesma ferramenta e os mesmos perfis; os <code>GV50P Manage Tool Logfile.txt</code> (log da Manage Tool, 2018–2023) e <code>Systemfile.txt</code> de dentro do zip têm conteúdo (na pasta estão com 0 bytes). Do Logfile foram aproveitados os comandos de leitura e as variações de comandos enviados (IMEIs omitidos). O Systemfile só tem erros internos do programa (.NET).</li><li>Ignorados: <code>.exe</code>/<code>.dll</code></li></ul></li></ul>
 <h2 id="consultas">Consultas</h2>
-<p>Os documentos não trazem comandos de consulta específicos. No protocolo @Track, a consulta usa <code>AT+GTRTO</code> (existe no perfil: <code>GTRTO SubCommand</code>).</p>
+<p>Leitura de parâmetros (formato visto no log da Manage Tool, dentro de <code>GV50.zip</code>): <code>AT+GT&lt;CMD&gt;?&quot;&lt;senha&gt;&quot;</code>. O equipamento responde `+GT&lt;CMD&gt;:&lt;versão&gt;,IMEI_DO_EQUIPAMENTO,&lt;parâmetros&gt;,&lt;data/hora&gt;# GV50 (Queclink GV50P)</p>
+<ul><li><strong>Modelo(s):</strong> Queclink GV50P (hardware <code>GV50hw_version:1.05</code>, firmware <code>GV50R00A02V14N32</code>, versão do dispositivo <code>GV50R00A02V20N32</code>)</li><li><strong>Fabricante/Protocolo:</strong> Queclink, protocolo @Track (comandos <code>AT+GTxxx=senha,...$</code>). Senha configurada: <code>gv50</code>. Ferramenta: Queclink GV50P Manage Tool V1.2.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>GV50/gv50-multi-prorrac_at.ini</code>: configuração básica em AT (08/2021)</li><li><code>GV50/gv50-multi-prorrac-29-12-2021_at.ini</code>: configuração completa em AT (29/12/2021)</li><li><code>GV50/gv50-multi-prorrac.gv50</code> e <code>GV50/gv50-multi-prorrac-29-12-2021.gv50</code>: os mesmos perfis em XML da Manage Tool (IMEIs 86508303XXXXXXX e 86508303XXXXXXX). O conteúdo equivale aos <code>_at.ini</code>.</li><li><code>GV50/Config/MetaData</code>: dicas (tooltips) da Manage Tool, usadas para explicar os parâmetros abaixo</li><li><code>GV50/Config/app.config</code>: configurações da ferramenta (sem conteúdo útil)</li><li><code>GV50.zip</code>: contém a mesma ferramenta e os mesmos perfis; os <code>GV50P Manage Tool Logfile.txt</code> (log da Manage Tool, 2018–2023) e <code>Systemfile.txt</code> de dentro do zip têm conteúdo (na pasta estão com 0 bytes). Do Logfile foram aproveitados os comandos de leitura e as variações de comandos enviados (IMEIs omitidos). O Systemfile só tem erros internos do programa (.NET).</li><li>Ignorados: <code>.exe</code>/<code>.dll</code></li></ul></li></ul>
+<h2 id="consultas-2">Consultas</h2>
+<p>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTBSI?&quot;gv50&quot;
+AT+GTQSS?&quot;gv50&quot;
+AT+GTCFG?&quot;gv50&quot;
+AT+GTFRI?&quot;gv50&quot;
+AT+GTPIN?&quot;gv50&quot;
+AT+GTDOG?&quot;gv50&quot;
+AT+GTAVS?&quot;gv50&quot;
+AT+GTDIS?&quot;gv50&quot;
+AT+GTEPS?&quot;gv50&quot;
+AT+GTGAM?&quot;gv50&quot;
+AT+GTHBM?&quot;gv50&quot;
+AT+GTHMC?&quot;gv50&quot;
+AT+GTHRM?&quot;gv50&quot;
+AT+GTIDL?&quot;gv50&quot;
+AT+GTOUT?&quot;gv50&quot;
+AT+GTOWH?&quot;gv50&quot;
+AT+GTPDS?&quot;gv50&quot;
+AT+GTRMD?&quot;gv50&quot;
+AT+GTSPD?&quot;gv50&quot;
+AT+GTSRI?&quot;gv50&quot;
+AT+GTSSR?&quot;gv50&quot;
+AT+GTTMA?&quot;gv50&quot;
+AT+GTTOW?&quot;gv50&quot;
+AT+GTVVS?&quot;gv50&quot;
+AT+GTWLT?&quot;gv50&quot;</code></pre></div>
+<p><code>AT+GTRTO</code> — &quot;It is used to retrieve information from unit or control the unit to execute certain actions&quot; (tooltip da Manage Tool). Subcomandos enviados no log (o significado de cada um não está nos documentos):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTRTO=gv50,1,,,,,,FFFF$
+AT+GTRTO=gv50,3,,,,,,FFFF$
+AT+GTRTO=gv50,6,,0,,,,FFFF$
+AT+GTRTO=gv50,D,,,,,,FFFF$</code></pre></div>
+<p>(no log o <code>FFFF</code> aparece como número de série, ex. <code>0005</code>, <code>002B</code>).</p>
 <h2 id="configuracao">Configuração</h2>
 <p>Formato: <code>AT+GT&lt;CMD&gt;=&lt;senha&gt;,param1,param2,...,FFFF$</code>. Pode ser enviado por serial (Manage Tool) ou por SMS.</p>
 <h3 id="perfil-prorrac-completo-29-12-2021-verbatim">Perfil PRORRAC completo (29-12-2021), verbatim</h3>
@@ -155,15 +189,219 @@ AT+GTHMC=gv50,0,00000:00:00,,,,,,,,,FFFF$
 AT+GTCFG=gv50,gv50,gv50,1,20710.3,,,3F,2,,180C,,1,1,86400,0,,,,1F,0,FFFF$</code></pre></div>
 <h3 id="significado-dos-principais-comandos-parametros-perfil-29-12-2021">Significado dos principais comandos/parâmetros (perfil 29-12-2021)</h3>
 <div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>GTBSI=gv50,voxter.br,algar,algar</code></td><td>APN <code>voxter.br</code>, usuário <code>algar</code>, senha <code>algar</code></td></tr><tr><td><code>GTSRI=gv50,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,0,0,0,1</code></td><td>Report Mode 3 (TCP), Buffer Mode 2 (guarda na memória sem rede). Servidor principal <code>sistema.prorrac.com.br:5004</code>, backup <code>35.231.105.90:5004</code>. Heartbeat 0 (no perfil de 08/2021 era 5 min), SACK 0, formato de protocolo 0 (era 1 em 08/2021), SMS ACK 1</td></tr><tr><td><code>GTQSS=...</code></td><td>&quot;Quick setup&quot;: APN e servidores em um único comando</td></tr><tr><td><code>GTFRI=gv50,1,0,,0,0000,0000,,60,3000,3000,,45,1800</code></td><td>Relatório fixo: modo 1, envio a cada <strong>60 s</strong>, distância 3000 m, quilometragem 3000 m, relatório de curva 45°, <strong>1800 s</strong> com ignição desligada (Power Saving 2)</td></tr><tr><td><code>GTCFG=gv50,gv50,gv50,1,39423.4,,,3F,2,,180C,,1,1,86400,0,,,,1F,0</code></td><td>Nova senha gv50, nome gv50, odômetro ativado com quilometragem inicial 39423.4 km (20710.3 no perfil de 08/2021), máscara 3F, power saving 2, event mask 180C, LED ligado, relatório INF a cada 86400 s, GSM report 1F</td></tr><tr><td><code>GTTMA=gv50,+,0,0,0</code></td><td>Fuso horário UTC+0</td></tr><tr><td><code>GTVVS=gv50,13500,600,10</code></td><td>Ignição virtual por tensão: ligada a partir de 13500 mV, offset 600 mV, debounce 10 s</td></tr><tr><td><code>GTAVS=gv50,20,30</code></td><td>Sensor de movimento: repouso após 20 s, movimento válido após 30</td></tr><tr><td><code>GTEPS=gv50,2,7250,27997,3,5,...,1</code></td><td>Monitora a alimentação externa (modo 2): mínimo 7250 mV, máximo 27997 mV, amostragem 3, debounce 5, envia a tensão junto com o FRI</td></tr><tr><td><code>GTDIS=gv50,0,1,...</code></td><td>Entradas digitais / modo de detecção de ignição</td></tr><tr><td><code>GTSPD=gv50,2,0,255,10,300</code></td><td>Alarme de velocidade modo 2, faixa 0 a 255 km/h, validade 10 s, reenvio a cada 300 s</td></tr><tr><td><code>GTPIN=gv50,1,1212</code></td><td>Desbloqueio automático do PIN do SIM com o PIN <strong>1212</strong></td></tr><tr><td><code>GTDOG=gv50,2,60,30,0200,,1,,,60,60</code></td><td>Watchdog: reinicia a cada 30 dias às 02:00, relata antes de reiniciar. Reinicia após 60 min sem GSM e após 60 min sem GPRS (PDP)</td></tr><tr><td><code>GTHBM=gv50,0,,,100,25,10,,60,25,10,,,25,10</code></td><td>Comportamento de direção (frenagem e aceleração bruscas): velocidade alta ≥100, média ≥60, limiares 25/10. Modo 0 (desligado)</td></tr><tr><td><code>GTTOW=gv50,1,5,1,300,...,1,3,2</code></td><td>Alarme de reboque <strong>ligado</strong>: 5 min após desligar o motor, relatório a cada 300 s, repouso 1, movimento 3, limiar 2</td></tr><tr><td><code>GTIDL=gv50,1,5,1,0</code></td><td>Marcha lenta excessiva ligada: 5 min parado com ignição ligada</td></tr><tr><td><code>GTPDS=gv50,1,218</code></td><td>Preserva estados do dispositivo (máscara 218)</td></tr><tr><td><code>GTSSR=gv50,0,2,1,5,0</code></td><td>Relatório de partida/parada (modo 0)</td></tr><tr><td><code>GTGAM=gv50,1,1,25,10,60,60</code></td><td>Movimento pelo GPS: ativo, velocidade 25 km/h, 10 s em movimento / 60 s parado, timeout do GPS 60</td></tr><tr><td><code>GTOWH=gv50,0,1F,0900,1200,1300,1800</code></td><td>Horário de trabalho (desligado): seg a sex, 09:00-12:00 e 13:00-18:00</td></tr><tr><td><code>GTRMD=...3D0F,,,3D0F</code></td><td>Roaming: máscaras de evento 3D0F</td></tr><tr><td><code>GTFFC</code>, <code>GTGEO</code>, <code>GTCMD</code>, <code>GTUDF</code></td><td>Slots de fence, geocerca, comando e evento definido pelo usuário, todos desativados (0)</td></tr><tr><td><code>GTOUT=gv50,0,0,0</code></td><td>Saída 1 desligada</td></tr><tr><td><code>GTWLT=gv50,0,1,1</code></td><td>Lista branca de números (filtro 0)</td></tr><tr><td><code>GTHMC</code></td><td>Contador de horas do motor desligado</td></tr></tbody></table></div>
+<h3 id="outras-variacoes-enviadas-pela-manage-tool-log-dentro-de-gv50-zip">Outras variações enviadas pela Manage Tool (log dentro de <code>GV50.zip</code>)</h3>
+<p>O último campo antes do `# GV50 (Queclink GV50P)</p>
+<ul><li><strong>Modelo(s):</strong> Queclink GV50P (hardware <code>GV50hw_version:1.05</code>, firmware <code>GV50R00A02V14N32</code>, versão do dispositivo <code>GV50R00A02V20N32</code>)</li><li><strong>Fabricante/Protocolo:</strong> Queclink, protocolo @Track (comandos <code>AT+GTxxx=senha,...$</code>). Senha configurada: <code>gv50</code>. Ferramenta: Queclink GV50P Manage Tool V1.2.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>GV50/gv50-multi-prorrac_at.ini</code>: configuração básica em AT (08/2021)</li><li><code>GV50/gv50-multi-prorrac-29-12-2021_at.ini</code>: configuração completa em AT (29/12/2021)</li><li><code>GV50/gv50-multi-prorrac.gv50</code> e <code>GV50/gv50-multi-prorrac-29-12-2021.gv50</code>: os mesmos perfis em XML da Manage Tool (IMEIs 86508303XXXXXXX e 86508303XXXXXXX). O conteúdo equivale aos <code>_at.ini</code>.</li><li><code>GV50/Config/MetaData</code>: dicas (tooltips) da Manage Tool, usadas para explicar os parâmetros abaixo</li><li><code>GV50/Config/app.config</code>: configurações da ferramenta (sem conteúdo útil)</li><li><code>GV50.zip</code>: contém a mesma ferramenta e os mesmos perfis; os <code>GV50P Manage Tool Logfile.txt</code> (log da Manage Tool, 2018–2023) e <code>Systemfile.txt</code> de dentro do zip têm conteúdo (na pasta estão com 0 bytes). Do Logfile foram aproveitados os comandos de leitura e as variações de comandos enviados (IMEIs omitidos). O Systemfile só tem erros internos do programa (.NET).</li><li>Ignorados: <code>.exe</code>/<code>.dll</code></li></ul></li></ul>
+<h2 id="consultas-3">Consultas</h2>
+<p>Leitura de parâmetros (formato visto no log da Manage Tool, dentro de <code>GV50.zip</code>): <code>AT+GT&lt;CMD&gt;?&quot;&lt;senha&gt;&quot;</code>. O equipamento responde `+GT&lt;CMD&gt;:&lt;versão&gt;,IMEI_DO_EQUIPAMENTO,&lt;parâmetros&gt;,&lt;data/hora&gt;# GV50 (Queclink GV50P)</p>
+<ul><li><strong>Modelo(s):</strong> Queclink GV50P (hardware <code>GV50hw_version:1.05</code>, firmware <code>GV50R00A02V14N32</code>, versão do dispositivo <code>GV50R00A02V20N32</code>)</li><li><strong>Fabricante/Protocolo:</strong> Queclink, protocolo @Track (comandos <code>AT+GTxxx=senha,...$</code>). Senha configurada: <code>gv50</code>. Ferramenta: Queclink GV50P Manage Tool V1.2.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>GV50/gv50-multi-prorrac_at.ini</code>: configuração básica em AT (08/2021)</li><li><code>GV50/gv50-multi-prorrac-29-12-2021_at.ini</code>: configuração completa em AT (29/12/2021)</li><li><code>GV50/gv50-multi-prorrac.gv50</code> e <code>GV50/gv50-multi-prorrac-29-12-2021.gv50</code>: os mesmos perfis em XML da Manage Tool (IMEIs 86508303XXXXXXX e 86508303XXXXXXX). O conteúdo equivale aos <code>_at.ini</code>.</li><li><code>GV50/Config/MetaData</code>: dicas (tooltips) da Manage Tool, usadas para explicar os parâmetros abaixo</li><li><code>GV50/Config/app.config</code>: configurações da ferramenta (sem conteúdo útil)</li><li><code>GV50.zip</code>: contém a mesma ferramenta e os mesmos perfis; os <code>GV50P Manage Tool Logfile.txt</code> (log da Manage Tool, 2018–2023) e <code>Systemfile.txt</code> de dentro do zip têm conteúdo (na pasta estão com 0 bytes). Do Logfile foram aproveitados os comandos de leitura e as variações de comandos enviados (IMEIs omitidos). O Systemfile só tem erros internos do programa (.NET).</li><li>Ignorados: <code>.exe</code>/<code>.dll</code></li></ul></li></ul>
+<h2 id="consultas-4">Consultas</h2>
+<p>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTBSI?&quot;gv50&quot;
+AT+GTQSS?&quot;gv50&quot;
+AT+GTCFG?&quot;gv50&quot;
+AT+GTFRI?&quot;gv50&quot;
+AT+GTPIN?&quot;gv50&quot;
+AT+GTDOG?&quot;gv50&quot;
+AT+GTAVS?&quot;gv50&quot;
+AT+GTDIS?&quot;gv50&quot;
+AT+GTEPS?&quot;gv50&quot;
+AT+GTGAM?&quot;gv50&quot;
+AT+GTHBM?&quot;gv50&quot;
+AT+GTHMC?&quot;gv50&quot;
+AT+GTHRM?&quot;gv50&quot;
+AT+GTIDL?&quot;gv50&quot;
+AT+GTOUT?&quot;gv50&quot;
+AT+GTOWH?&quot;gv50&quot;
+AT+GTPDS?&quot;gv50&quot;
+AT+GTRMD?&quot;gv50&quot;
+AT+GTSPD?&quot;gv50&quot;
+AT+GTSRI?&quot;gv50&quot;
+AT+GTSSR?&quot;gv50&quot;
+AT+GTTMA?&quot;gv50&quot;
+AT+GTTOW?&quot;gv50&quot;
+AT+GTVVS?&quot;gv50&quot;
+AT+GTWLT?&quot;gv50&quot;</code></pre></div>
+<p><code>AT+GTRTO</code> — &quot;It is used to retrieve information from unit or control the unit to execute certain actions&quot; (tooltip da Manage Tool). Subcomandos enviados no log (o significado de cada um não está nos documentos):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTRTO=gv50,1,,,,,,FFFF$
+AT+GTRTO=gv50,3,,,,,,FFFF$
+AT+GTRTO=gv50,6,,0,,,,FFFF$
+AT+GTRTO=gv50,D,,,,,,FFFF$</code></pre></div>
+<p>(no log o <code>FFFF</code> aparece como número de série, ex. <code>0005</code>, <code>002B</code>).</p>
+<h2 id="configuracao-2">Configuração</h2>
+<p>Formato: <code>AT+GT&lt;CMD&gt;=&lt;senha&gt;,param1,param2,...,FFFF$</code>. Pode ser enviado por serial (Manage Tool) ou por SMS.</p>
+<h3 id="perfil-prorrac-completo-29-12-2021-verbatim-2">Perfil PRORRAC completo (29-12-2021), verbatim</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTCMD=gv50,0,0,,,,,,FFFF$
+AT+GTCMD=gv50,0,1,,,,,,FFFF$
+AT+GTCMD=gv50,0,2,,,,,,FFFF$
+AT+GTCMD=gv50,0,3,,,,,,FFFF$
+AT+GTCMD=gv50,0,4,,,,,,FFFF$
+AT+GTCMD=gv50,0,5,,,,,,FFFF$
+AT+GTCMD=gv50,0,6,,,,,,FFFF$
+AT+GTCMD=gv50,0,7,,,,,,FFFF$
+AT+GTCMD=gv50,0,8,,,,,,FFFF$
+AT+GTCMD=gv50,0,9,,,,,,FFFF$
+AT+GTCMD=gv50,0,10,,,,,,FFFF$
+AT+GTCMD=gv50,0,11,,,,,,FFFF$
+AT+GTCMD=gv50,0,12,,,,,,FFFF$
+AT+GTCMD=gv50,0,13,,,,,,FFFF$
+AT+GTCMD=gv50,0,14,,,,,,FFFF$
+AT+GTCMD=gv50,0,15,,,,,,FFFF$
+AT+GTCMD=gv50,0,16,,,,,,FFFF$
+AT+GTCMD=gv50,0,17,,,,,,FFFF$
+AT+GTCMD=gv50,0,18,,,,,,FFFF$
+AT+GTCMD=gv50,0,19,,,,,,FFFF$
+AT+GTCMD=gv50,0,20,,,,,,FFFF$
+AT+GTCMD=gv50,0,21,,,,,,FFFF$
+AT+GTCMD=gv50,0,22,,,,,,FFFF$
+AT+GTCMD=gv50,0,23,,,,,,FFFF$
+AT+GTCMD=gv50,0,24,,,,,,FFFF$
+AT+GTCMD=gv50,0,25,,,,,,FFFF$
+AT+GTCMD=gv50,0,26,,,,,,FFFF$
+AT+GTCMD=gv50,0,27,,,,,,FFFF$
+AT+GTCMD=gv50,0,28,,,,,,FFFF$
+AT+GTCMD=gv50,0,29,,,,,,FFFF$
+AT+GTCMD=gv50,0,30,,,,,,FFFF$
+AT+GTCMD=gv50,0,31,,,,,,FFFF$
+AT+GTUDF=gv50,0,0,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,1,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,2,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,3,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,4,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,5,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,6,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,7,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,8,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,9,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,10,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,11,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,12,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,13,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,14,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,15,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,16,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,17,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,18,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,19,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,20,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,21,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,22,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,23,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,24,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,25,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,26,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,27,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,28,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,29,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,30,0,0,0,0,0,0,,,,,FFFF$
+AT+GTUDF=gv50,0,31,0,0,0,0,0,0,,,,,FFFF$
+AT+GTBSI=gv50,voxter.br,algar,algar,,,,,FFFF$
+AT+GTSRI=gv50,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,0,0,0,1,,,FFFF$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,0,0,0,,,FFFF$
+AT+GTOUT=gv50,0,0,0,,,,0,,,,,,,FFFF$
+AT+GTVVS=gv50,13500,600,10,,,FFFF$
+AT+GTAVS=gv50,20,30,,,,FFFF$
+AT+GTEPS=gv50,2,7250,27997,3,5,0,0,0,0,1,0,0,,FFFF$
+AT+GTDIS=gv50,0,1,,0,,,,,,,,,,,,,,,,,FFFF$
+AT+GTTMA=gv50,+,0,0,0,,,,,,FFFF$
+AT+GTFRI=gv50,1,0,,0,0000,0000,,60,3000,3000,,45,1800,,,,,FFFF$
+AT+GTGEO=gv50,0,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,1,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,2,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,3,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,4,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,5,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,6,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,7,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,8,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,9,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,10,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,11,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,12,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,13,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,14,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,15,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,16,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,17,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,18,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTGEO=gv50,19,0,0,0,50,0,0,0,0,0,0,0,,,FFFF$
+AT+GTSPD=gv50,2,0,255,10,300,0,0,0,0,,,,,,,,,,,,FFFF$
+AT+GTPIN=gv50,1,1212,,,,,,FFFF$
+AT+GTOWH=gv50,0,1F,0900,1200,1300,1800,,,,0,0,0,0,,,,,FFFF$
+AT+GTDOG=gv50,2,60,30,0200,,1,,,60,60,,FFFF$
+AT+GTHMC=gv50,0,00000:00:00,,,,,,,,,FFFF$
+AT+GTHBM=gv50,0,,,100,25,10,,60,25,10,,,25,10,,0,0,0,0,,,,,FFFF$
+AT+GTWLT=gv50,0,1,1,,,,,,FFFF$
+AT+GTIDL=gv50,1,5,1,0,,,,0,0,0,0,,,,,FFFF$
+AT+GTTOW=gv50,1,5,1,300,0,0,0,0,1,3,2,,,,,,,,,FFFF$
+AT+GTPDS=gv50,1,218,,,,,,,FFFF$
+AT+GTSSR=gv50,0,2,1,5,0,,,,FFFF$
+AT+GTRMD=gv50,0,,,,,1,1,,,,1,1,,,,1,1,,,,3D0F,,,3D0F,,,,,0,0,0,0,,,FFFF$
+AT+GTFFC=gv50,0,0,0,,,,,,,30,500,500,300,,0,,,,,FFFF$
+AT+GTFFC=gv50,1,0,0,,,,,,,30,500,500,300,,0,,,,,FFFF$
+AT+GTFFC=gv50,2,0,0,,,,,,,30,500,500,300,,0,,,,,FFFF$
+AT+GTFFC=gv50,3,0,0,,,,,,,30,500,500,300,,0,,,,,FFFF$
+AT+GTFFC=gv50,4,0,0,,,,,,,30,500,500,300,,0,,,,,FFFF$
+AT+GTGAM=gv50,1,1,25,10,60,60,,,,,FFFF$
+AT+GTCFG=gv50,gv50,gv50,1,39423.4,,,3F,2,,180C,,1,1,86400,0,,,,1F,0,FFFF$</code></pre></div>
+<h3 id="perfil-prorrac-basico-08-2021-verbatim-2">Perfil PRORRAC básico (08/2021), verbatim</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTBSI=gv50,,,,,,,,FFFF$
+AT+GTSRI=gv50,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,5,0,1,1,,,FFFF$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,5,0,1,,,FFFF$
+AT+GTFRI=gv50,1,0,,0,0000,0000,,60,3000,3000,,45,1800,,,,,FFFF$
+AT+GTPIN=gv50,0,,,,,,,FFFF$
+AT+GTDOG=gv50,1,60,30,0200,,0,,,60,60,,FFFF$
+AT+GTHMC=gv50,0,00000:00:00,,,,,,,,,FFFF$
+AT+GTCFG=gv50,gv50,gv50,1,20710.3,,,3F,2,,180C,,1,1,86400,0,,,,1F,0,FFFF$</code></pre></div>
+<h3 id="significado-dos-principais-comandos-parametros-perfil-29-12-2021-2">Significado dos principais comandos/parâmetros (perfil 29-12-2021)</h3>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>GTBSI=gv50,voxter.br,algar,algar</code></td><td>APN <code>voxter.br</code>, usuário <code>algar</code>, senha <code>algar</code></td></tr><tr><td><code>GTSRI=gv50,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,0,0,0,1</code></td><td>Report Mode 3 (TCP), Buffer Mode 2 (guarda na memória sem rede). Servidor principal <code>sistema.prorrac.com.br:5004</code>, backup <code>35.231.105.90:5004</code>. Heartbeat 0 (no perfil de 08/2021 era 5 min), SACK 0, formato de protocolo 0 (era 1 em 08/2021), SMS ACK 1</td></tr><tr><td><code>GTQSS=...</code></td><td>&quot;Quick setup&quot;: APN e servidores em um único comando</td></tr><tr><td><code>GTFRI=gv50,1,0,,0,0000,0000,,60,3000,3000,,45,1800</code></td><td>Relatório fixo: modo 1, envio a cada <strong>60 s</strong>, distância 3000 m, quilometragem 3000 m, relatório de curva 45°, <strong>1800 s</strong> com ignição desligada (Power Saving 2)</td></tr><tr><td><code>GTCFG=gv50,gv50,gv50,1,39423.4,,,3F,2,,180C,,1,1,86400,0,,,,1F,0</code></td><td>Nova senha gv50, nome gv50, odômetro ativado com quilometragem inicial 39423.4 km (20710.3 no perfil de 08/2021), máscara 3F, power saving 2, event mask 180C, LED ligado, relatório INF a cada 86400 s, GSM report 1F</td></tr><tr><td><code>GTTMA=gv50,+,0,0,0</code></td><td>Fuso horário UTC+0</td></tr><tr><td><code>GTVVS=gv50,13500,600,10</code></td><td>Ignição virtual por tensão: ligada a partir de 13500 mV, offset 600 mV, debounce 10 s</td></tr><tr><td><code>GTAVS=gv50,20,30</code></td><td>Sensor de movimento: repouso após 20 s, movimento válido após 30</td></tr><tr><td><code>GTEPS=gv50,2,7250,27997,3,5,...,1</code></td><td>Monitora a alimentação externa (modo 2): mínimo 7250 mV, máximo 27997 mV, amostragem 3, debounce 5, envia a tensão junto com o FRI</td></tr><tr><td><code>GTDIS=gv50,0,1,...</code></td><td>Entradas digitais / modo de detecção de ignição</td></tr><tr><td><code>GTSPD=gv50,2,0,255,10,300</code></td><td>Alarme de velocidade modo 2, faixa 0 a 255 km/h, validade 10 s, reenvio a cada 300 s</td></tr><tr><td><code>GTPIN=gv50,1,1212</code></td><td>Desbloqueio automático do PIN do SIM com o PIN <strong>1212</strong></td></tr><tr><td><code>GTDOG=gv50,2,60,30,0200,,1,,,60,60</code></td><td>Watchdog: reinicia a cada 30 dias às 02:00, relata antes de reiniciar. Reinicia após 60 min sem GSM e após 60 min sem GPRS (PDP)</td></tr><tr><td><code>GTHBM=gv50,0,,,100,25,10,,60,25,10,,,25,10</code></td><td>Comportamento de direção (frenagem e aceleração bruscas): velocidade alta ≥100, média ≥60, limiares 25/10. Modo 0 (desligado)</td></tr><tr><td><code>GTTOW=gv50,1,5,1,300,...,1,3,2</code></td><td>Alarme de reboque <strong>ligado</strong>: 5 min após desligar o motor, relatório a cada 300 s, repouso 1, movimento 3, limiar 2</td></tr><tr><td><code>GTIDL=gv50,1,5,1,0</code></td><td>Marcha lenta excessiva ligada: 5 min parado com ignição ligada</td></tr><tr><td><code>GTPDS=gv50,1,218</code></td><td>Preserva estados do dispositivo (máscara 218)</td></tr><tr><td><code>GTSSR=gv50,0,2,1,5,0</code></td><td>Relatório de partida/parada (modo 0)</td></tr><tr><td><code>GTGAM=gv50,1,1,25,10,60,60</code></td><td>Movimento pelo GPS: ativo, velocidade 25 km/h, 10 s em movimento / 60 s parado, timeout do GPS 60</td></tr><tr><td><code>GTOWH=gv50,0,1F,0900,1200,1300,1800</code></td><td>Horário de trabalho (desligado): seg a sex, 09:00-12:00 e 13:00-18:00</td></tr><tr><td><code>GTRMD=...3D0F,,,3D0F</code></td><td>Roaming: máscaras de evento 3D0F</td></tr><tr><td><code>GTFFC</code>, <code>GTGEO</code>, <code>GTCMD</code>, <code>GTUDF</code></td><td>Slots de fence, geocerca, comando e evento definido pelo usuário, todos desativados (0)</td></tr><tr><td><code>GTOUT=gv50,0,0,0</code></td><td>Saída 1 desligada</td></tr><tr><td><code>GTWLT=gv50,0,1,1</code></td><td>Lista branca de números (filtro 0)</td></tr><tr><td><code>GTHMC</code></td><td>Contador de horas do motor desligado</td></tr></tbody></table></div>
+<p>é o número de série do envio (no perfil é <code>FFFF</code>).</p>
+<p>APN (GTBSI):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTBSI=gv50,iot4u.br,arqia,arqia,,,,,007B$
+AT+GTBSI=gv50,voxter.br,algar,algar,,,,,0027$</code></pre></div>
+<p>Servidor (GTSRI):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTSRI=gv50,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,2,0,0,1,,,0026$
+AT+GTSRI=gv50,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,5,0,0,0,,,0025$
+AT+GTSRI=gv50,3,,2,wf.prorrac.com.br,9809,35.231.105.90,9809,,5,0,0,0,,,0025$
+AT+GTSRI=gv50,4,,2,queclink.ftdata.com.br,9543,54.94.201.90,9543,,2,1,1,0,,,0003$</code></pre></div>
+<p>Quick setup (GTQSS):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTQSS=gv50,linksolutions.br,link,link,3,,1,prorrac.ddns.net,5004,35.231.105.90,5004,,0,1,0,,,001B$
+AT+GTQSS=gv50,linksolutions.br,link,link,3,,2,prorrac.ddns.net,5004,35.231.105.90,5004,,0,1,0,,,0012$
+AT+GTQSS=gv50,meta.br,algar,algar,3,,1,localizzeja.com.br,5004,,5004,,0,0,0,,,0026$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,1,localizzeja.com.br,5004,,5004,,0,0,0,,,0025$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,prorrac.ddns.net,5004,35.231.105.90,5004,,0,0,0,,,0003$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,prorrac.ddns.net,5004,35.231.105.90,5004,,2,0,0,,,000B$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,prorrac.ddns.net,5004,35.231.105.90,5004,,5,0,0,,,0003$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,queclink.ftdata.com.br,9543,177.129.4.45,9543,,5,0,0,,,0003$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,queclink.ftdata.com.br,9543,177.129.4.45,9543,,5,1,1,,,0003$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,sistema.prorrac.com.br,5004,177.129.4.45,9543,,5,0,0,,,000B$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,2,0,0,,,004A$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,sistema.prorrac.com.br,5004,35.231.105.90,5004,,5,0,0,,,0003$
+AT+GTQSS=gv50,voxter.br,algar,algar,3,,2,sistema.prorrac.com.br,5004,35.231.1051.90,5004,,5,0,0,,,0004$</code></pre></div>
+<p>(a última linha tem o IP digitado errado, <code>35.231.1051.90</code>, como está no log.)</p>
+<p>Relatório fixo (GTFRI):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTFRI=gv50,1,0,,0,0000,0000,,30,500,500,,30,60,,,,,0005$
+AT+GTFRI=gv50,1,0,,0,0000,0000,,60,3000,3000,,30,1800,,,,,0006$
+AT+GTFRI=gv50,5,0,,0,0000,0000,,30,500,500,,30,1800,,,,,0028$
+AT+GTFRI=gv50,5,0,,0,0000,0000,,30,500,500,,30,30,,,,,0005$</code></pre></div>
+<p>Configuração geral (GTCFG), watchdog (GTDOG), sensor (GTAVS), ignição (GTDIS) e GTHRM:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+GTCFG=gv50,gv50,gv50,0,0,,,3F,2,,3D1F,,1,1,86400,0,,,,1F,0,0027$
+AT+GTCFG=gv50,gv50,gv50,1,0,,,3F,0,,3FFF,,2,0,300,0,,,,F,0,0005$
+AT+GTCFG=gv50,gv50,gv50,1,142.0,,,3F,2,,3D1F,,1,1,86400,0,,,,1F,0,0003$
+AT+GTDOG=gv50,2,60,1,0200,,1,,,60,60,,0006$
+AT+GTDOG=gv50,2,60,1,1200,,1,,,30,30,,0009$
+AT+GTAVS=gv50,20,10,,,,0007$
+AT+GTDIS=gv50,0,1,,1,,,,,,,,,,,,,,,,,0006$
+AT+GTHRM=gv50,,,6F,4FE17BF,FE17BF,FF7D,EF,,,,,006D$</code></pre></div>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
-<ul><li><strong>PRORRAC:</strong> principal <code>sistema.prorrac.com.br</code> porta <code>5004</code>, backup <code>35.231.105.90</code> porta <code>5004</code></li><li><strong>Algar (voxter):</strong> APN <code>voxter.br</code>, usuário <code>algar</code>, senha <code>algar</code></li><li><strong>PIN do SIM:</strong> <code>1212</code> (desbloqueio automático)</li></ul>
+<ul><li><strong>PRORRAC:</strong> principal <code>sistema.prorrac.com.br</code> porta <code>5004</code>, backup <code>35.231.105.90</code> porta <code>5004</code></li><li><strong>Algar (voxter):</strong> APN <code>voxter.br</code>, usuário <code>algar</code>, senha <code>algar</code></li><li><strong>PIN do SIM:</strong> <code>1212</code> (desbloqueio automático)</li><li>Vistos no log da Manage Tool: APN <code>iot4u.br</code> (arqia/arqia), <code>linksolutions.br</code> (link/link), <code>meta.br</code> (algar/algar); servidores <code>prorrac.ddns.net:5004</code>, <code>wf.prorrac.com.br:9809</code>, <code>localizzeja.com.br:5004</code>, <code>queclink.ftdata.com.br:9543</code> (backup <code>54.94.201.90</code> / <code>177.129.4.45</code>).</li></ul>
 <h2 id="problemas-e-solucoes">Problemas e soluções</h2>
 <p>Nenhum registrado nos documentos.</p>
 <h2 id="ligacao-leds">Ligação/LEDs</h2>
 <p>Não há informações de ligação. O <code>GTCFG</code> usa LED On = 1 (LEDs ligados).</p>
 <h2 id="observacoes">Observações</h2>
 <ul><li>Diferenças entre os perfis: o de 29-12-2021 acrescenta a APN no GTBSI, heartbeat 0, protocolo 0, alarme de tensão externa (GTEPS), alarme de velocidade, PIN 1212, watchdog modo 2, reboque e marcha lenta ligados, e HBM com limiares.</li><li>Para usar em outro servidor, troque host e porta em <code>GTSRI</code> e <code>GTQSS</code> e a APN em <code>GTBSI</code> e <code>GTQSS</code>.</li></ul>
-<ul><li>A subpasta <code>GV50/4G</code> é uma cópia da ferramenta ENTools de outro rastreador (4G). Ela está na página <strong>4G</strong>.</li></ul>
+<ul><li>A subpasta <code>GV50/4G</code> (ENTools_V1067 + <code>ParamInfo.ini</code>) é a ferramenta de outro rastreador (4G, não Queclink) — ver a página <strong>4G — ENTools (perfis de configuração)</strong>.</li></ul>
     
     <nav class="pager"><a href="gt06.html">← GT06</a><a href="itr-120-itr-120.html">ITR 120 →</a></nav>
   </main>

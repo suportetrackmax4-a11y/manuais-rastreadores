@@ -27,6 +27,7 @@
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
     <ul><li><strong>Modelo(s):</strong> Suntech ST4315U (linha ST43, 4G LTE Cat-M1/NB com fallback 2G)</li><li><strong>Pasta:</strong> SUNTECH</li><li><strong>Fabricante/Protocolo:</strong> Suntech — protocolo novo <code>PRG</code>/<code>CMD</code> (identificador de 10 dígitos)</li><li><strong>Arquivos-fonte:</strong> <code>COMANDOS suntech 4g st43.txt</code></li></ul>
 <blockquote><code>ID_EQUIPAMENTO</code> = identificador do modelo com <strong>10 dígitos</strong>. Recomendação do suporte Suntech: ao configurar o ST4315U pela primeira vez, usar o perfil de configuração padrão disponibilizado no site da Suntech do Brasil. Os comandos podem ser enviados por SMS, GPRS ou pelo SyncTrack.</blockquote>
+<blockquote>OBS (anotação original): &quot;o IDENTIFICADOR do modelo possui 10 dígitos&quot;. Nos comandos do documento ele aparece como <code>IDENTIFICADOR</code>, <code>Id</code>, <code>ID</code> ou <code>xxxxxxxxxx</code> — aqui foi padronizado como <code>ID_EQUIPAMENTO</code>.</blockquote>
 <h2 id="consultas">Consultas</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CMD;ID_EQUIPAMENTO;01;03</code></pre></div>
 <p>Solicita ICCID.</p>
@@ -35,11 +36,14 @@
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CMD;ID_EQUIPAMENTO;03;04;1</code></pre></div>
 <p>Solicita versão de firmware.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CMD;ID_EQUIPAMENTO;05;14</code></pre></div>
-<p>Requisita todos os IDs de motorista (iButton) cadastrados — suportado apenas LATAM/Brasil. Resposta: <code>RES;ID;05;14;[número]#[ID];...</code>.</p>
+<p>0514: Request All Driver — requisita todos os IDs de motorista (iButton) cadastrados (&quot;Get All Driver ID. Only supported by LATAM or Brazil&quot;). Resposta: <code>RES;ID_EQUIPAMENTO;05;14;[ID Number]#[ID]</code>.</p>
+<p>Exemplo do documento:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Command: CMD;ID_EQUIPAMENTO;05;14
+Response: RES;ID_EQUIPAMENTO;05;14;01#ID_IBUTTON;02#ID_IBUTTON</code></pre></div>
 <h2 id="configuracao">Configuração</h2>
 <h3 id="rede-apn-servidor-protocolo">Rede (APN, servidor, protocolo)</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PRG;ID_EQUIPAMENTO;10;00#Autenticação;01#apn;02#user;03#pass</code></pre></div>
-<p>Configura APN. Autenticação: <code>00</code> = PAP; <code>01</code> = CHAP (recomendado com chips Getrak); <code>02</code> = automático; <code>03</code> = nenhum.</p>
+<p>Configura APN (&quot;Configuração de APN&quot;). No campo Autenticação inserir a informação de acordo com o que a operadora passar: <code>00</code> = PAP; <code>01</code> = CHAP (recomendado com chips Getrak); <code>02</code> = automático; <code>03</code> = nenhum.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PRG;ID_EQUIPAMENTO;10;05#IP;06#PORTA;08#IP2;09#PORTA2</code></pre></div>
 <p>Configura DNS/IP e porta primária e secundária.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PRG;ID_EQUIPAMENTO;10;07#00;10#00</code></pre></div>
@@ -50,8 +54,13 @@
 <p>Desabilita o parâmetro ZIP.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PRG;ID_EQUIPAMENTO;10;54#04</code></pre></div>
 <p>Ativar sinal/banda — anotado como &quot;Cat-NB2-GSM&quot; (valor 04 da tabela de bandas).</p>
-<p><strong>Tipo de banda:</strong></p>
+<p><strong>Tipo de banda</strong> (campo &quot;Tipo Banda&quot; — inserir):</p>
 <div class="table-wrap"><table><thead><tr><th>Valor</th><th>Banda</th></tr></thead><tbody><tr><td>00</td><td>LTE Cat. M1 (4G) somente</td></tr><tr><td>01</td><td>LTE Cat. M1 (4G) e GSM (2G) — recomendado</td></tr><tr><td>02</td><td>LTE Cat. NB somente</td></tr><tr><td>03</td><td>LTE Cat. M1 e Cat. NB</td></tr><tr><td>04</td><td>LTE Cat. M1, Cat. NB e GSM</td></tr><tr><td>05</td><td>GSM (2G) somente</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PRG;ID_EQUIPAMENTO;10;00#00;01#APN;02#user;03#pass</code></pre></div>
+<p>APN (anotação &quot;APN:&quot;) — variante com autenticação <code>00</code> (PAP).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PRG;ID_EQUIPAMENTO;10;05#IP1;06#porta1;08#IP2;09#porta2</code></pre></div>
+<p>IP E PORTA (anotação): IP1/porta1 = servidor principal; IP2/porta2 = servidor secundário.</p>
+<p>(No campo <strong>Tipo Banda</strong> do comando de rede usar os valores da tabela acima.)</p>
 <h3 id="tempos-de-comunicacao">Tempos de comunicação</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PRG;ID_EQUIPAMENTO;16;70#TEMPO PARADO;71#0;72#0;73#IGNIÇÃO LIGADA VEICULO PARADO;74#0;75#ANGULO;76#0;77#0;78#0;79#TEMPO MOVIMENTO;80#0;81#ANGULO;82#60;83#0;84#0;85#60;86#0;87#0</code></pre></div>
 <p>Modelo do comando de tempos.</p>

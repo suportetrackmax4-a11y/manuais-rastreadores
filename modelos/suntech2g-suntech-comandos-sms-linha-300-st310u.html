@@ -73,8 +73,10 @@
 <h3 id="odometro">Odômetro</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300HTP;ID;02;1;1;A;A;0;0;0;0;;;1;0;0;0;0</code></pre></div>
 <p>Habilitar odômetro.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;SetOdometer=odômetro</code></pre></div>
+<p>Setar odômetro — formato como aparece no PDF (no exemplo do próprio PDF o comando leva o <code>02;</code>, veja abaixo).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;SetOdometer=25999</code></pre></div>
-<p>Setar odômetro (exemplo: aparecerá 25999 km no sistema).</p>
+<p>Ex.: odômetro que aparecerá no sistema: 25999 km.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;SetOdoIgn=0</code></pre></div>
 <p>Incremento do odômetro com ignição desligada. <code>0</code>: incrementa independente da ignição; <code>1</code>: não incrementa com ignição desligada. Aplica-se apenas à ignição física.</p>
 <h3 id="comunicacao">Comunicação</h3>

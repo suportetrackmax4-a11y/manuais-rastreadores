@@ -77,7 +77,8 @@ AT+SMS=#APN,888888,hinova.br,vivo,vivo*</code></pre></div>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#APN,888888,apn,usuário,senha#
 #APN,888888,tmax.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
 <p><strong>3. Fuso horário</strong> (1 a 12 / -1 a -12)</p>
-<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Fusohorario,888888,-3#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Fusohorario,888888,1 a 12/-1 a -12#
+#Fusohorario,888888,-3#</code></pre></div>
 <p><strong>4. Tracking</strong> — intervalo de upload (ignição ligada, ignição desligada), em segundos.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Tracking,888888, AccOn,AccOff#
 #Tracking,888888, 30,180#</code></pre></div>
@@ -86,7 +87,8 @@ AT+SMS=#APN,888888,hinova.br,vivo,vivo*</code></pre></div>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Senha,888888,nova senha#
 #Senha,888888,999999#</code></pre></div>
 <p><strong>12. KM</strong> (0 = Zerar, 1 = Consultar)</p>
-<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#KM,888888,1#
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#KM,888888,0/1#
+#KM,888888,1#
 #KM,888888,0#</code></pre></div>
 <p><strong>13. Alarme de Vibrar</strong> — veículo balança por 10s contínuos, será avisado. 0=Cancelar, 1=Mensagem, 2=Ligação, 3=SMS e ligação, 4=Avisa plataforma, 5=SMS e Plataforma</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Vibrar,888888,0/1/2/3/4/5#
@@ -118,7 +120,8 @@ AT+SMS=#APN,888888,hinova.br,vivo,vivo*</code></pre></div>
 <ul><li><code>,1</code>: IP, APN e Restaurar de fábrica bloqueados, senha especial 123456</li><li><code>,0</code>: desbloqueados e senha especial deletada</li></ul>
 <p><em>(Só no manual UNIGPS; não aparece no manual TrackMax.)</em></p>
 <p><strong>21. Sirene</strong></p>
-<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#sirene,888888,1#       (sirene ativada tempo ilimitado)
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#sirene,888888,0/1#
+#sirene,888888,1#       (sirene ativada tempo ilimitado)
 #sirene,888888,1,?#     (tempo personalizado)
 #sirene,888888,1,30#    (sirene ativada 30 segundos)
 #sirene,888888,0#       (sirene desativada)</code></pre></div>

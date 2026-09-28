@@ -26,28 +26,29 @@
     <h1>LV12B / RK102</h1>
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
     <ul><li><strong>Modelo(s):</strong> LV12B, RK102</li><li><strong>Pasta:</strong> LV12 (versão quase igual também na pasta RASTREK)</li><li><strong>Fabricante/Protocolo:</strong> Rastrek. Protocolo GT06 (porta TrackMax 5023)</li><li><strong>Arquivos-fonte:</strong> <code>LV12/COMANDOS LV12B RK102.txt</code>; <code>RASTREK/COMANDOS LV12B RK102.txt</code> (mesmo conteúdo com uma APN a mais: <code>trackmax.br</code>)</li></ul>
+<p>EQUIPAMENTO LV12B RK102</p>
 <h2 id="consultas">Consultas</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WHERE#</code></pre></div>
-<p>Obtém a localização atual.</p>
+<p>COMANDO PARA OBTER LOCALIZAÇÃO</p>
 <h2 id="configuracao">Configuração</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apninit#</code></pre></div>
-<p>Inicia a configuração de APN.</p>
+<p>COMANDO PARA INICIAR APN</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.algar.br,algar,algar#</code></pre></div>
-<p>APN do chip Algar TrackMax.</p>
+<p>COMANDO DE APN (chip Algar TrackMax)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#</code></pre></div>
-<p>APN alternativa <code>trackmax.br</code> (só aparece na cópia da pasta RASTREK).</p>
+<p>COMANDO DE APN — alternativa <code>trackmax.br</code> (só aparece na cópia da pasta RASTREK).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMNET,dns.trackmax.com.br,5023#</code></pre></div>
-<p>DNS e porta TrackMax, protocolo GT06.</p>
+<p>DNS e PORTA TRACKMAX     (GT06)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60#</code></pre></div>
-<p>Tempo de transmissão, em segundos (60).</p>
+<p>COMANDO DE TIMER(EM SEGUNDOS)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0#</code></pre></div>
-<p>Fuso horário: oeste, 0.</p>
+<p>COMANDO DE FUSO HORARIO</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,1#</code></pre></div>
-<p>Bloqueio.</p>
+<p>COMANDO DE BLOQUEIO</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
-<p>Desbloqueio.</p>
+<p>COMANDO DE DESBLOQUEIO</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
-<p>Reinicia o equipamento.</p>
+<p>COMANDO DE RESET</p>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
 <div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Servidor TrackMax (GT06)</td><td><code>dns.trackmax.com.br</code> porta <code>5023</code></td></tr><tr><td>APN Algar TrackMax</td><td><code>tmax.algar.br</code> / <code>algar</code> / <code>algar</code></td></tr><tr><td>APN alternativa</td><td><code>trackmax.br</code> / <code>max</code> / <code>max</code></td></tr></tbody></table></div>
 <p>Sequência sugerida: <code>apninit#</code> → <code>APN,...#</code> → <code>GMNET,dns.trackmax.com.br,5023#</code> → <code>TIMER,60#</code> → <code>GMT,W,0#</code> → <code>RESET#</code>.</p>

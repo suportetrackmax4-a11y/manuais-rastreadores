@@ -39,7 +39,7 @@ CENTER#
 SF#</code></pre></div>
 <ul><li><code>VERSION#</code>: versão do firmware</li><li><code>STATUS#</code>: status</li><li><code>WHERE#</code>: posição</li><li><code>URL#</code>: link do Google Maps</li><li><code>ICCID#</code>: ICCID do chip</li><li><code>SIMNO#</code>: verifica o IMEI (&quot;Check IMEI → SIMNO#&quot;)</li><li><code>SOS#</code>: números SOS</li><li><code>CENTER#</code>: número central</li><li><code>SF#</code>: consulta o filtro de efeito estrela</li></ul>
 <h2 id="configuracao">Configuração</h2>
-<blockquote><strong>IMPORTANTE:</strong> comandos enviados <strong>pela plataforma de rastreamento</strong> precisam ter <strong>uma vírgula antes do #</strong>. Exemplo: <code>SERVER,1,dns.trackmax.com.br,2502,0,#</code></blockquote>
+<blockquote><strong>IMPORTANTE:</strong> COMANDOS ENVIADOS PELA PLATAFORMA DE RASTREAMENTO PRECISAM TER UMA VIRGULA ANTES DO # EX: <code>SERVER,1,dns.trackmax.com.br,2502,0,#</code></blockquote>
 <h3 id="basic-setting-todos-ok">Basic setting (todos OK)</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPSON#
 RESET#
@@ -101,29 +101,34 @@ EXPORTSET,131313#</code></pre></div>
 <p>Ignição por tensão (12,6 V, 30 s).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>OUTPUT,ON#
 OUTSET,5,60,3#</code></pre></div>
-<p>Ativa a saída temporariamente.</p>
+<p>ATIVAR A SAIDA TEMPORARIAMENTE</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FENCE,1,ON,-23.548900,-46.638200,500,0,1#</code></pre></div>
-<p>Geocerca (ainda <strong>a testar</strong>: como ativar e visualizar).</p>
+<p>TESTAR COMO ATIVAR AS GEOCERCAS E COMO VER ELAS (geocerca ainda <strong>a testar</strong>).</p>
 <h3 id="formatos-de-referencia-vl01-txt">Formatos de referência (vl01.txt)</h3>
+<p>ATENÇÃO: Se estiver utilizando APN privada desative a APN automática!</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ASETAPN,OFF#
-APN,apnname,user,pwd#
-SERVER,mode,domainName/IP,port,protocol#
-GPSDUP,ON#
-SF,OFF#
-SF#
-TIMER,T1,T2#
-MILEAGE,A,B#
-SIMNO#</code></pre></div>
+APN,apnname,user,pwd#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,mode,domainName/IP,port,protocol#</code></pre></div>
+<p>Para envio de dados com informações GPS, utilize o comando:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPSDUP,ON#</code></pre></div>
+<p>Para que o terminal desligue o filtro de efeito estrela, envie o seguinte comando:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SF,OFF#</code></pre></div>
+<p>Para consulta, enviar: SF#</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,T1,T2#</code></pre></div>
+<p>Para inserção de valores de odometro, o comando para sua configuração é:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MILEAGE,A,B#</code></pre></div>
+<p>Check IMEI → SIMNO#</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SIMNO#</code></pre></div>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
 <ul><li><strong>TrackMax principal:</strong> <code>dns.trackmax.com.br</code> porta <code>5023</code> (o exemplo pela plataforma usa a porta <code>2502</code>)</li><li><strong>TrackMax backup:</strong> <code>backup.trackmax.com.br</code> porta <code>5023</code></li><li><strong>Claro:</strong> APN <code>claro.com.br</code></li></ul>
 <h2 id="problemas-e-solucoes">Problemas e soluções</h2>
 <ul><li><strong>APN privada:</strong> desative a APN automática com <code>ASETAPN,OFF#</code> antes de <code>APN,...#</code>.</li><li><strong>Comando pela plataforma não funciona:</strong> coloque a vírgula antes do <code>#</code> (ex.: <code>SERVER,1,dns.trackmax.com.br,2502,0,#</code>).</li><li><strong>Efeito estrela (posições espalhadas parado):</strong> <code>SF,OFF#</code> desliga o filtro. Use <code>SF#</code> para consultar.</li></ul>
 <h2 id="ligacao-leds">Ligação/LEDs</h2>
-<div class="table-wrap"><table><thead><tr><th>Fio</th><th>Função</th></tr></thead><tbody><tr><td>Preto</td><td>Negativo</td></tr><tr><td>Vermelho</td><td>Positivo</td></tr><tr><td>Laranja</td><td>Ignição</td></tr><tr><td>Amarelo</td><td>Bloqueio</td></tr><tr><td>Roxo/Branco</td><td>Botão de pânico</td></tr></tbody></table></div>
-<ul><li>2 entradas digitais: ignição (ACC) e botão de pânico (SOS)</li><li>1 saída digital: relé</li></ul>
+<div class="table-wrap"><table><thead><tr><th>Fio</th><th>Função</th></tr></thead><tbody><tr><td>Preto</td><td>Negativo (&quot;PRETO MEGATIVO&quot; no original)</td></tr><tr><td>Vermelho</td><td>Positivo</td></tr><tr><td>Laranja</td><td>Ignição</td></tr><tr><td>Amarelo</td><td>Bloqueio</td></tr><tr><td>Roxo/Branco</td><td>Botão de pânico</td></tr></tbody></table></div>
+<ul><li>2 entradas digitais, sendo: Ignição (ACC) e Botão de pânico (SOS)</li><li>1 saídas digital, sendo: Relé</li></ul>
 <h2 id="observacoes">Observações</h2>
 <p>Atualização de firmware (SWUPDATE DRIVER.txt):</p>
-<ul><li>Software de atualização: <a href="https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgATSkRYAELgQIS_G_agxw-xAVNAO-VBHjbaUin6pnu-8WU?e=Rzw6dk" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgATSkRYAELgQIS_G_agxw-xAVNAO-VBHjbaUin6pnu-8WU?e=Rzw6dk</a></li><li>Driver: <a href="https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgB2zBsaXvp_T6GH7Jn-rp3sATk5Uep1deflc3RRUsHgsGw?e=KutZdG" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgB2zBsaXvp_T6GH7Jn-rp3sATk5Uep1deflc3RRUsHgsGw?e=KutZdG</a></li><li>Firmware: <a href="https://newtectelemetria-my.sharepoint.com/:u:/g/personal/administracao_akrozgroup_com_br/IQBbGcYY3OuLTapfKjXJgVKFAUydatwUmDcdyYnbqTLSm00?e=z8oJ5T" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:u:/g/personal/administracao_akrozgroup_com_br/IQBbGcYY3OuLTapfKjXJgVKFAUydatwUmDcdyYnbqTLSm00?e=z8oJ5T</a></li><li>A pasta tem drivers USB Spreadtrum/Unisoc (<code>SPRD_NPI_USBDriver_1.4</code>) para Win10 e Win7/8, usados na atualização por USB, e o Vysor.</li></ul>
+<ul><li>Software de atualização: <a href="https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgATSkRYAELgQIS_G_agxw-xAVNAO-VBHjbaUin6pnu-8WU?e=Rzw6dk" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgATSkRYAELgQIS_G_agxw-xAVNAO-VBHjbaUin6pnu-8WU?e=Rzw6dk</a></li><li>Driver: <a href="https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgB2zBsaXvp_T6GH7Jn-rp3sATk5Uep1deflc3RRUsHgsGw?e=KutZdG" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgB2zBsaXvp_T6GH7Jn-rp3sATk5Uep1deflc3RRUsHgsGw?e=KutZdG</a></li><li>Arquivo da firmware: <a href="https://newtectelemetria-my.sharepoint.com/:u:/g/personal/administracao_akrozgroup_com_br/IQBbGcYY3OuLTapfKjXJgVKFAUydatwUmDcdyYnbqTLSm00?e=z8oJ5T" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:u:/g/personal/administracao_akrozgroup_com_br/IQBbGcYY3OuLTapfKjXJgVKFAUydatwUmDcdyYnbqTLSm00?e=z8oJ5T</a></li><li>A pasta tem drivers USB Spreadtrum/Unisoc (<code>SPRD_NPI_USBDriver_1.4</code>) para Win10 e Win7/8, usados na atualização por USB, e o Vysor.</li></ul>
     
     <nav class="pager"><a href="j14-gt06.html">← J14 GT06</a><a href="linha-tk-tk303-tk311.html">TK303 TK311 →</a></nav>
   </main>

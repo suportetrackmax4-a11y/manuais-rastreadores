@@ -27,16 +27,17 @@
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
     <ul><li><strong>Modelo(s):</strong> LV12 (LV-12), RK101 e V1 (o arquivo &quot;Configurar por SMS LV12, RK101&quot; diz &quot;LV12 OU V1&quot;)</li><li><strong>Pasta:</strong> LV12 (arquivos repetidos também na pasta RASTREK)</li><li><strong>Fabricante/Protocolo:</strong> Rastrek. Comandos <code>SERVER,1,...#</code>, porta TrackMax 2012</li><li><strong>Arquivos-fonte:</strong> <code>LV12/LV-12 SMS TRACKMAX (3) (1).txt</code>; <code>RASTREK/LV-12 SMS TRACKMAX (3).txt</code> e <code>RASTREK/LV-12 SMS TRACKMAX (3) (1).txt</code> (cópias idênticas); <code>RASTREK/Configurar por SMS LV12, RK101.txt</code> (mesmos comandos mais o servidor do fabricante)</li></ul>
 <h2 id="configuracao">Configuração</h2>
+<p>Configurar por SMS LV12 OU V1</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>UTC,OFF#</code></pre></div>
 <p>Desliga o horário UTC.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
 <p>Fuso horário: oeste, 0 horas e 0 minutos.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.algar.br,algar,algar#</code></pre></div>
-<p>APN do chip Algar TrackMax (APN, usuário, senha).</p>
+<p>(para chip ALGAR) — no arquivo &quot;Configurar por SMS LV12, RK101&quot;: (para chip ALGAR TRACKMAX). Formato: APN, usuário, senha.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2012,0#</code></pre></div>
 <p>Servidor TrackMax por DNS (modo 1 = domínio), porta 2012.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,lb-gateway.rastrek.com.br,14401,0#</code></pre></div>
-<p>Servidor da plataforma do fabricante (Rastrek), porta 14401.</p>
+<p>PLATAFORMA DO FABRICANTE (Rastrek), porta 14401.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HBT,3#</code></pre></div>
 <p>Intervalo do heartbeat (3 no carro, 5 na moto).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STATIC,1800#</code></pre></div>
@@ -50,7 +51,7 @@
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENALM,ON,0#</code></pre></div>
 <p>Liga o alarme do sensor de vibração (usado na receita de moto).</p>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
-<h3 id="carro-chip-algar-trackmax">Carro (chip Algar TrackMax)</h3>
+<h3 id="carro-chip-algar-trackmax">CARRO (chip Algar TrackMax)</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>UTC,OFF#
 GMT,W,0,0#
 APN,tmax.algar.br,algar,algar#
@@ -60,7 +61,7 @@ STATIC,1800#
 TIMER,60,1800#
 ACCALM,ON,3,0#</code></pre></div>
 <p>Sequência completa para carro: fuso, APN Algar, servidor TrackMax, heartbeat 3, parado 1800 s, transmissão 60 s ligado / 1800 s desligado, alarme de ignição.</p>
-<h3 id="moto-chip-algar-trackmax">Moto (chip Algar TrackMax)</h3>
+<h3 id="moto-chip-algar-trackmax">MOTO (chip Algar TrackMax)</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>UTC,OFF#
 GMT,W,0,0#
 APN,tmax.algar.br,algar,algar#

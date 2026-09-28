@@ -26,24 +26,25 @@
     <h1>CR4000 CLONE</h1>
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
     <ul><li><strong>Modelo(s):</strong> CR4000 clone (ou réplica)</li><li><strong>Pasta:</strong> RASTREK</li><li><strong>Fabricante/Protocolo:</strong> Clone da linha CR4000. Comandos com prefixo <code>ZD1234</code> (senha 1234), alguns com <code>CC1234</code> e alguns em formato <code>A7777AT+...;</code></li><li><strong>Arquivos-fonte:</strong> <code>RASTREK/CR4000 CLONE.txt</code></li></ul>
+<p>CR4000 OU REPLICA</p>
 <h2 id="consultas">Consultas</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,IMEI#</code></pre></div>
-<p>Consulta o IMEI.</p>
+<p>CONSULTAR IMEI</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CC1234,CHECK#</code></pre></div>
 <p>Consulta o status/checagem do equipamento (prefixo CC1234).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>A7777AT+CHECK;</code></pre></div>
 <p>Mesma checagem, no formato A7777AT.</p>
 <h2 id="configuracao">Configuração</h2>
-<p>Comandos SMS marcados no arquivo como &quot;TESTADOS&quot;:</p>
+<p>🔵COMANDOS SMS TESTADOS🔵</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,APN*SS.ALGAR.BR,ALGAR,ALGAR#</code></pre></div>
-<p>Define APN, usuário e senha (chip Algar).</p>
+<p>APN, Usuário e Senha (chip Algar).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,DNS*DNS.TRACKMAX.COM.BR,5023#</code></pre></div>
-<p>Define DNS e porta do servidor TrackMax (5023).</p>
+<p>DNS E PORTA (servidor TrackMax, 5023).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,ANG*30#</code></pre></div>
-<p>Envia posição a cada mudança de direção de 30 graus.</p>
+<p>Ângulo de 30 graus</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,TE*60,5,1800#</code></pre></div>
 <p>Tempos de transmissão/sleep (parâmetros 60, 5 e 1800; o arquivo não detalha o significado de cada um).</p>
-<p>Comandos listados na seção &quot;testes&quot;:</p>
+<p>Comandos listados na seção &quot;testes&quot; (no original: testes):</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>A7777AT+DNS=DNS.TRACKMAX.COM.BR,5023;</code></pre></div>
 <p>DNS e porta TrackMax no formato A7777AT.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CC1234,IGNVIRTUAL*OFF#</code></pre></div>
@@ -66,11 +67,11 @@
 <p>APN Algar alternativa (<code>SIMPLE.ALGAR.BR</code>).</p>
 <h3 id="bloqueio-e-reset">Bloqueio e reset</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,stop#</code></pre></div>
-<p>Bloqueio.</p>
+<p>Bloqueio: ZD1234,stop#</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,resume#</code></pre></div>
-<p>Desbloqueio via SMS.</p>
+<p>Desbloqueio via SMS:ZD1234,resume#</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,RSTG#</code></pre></div>
-<p>Reset.</p>
+<p>Reset: ZD1234,RSTG#</p>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
 <div class="table-wrap"><table><thead><tr><th>Uso</th><th>Comandos</th></tr></thead><tbody><tr><td>TrackMax + chip Algar (sequência testada)</td><td><code>ZD1234,APN*SS.ALGAR.BR,ALGAR,ALGAR#</code> → <code>ZD1234,DNS*DNS.TRACKMAX.COM.BR,5023#</code> → <code>ZD1234,ANG*30#</code> → <code>ZD1234,TE*60,5,1800#</code></td></tr><tr><td>Servidor por IP (bloco final do arquivo)</td><td><code>ZD1234,MSERVER*159.65.43.73,5002#</code> → <code>ZD1234,APN*SIMPLE.ALGAR.BR,ALGAR,ALGAR#</code> → <code>ZD1234,TE*10,5,360#</code> → <code>ZD1234,SENSVIB*1#</code> → <code>ZD1234,allgps*ON#</code> → <code>CC1234,ACC*1#</code></td></tr></tbody></table></div>
 <h2 id="observacoes">Observações</h2>

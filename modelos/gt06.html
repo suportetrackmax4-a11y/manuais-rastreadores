@@ -30,34 +30,34 @@
 <div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Dimensões</td><td>95 mm x 50 mm x 15 mm</td></tr><tr><td>Peso</td><td>80 g</td></tr><tr><td>Rede</td><td>GSM/GPRS/2G</td></tr><tr><td>Bandas</td><td>850/900/1800/1900 MHz</td></tr><tr><td>Chip GPS</td><td>UBLOX</td></tr><tr><td>Módulo GSM</td><td>MTK60</td></tr><tr><td>Sensibilidade GPS</td><td>-159 dBm</td></tr><tr><td>Precisão GPS</td><td>5 m</td></tr><tr><td>Partida a frio / quente</td><td>45 s / 5 s</td></tr><tr><td>Tensão de entrada</td><td>9V a 36V</td></tr><tr><td>Temperatura de operação</td><td>-20 °C a +55 °C</td></tr><tr><td>Umidade</td><td>5% a 95%</td></tr><tr><td>Bateria interna</td><td>160 mAh</td></tr><tr><td>E/S</td><td>Saída negativa para bloqueio, saída para som, entrada positiva pós-chave, entrada para botão de pânico SOS, entrada para microfone</td></tr><tr><td>Itens inclusos</td><td>Soquete e relé 12 V para bloqueio, botão de pânico, microfone, chicotes de instalação</td></tr></tbody></table></div>
 <h2 id="consultas">Consultas</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#smslink#123456#</code></pre></div>
-<p>Retorna a posição por SMS.</p>
+<p>RETORNO DE POSIÇÕES VIA SMS</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TCP</code></pre></div>
-<p>Retorna as configurações por SMS.</p>
+<p>RETORNO DE CONFIGURAÇÕES VIA SMS</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>check123456</code></pre></div>
 <p>(estilo TK, no CONFIG GT06.txt) Consulta o status.</p>
 <h2 id="configuracao">Configuração</h2>
 <h3 id="comandos-sms-basicos-manual-trackmax-formato-cmd-senha">Comandos SMS básicos (manual TrackMax, formato <code>#cmd#senha#...#</code>)</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#begin#123456#</code></pre></div>
-<p>Inicia as configurações (reset para iniciar a programação).</p>
+<p>COMANDO PARA INICIAR AS CONFIGURAÇÕES</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#ip#123456#35.230.168.225#5023#</code></pre></div>
-<p>Configura IP e porta da plataforma.</p>
+<p>COMANDO PARA CONFIGURAÇÃO DE IP E PORTA PLATAFORMA</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP#123456#dns.trackmax.com.br#5023#</code></pre></div>
-<p>Configura DNS e porta da plataforma.</p>
+<p>COMANDO PARA CONFIGURAÇÃO DE DNS E PORTA PLATAFORMA</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#apn#123456#tmax.m2m.vivo.com.br#vivo#vivo#</code></pre></div>
-<p>APN, usuário e senha do chip (exemplo com chip Vivo TrackMax).</p>
+<p>COMANDO PARA CONFIGURAÇÃO DE APN, USUÁRIO E SENHA DO CHIP — Exemplo para CHIP VIVO TRACKMAX</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#timezone#123456#W#0#00#</code></pre></div>
-<p>Ajusta o fuso horário para GMT 0.</p>
+<p>AJUSTAR FUSO HORARIO GMT</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#tracker#123456#</code></pre></div>
-<p>Ativa o rastreamento.</p>
+<p>COMANDO PARA ATIVAR O RASTREAMENTO</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#at#060#sum#0#</code></pre></div>
-<p>Posições temporizadas a cada 60 s.</p>
+<p>COMANDO PARA AJUSTAR POSIÇÕES TEMPORIZADAS (60 s)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#move#123456#</code></pre></div>
-<p>Ativa o alerta de movimento.</p>
+<p>COMANDO PARA ATIVAR ALERTA DE MOVIMENTO</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#ACC#ON#
 #ACC#OFF#</code></pre></div>
-<p>Ativa ou desativa o status de ignição.</p>
+<p>ATIVAR STATUS DE IGNIÇÃO (<code>#ACC#ON#</code>) / DESATIVAR STATUS DE IGNIÇÃO (<code>#ACC#OFF#</code>)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#reboot#123456#</code></pre></div>
-<p>Reinicia sem apagar as configurações.</p>
+<p>REINICIAR SEM APAGAR CONFIGURAÇÕES</p>
 <h3 id="bloqueio-desbloqueio">Bloqueio / desbloqueio</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#stopoil#123456#
 #supplyoil#123456#
@@ -67,20 +67,20 @@
 <h3 id="comandos-sms-avancados">Comandos SMS avançados</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#password#SenhaAtual#NovaSenha#
 #password#123456#112233#</code></pre></div>
-<p>Troca a senha (padrão 123456). O exemplo troca para 112233.</p>
+<p>COMANDO PARA TROCA DE SENHA (SENHA PADRÃO 123456). Exemplo para trocar a senha para 112233.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#admin#Senha#Telefone1# Telefone2# Telefone3# Telefone4#
 #admin#123456#1198887766#11977776655#</code></pre></div>
-<p>Cadastra números autorizados. Depois disso só eles podem enviar comandos SMS, exceto os comandos TCP e #begin, que continuam aceitos de qualquer número. Os alarmes por SMS (SOS, chave de ignição ligada, excesso de velocidade e cerca eletrônica) passam a ir para esses números.</p>
+<p>COMANDO PARA CADASTRAR NUMEROS AUTORIZADOS (exemplo para cadastrar números de celulares). Resumo: depois disso só eles podem enviar comandos SMS, exceto os comandos TCP e #begin, que continuam aceitos de qualquer número. Os alarmes por SMS (SOS, chave de ignição ligada, excesso de velocidade e cerca eletrônica) passam a ir para esses números.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#noadmin#Senha#Telefone#
 #noadmin#123456#1198887766#</code></pre></div>
-<p>Remove um número autorizado. Esse número também deixa de receber os alarmes.</p>
+<p>COMANDO PARA REMOVER NUMEROS AUTORIZADOS (exemplo para remover o numero 1198887766). Resumo: esse número também deixa de receber os alarmes.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#monitor#123456#</code></pre></div>
-<p>Modo escuta. <strong>Não funciona com chip M2M.</strong></p>
+<p>COMANDO PARA ATIVAR MODO ESCUTA (<strong>NÃO FUNCIONA COM CHIP M2M</strong>)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#call#123456#</code></pre></div>
-<p>Viva-voz. <strong>Não funciona com chip M2M.</strong></p>
+<p>COMANDO PARA ATIVAR VIVA VOZ (<strong>NÃO FUNCIONA COM CHIP M2M</strong>)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#speed#123456#40#
 #nospeed#123456#</code></pre></div>
-<p>Cria alerta de excesso de velocidade (exemplo: 40 km/h) e cancela o alerta.</p>
+<p>CRIAR ALERTAS PARA EXESSO DE VELOCIDADE (Exemplo para 40 KMH) / CANCELAR ALERTAS PARA EXESSO DE VELOCIDADE (<code>#nospeed#123456#</code>)</p>
 <h3 id="sequencia-de-teste-comandos-gt06-teste-txt">Sequência de teste (COMANDOS GT06 TESTE.txt)</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#begin#123456#
 #IP#123456#dns.trackmax.com.br#5013#
@@ -103,7 +103,7 @@ web123456
 fix001m***n123456
 SLEEPIN123456
 shock123456</code></pre></div>
-<p>Opcionais:</p>
+<p>OPCIONAL:</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset123456
 begin123456
 check123456

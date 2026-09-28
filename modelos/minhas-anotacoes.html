@@ -19,7 +19,7 @@
   <nav class="toc" aria-label="Nesta página">
     <a class="back" href="../index.html">← Todos os modelos</a>
     <p class="toc-title">Nesta página</p>
-    <ul><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#configuracao-manual-de-atendimento">Configuração — Manual de atendimento</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#plataforma-criar-comandos-salvos-personalizados">Plataforma — criar comandos salvos (personalizados)</a></li><li><a href="#consultas-receitas-ligacao">Consultas / Receitas / Ligação</a></li><li><a href="#observacoes">Observações</a></li></ul>
+    <ul><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#configuracao-manual-de-atendimento">Configuração — Manual de atendimento</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#plataforma-criar-comandos-salvos-criar-comandos-salvos-txt">Plataforma — criar comandos salvos (CRIAR COMANDOS SALVOS.txt)</a></li><li><a href="#consultas-receitas-ligacao">Consultas / Receitas / Ligação</a></li><li><a href="#observacoes">Observações</a></li></ul>
   </nav>
   <main class="doc">
     <p class="crumb"><a href="../index.html">Início</a> / MINHAS ANOTAÇÕES</p>
@@ -27,31 +27,36 @@
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
     <ul><li><strong>Modelo:</strong> geral (não específico de um rastreador)</li><li><strong>Fabricante/protocolo:</strong> —</li><li><strong>Conteúdo:</strong> procedimentos de atendimento, chips, token de notificação, relatórios, plataforma</li></ul>
 <h2 id="arquivos-fonte">Arquivos-fonte</h2>
-<ul><li><code>MANUAL ATENDIMENTO.txt</code></li><li><code>anotações sobre chip.txt</code></li><li><code>chip.txt</code></li><li><code>ANOTAÇÃO DE RELATORIO.txt</code></li><li><code>ANOTAÇÕESSOBRE TOKEN.txt</code></li><li><code>CRIAR COMANDOS SALVOS.txt</code> (arquivo com acentuação corrompida — &quot;DESCRIÃ‡ÃƒO VOCÃŠ&quot;; corrigido abaixo para &quot;DESCRIÇÃO VOCÊ&quot;)</li><li><code>ATENÇÃO.txt</code></li></ul>
+<ul><li><code>MANUAL ATENDIMENTO.txt</code></li><li><code>anotações sobre chip.txt</code></li><li><code>chip.txt</code></li><li><code>ANOTAÇÃO DE RELATORIO.txt</code></li><li><code>ANOTAÇÕESSOBRE TOKEN.txt</code></li><li><code>CRIAR COMANDOS SALVOS.txt</code></li><li><code>ATENÇÃO.txt</code></li></ul>
 <hr>
 <h2 id="configuracao-manual-de-atendimento">Configuração — Manual de atendimento</h2>
 <p>CLIENTE PEDIU PARA CONFIGURAR UM EQUIPAMENTO</p>
 <ol><li>QUAL O MODELO?</li><li>QUAL A LINHA QUE ESTÁ DENTRO DO EQUIPAMENTO?</li><li>VERIFICAR SE ESTÁ CHEGANDO SMS</li><li>CONFIGURAR APN E DNS</li><li>SE CONFIGURADO CERTO E NÃO SUBIR O EQUIPAMENTO, PERGUNTAR SE ESTÁ EM BANCADA, PEDIR UMA FOTO DO IMEI DO EQUIPAMENTO</li><li>VERIFICAR SE ESTÁ CORRETO NA PLATAFORMA DE RASTREAMENTO</li><li>APÓS AJUSTADO NÃO SUBIR, PEDIR SMS DE RETORNO</li></ol>
 <h2 id="problemas-e-solucoes">Problemas e soluções</h2>
 <h3 id="nao-recebe-sms">NÃO RECEBE SMS</h3>
-<ol><li>RESET NO CHIP (SMART OU MAX IOT)</li><li>PEDIR FOTO NÍTIDA DO CHIP CONTENDO OS NÚMEROS E INSERIDO NO RASTREADOR;</li><li>PEDIR RESET FÍSICO;</li><li>SOLICITAR LOCALIZAÇÃO DE ONDE ESTÁ O RASTREADOR;</li></ol>
-<p>ÚLTIMO TESTE: SOLICITAR QUE COLOQUE O CHIP M2M EM UM CELULAR PARA TESTAR SE CHEGA O SMS.</p>
+<ol><li>RESET NO CHIP (SMART OU MAX IOT)</li><li>PEDIR FOTO NITIDA DO CHIP CONTENDO OS NUMEROS E INSERIDO NO RASTREADOR;</li><li>PEDIR RESET FISICO;</li><li>SOLICITAR LOCALIZAÇÃO DE ONDE ESTA O RASTREADOR;</li></ol>
+<p>ULTIMO TESTE: SOLICITAR QUE COLOQUE O CHIP M2M EM UM CELULAR PARA TESTAR SE CHEGA O SMS.</p>
 <p>RESULTADO:</p>
 <ol><li>SE MESMO ASSIM NÃO CHEGAR SMS O CHIP PODE ESTAR COM DEFEITO OU FALTA DE COBERTURA DA OPERADORA.</li><li>SE CHEGAR SMS NO CELULAR, TENTE VOLTAR O CHIP NO RASTREADOR;</li><li>SE MESMO ASSIM NÃO CHEGAR O SMS O RASTREADOR PODE ESTAR DEFEITO</li></ol>
-<h3 id="garra-do-chip-anotacoes-sobre-chip">Garra do chip (anotações sobre chip)</h3>
-<p>Pode acontecer um problema nos equipamentos: a garra que faz contato no chip, se estiver muito baixa, pode acabar não encostando no chip; isso faz com que o equipamento não identifique o chip, aí não chega SMS.</p>
+<h3 id="garra-do-chip-anotacoes-sobre-chip-txt">Garra do chip (anotações sobre chip.txt)</h3>
+<p>Pode acontecer um problema nos equipamentos, seria a garra que faz contato no chip, se ele estiver muito baixa, pode acabar não encostando no chip, isso faz com que o equipamento não identifique o chip, ai não chega sms</p>
 <h3 id="sintoma-de-apn-por-chip-chip-txt">Sintoma de APN por chip (chip.txt)</h3>
-<ul><li>O chip <strong>MAX</strong>, quando dá sintoma de APN, só fica tentando se conectar.</li><li>O chip <strong>ALGAR</strong> conecta e cai.</li></ul>
-<h3 id="relatorio-de-resumo-com-dados-desorganizados-anotacao-de-relatorio">Relatório de resumo com dados desorganizados (anotação de relatório)</h3>
-<p>Se o equipamento está gerando posição normal e do nada para, por uns 5 dias por exemplo, esses 5 dias ficam guardados na memória até ter uma conexão. Só que quando ele for enviar, vai enviar tudo de uma vez, desorganizado. Isso gera problema no relatório de resumo.</p>
-<h3 id="token-de-notificacao-anotacoes-sobre-token">Token de notificação (anotações sobre token)</h3>
-<ul><li>O token de um celular de um usuário é uma coisa; se pegar o mesmo usuário e gerar um token em outro celular, vai ser outra coisa.</li><li>Não vai chegar notificação no usuário do cliente se a revenda usar o usuário do cliente para gerar o token.</li><li>Resumindo: <strong>tem que gerar o token pelo celular do cliente</strong>; se gerar pelo celular da revenda, a notificação chega só para a revenda.</li></ul>
-<h2 id="plataforma-criar-comandos-salvos-personalizados">Plataforma — criar comandos salvos (personalizados)</h2>
-<ol><li>IR NA ENGRENAGEM</li><li>CLICAR EM COMANDOS SALVOS</li><li>APERTAR EM ADICIONAR</li><li>NA DESCRIÇÃO VOCÊ VAI COLOCAR O TIPO DE COMANDO (BLOQUEIO, DESBLOQUEIO, ETC...)</li><li>E NO TIPO DE COMANDO, COLOCAR COMANDO PERSONALIZADO</li></ol>
+<p>O chip max, quando da sintoma de apn, ele só fica tentando se conectar</p>
+<p>o chip algar conecta e cai</p>
+<h3 id="relatorio-de-resumo-com-dados-desorganizados-anotacao-de-relatorio-txt">Relatório de resumo com dados desorganizados (ANOTAÇÃO DE RELATORIO.txt)</h3>
+<p>vamos lá, se o equipamento está gerando posição normal e do nada ele para, por uns 5 dias por exemplo. esses 5 dias vai ficar guardado na memoria até ter uma conexão. so que quando ele for enviar, ele vai enviar tudo de uma vez, desorganizado. isso gera problema no relatorio de resumo</p>
+<h3 id="anotacoes-sobre-token-anotacoessobre-token-txt">ANOTAÇÕES SOBRE TOKEN (ANOTAÇÕESSOBRE TOKEN.txt)</h3>
+<p>O token quem de um celular de um usuario é uma coisa se pegar o mesmo usuario e gerar um token em outro celular, vai ser outra coisa</p>
+<p>Não vai chegar notificação no usuario do cliente se o revenda usar o usuario do cliente para gerar o token</p>
+<p>resumindo:</p>
+<ul><li>tem que gerar o token pelo celular do cliente</li><li>se gerar pelo celular do revenda, vai chegar notificação só para o revenda</li></ul>
+<h2 id="plataforma-criar-comandos-salvos-criar-comandos-salvos-txt">Plataforma — criar comandos salvos (CRIAR COMANDOS SALVOS.txt)</h2>
+<p>PARA CRIAR COMANDOS PERSONALIZADOS NA PLATAFORA</p>
+<ol><li>IR NA ENGRENAGEM</li><li>CLICAR EM COMANDOS SALVOS</li><li>APERTAR EM ADICIONAR</li><li>NA DESCRIÇÃO VOCÊ VAI COLOCAR O TIPO DE COMANDO</li><li>E NO TIPO DE COMANDO, COLOCAR COMANDO PERSONALIZADO</li><li>BLOQUEIO, DESBLOQUEIO, ETC...</li></ol>
 <h2 id="consultas-receitas-ligacao">Consultas / Receitas / Ligação</h2>
 <p>Não há comandos, IPs ou ligação nesses arquivos.</p>
 <h2 id="observacoes">Observações</h2>
-<ul><li><strong>ATENÇÃO:</strong> PRESTAR ATENÇÃO NOS CLIENTES CUSTOMIZADOS — já aconteceu de confundir e mandar o link da nossa plataforma de rastreamento para cliente customizado.</li></ul>
+<ul><li><strong>ATENÇÃO (ATENÇÃO.txt):</strong> PRESTAR ATENÇÃO NOS CLIENTES CUSTOMIZADO, POIS HOJE AABEI CONFUNDINDO E MANDEI O LINK DA NOSSA PLATAFORMA DE RASTREAMNENTO</li></ul>
     
     <nav class="pager"><a href="micodus.html">← MICODUS</a><a href="mt01-mt-1c.html">MT-1C →</a></nav>
   </main>

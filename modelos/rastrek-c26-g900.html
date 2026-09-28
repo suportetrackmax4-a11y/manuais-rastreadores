@@ -28,20 +28,20 @@
     <ul><li><strong>Modelo(s):</strong> C26, G900 (linha Rastrek)</li><li><strong>Pasta:</strong> RASTREK</li><li><strong>Fabricante/Protocolo:</strong> Rastrek (protocolo ajustado por <code>WKMD,1#</code>; o arquivo não nomeia o protocolo)</li><li><strong>Arquivos-fonte:</strong> <code>RASTREK/C26 G900 RASTREK.txt</code> e <code>RASTREK/C26 G900 RASTREK (1).txt</code> (cópias idênticas)</li></ul>
 <h2 id="consultas">Consultas</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PARAM</code></pre></div>
-<p>Retorna as configurações do equipamento e o IMEI. (No arquivo original está escrito sem <code>#</code> no final.)</p>
+<p>RETORNA CONFIGURAÇÕES/IMEI (No arquivo original está escrito sem <code>#</code> no final.)</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WHERE#</code></pre></div>
-<p>Força a leitura de GPS / solicita a posição atual.</p>
+<p>FORÇAR GPS (solicita a posição atual).</p>
 <h2 id="configuracao">Configuração</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IP,DNS.TRACKMAX.COM.BR,5064#</code></pre></div>
-<p>Define o servidor TrackMax (DNS) e a porta 5064.</p>
+<p>IP E PORTA TRACKMAX</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
-<p>Define a APN do chip Vivo TrackMax (APN, usuário, senha).</p>
+<p>APN VIVO TRACKMAX (APN, usuário, senha).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60#</code></pre></div>
-<p>Tempo de transmissão: uma posição a cada 60 segundos.</p>
+<p>TEMPO DE TRANSMISSÃO (uma posição a cada 60 segundos).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WKMD,1#</code></pre></div>
-<p>Ajuste de protocolo (modo de trabalho 1), conforme o manual.</p>
+<p>AJUSTE DE PROTOCOLO</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
-<p>Reinicia o equipamento.</p>
+<p>REINICIAR</p>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
 <div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Servidor TrackMax</td><td><code>DNS.TRACKMAX.COM.BR</code> porta <code>5064</code></td></tr><tr><td>APN Vivo TrackMax</td><td><code>tmax.m2m.vivo.com.br</code> / usuário <code>vivo</code> / senha <code>vivo</code></td></tr></tbody></table></div>
 <p>Sequência sugerida (na ordem do arquivo): <code>IP,...#</code> → <code>APN,...#</code> → <code>TIMER,60#</code> → <code>WKMD,1#</code> → <code>RESET#</code> → <code>PARAM</code> para conferir.</p>

@@ -26,7 +26,7 @@
     <h1>camera — Dashcam/MDVR com IA (ADAS/DMS)</h1>
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
     <h2 id="modelo-s">Modelo(s)</h2>
-<ul><li>Câmera veicular 4G com IA (ADAS + DMS + BSD), 3 canais de vídeo ativos. Caminho OTA aponta para <strong>AT603</strong> (<code>/ota/AT603/ota.json</code>) → provável modelo <strong>AT603</strong>.</li><li>Fabricante/protocolo: presença de <code>jimi_para.json</code> indica firmware compatível <strong>Jimi (JimiIoT)</strong>; <code>jtbase.json</code>/<code>jtpara.json</code> indicam suporte <strong>JT/T 808 / JT/T 1078</strong> (padrão chinês de vídeo). Tipos de rede no servidor: NetType 5, 6, 7.</li><li>Versão de firmware: <code>V25101610</code> (version.json).</li><li>IMEI do módulo 4G: <code>86087907XXXXXXX</code>.</li></ul>
+<ul><li>Câmera veicular 4G com IA (ADAS + DMS + BSD), 3 canais de vídeo ativos. Caminho OTA aponta para <strong>AT603</strong> (<code>/ota/AT603/ota.json</code>) → provável modelo <strong>AT603</strong>.</li><li>Fabricante/protocolo: presença de <code>jimi_para.json</code> indica firmware compatível <strong>Jimi (JimiIoT)</strong>; <code>jtbase.json</code>/<code>jtpara.json</code> indicam suporte <strong>JT/T 808 / JT/T 1078</strong> (padrão chinês de vídeo). Tipos de rede no servidor: NetType 5, 6, 7.</li><li>Versão de firmware: <code>V25101610</code> (version.json).</li><li>IMEI do módulo 4G: <code>IMEI_DO_EQUIPAMENTO</code>.</li></ul>
 <h2 id="arquivos-fonte-todos-lidos">Arquivos-fonte (todos lidos)</h2>
 <p><code>camera/etc/config/</code>: ai_function.json, ai_param.json, clock.json, dial.json, fourg_module.json, gps_filter.json, jimi_para.json, jtbase.json, jtpara.json, language.json, media_info.json, net_module_info.json, osd.json, ota_server.json, Photograph.json, power_set.json, record.json, server.json, speed_set.json, version.json, video_sensor_info.json, wifi.json</p>
 <h2 id="consultas">Consultas</h2>
@@ -43,7 +43,7 @@
 &quot;protocol&quot; : &quot;IPV4&quot;</code></pre></div>
 <p>Módulo 4G: Band = 0 (automático).</p>
 <h3 id="wi-fi-wifi-json">Wi-Fi (wifi.json)</h3>
-<ul><li>Função Wi-Fi ativa (Function 1), modo SSID 2.</li><li>Hotspot da câmera: SSID <code>86087907XXXXXXX</code> (IMEI), senha <code>12345678</code>.</li><li>Cliente (STA): SSID <code>TRACKMAX_A34A</code>, senha <code>(removida)</code>.</li><li>WifiSOS 0.</li></ul>
+<ul><li>Função Wi-Fi ativa (Function 1), modo SSID 2.</li><li>Hotspot da câmera: SSID <code>IMEI_DO_EQUIPAMENTO</code> (IMEI), senha <code>12345678</code>.</li><li>Cliente (STA): SSID <code>TRACKMAX_A34A</code>, senha <code>(removida)</code>.</li><li>WifiSOS 0.</li></ul>
 <h3 id="relogio-clock-json">Relógio (clock.json)</h3>
 <ul><li>NTP <code>182.92.12.11</code> porta 123; TimeZone 1, TimeZoneHour 3, TimeZoneMin 0 (fuso 3h — provavelmente GMT-3), Timing 7.</li></ul>
 <h3 id="ota-ota-server-json">OTA (ota_server.json)</h3>
