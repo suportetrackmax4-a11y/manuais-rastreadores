@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>M1 CONFI · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#receitas-por-operadora-servidor-configurador-comandos-at-sms">Receitas por operadora / servidor (configurador — comandos <code>AT+SMS=</code>)</a></li><li><a href="#configuracao-comandos-sms">Configuração (comandos SMS)</a></li><li><a href="#comandos-de-acao">Comandos de ação</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#problemas-e-solucoes-duvidas-frequentes">Problemas e soluções / Dúvidas frequentes</a></li><li><a href="#ligacao-leds-instalacao">Ligação / LEDs / Instalação</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / M1 CONFI</p>
+    <h1>M1 CONFI — Rastreador M1 (UNIGPS / versão TrackMax)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> Rastreador M1 (placa &quot;M1#V13&quot;, versão TrackMax; etiqueta &quot;Multi SMS&quot;)</li><li><strong>Fabricante:</strong> UNIGPS TECNOLOGIA LTDA-ME</li><li><strong>Protocolo:</strong> GT06 (TCP ou UDP)</li><li><strong>Rede:</strong> GPS/GPRS/GSM 2G Quad-Band 850/900/1800/1900MHz — Nano-SIM</li><li><strong>Senha padrão:</strong> <code>888888</code></li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<div class="table-wrap"><table><thead><tr><th>Arquivo</th><th>Tipo</th><th>Conteúdo</th></tr></thead><tbody><tr><td><code>M1-Manual 28.12.2021.pdf</code></td><td>PDF (6 págs, datado 18/11/2021)</td><td>Manual UNIGPS completo, com Dúvidas Frequentes</td></tr><tr><td><code>Rastreador M1 Manual-V TrackMax (1).pdf</code></td><td>PDF (5 págs)</td><td>Manual versão TrackMax (exemplos com dns.trackmax.com.br)</td></tr><tr><td><code>TRACKMAX-&lt;OPERADORA&gt; &lt;APN&gt; &lt;CARRO/MOTO&gt;.txt</code> (18 arquivos)</td><td>TXT</td><td>Receitas AT+SMS por operadora (via configurador USB)</td></tr><tr><td><code>CONFIG M1 TRILHO HINOVA VIVO V1.txt</code></td><td>TXT</td><td>Receita para servidor Lógica Soluções/Hinova</td></tr><tr><td><code>M1 CONFI.rar</code></td><td>RAR</td><td>Contém cópia dos 18 TXT + <code>UNIGPS.TOOLS-2.0--20210225.exe</code> (ver diferença nos arquivos CLARO abaixo)</td></tr><tr><td><code>CONFIGURADOR M1.jpg</code>, <code>9e7fa862-....jpg</code>, <code>a0318478-....jpg</code></td><td>Fotos</td><td>Ligação do configurador USB nos pads TXD1/RXD1 da placa</td></tr><tr><td><code>CH341SER.EXE</code>, <code>UNIGPS.TOOLS-2.0--20210225.exe</code></td><td>Programas</td><td><strong>Ignorados</strong> (driver CH341 do cabo USB-serial e software configurador UNIGPS Tools 2.0)</td></tr></tbody></table></div>
+<hr>
+<h2 id="receitas-por-operadora-servidor-configurador-comandos-at-sms">Receitas por operadora / servidor (configurador — comandos <code>AT+SMS=</code>)</h2>
+<p>Todas as receitas TrackMax usam o <strong>servidor <code>dns.trackmax.com.br</code> porta <code>2001</code></strong>. Os arquivos são quase idênticos; o que muda é só a APN (operadora) e o comando <code>#dormir</code> (carro × moto).</p>
+<h3 id="corpo-comum-todas-as-receitas-trackmax">Corpo comum (todas as receitas TrackMax)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+SMS=#tracking,888888,60,1800*
+AT+SMS=#FUSOHORARIO,888888,0*
+AT+SMS=&lt;DORMIR — ver tabela carro/moto&gt;
+AT+SMS=#IP,888888,dns.trackmax.com.br,2001*
+AT+SMS=&lt;APN — ver tabela de operadoras&gt;</code></pre></div>
+<h3 id="carro-moto-unica-linha-que-muda">Carro × Moto (única linha que muda)</h3>
+<div class="table-wrap"><table><thead><tr><th>Tipo</th><th>Comando dormir</th></tr></thead><tbody><tr><td>CARRO</td><td><code>AT+SMS=#dormir,888888,1*</code></td></tr><tr><td>MOTO</td><td><code>AT+SMS=#dormir,888888,3,3600,300*</code></td></tr></tbody></table></div>
+<h3 id="tabela-operadora-apn">Tabela operadora → APN</h3>
+<div class="table-wrap"><table><thead><tr><th>Arquivo (operadora / APN)</th><th>Carro</th><th>Moto</th><th>Linha de APN (verbatim)</th></tr></thead><tbody><tr><td>ALGAR SS</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,ss.algar.br,algar,algar*</code></td></tr><tr><td>ALGAR TMAX</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,tmax.algar.br,algar,algar*</code></td></tr><tr><td>ALLCOM</td><td>—</td><td>sim</td><td><code>AT+SMS=#APN,888888,allcom.br,allcom,allcom*</code></td></tr><tr><td>ARQIA TMAX</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,tmax.br,arqia,arqia*</code></td></tr><tr><td>ARQIA WL</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,wl.vodafone.br,arqia,arqia*</code></td></tr><tr><td>CLARO SS</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,ss.claro.com.br,claro,claro*</code></td></tr><tr><td>CLARO TMAX</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,tmax.claro.com.br,claro,claro*</code></td></tr><tr><td>TIM</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,ss.tim.br,tim,tim*</code></td></tr><tr><td>VIVO TMAX</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,tmax.m2m.vivo.com.br,vivo,vivo*</code></td></tr><tr><td>VIVO WL</td><td>sim</td><td>sim</td><td><code>AT+SMS=#APN,888888,wl.vivo.com.br,vivo,vivo*</code></td></tr></tbody></table></div>
+<blockquote><strong>Diferença nos arquivos CLARO:</strong> nos TXT soltos da pasta, os 4 arquivos CLARO (SS/TMAX, carro/moto) usam a linha de IP com o parâmetro TCP explícito: ``<code> AT+SMS=#IP,888888,dns.trackmax.com.br,2001,1* </code>`<code> Já as cópias dentro do </code>M1 CONFI.rar<code> usam a linha comum </code>AT+SMS=#IP,888888,dns.trackmax.com.br,2001*<code>. (O </code>,1` = TCP, conforme manual.)</blockquote>
+<h3 id="exemplo-completo-trackmax-vivo-tmax-carro-txt">Exemplo completo — TRACKMAX-VIVO TMAX CARRO.txt</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+SMS=#tracking,888888,60,1800*
+AT+SMS=#FUSOHORARIO,888888,0*
+AT+SMS=#dormir,888888,1*
+AT+SMS=#IP,888888,dns.trackmax.com.br,2001*
+AT+SMS=#APN,888888,tmax.m2m.vivo.com.br,vivo,vivo*</code></pre></div>
+<h3 id="config-m1-trilho-hinova-vivo-v1-txt-servidor-de-terceiros-logica-solucoes-hinova">CONFIG M1 TRILHO HINOVA VIVO V1.txt (servidor de terceiros — Lógica Soluções / Hinova)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AT+SMS=#tracking,888888,60,1800*
+AT+SMS=#FUSOHORARIO,888888,0*
+AT+SMS=#dormir,888888,3,3600,300*
+AT+SMS=#IP,888888,gateway.logicasolucoes.com.br,60000*
+AT+SMS=#APN,888888,hinova.br,vivo,vivo*</code></pre></div>
+<h3 id="multi-sms-tudo-em-um-unico-sms">Multi SMS (tudo em um único SMS)</h3>
+<p>Versão TrackMax (manual TrackMax):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#multi,888888,apn=tmax.m2m.vivo.com.br,vivo,vivo;ip=dns.trackmax.com.br,2001;fh=-3;t=30,180#</code></pre></div>
+<ul><li>APN: tmax.m2m.vivo.com.br / Login: vivo / Senha: vivo</li><li>IP: dns.trackmax.com.br / Porta: 2001</li><li>Fuso horário: -3</li><li>Tempo intervalo: Ignição ligado 30 segundos, Ignição desligado 180 segundos</li></ul>
+<p>Exemplo do manual UNIGPS (servidor de fábrica):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#multi,888888,apn=allcom.br,allcom,allcom;ip=47.90.246.225,7018;fh=-3;t=30,180#</code></pre></div>
+<ul><li>APN: allcom.br / Login: allcom / Senha: allcom — IP: 47.90.246.225 — Porta: 7018 — Fuso -3 — 30s / 180s</li></ul>
+<blockquote>OBS: Protocolo de comunicação do Multi SMS é TCP. Funciona em todos os rastreadores M1 com etiqueta escrito Multi SMS.</blockquote>
+<h3 id="outros-ips-citados">Outros IPs citados</h3>
+<ul><li><code>#IP,888888,dns.trackmax.com.br,2001,1#</code> (TCP)</li><li><code>#IP,888888,35.230.168.225,2001,2#</code> (exemplo UDP no manual TrackMax)</li><li>APN exemplo manual UNIGPS: <code>#APN,888888,zap.vivo.com.br,vivo,vivo#</code></li></ul>
+<hr>
+<h2 id="configuracao-comandos-sms">Configuração (comandos SMS)</h2>
+<blockquote>Depois de mandar os comandos de <strong>IP</strong> e <strong>APN</strong>, 15 segundos depois o equipamento vai reiniciar.</blockquote>
+<p><strong>1. IP</strong> — mudar IP e porta. Plataforma TCP → <code>,1</code>; UDP → <code>,2</code>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP,888888,IP,Porta,1/2#
+#IP,888888,IP,Porta,1#
+#IP,888888,IP,Porta,2#
+#IP,888888,dns.trackmax.com.br,2001,1#
+#IP,888888,35.230.168.225,2001,2#</code></pre></div>
+<p><strong>2. APN</strong> — cada operadora tem APN diferenciado (consulte fornecedor/operadora).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#APN,888888,apn,usuário,senha#
+#APN,888888,tmax.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<p><strong>3. Fuso horário</strong> (1 a 12 / -1 a -12)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Fusohorario,888888,-3#</code></pre></div>
+<p><strong>4. Tracking</strong> — intervalo de upload (ignição ligada, ignição desligada), em segundos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Tracking,888888, AccOn,AccOff#
+#Tracking,888888, 30,180#</code></pre></div>
+<p>Ignição On: upload para plataforma a cada 30s. Ignição Off e parado 600s: upload a cada 180s.</p>
+<p><strong>5. Senha</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Senha,888888,nova senha#
+#Senha,888888,999999#</code></pre></div>
+<p><strong>12. KM</strong> (0 = Zerar, 1 = Consultar)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#KM,888888,1#
+#KM,888888,0#</code></pre></div>
+<p><strong>13. Alarme de Vibrar</strong> — veículo balança por 10s contínuos, será avisado. 0=Cancelar, 1=Mensagem, 2=Ligação, 3=SMS e ligação, 4=Avisa plataforma, 5=SMS e Plataforma</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Vibrar,888888,0/1/2/3/4/5#
+#Vibrar,888888,1#
+#Vibrar,888888,0#</code></pre></div>
+<p><strong>14. Alarme de Cerca</strong> — saindo do limite de área, avisa por SMS ou ligação. 0=Cancelar, 1=Mensagem, 2=Ligação, 3=SMS e ligação</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Cerca,888888,limite de área,0/1/2/3#
+#Cerca,888888,500,1#
+#Cerca,888888,0,0#</code></pre></div>
+<p><strong>15. Alarme de Velocidade</strong> — 0=Cancelar, 1=Mensagem, 2=Ligação, 3=SMS e ligação</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Velocidade,888888,km/h,0/1/2/3#
+#Velocidade,888888,120,1#
+#Velocidade,888888,0,0#</code></pre></div>
+<p><strong>16. Alarme de ACC</strong> (avisa quando ligar o automóvel) — 0=Cancelar, 1=Mensagem, 2=Ligação, 3=SMS e ligação</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Acc,888888,0/1/2/3#
+#Acc,888888,1/#
+#Acc,888888,0/#</code></pre></div>
+<blockquote>Para receber SMS e ligação dos alarmes, o número de admin tem que ser configurado.</blockquote>
+<p><strong>18. Admin</strong> — adicionar/deletar número de Administrador; até 3 números. Atenção: conferir número de telefone antes de configurar! O primeiro número de Administrador tem que ser correto. <em>(O texto do comando não aparece no PDF — campo em branco nos dois manuais.)</em></p>
+<p><strong>19. Dormir</strong> — economizar energia do automóvel/motocicleta. Recomenda usar Dormir 1.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Dormir,888888,0/1/2#
+#Dormir,888888,1#
+#Dormir,888888,3,dormir ,acordar#
+#Dormir,888888,3,3600,600#</code></pre></div>
+<p><strong>20. Autoridade</strong> — bloquear IP, APN e Restaurar configuração de fábrica com senha especial.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Autoridade,888888,senha especial ,0/1#
+#Autoridade,888888,123456,1#
+#Autoridade,888888,123456,0#</code></pre></div>
+<ul><li><code>,1</code>: IP, APN e Restaurar de fábrica bloqueados, senha especial 123456</li><li><code>,0</code>: desbloqueados e senha especial deletada</li></ul>
+<p><em>(Só no manual UNIGPS; não aparece no manual TrackMax.)</em></p>
+<p><strong>21. Sirene</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#sirene,888888,1#       (sirene ativada tempo ilimitado)
+#sirene,888888,1,?#     (tempo personalizado)
+#sirene,888888,1,30#    (sirene ativada 30 segundos)
+#sirene,888888,0#       (sirene desativada)</code></pre></div>
+<h2 id="comandos-de-acao">Comandos de ação</h2>
+<p><strong>7. Cortar (Bloquear)</strong> — só bloqueia abaixo de 20 km/h; será bloqueado assim que o automóvel reduzir a velocidade.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Cortar,888888#</code></pre></div>
+<p><strong>8. Religar (Desbloquear)</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Religar,888888#</code></pre></div>
+<p><strong>9. Reiniciar</strong> — NÃO APAGA CONFIGURAÇÕES</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Reiniciar,888888#</code></pre></div>
+<p><strong>10. Restaurar</strong> — RESTAURAR DE FÁBRICA (configuração padrão)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Restaurar,888888#</code></pre></div>
+<h2 id="consultas">Consultas</h2>
+<p><strong>6. Google</strong> — retorna link de localização por SMS, ex.: <code>06-11-201720:29:35 http://maps.google.com/?q=loc:-19.916300,-43.938938</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Google,888888#</code></pre></div>
+<p><strong>11. Parametro</strong> — retorna IMEI, APN, IP, Intervalo, Fuso Horário, Número de Admin</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Parametro,888888#</code></pre></div>
+<p><strong>17. Status</strong> — status de Ignição, nível de sinal GPS, GSM, KM e Voltagem</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Status,888888#</code></pre></div>
+<hr>
+<h2 id="problemas-e-solucoes-duvidas-frequentes">Problemas e soluções / Dúvidas frequentes</h2>
+<p><strong>1) Funções de dormir — como configurar?</strong> O rastreador tem 3 tipos de dormir:</p>
+<ol><li><code>#dormir,888888,1#</code> — GPS off, GPRS on, GSM on. 3 minutos upload pulso para plataforma; rastreador fica online. Ligar o carro ou mandar mensagem acorda o rastreador.</li><li><code>#dormir,888888,2#</code> — GPS off, GPRS off, GSM on. Rastreador fica offline. Ligar o carro ou mandar mensagem acorda.</li><li><code>#dormir,888888,3, 3600,300#</code> — durante 3600 s GPS/GPRS/GSM off; depois acorda, fica 300 s online e faz upload da localização (GPS/GPRS/GSM on); depois de 300 s entra em dormir novamente. Tempo de dormir e acordar configuráveis. Ligar o carro acorda; enquanto acordado pode ser configurado.</li><li>Desativar: <code>#dormir,888888,0#</code></li></ol>
+<p>OBS: M1 tem modo de energia econômica automática (intervalo de ignição desligada acima de 60 s ativa automaticamente); consumo quase igual a dormir 1.</p>
+<p><strong>2) Protocolo do M1?</strong> GT06.</p>
+<p><strong>3) Posso trocar o chip com o aparelho ligado na energia externa?</strong> NÃO! Risco de queimar equipamento e chip. Desconecte a bateria externa para trocar.</p>
+<p><strong>4) Consumo de internet?</strong> A cada 4 horas em tráfego por dia, consumo médio por mês de 6 a 8 MB (configuração padrão). Cada upload gasta 0,035 Kb.</p>
+<p><strong>5) Sirene junto com alarme (Vibrar/Velocidade/Acc/Cerca)?</strong> Sim — somar +8 ao modo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Vibrar,888888,1#                 (só mensagem)
+#Vibrar,888888,9#                 (mensagem + sirene 30 segundos)
+#Vibrar,888888,1/2/3/4/5#         (Alarme de vibra)
+#Vibrar,888888,9/10/11/12/13#     (Sirene + Alarme de vibra)</code></pre></div>
+<hr>
+<h2 id="ligacao-leds-instalacao">Ligação / LEDs / Instalação</h2>
+<p><strong>Especificações:</strong> 78,0 × 35,0 × 13,0 mm; 45 g; alimentação 9~36 VDC; GPS -158 dBm; precisão 5~15 m; -20° a 65 °C; umidade até 75%; IP65; bateria interna 150 mAh 3,7 V lítio (máx. 10 h); memória 500 posições; TCP e UDP; configuração via GPRS, SMS e computador; Nano-SIM.</p>
+<p><strong>Chicote (fotos):</strong> 6 fios — vermelho, preto, azul, amarelo, laranja, cinza. Pads da placa: <code>V+</code>, <code>V-</code>, <code>ACC</code>, <code>RLY</code>, <code>BEEP-</code>/<code>BEEP+</code>, <code>MIC</code>.</p>
+<p><strong>Diagrama de ligação (imagem no manual UNIGPS):</strong></p>
+<ul><li>Vermelho → + bateria 12V/24V</li><li>Preto → − bateria</li><li>Azul → ACC (pós-chave)</li><li>Amarelo → relé, pino 86 (relé 12V/24V; pinos 30 e 87a cortam o fio da bomba de gasolina)</li><li>Cinza e Laranja → sirene</li><li>Branco → aparece no diagrama (ligação não legível na resolução da imagem)</li><li>&quot;Atenção: Procure um instalador profissional. Proibido instalar sem a presença de um profissional.&quot;</li></ul>
+<p><strong>Configurador USB (fotos):</strong> gravador/cabo USB com pinos pogo encostados nos dois pads <strong>TXD1 / RXD1</strong> da placa (ao lado do conector da bateria, acima do módulo). Usa driver CH341 (<code>CH341SER.EXE</code>) e o software <code>UNIGPS.TOOLS-2.0</code>. LED azul aceso durante a configuração.</p>
+<p><strong>Instalação:</strong></p>
+<ul><li>Antes de instalar, conferir se o chip GSM está funcionando plenamente; instalar com o lado do módulo GPS correto para cima (seguir etiqueta).</li><li>Local o mais escondido possível: placa abaixo do para-brisa dianteiro; dentro do painel, longe dos dutos de ar-condicionado (umidade); abaixo do para-brisa traseiro.</li><li>Para-brisa com película metálica/térmica ou aquecimento reduz o sinal GPS — mude o local.</li><li>ATENÇÃO: UTILIZAR OS 4 PARAFUSOS PARA FECHAR O GABINETE.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Comandos via configurador levam prefixo <code>AT+SMS=</code> e terminam em <code>*</code> em vez de <code>#</code>.</li><li>Receitas TrackMax usam fuso <code>0</code> e tracking <code>60,1800</code>; o manual sugere fuso <code>-3</code> e <code>30,180</code>.</li><li>Os dois PDFs têm o mesmo conteúdo base; o TrackMax troca os exemplos para <code>dns.trackmax.com.br:2001</code> e omite &quot;Autoridade&quot; e as Dúvidas Frequentes.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/m1-confi/M1-Manual%2028.12.2021.pdf" target="_blank" rel="noopener">M1-Manual 28.12.2021.pdf</a> <span class="muted">162 KB</span></li><li><a href="../pdf/m1-confi/Rastreador%20M1%20Manual-V%20TrackMax%20(1).pdf" target="_blank" rel="noopener">Rastreador M1 Manual-V TrackMax (1).pdf</a> <span class="muted">291 KB</span></li></ul></section>
+    <nav class="pager"><a href="lv12.html">← LV12</a><a href="m1-f1.html">M1 F1 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

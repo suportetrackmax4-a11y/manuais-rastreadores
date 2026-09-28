@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GT06 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#especificacoes-manual">Especificações (manual)</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / GT06</p>
+    <h1>GT06</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> GT06, rastreador GPS 2G GPRS (marca na carcaça: &quot;ACCURATE Tracker GPS+LBS&quot;)</li><li><strong>Fabricante/Protocolo:</strong> protocolo GT06. Manual TrackMax &quot;Manual V03-2025&quot;. Senha padrão <code>123456</code>.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>GT06/MANUAL RASTREADOR GT06 (2).pdf</code>: manual TrackMax. O texto foi extraído, e as imagens de LEDs, conectores e ligação foram lidas.</li><li><code>GT06/COMANDOS GT06 TESTE.txt</code>: é um subconjunto do manual (sem conteúdo novo além da APN Algar).</li><li><code>GT06/CONFIG GT06.txt</code>: comandos no estilo TK (<code>adminip123456 ...</code>) usados em GT06</li></ul></li></ul>
+<h2 id="especificacoes-manual">Especificações (manual)</h2>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Dimensões</td><td>95 mm x 50 mm x 15 mm</td></tr><tr><td>Peso</td><td>80 g</td></tr><tr><td>Rede</td><td>GSM/GPRS/2G</td></tr><tr><td>Bandas</td><td>850/900/1800/1900 MHz</td></tr><tr><td>Chip GPS</td><td>UBLOX</td></tr><tr><td>Módulo GSM</td><td>MTK60</td></tr><tr><td>Sensibilidade GPS</td><td>-159 dBm</td></tr><tr><td>Precisão GPS</td><td>5 m</td></tr><tr><td>Partida a frio / quente</td><td>45 s / 5 s</td></tr><tr><td>Tensão de entrada</td><td>9V a 36V</td></tr><tr><td>Temperatura de operação</td><td>-20 °C a +55 °C</td></tr><tr><td>Umidade</td><td>5% a 95%</td></tr><tr><td>Bateria interna</td><td>160 mAh</td></tr><tr><td>E/S</td><td>Saída negativa para bloqueio, saída para som, entrada positiva pós-chave, entrada para botão de pânico SOS, entrada para microfone</td></tr><tr><td>Itens inclusos</td><td>Soquete e relé 12 V para bloqueio, botão de pânico, microfone, chicotes de instalação</td></tr></tbody></table></div>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#smslink#123456#</code></pre></div>
+<p>Retorna a posição por SMS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TCP</code></pre></div>
+<p>Retorna as configurações por SMS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>check123456</code></pre></div>
+<p>(estilo TK, no CONFIG GT06.txt) Consulta o status.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="comandos-sms-basicos-manual-trackmax-formato-cmd-senha">Comandos SMS básicos (manual TrackMax, formato <code>#cmd#senha#...#</code>)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#begin#123456#</code></pre></div>
+<p>Inicia as configurações (reset para iniciar a programação).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#ip#123456#35.230.168.225#5023#</code></pre></div>
+<p>Configura IP e porta da plataforma.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP#123456#dns.trackmax.com.br#5023#</code></pre></div>
+<p>Configura DNS e porta da plataforma.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#apn#123456#tmax.m2m.vivo.com.br#vivo#vivo#</code></pre></div>
+<p>APN, usuário e senha do chip (exemplo com chip Vivo TrackMax).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#timezone#123456#W#0#00#</code></pre></div>
+<p>Ajusta o fuso horário para GMT 0.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#tracker#123456#</code></pre></div>
+<p>Ativa o rastreamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#at#060#sum#0#</code></pre></div>
+<p>Posições temporizadas a cada 60 s.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#move#123456#</code></pre></div>
+<p>Ativa o alerta de movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#ACC#ON#
+#ACC#OFF#</code></pre></div>
+<p>Ativa ou desativa o status de ignição.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#reboot#123456#</code></pre></div>
+<p>Reinicia sem apagar as configurações.</p>
+<h3 id="bloqueio-desbloqueio">Bloqueio / desbloqueio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#stopoil#123456#
+#supplyoil#123456#
+#stopelec#123456#
+#supplyelec#123456#</code></pre></div>
+<ul><li>Bloqueio 1: <code>#stopoil#123456#</code>. Desbloqueio 1: <code>#supplyoil#123456#</code></li><li>Bloqueio 2: <code>#stopelec#123456#</code>. Desbloqueio 2: <code>#supplyelec#123456#</code></li></ul>
+<h3 id="comandos-sms-avancados">Comandos SMS avançados</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#password#SenhaAtual#NovaSenha#
+#password#123456#112233#</code></pre></div>
+<p>Troca a senha (padrão 123456). O exemplo troca para 112233.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#admin#Senha#Telefone1# Telefone2# Telefone3# Telefone4#
+#admin#123456#1198887766#11977776655#</code></pre></div>
+<p>Cadastra números autorizados. Depois disso só eles podem enviar comandos SMS, exceto os comandos TCP e #begin, que continuam aceitos de qualquer número. Os alarmes por SMS (SOS, chave de ignição ligada, excesso de velocidade e cerca eletrônica) passam a ir para esses números.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#noadmin#Senha#Telefone#
+#noadmin#123456#1198887766#</code></pre></div>
+<p>Remove um número autorizado. Esse número também deixa de receber os alarmes.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#monitor#123456#</code></pre></div>
+<p>Modo escuta. <strong>Não funciona com chip M2M.</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#call#123456#</code></pre></div>
+<p>Viva-voz. <strong>Não funciona com chip M2M.</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#speed#123456#40#
+#nospeed#123456#</code></pre></div>
+<p>Cria alerta de excesso de velocidade (exemplo: 40 km/h) e cancela o alerta.</p>
+<h3 id="sequencia-de-teste-comandos-gt06-teste-txt">Sequência de teste (COMANDOS GT06 TESTE.txt)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#begin#123456#
+#IP#123456#dns.trackmax.com.br#5013#
+#apn#123456#tmax.algar.br#algar#algar#
+#timezone#123456#W#0#00#
+#tracker#123456#
+#at#060#sum#0#
+#move#123456#
+#ACC#ON#</code></pre></div>
+<p>Obs.: aqui a porta usada foi <strong>5013</strong>. O manual usa 5023.</p>
+<h3 id="comandos-estilo-tk-config-gt06-txt">Comandos estilo TK (CONFIG GT06.txt)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 35.230.168.225 5023
+apn123456 tmax.algar.br
+apnpassword123456 algar
+apnuser123456 algar
+gprs123456
+gprs123456 on
+tracker123456
+web123456
+fix001m***n123456
+SLEEPIN123456
+shock123456</code></pre></div>
+<p>Opcionais:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset123456
+begin123456
+check123456
+reboot123456</code></pre></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<ul><li><strong>TrackMax por IP:</strong> <code>35.230.168.225</code> porta <code>5023</code></li><li><strong>TrackMax por DNS:</strong> <code>dns.trackmax.com.br</code> porta <code>5023</code> (no arquivo de teste: <code>5013</code>)</li><li><strong>Vivo TrackMax:</strong> APN <code>tmax.m2m.vivo.com.br</code>, usuário <code>vivo</code>, senha <code>vivo</code></li><li><strong>Algar TrackMax:</strong> APN <code>tmax.algar.br</code>, usuário <code>algar</code>, senha <code>algar</code></li></ul>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li>Nunca insira nem remova o SIM com o rastreador ligado (chave em ON). Isso pode danificar o rastreador e o SIM.</li><li>Não use intervalo de posição menor que 60 s. Isso pode causar travamentos e reduzir a vida útil.</li><li>Moto: evite instalar embaixo de tanque metálico, perto do motor ou do filtro, porque o GPS e os dados ficam comprometidos. Peça instalação no padrão pós-chave.</li><li>Caminhão 24 V: o relé do kit serve só para 12 V. É preciso comprar um relé de 24 V.</li><li>Escuta e viva-voz só funcionam com chip convencional (pré ou pós-pago), não com M2M.</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="leds-3-leds-de-status-eles-se-apagam-5-minutos-depois-de-ligar-para-economizar-energia">LEDs (3 LEDs de status; eles se apagam 5 minutos depois de ligar, para economizar energia)</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Aceso</th><th>Piscando</th></tr></thead><tbody><tr><td>Verde</td><td>SIM-Card detectado</td><td>SIM-Card não inserido/detectado</td></tr><tr><td>Vermelho</td><td>Alimentação principal conectada</td><td>Alimentação principal desconectada</td></tr><tr><td>Azul</td><td>Localização GPS válida</td><td>Buscando localização GPS</td></tr></tbody></table></div>
+<h3 id="conectores">Conectores</h3>
+<div class="table-wrap"><table><thead><tr><th>Conector</th><th>Função</th></tr></thead><tbody><tr><td>1</td><td>Alto-falante (viva-voz bidirecional). O alto-falante não vem incluso</td></tr><tr><td>2</td><td>Botão de emergência (SOS)</td></tr><tr><td>3</td><td>Microfone (escuta e viva-voz)</td></tr><tr><td>4</td><td><strong>Vermelho:</strong> positivo (+) da alimentação. <strong>Preto:</strong> negativo (-). <strong>Verde:</strong> entrada de ignição (ACC). <strong>Amarelo:</strong> saída para o relé de corte da bomba de combustível</td></tr></tbody></table></div>
+<h3 id="diagrama-de-ligacao-conector-4">Diagrama de ligação (conector 4)</h3>
+<ul><li>Vermelho: fusível 2A, depois caixa de fusíveis/positivo da bateria</li><li>Preto: negativo da bateria</li><li>Verde: ACC da chave de ignição</li><li>Amarelo: pino 86 do relé. Relé: 85 vai ao positivo (fio branco); 30 e 87a interrompem o fio da bomba de combustível (corta o fio da bomba e liga uma ponta no 30 e a outra no 87a)</li></ul>
+<h3 id="instalacao">Instalação</h3>
+<ul><li>Chave liga/desliga da bateria interna: fica embaixo da tampa traseira, junto da gaveta do SIM. Para a direita liga, para a esquerda desliga. Ligue antes de usar.</li><li>SIM: remova a tampa traseira, abra a gaveta, insira o SIM e feche a gaveta.</li><li>Antena GPS: fica na face frontal (logo). Essa face deve ficar voltada para o céu, com visada livre de 180°.</li><li>Local: à prova d'água e escondido. Fixe com braçadeiras, presilhas ou fita, com a antena para cima.</li><li>Locais sugeridos no carro: dentro do painel, dentro do painel frontal, sob o limpador, perto do para-brisa traseiro.</li><li>Locais sugeridos na moto: atrás do painel, atrás da grade dianteira, embaixo do banco, atrás da lanterna traseira. Embaixo do tanque de combustível está marcado em amarelo (evitar).</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Opera <strong>somente 2G GPRS</strong>. Para rastreamento, o recomendado é chip M2M multioperadora (Claro, Vivo, TIM): <a href="https://trackmax.com.br/chipmax/chip-max-m2m/" target="_blank" rel="noopener">https://trackmax.com.br/chipmax/chip-max-m2m/</a></li><li>Ativação TrackMax: tire uma foto nítida da etiqueta do rastreador e do chip e envie pelo WhatsApp com seus dados e a placa. Atendimento de segunda a sexta, das 9h às 17h (Brasília, GMT-3): (11)9 8721-9437 ou (11) 9 5053-3816.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/gt06/MANUAL%20RASTREADOR%20GT06%20(2).pdf" target="_blank" rel="noopener">MANUAL RASTREADOR GT06 (2).pdf</a> <span class="muted">4.0 MB</span></li></ul></section>
+    <nav class="pager"><a href="gt005-e-gt003.html">← GT005 E GT003</a><a href="gv50.html">GV50 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

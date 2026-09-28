@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>V2 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes-especificacoes-tecnicas-trackmax-v2">Observações — Especificações técnicas (TrackMax V2)</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / V2</p>
+    <h1>V2 — TrackMax V2 (2G e 4G)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> TrackMax V2 (rastreador GPS/GSM/GPRS; arquivo &quot;TRACKMAX_V2_2G_E_4G&quot; cobre versões 2G e 4G)</li><li><strong>Fabricante / protocolo:</strong> TrackMax (chipset MTK2503) — comandos SMS estilo GT06 (<code>SERVER,</code>, <code>APN,</code>, <code>TIMER,</code>, <code>HBT,</code>, <code>RELAY,</code>) + comandos <code>SZCS#</code> (mesma família do J16/TrackerKing, GT06/CRX3)</li><li><strong>Arquivos-fonte:</strong><ul><li><code>V2/MANUAL RASTREADOR TRACKMAX  V2 (5) - Copia.pdf</code> (14 páginas)</li><li><code>V2/TRACKMAX_V2_2G_E_4G (1).txt</code> (a versão homônima em <code>TRACKMAX 4G/j16 4G/</code> é um subconjunto deste)</li><li><code>V2/V2.txt</code></li></ul></li></ul>
+<blockquote>OBS (manual): TODOS OS COMANDOS SÃO EM MAIÚSCULO, EXCETO: IP, PORTA E APN DO CHIP.</blockquote>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<p>Se o chip tiver retorno de SMS:</p>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Função</th></tr></thead><tbody><tr><td><code>STATUS#</code></td><td>Verificação de STATUS do Rastreador (também &quot;Comando para Forçar Conexão&quot;)</td></tr><tr><td><code>GPRSSET#</code></td><td>Verificação de Configurações e Conexão</td></tr><tr><td><code>IMEI#</code></td><td>Retorno com o IMEI do Rastreador</td></tr><tr><td><code>TIMER#</code></td><td>Conferir configuração de posições temporizadas</td></tr><tr><td><code>GMT#</code></td><td>Conferir configuração de Fuso Horário GMT</td></tr><tr><td><code>URL#</code> OU <code>POSITION#</code></td><td>Solicitar posição</td></tr></tbody></table></div>
+<hr>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="apn">APN</h3>
+<p>Formato: <code>APN,APN,USUÁRIO,SENHA#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,tmax,tmax#
+APN,tim.br,tim,tim#
+APN,zap.vivo.com.br,vivo,vivo#
+APN,claro.com.br,claro,claro#</code></pre></div>
+<h3 id="ip-dns-e-porta">IP / DNS e porta</h3>
+<p>Formato IP: <code>SERVER,0,IP,PORTA,0#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,0,35.230.168.225,2002,0#</code></pre></div>
+<p>Formato DNS: <code>SERVER,1,DNS,PORTA,0#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2002,0#</code></pre></div>
+<h3 id="posicoes-temporizadas">Posições temporizadas</h3>
+<p>Formato: <code>TIMER,ignição on,ignição off#</code> (TEMPO EM SEGUNDOS)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,180#</code></pre></div>
+<p>60 segundos com ACC on; 180 segundos (3 minutos) com ACC off.</p>
+<h3 id="envio-de-pacotes-completos">Envio de pacotes completos</h3>
+<p>Formato: <code>HBT,SEGUNDOS,SEGUNDOS#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HBT,60,60#</code></pre></div>
+<p>Envia pacote de 60 em 60 segundos.</p>
+<h3 id="fuso-horario">Fuso horário</h3>
+<p>Formato: <code>GMT,REGIÃO,FUSO,0#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
+<p>Ajuste do horário automático da plataforma. (No arquivo .txt aparece como <code>MT,W,0,0#</code> — erro de digitação do original.)</p>
+<h3 id="reset">Reset</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORY#</code></pre></div>
+<p>RESET DE FÁBRICA — reseta todas as configurações; só envie quando solicitado pelo suporte técnico.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
+<p>RESET REBOOT — reinicia o Rastreador somente, a fim de forçar uma nova conexão.</p>
+<h3 id="bloqueio-desbloqueio">Bloqueio / desbloqueio</h3>
+<p>Conforme o manual V2 (verbatim):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
+<p>Bloqueio — &quot;Este comando ATIVA a SAÍDA 1 que por padrão é utilizado com Bloqueio.&quot; NOTA: efetua o bloqueio somente se o Rastreador estiver com GPS válido e velocidade abaixo de 20 km/h.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,#</code></pre></div>
+<p>Desbloqueio — &quot;Este comando DESATIVA a SAÍDA 1.&quot;</p>
+<p>Conforme o arquivo TRACKMAX_V2_2G_E_4G (mesma família 4G):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,1#</code></pre></div>
+<p>Comando para bloquear o veículo</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
+<p>Comando para desbloquear o veículo</p>
+<blockquote>Atenção: os documentos divergem (manual: <code>RELAY,0#</code> = bloqueio / <code>RELAY,#</code> = desbloqueio; txt e demais modelos: <code>RELAY,1#</code> = bloqueio / <code>RELAY,0#</code> = desbloqueio). Testar no equipamento.</blockquote>
+<p>Ajuste para bloqueio instantâneo (sem validação de GPS e velocidade):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RLYMD,2#</code></pre></div>
+<p>ou</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SOURCE_OFF_TYPE=1</code></pre></div>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-v2-padrao-do-manual-porta-2002">TrackMax V2 — padrão do manual (porta 2002)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,tmax,tmax#
+
+SERVER,0,35.230.168.225,2002,0#
+
+SERVER,1,dns.trackmax.com.br,2002,0#
+
+TIMER,60,180#
+
+HBT,60,60#
+
+GMT,W,0,0#</code></pre></div>
+<h3 id="trackmax-v2-perfil-v2-txt-szcs-porta-2222-chip-max">TrackMax V2 — perfil V2.txt (SZCS, porta 2222, chip MAX)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SERVIP=dns.trackmax.com.br#SERVPORT=2222
+
+APN,trackmax.br,max,max#
+
+SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800
+
+SZCS#BLIND_EN=1#ANGLEVALUE=10-030#SLEEPT=3#GT06SEL=1#GT06IEXVOL=2#ACCLT=2
+
+SZCS#GPS_DISSLP=0#MTK_DISSLP=0#Slpdisconnect=1#sleepupdate=1
+
+TIMER,60,180#
+
+HBT,60,60#
+
+GMT,W,0,0#</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Servidor TrackMax (manual)</td><td><code>dns.trackmax.com.br</code> / <code>35.230.168.225</code> porta <strong>2002</strong></td></tr><tr><td>Servidor TrackMax (V2.txt, SZCS)</td><td><code>dns.trackmax.com.br</code> porta <strong>2222</strong></td></tr><tr><td>APN TrackMax</td><td><code>trackmax.br</code>,<code>tmax</code>,<code>tmax</code> (manual) / <code>trackmax.br</code>,<code>max</code>,<code>max</code> (chip MAX)</td></tr><tr><td>Tim / Vivo / Claro</td><td><code>tim.br,tim,tim</code> / <code>zap.vivo.com.br,vivo,vivo</code> / <code>claro.com.br,claro,claro</code></td></tr></tbody></table></div>
+<hr>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<div class="table-wrap"><table><thead><tr><th>Problema</th><th>Descrição</th><th>Solução</th></tr></thead><tbody><tr><td>NÃO FICA ONLINE OU CONECTA NA PLATAFORMA DE RASTREAMENTO</td><td>CHIP SIM CARD não inserido, mal inserido, sem rede ou sinal fraco de GSM/GPRS</td><td>Verifique a posição a ser inserido no manual; verifique se seu chip está ativo e pronto; mude de local a fim de melhorar o sinal GSM/GPRS</td></tr><tr><td>SEM LOCALIZAÇÃO, PORÉM FICA ONLINE</td><td>Ficou online, porém mostrando em outro local. Visada GPS</td><td>Ligue o RASTREADOR com pós-chave e deixe fora do veículo com visada livre até atualizar o GPS; nada metálico entre o rastreador e o céu; visada livre de 180 graus; rastreador fixo, nivelado com os LEDs para cima</td></tr></tbody></table></div>
+<ul><li>Forçar conexão: <code>STATUS#</code></li><li>Bloqueio que não atua: o bloqueio padrão só atua com GPS válido e velocidade abaixo de 20 km/h — usar <code>RLYMD,2#</code> ou <code>SZCS#SOURCE_OFF_TYPE=1</code> para bloqueio instantâneo.</li><li>Ignição virtual por acelerômetro (<code>SZCS#ACCLINE=0</code> liga / <code>SZCS#ACCLINE=1</code> desliga) &quot;pode ser usado no V2 também&quot; (anotação da pasta TRACKMAX 4G).</li><li>V2 ONEBLOCK com GPS FAIL: ver solução com firmware J14 V416/V417 em <code>TRACKMAX 4G.md</code>.</li></ul>
+<hr>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="chicote">Chicote</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Significado</th></tr></thead><tbody><tr><td>VERMELHO</td><td>Positivo (9-90V)</td></tr><tr><td>PRETO</td><td>Negativo</td></tr><tr><td>LARANJA</td><td>Linha Acc pós Chave</td></tr><tr><td>AMARELO</td><td>Saída Bloqueio</td></tr></tbody></table></div>
+<h3 id="instalacao">Instalação</h3>
+<p>ATENÇÃO: Antes de inserir o chip, desligar a chave de bateria, inserir o chip, ligar chave de bateria e conectar ao cabo de alimentação.</p>
+<ol><li>Conecte o fio VERMELHO no polo positivo da bateria (+)</li><li>Conecte o fio PRETO no polo negativo da bateria (-) TERRA/GND.</li><li>Conecte o fio LARANJA na linha pós chave ACC +.</li><li>Identifique, teste e corte o fio utilizado para Bloqueio. Efetue os testes e verifique as tensões com Multímetro.</li><li>Monte o relé de bloqueio e ligue o fio AMARELO no pino 86.</li></ol>
+<p>ATENÇÃO: relé de 12 volts para carros e motos, 24 volts para caminhões. Diagrama com relé, pós-chave ACC ON e bomba de combustível. Locais sugeridos: dentro do painel, painel frontal, sob o limpador, próximo do para-brisa do porta-malas traseiro. Local à prova d'água e escondido; LEDs para CIMA; FRENTE PARA CIMA.</p>
+<h3 id="leds">LEDs</h3>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Status</th><th>Significado</th></tr></thead><tbody><tr><td>LED AZUL — Status GPS</td><td>Aceso Direto</td><td>Visada GPS Válida</td></tr><tr><td>LED AMARELO — Status GSM/GPRS</td><td>Aceso Direto</td><td>Conectado</td></tr></tbody></table></div>
+<ul><li>As duas luzes LED de STATUS devem ser estáveis.</li><li>Depois de cerca de 4 minutos, os LEDs entram em standby (apagam).</li><li>Componentes: Chave de Bateria Interna, Micro Sim Card (slot), Led Azul GPS, Led Amarelo Status GSM, Antena GPS.</li></ul>
+<hr>
+<h2 id="observacoes-especificacoes-tecnicas-trackmax-v2">Observações — Especificações técnicas (TrackMax V2)</h2>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Modem GSM/GPRS</td><td>Frequência 850/900/1800/1900 MHz</td></tr><tr><td>Chip SET Processador</td><td>MTK2503</td></tr><tr><td>Transmissão de Dados</td><td>TCP</td></tr><tr><td>Desempenho Máximo</td><td>EGSM900:33dBm±2dB/5dBm±5dB</td></tr><tr><td>Módulo GPS</td><td>2503 Código C/AL1,1575,42Mhz</td></tr><tr><td>Canais GPS</td><td>66</td></tr><tr><td>Precisão do GPS</td><td>&lt;/&gt; 5 Metros</td></tr><tr><td>Sensibilidade Rastreamento / Fixação</td><td>-165dBm / -148dBm</td></tr><tr><td>Tempo para posicionamento</td><td>Avg.hot start &lt;5s Avg.cold start&lt;32s</td></tr><tr><td>Tensão de entrada</td><td>DC9V a 90V</td></tr><tr><td>Consumo funcionamento / economia</td><td>25ma / 10mA</td></tr><tr><td>Bateria backup interna</td><td>100mAH 3.7 volts</td></tr><tr><td>Temperatura trabalho / armazenagem</td><td>-20°C~+60°C / -20°C~+70°C</td></tr><tr><td>Dimensões</td><td>7.4\*1.3\*2.4 cm (C\*A\*L)</td></tr><tr><td>Peso sem chicote</td><td>30 gramas</td></tr><tr><td>Proteção contra água</td><td>IP65</td></tr><tr><td>Bloqueio e Desbloqueio</td><td>1 Saída Negativa. 20KM/h (bloqueio total)</td></tr><tr><td>Ignição Pós Chave</td><td>1 Entrada Positiva ACC +</td></tr><tr><td>Garantia</td><td>12 meses</td></tr><tr><td>Armazenamento</td><td>32 + 32Mb — Memória para 3000 posições</td></tr></tbody></table></div>
+<p>&quot;Nesse manual constam os comandos SMS considerados essenciais para o bom funcionamento do Equipamento. Na necessidade de outras funcionalidades contactem o suporte técnico.&quot;</p>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/v2/MANUAL%20RASTREADOR%20TRACKMAX%20%20V2%20(5)%20-%20Copia.pdf" target="_blank" rel="noopener">MANUAL RASTREADOR TRACKMAX  V2 (5) - Copia.pdf</a> <span class="muted">1.4 MB</span></li></ul></section>
+    <nav class="pager"><a href="v1-2g.html">← V1 2G</a><a href="vitana.html">VITANA →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

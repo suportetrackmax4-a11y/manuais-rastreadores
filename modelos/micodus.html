@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>MICODUS · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#especificacoes">Especificações</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora / servidor</a></li><li><a href="#configuracao-lista-completa-de-comandos-sms-secao-8">Configuração — lista completa de comandos SMS (seção 8)</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#funcoes-explicadas-secao-5">Funções explicadas (seção 5)</a></li><li><a href="#problemas-e-solucoes-secao-7">Problemas e soluções (seção 7)</a></li><li><a href="#sim-requisitos">SIM (requisitos)</a></li><li><a href="#ligacao-leds">Ligação / LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / MICODUS</p>
+    <h1>MICODUS — Rastreador MiCODUS MV730</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> MV730 (Manual do usuário do MV730 V2.0)</li><li><strong>Fabricante:</strong> MiCODUS (Copyright ©2022) — support@micodus.com — Skype: MiCODUS — App &quot;MiCODUS&quot; (iOS / Google Play)</li><li><strong>Protocolo/servidor:</strong> plataforma MiCODUS — IP <code>47.254.77.28</code> porta <code>7700</code> / domínio <code>d.micodus.net</code> porta <code>7700</code></li><li><strong>Senha padrão:</strong> <code>123456</code></li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<ul><li><code>MICODUS (1).pdf</code> — manual MV730 V2.0 <strong>traduzido automaticamente pelo Google</strong> (&quot;Machine Translated by Google&quot;). Atenção: alguns comandos foram traduzidos junto com o texto (ver Observações).</li></ul>
+<hr>
+<h2 id="especificacoes">Especificações</h2>
+<ul><li>Peso 53 g; dimensões 31 mm (C) × 31 mm (L) × 57 mm (A)</li><li>Tensão de trabalho CC 9-90 V; corrente de trabalho &lt;30 mA; corrente em sono &lt;15 uA</li><li>Bateria polímero Li-ion 3,7 V 80 mAh</li><li>Temperatura -20 a 75 °C; umidade 10%-85% UR sem condensação</li><li>2G GSM/GPRS 850/900/1800/1900 MHz; Nano SIM; antenas celular e GPS embutidas</li><li>GPS+GLONASS+LBS; partida a frio ≤32 s; partida a quente ≤1 s; sensibilidade -162 dBm; 64 canais; precisão 5-10 m</li><li>Funções: corte/retomada de combustível remoto, rota histórica, monitoramento em tempo real, alarme de vibração, detecção de ACC, alarme de reboque, alarme de desconexão de energia, cerca geográfica, armar automaticamente por ACC, excesso de velocidade, alarme motor ligado/desligado, plataforma grátis para toda a vida.</li></ul>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora / servidor</h2>
+<p>IP e porta (plataforma MiCODUS: 47.254.77.28, porta 7700)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip+123456+espaço+ip+espaço+porto</code></pre></div>
+<p>Domínio (servidor MiCODUS d.micodus.net, porta 7700)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS,123456,DOMÍNIO=d.micodus.net:7700</code></pre></div>
+<p><em>(no PDF traduzido aparece &quot;SZCS,123456,DOMÍNIO=d.micodus. líquido:7700&quot; — &quot;líquido&quot; é a tradução automática de &quot;net&quot;)</em></p>
+<p>APN (exemplo &quot;cmnet&quot; = APN da China Mobile; use a APN da sua operadora)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 cmnet
+apnuser123456 cmnet
+apnpasswd123456 123</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Formato</th><th>Resposta</th><th>Exemplo</th><th>Observação</th></tr></thead><tbody><tr><td>apn123456+espaço+nome apn</td><td>(SET APN ok)</td><td><code>apn123456 cmnet</code></td><td>Obtenha o nome APN correto do provedor do SIM</td></tr><tr><td>apnuser123456+espaço+apnuser</td><td>apnuser ok</td><td><code>apnuser123456 cmnet</code></td><td>Se a operadora não tiver usuário APN, ignore</td></tr><tr><td>apnpasswd123456+espaço+apnsenha</td><td>senha OK</td><td><code>apnpasswd123456 123</code></td><td>Se não tiver senha APN, ignore</td></tr></tbody></table></div>
+<h2 id="configuracao-lista-completa-de-comandos-sms-secao-8">Configuração — lista completa de comandos SMS (seção 8)</h2>
+<div class="table-wrap"><table><thead><tr><th>Função</th><th>Formato do comando</th><th>Explicação</th></tr></thead><tbody><tr><td>Definir número de administrador</td><td><code>admin123456</code> + espaço + número com código do país</td><td>Adicione o código do país como prefixo. Ex.: <code>admin123456 0086134********</code> → &quot;administrador ok&quot;</td></tr><tr><td>Voltar para configuração de fábrica</td><td><code>begin123456</code></td><td>Toda a configuração será limpa e volta ao padrão de fábrica</td></tr><tr><td>Alteração de senha</td><td>senha + senha antiga + espaço + nova senha (orig. provável: <code>password123456 nova</code>)</td><td>A senha só pode ter 6 dígitos</td></tr><tr><td>Reiniciar</td><td>(texto do comando ilegível na tradução)</td><td>As configurações serão salvas e o dispositivo será reiniciado</td></tr><tr><td>APN</td><td><code>apn123456 conteúdo</code> / <code>apnuser123456 conteúdo</code> / <code>apnpasswd123456 conteúdo</code></td><td>ver acima</td></tr><tr><td>IP e Porta</td><td><code>adminip123456 ip porta</code></td><td>IP Micodus 47.254.77.28; Porta 7700</td></tr><tr><td>Domínio</td><td><code>SZCS,123456,DOMAIN=d.micodus.net:7700</code></td><td>Domínio MiCODUS d.micodus.net, porta 7700</td></tr><tr><td>Link do Google Maps</td><td><code>G123456#</code> ou <code>where</code> (&quot;onde&quot; na tradução)</td><td>ver resposta abaixo</td></tr><tr><td>Frequência de upload</td><td><code>upload123456</code> + espaço + tempo</td><td>Intervalo 10-180 s</td></tr><tr><td>Fuso horário</td><td><code>timezone123456</code> + espaço + nº GMT</td><td>Leste não precisa do sinal &quot;+&quot;. Ex.: Leste 8 → <code>timezone123456 8</code></td></tr><tr><td>Consulta de parâmetros</td><td><code>param1</code> (&quot;parâmetro1&quot;)</td><td>versão do firmware, ID, IP, porta, domínio, APN</td></tr><tr><td>Status</td><td><code>param2</code></td><td>número do administrador, número SOS, distância de movimento, excesso de velocidade, tempo de armar/desarmar automaticamente, intervalo de alarme</td></tr><tr><td>Status</td><td><code>status</code></td><td><code>BAT:10 GPRS: GSM: GPS:A/V ACC:ligado/desligado óleo:ligado/desligado energia:liga/desliga</code></td></tr><tr><td>Armar</td><td><code>111</code> ou <code>SF</code></td><td></td></tr><tr><td>Desarmar</td><td><code>000</code> ou <code>CF</code></td><td></td></tr><tr><td>Corte de combustível</td><td><code>555</code></td><td></td></tr><tr><td>Retomar combustível</td><td><code>666</code></td><td></td></tr><tr><td>Alarme de movimento</td><td>distância de movimento + alarme (orig. provável: <code>move123456 distância</code>)</td><td>Alcance 100-1000 m</td></tr><tr><td>Alarme de excesso de velocidade</td><td><code>speed123456</code> + espaço + limite (&quot;velocidade+123456+espaço+limite de velocidade&quot;)</td><td>20-150 km/h</td></tr><tr><td>Verificação de IMEI</td><td><code>imei123456</code></td><td></td></tr><tr><td>Modo de suspensão</td><td><code>sleep123456 time</code> (&quot;tempo sleep123456&quot;)</td><td>Parado &gt;5 min entra em espera; SMS e chamadas acordam</td></tr><tr><td></td><td><code>sleep123456 shock</code> (&quot;sleep123456 choque&quot;)</td><td>Parado &gt;5 min entra em espera; vibração, SMS e chamadas acordam</td></tr><tr><td></td><td><code>sleep123456 off</code> (&quot;sleep123456 desligado&quot;)</td><td>Cancelar modo de espera</td></tr><tr><td>Alarme vibratório</td><td><code>vibcall123456 x,y</code> (&quot;vibração, y&quot;)</td><td>x=1-3 (1: SMS, 2: chamada, 3: primeiro SMS e depois chamada); y=1-9, 1 é o mais sensível</td></tr><tr><td></td><td><code>vibalm123456</code></td><td>Alarme vibratório por SMS definido como ok</td></tr><tr><td>Alarme de reboque</td><td><code>towA,B</code> (&quot;reboqueA,B&quot;)</td><td>A: 1-4 (1 SMS, 2 chamada, 3 SMS+Chamada, 4 plataforma); B: distância 500-10000 m</td></tr><tr><td>Armar automático por ACC</td><td><code>acc,tempo</code> (&quot;conta, tempo&quot;)</td><td>Tempo 5-1200 segundos</td></tr><tr><td>Alarme motor ligado/desligado</td><td><code>autorep123456,AB</code></td><td>ver abaixo</td></tr></tbody></table></div>
+<h2 id="consultas">Consultas</h2>
+<p>Resposta do <code>G123456#</code> / <code>where</code>:</p>
+<ul><li>V:A — dispositivo tem sinal GPS; V:V — sem sinal GPS</li><li>2019-11-26 10:17:01 — data e hora</li><li>S: 000km/h — velocidade</li><li>Bat:5 — nível da bateria reserva (6 níveis: 6=100%, 5=80%, 4=60%, 3=40%, 2=20%, 1=10%)</li><li>ACC: off — status do motor</li><li>7201000006 — número de identificação do dispositivo</li><li>S26 — sinal GSM 26; G06 — sinal GPS 06</li><li>p:46000, l:13152, c:63162 — código LBS</li></ul>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>G123456#
+param1
+param2
+status
+imei123456</code></pre></div>
+<h2 id="funcoes-explicadas-secao-5">Funções explicadas (seção 5)</h2>
+<p><strong>a. Alerta de vibração</strong> (funciona apenas com o veículo parado)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>admin123456 0086134********
+111
+vibalm123456</code></pre></div>
+<p>Respostas: &quot;administrador ok&quot;, &quot;armar ok&quot;, &quot;alarme vibratório sms definido como ok&quot;. Deixe parado &gt;5 min para entrar em espera; ao vibrar envia alarme.</p>
+<p><strong>b. Cortar / retomar combustível</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>admin123456 0086134********
+555
+666</code></pre></div>
+<p>Resposta do 555: &quot;corte o óleo ok&quot;. Certifique-se de que o circuito de combustível está ligado. Três comportamentos:</p>
+<ul><li>Com rede e satélite: acima de 20 km/h corta intermitentemente até ficar abaixo de 20 km/h, então corta completamente.</li><li>Com rede sem satélite: corta intermitentemente e após 2-3 minutos corta completamente.</li><li>Parado há mais de 5 minutos: corta imediatamente.</li></ul>
+<p><strong>c. Alarme motor ligado/desligado</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>autorep123456,AB
+autorep12346,12</code></pre></div>
+<ul><li>A=0 Motor LIGADO sem alarme; A=1 somente SMS; A=2 somente plataforma; A=3 SMS+Plataforma</li><li>B=0 Motor DESLIGADO sem alarme; B=1 somente SMS; B=2 somente plataforma; B=3 SMS+Plataforma</li></ul>
+<p><em>(o exemplo &quot;autorep12346,12&quot; está assim no PDF — falta um &quot;5&quot;)</em></p>
+<h2 id="problemas-e-solucoes-secao-7">Problemas e soluções (seção 7)</h2>
+<div class="table-wrap"><table><thead><tr><th>Problema</th><th>Verificar</th></tr></thead><tbody><tr><td>Não conecta à plataforma</td><td>APN e configurações; serviço de dados do SIM habilitado; saldo do SIM</td></tr><tr><td>Rastreador offline</td><td>Alimentação externa conectada; área sem cobertura de rede; saldo do SIM</td></tr><tr><td>Não localiza / desvio de localização</td><td>Parte superior voltada para cima sem metal por cima; área com cobertura de satélite; prédios altos/porão causam deriva; vibração ao redor aciona o acelerômetro</td></tr><tr><td>Sem resposta de comando</td><td>Formato do comando correto; veículo em área sem rede; SIM bem inserido e com SMS</td></tr></tbody></table></div>
+<ul><li>APN errada: o rastreador responde &quot;SET APN ok&quot; mesmo assim, mas não fica online — a APN precisa estar 100% correta.</li></ul>
+<h2 id="sim-requisitos">SIM (requisitos)</h2>
+<ul><li>Compatível com rede GSM 2G</li><li>SMS, chamadas e dados habilitados</li><li>Identificador de chamadas habilitado</li><li>Remover código PIN</li><li>Tamanho Nano SIM</li></ul>
+<h2 id="ligacao-leds">Ligação / LEDs</h2>
+<p><strong>Fiação (diagrama):</strong> bateria do carro (+ vermelho com fusível, − preto), laranja → ACC (chave ON), fios azul e verde → corte da linha da bomba de combustível (cortar o fio da bomba e ligar azul numa ponta e verde na outra).</p>
+<ul><li>Alimentação 9-90 V CC</li><li>Tensão da linha da bomba de combustível: 5V-30V; corrente &lt; 60A</li><li>Após instalar o SIM, conectar o rastreador a uma fonte externa de pelo menos 12 V antes da operação!</li></ul>
+<p><strong>LEDs:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Evento</th><th>Estado</th></tr></thead><tbody><tr><td>GSM (verde)</td><td>Procurando rede</td><td>Pisca</td></tr><tr><td>GSM (verde)</td><td>Rede registrada</td><td>Sólido</td></tr><tr><td>GPS (azul)</td><td>GPS procurando posição</td><td>Pisca a cada 1 segundo</td></tr><tr><td>GPS (azul)</td><td>GPS fixado</td><td>Sólido</td></tr><tr><td>Todos</td><td>Funcionando mas parado há mais de 5 minutos</td><td>Pisca a cada 1 segundo</td></tr><tr><td>Todos</td><td>Não ligado / sem bateria</td><td>Todos desligados</td></tr></tbody></table></div>
+<p><strong>Instalação recomendada:</strong> sob o painel frontal, pedal da porta interna, dentro do farol, dentro da capa frontal, dentro da lanterna traseira ou plástico, sob o pedal. O dispositivo deve ficar voltado para o céu; película metálica/aquecimento do para-brisa afeta o sinal.</p>
+<p><strong>Embalagem:</strong> unidade GPS, cabo de função, pino/ferramenta, relé/chicote, guia do usuário, caixa.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>PDF traduzido automaticamente: palavras-comando foram traduzidas (&quot;onde&quot; = <code>where</code>, &quot;choque&quot; = <code>shock</code>, &quot;desligado&quot; = <code>off</code>, &quot;reboque&quot; = <code>tow</code>, &quot;conta&quot; = <code>acc</code>, &quot;velocidade&quot; = <code>speed</code>, &quot;tempo&quot; = <code>time</code>, &quot;senha&quot; = <code>password</code>, &quot;líquido&quot; = <code>net</code>). Os equivalentes em inglês indicados acima são dedução, não estão escritos no PDF.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/micodus/MICODUS%20(1).pdf" target="_blank" rel="noopener">MICODUS (1).pdf</a> <span class="muted">900 KB</span></li></ul></section>
+    <nav class="pager"><a href="manula-e3.html">← MANULA E3+</a><a href="minhas-anotacoes.html">MINHAS ANOTAÇÕES →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

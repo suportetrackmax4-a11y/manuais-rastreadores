@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>J14 GT06 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / J14 GT06</p>
+    <h1>J14 GT06 (pacote de firmware)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> J14 com módulo MC20, protocolo GT06. Firmware <code>J14_MC20_GT06_V615_20221126</code> (26/11/2022).</li><li><strong>Fabricante/Protocolo:</strong> plataforma MediaTek <strong>MT6261</strong> (bootloader <code>ULTRA2503D_11C_BOOTLOADER_V005_MT6261_MAUI_11C_W13_52_SP3_V3_F29.bin</code>), GPS MediaTek <strong>MT3333</strong> (<code>MT3333.bin</code>). Protocolo GT06.</li><li><strong>Arquivos-fonte:</strong> esta pasta é só ferramenta de gravação de firmware, sem manual nem comandos.<ul><li>Lidos: <code>output/MultiPortFlashDownloadProject.ini</code>, <code>output/USBSwitchTool.ini</code>, <code>output/BACKUP.ini</code>, <code>output/BACKUP.ini_backup</code>, <code>output/brom.ini</code>, <code>output/J14_MC20_GT06_V615_20221126/ULTRA2503D_11C_BB.cfg</code></li><li>Ignorados (programa, firmware ou binário): <code>MultiPortFlashDownloadProject.exe</code>, <code>USBSwitchTool.exe</code>, <code>DualTalkSwitchTool.exe</code>, <code>*.dll</code>, <code>*.bin</code>, <code>ROM</code>, <code>VIVA</code>, <code>ALICE</code>, <code>ZIMAGE_ER</code>, <code>EXT_BOOTLOADER</code>, <code>DYNAMIC_COMP_*</code>, <code>MTK_DATABASE.mdb</code>, <code>.lib</code>, <code>.map</code>, <code>.pch</code>, <code>.drc</code>, <code>MDTDATA</code>, manifests</li></ul></li></ul>
+<h2 id="consultas">Consultas</h2>
+<p>Nenhuma (não há comandos SMS nesta pasta). Veja a pasta <strong>J14 2g</strong> para os comandos do J14.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="gravacao-do-firmware-mediatek-multiport-flash-download-tool">Gravação do firmware (MediaTek MultiPort Flash Download Tool)</h3>
+<p>Configuração salva no <code>MultiPortFlashDownloadProject.ini</code>:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Cable=USB
+Baseband chip=auto detect
+External clock=26mhz
+Baudrate=115200
+Type=Download ROM
+DA_bin=C:\Users\user\Desktop\J14 GT06\output\MTK_AllInOne_DA.bin
+Format FAT range=manual
+Format FAT begin address =0x03C00000
+Format FAT length =0x00400000
+NAND format FAT begin address =0x02000000
+NAND format FAT length =0x06000000
+Scatter_Folder=C:\Users\user\Desktop\VT14 GT06 - English\J14_H18_V611_20220401
+OperateFlashType=NAND
+USB DL With Two Site=yes
+TheFirstComPortNo=4
+Reset to factory default visible=yes
+Com port filter=Vid_0e8d&amp;Pid_0003&amp;Rev_0100
+DisconnectUSBComportAfterDownload=1
+Preloader USB filter=VID_0E8D&amp;PID_2000
+download_retry_times=2</code></pre></div>
+<ul><li><strong>DA (Download Agent):</strong> <code>MTK_AllInOne_DA.bin</code> (existe também <code>MTK_AllInOne_DA_MT3333_MP.BIN</code> e <code>gps_DA.bin</code> para o GPS)</li><li><strong>Pasta scatter/firmware:</strong> apontava para <code>J14_H18_V611_20220401</code>. Para gravar a V615, aponte para <code>J14_MC20_GT06_V615_20221126</code>.</li><li><strong>Filtros USB MediaTek:</strong> VID <code>0E8D</code>, PID <code>0003</code> (BROM) / <code>2000</code> (preloader)</li></ul>
+<h3 id="mapa-de-regioes-do-firmware-ultra2503d-11c-bb-cfg">Mapa de regiões do firmware (ULTRA2503D_11C_BB.cfg)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>platform: MT6261
+boot_region: ULTRA2503D_11C_BOOTLOADER_V005_MT6261_MAUI_11C_W13_52_SP3_V3_F29.bin, EXT_BOOTLOADER
+main_region: ROM, VIVA
+gps_module_region: MT3333.bin</code></pre></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Nenhuma.</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li>A pasta <code>backup/</code> guarda <code>ROM.orig</code> e <code>VIVA.orig</code> (cópias originais antes de uma modificação).</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Não há informações.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li><code>USBSwitchTool.ini</code>: detecta o dispositivo MediaTek (<code>USB\Vid_0e8d&amp;Pid_00A2&amp;MI_01</code>), baudrate 115200.</li><li><code>BACKUP.ini</code> e <code>brom.ini</code> são padrões da ferramenta (backup e restauração de NVRAM em <code>Z:\NVRAM\NVD_DATA\</code>) e não têm conteúdo útil.</li></ul>
+    
+    <nav class="pager"><a href="j14-2g.html">← J14 2g</a><a href="jimi.html">JIMI →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

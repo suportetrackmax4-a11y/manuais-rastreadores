@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>VITANA · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / VITANA</p>
+    <h1>VITANA — VIT-4100</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Vitana VIT-4100</li><li><strong>Fabricante / protocolo:</strong> Vitana — comandos SMS numéricos no formato <code>SENHA,CÓDIGO,parâmetros</code> (senha padrão <code>0000</code>)</li><li><strong>Arquivos-fonte:</strong><ul><li><code>VITANA/Comandos SMS VIT 4100.pdf</code> (3 páginas)</li><li><code>VITANA/VITANA.txt</code></li></ul></li></ul>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<ul><li>Nenhum comando de consulta documentado nos arquivos.</li></ul>
+<hr>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="servidor-ip-dns-e-porta">Servidor (IP/DNS e porta)</h3>
+<p>Server 1:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,100,1,IP_OU_DNS_SERVIDOR,PORTA</code></pre></div>
+<p>Server 2:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,105,1,IP_OU_DNS_SERVIDOR,PORTA</code></pre></div>
+<h3 id="apn-usuario-senha">APN / Usuário / Senha</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,109,APN,APN_USUARIO,APN_SENHA</code></pre></div>
+<h3 id="tempo-de-posicionamento">Tempo de posicionamento</h3>
+<p>Server (1):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,102,60,3600,300</code></pre></div>
+<p>Server (2):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,106,60,3600,300</code></pre></div>
+<ul><li>60 – Tempo Posição ACC ON</li><li>3600 – Tempo posição ACC OFF</li><li>300 – Tempo posição para entrar em ACC OFF</li></ul>
+<h3 id="modo-de-transmissao-fifo">Modo de transmissão FIFO</h3>
+<p>Server (1):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,104,1</code></pre></div>
+<p>Server (2):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,108,1</code></pre></div>
+<h3 id="posicionamento-por-distancia-angulo-tempo">Posicionamento por distância / ângulo / tempo</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,120,1000</code></pre></div>
+<p>por distância</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,121,45</code></pre></div>
+<p>por ângulo (0 a 180 graus)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,122,60</code></pre></div>
+<p>por tempo</p>
+<h3 id="excesso-de-velocidade">Excesso de velocidade</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,123,100</code></pre></div>
+<p>100 – Velocidade limite</p>
+<h3 id="eventos-de-conducao">Eventos de condução</h3>
+<p>Aceleração brusca:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,128,valor</code></pre></div>
+<p>Desaceleração:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,129,valor</code></pre></div>
+<p>Curva acentuada:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,130,valor</code></pre></div>
+<p>Impacto:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,131,valor</code></pre></div>
+<p>Reboque (132 comando, 10 tempo, 1 modo):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,132,10,1</code></pre></div>
+<p>Marcha lenta (após 5 minutos na lenta gera o evento):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,133,5</code></pre></div>
+<p>Condução/Fadiga/Descanso (240 tempo para fadiga, 20 tempo de descanso, tempo de condução):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,134,240,20,480</code></pre></div>
+<h3 id="combustivel">Combustível</h3>
+<p>Tanque (1000 comprimento, 500 largura, 600 altura):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,138,1000,500,600</code></pre></div>
+<p>Tipo de sensor de combustível:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,139,índice,tipo,nome</code></pre></div>
+<h3 id="saida-out-1">Saída OUT-1</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,251,1,3,10,500,500</code></pre></div>
+<ul><li>1 – Número da Saída</li><li>3 – Modo Pulso</li><li>10 – Active Time</li><li>500 – On Time</li><li>500 – Off Time</li></ul>
+<h3 id="bloqueio-desbloqueio">Bloqueio / desbloqueio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,900,1,1</code></pre></div>
+<p>bloqueio</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,900,1,0</code></pre></div>
+<p>desbloqueio</p>
+<h3 id="resetar-equipamento">Resetar equipamento</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,910,3</code></pre></div>
+<h3 id="telefones-para-sms-do-botao-de-panico">Telefones para SMS do botão de pânico</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,201,num1,num2,num3</code></pre></div>
+<p>3 números com no máximo 16 dígitos.</p>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-chip-max">TrackMax (chip MAX)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,100,1,dns.trackmax.com.br,5023
+
+0000,109,trackmax.br,max,max</code></pre></div>
+<p>Tempo de comunicação ignição ligada e desligada:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,102,60,3600,300</code></pre></div>
+<p>Posicionamento por distância / ângulo / tempo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0000,120,1000
+0000,121,45
+0000,122,60</code></pre></div>
+<ul><li>Servidor: <code>dns.trackmax.com.br</code> porta <strong>5023</strong></li><li>APN: <code>trackmax.br</code>, usuário <code>max</code>, senha <code>max</code></li></ul>
+<hr>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li>Nenhum registrado nos arquivos.</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<ul><li>Nenhuma informação de ligação/LED nos arquivos.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li><code>0000</code> é a senha do equipamento que precede todos os comandos.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/vitana/Comandos%20SMS%20VIT%204100.pdf" target="_blank" rel="noopener">Comandos SMS VIT 4100.pdf</a> <span class="muted">82 KB</span></li></ul></section>
+    <nav class="pager"><a href="v2.html">← V2</a><a href="wetrack.html">WETRACK →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

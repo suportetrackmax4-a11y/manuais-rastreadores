@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SUNTECH2G · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / SUNTECH2G</p>
+    <h1>SUNTECH 2G — ST310U / ST300 / ST340 / ST215 / ST240</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Suntech ST310U (linha 300 — ST300/ST340, ST300HD), protocolo antigo ST215 / ST215 E/I / ST215LC / ST215W / ST240 (linha 200)</li><li><strong>Fabricante / protocolo:</strong> Suntech (Suntech do Brasil) — comandos SMS <code>ST300xxx;</code> (protocolo novo) e <code>SA200xxx;</code> (protocolo antigo)</li><li><strong>ID:</strong> ST2XX (protocolo 200) usa <strong>6 dígitos</strong>; ST3XX (protocolo 300) usa <strong>9 dígitos</strong>. Exemplo: <code>015553</code> protocolo 200 / <code>007015553</code> protocolo 300 (o ID fica no final do IMEI na etiqueta, ex.: IMEI 35643…<strong>007015553</strong>)</li><li><strong>Arquivos-fonte:</strong><ul><li><code>SUNTECH2G/ANGULO 30 GRAUS SUNTECH ST3.txt</code></li><li><code>SUNTECH2G/LEDS GPRS SUNTECH.jpeg</code> (imagem — tabela LED GPRS azul)</li><li><code>SUNTECH2G/LEDS GPS SUNTECH.jpeg</code> (imagem — tabela LED GPS vermelho)</li><li><code>SUNTECH2G/Suntech - Comandos SMS (1) (4).pdf</code></li><li><code>SUNTECH2G/SUNTECH 2G 310U TESTADO.txt</code></li><li><code>SUNTECH2G/SUNTECH LOGICA DAS SAIDA SMS.txt</code></li><li><code>SUNTECH2G/SUNTECH SMS TRACKMAX V1 2022 (6).xlsx</code> e <code>... (6) - Copia.xlsx</code> (idênticos — deduplicados)</li><li><code>SUNTECH2G/SUNTECH ST200 ST300.jpg</code> (imagem — ID 6/9 dígitos e troca de protocolo)</li><li><code>SUNTECH2G/SUNTECH STRING DE COMANDOS (3).pdf</code></li><li><code>SUNTECH2G/SUNTECH TRACKMAX.txt</code></li></ul></li></ul>
+<blockquote>Os comandos abaixo são do protocolo novo (ST300/ST340). Se o equipamento for do protocolo antigo (ST215/ST240), trocar <code>ST300</code> por <code>SA200</code> (Ex.: <code>SA200CMD;XXXX;02;Enable1</code>). Protocolo antigo usa 6 números do ID; protocolo novo usa 9 dígitos.</blockquote>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;StatusReq</code></pre></div>
+<p>SOLICITA POSIÇÃO (requisitar posição GPRS)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Preset</code></pre></div>
+<p>SOLICITA CONFIGURAÇÃO BÁSICA</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;PresetA</code></pre></div>
+<p>SOLICITA CONFIGURAÇÃO COMPLETA (retorno de configuração)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqIMSI</code></pre></div>
+<p>IMSI</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqICCID</code></pre></div>
+<p>Requisitar ICCID</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqVer</code></pre></div>
+<p>Versão</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;InitMsgNo</code></pre></div>
+<p>REQUISITAR NUMERO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ReqShortTest
+ST300CMD;SERIAL;02;ReqTest</code></pre></div>
+<p>Solicitar link no Google Maps (SMS):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Where are you</code></pre></div>
+<p>(&quot;Requisitar posição SMS&quot; — &quot;Where are you&quot;. Só funciona para versões acima de 200 / nos rastreadores com versões: 207B = ST215 E/I, 208B = ST215LC, 249 = ST215W, 212 = ST240.)</p>
+<hr>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="parametros-de-rede-apn-dns-ip-porta-st300ntw">Parâmetros de rede (APN / DNS / IP / Porta) — ST300NTW</h3>
+<p>Formato: <code>ST300NTW;SERIAL;02;AUTENTICAÇÃO;APN;USR;PASSWD;IP1;PORTA1;IP2;PORTA2;NUMERO SMS;NUMERO PIN</code></p>
+<ul><li>Autenticação: <code>0</code> = Vivo; <code>1</code> = outros (Tim, Claro, Oi, Algar e outros)</li></ul>
+<p>Protocolo antigo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200NTW;XXXX;02;Autenticação;APN;Usuário;Senha;IP primário;Porta;IPsecundário;Porta;Número do SMS;PIN</code></pre></div>
+<p>Explicação campo a campo (planilha TrackMax V1 2022):</p>
+<div class="table-wrap"><table><thead><tr><th>Trecho</th><th>Significado</th></tr></thead><tbody><tr><td><code>ST300NTW;</code></td><td>PROTOCOLO ST3XX</td></tr><tr><td><code>205621764;</code></td><td>ID (NÚMERO DE SÉRIE DO EQUIPAMENTO)</td></tr><tr><td><code>02;</code></td><td>Padrão SMS</td></tr><tr><td><code>1;</code></td><td>Sim para Autenticação (nesse caso chip ALGAR) — <code>0;</code> Não para Autenticação quando usar chip VIVO</td></tr><tr><td><code>ss.algar.br;</code></td><td>APN do chip a ser utilizado</td></tr><tr><td><code>algar;algar;</code></td><td>Usuário e senha do chip a ser utilizado</td></tr><tr><td><code>dns.trackmax.com.br;</code></td><td>DNS do Servidor da Plataforma TrackMax</td></tr><tr><td><code>5011;</code></td><td>PORTA do Servidor da Plataforma TrackMax</td></tr><tr><td><code>35.230.168.225;</code></td><td>IP do Servidor da Plataforma TrackMax</td></tr><tr><td><code>5011;</code></td><td>PORTA do Servidor da Plataforma TrackMax</td></tr><tr><td><code>NUMERO_CELULAR;</code></td><td>Número do Celular Autorizado para enviar SMS</td></tr></tbody></table></div>
+<h3 id="parametros-de-envio-intervalo-st300rpt">Parâmetros de envio (intervalo) — ST300RPT</h3>
+<p>Formato: <code>ST300RPT;ID;02;Parado(segundos);Movimento(segundos);60;3;0;200;0;0;0</code> Campos: PADRÃO | ENVIO PARADO | ENVIO MOVIMENTO | ENVIO EMERGÊNCIA | DISTÂNCIA ENVIO POSIÇÕES | KEEP ALIVE | PARADO SMS | MOVIMENTO SMS | Nº DE POSIÇÕES SMS</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3000;60;60;3;0;600;0;0;0</code></pre></div>
+<p>CARRO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3600;60;60;3;0;0;0;0;0</code></pre></div>
+<p>MOTO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3600;60;60;3;0;300;0;0;0</code></pre></div>
+<p>RECOMENDADO MANUAL ST310U</p>
+<p>Protocolo antigo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200RPT;XXXXX;02;Tempo parado;Tempo Movimento;60;3;0;200;0;0;0</code></pre></div>
+<h3 id="angulo-30-graus-st3-st300npt">Ângulo 30 graus (ST3) — ST300NPT</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NPT;SERIAL;02;30.0;1;30;0;1;500;300;5;10;100;10;180;100;1</code></pre></div>
+<p>LIFO:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NPT;ID;02;0.0;1;30;0;0;300;300;5;10;100;10;180;100;1</code></pre></div>
+<p>FIFO:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NPT;ID;02;0.0;0;30;0;0;300;300;5;10;100;10;180;100;1</code></pre></div>
+<h3 id="ignicao-st300evt">Ignição — ST300EVT</h3>
+<p>Ignição pelo fio (Entrada 1):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;60;0;12;2;9;60;0;0;1;7;1;1;;;;;;;9;9;;;0</code></pre></div>
+<p>Ativar ignição virtual por acelerômetro:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;3;Desligado(segundos);Ligado(segundos);0;13;9;30;20;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Ativar ignição virtual por tensão da bateria:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;2;10;0;0;13;9;30;20;0;0;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<h3 id="parametros-de-eventos">Parâmetros de eventos</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;SERIAL;02;0;300;0;12;0;9;30;30;0;0;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>BLOQUEIO COM UM PULSO CARRO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;SERIAL;02;0;300;0;12;0;9;30;30;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>BLOQUEIO GRADATIVO MOTO</p>
+<h3 id="tensao-da-bateria-st300mbv">Tensão da bateria — ST300MBV</h3>
+<p>Campos: PARAR DE CARREGAR BATERIA 12V | PARAR DE CARREGAR BATERIA 24V | TENSÃO QUE DECIDE VOLTAGEM (12/24) | TENSÃO DE PROTEÇÃO 12V | TENSÃO DE PROTEÇÃO 24V | Ign virt alta | Ign virt baixa</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MBV;ID;02;0;0;17.20;9.00;19.00;0;0</code></pre></div>
+<p>Ex.: <code>ST300MBV;ID;02;0;0;17.20;9.00;19.00;(Alta);(Baixa)</code> (ou deixar em <code>0;0</code> para detecção automática).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MBV;SERIAL;02;0;0;17.20;8.00;18.00;0.00;0.00</code></pre></div>
+<h3 id="bateria-interna-st300bat">Bateria interna — ST300BAT</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300BAT;SERIAL;02;0;3.4</code></pre></div>
+<p>DESLIGAR BATERIA</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300BAT;SERIAL;02;1;3.4</code></pre></div>
+<p>LIGAR BATERIA</p>
+<h3 id="parametros-gsm">Parâmetros GSM</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300GSM;SERIAL;02;0;;;;;0;;;;;;;</code></pre></div>
+<p>Com número autorizado (planilha):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300GSM;205731583;02;1;NUMERO_CELULAR;;;;1;;;;;;;</code></pre></div>
+<h3 id="sensor-de-movimento-acelerometro-st300msr">Sensor de movimento (acelerômetro) — ST300MSR</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MSR;SERIAL;02;600;0.04;0.04;0.7</code></pre></div>
+<p>CARRO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MSR;SERIAL;02;600;0.10;0.10;0.7</code></pre></div>
+<p>MOTO</p>
+<h3 id="servicos-st300svc">Serviços — ST300SVC</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;SERIAL;02;1;200;1;0;0;1;1;0;1;3;0;0;0</code></pre></div>
+<p>RECOMENDADO CARRO/MOTO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;SERIAL;02;1;200;1;0;0;0;1;0;1;1;0;0;0</code></pre></div>
+<p>CARRO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;SERIAL;02;1;200;1;0;0;0;1;0;1;2;0;0;0</code></pre></div>
+<p>MOTO</p>
+<p>Desativar protocolo ZIP:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;318;1;300;0;0;0;0;1;0;1;0;0;1;0</code></pre></div>
+<p>Ativar modo sleep:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;2;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<p>Ativar modo ultra sleep:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;1;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<p>Desativar modo sleep/ultra sleep:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;0;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<p>Desabilitar envio das posições de memória agrupadas:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;0;0;0;0;1;0;1;0;0;1;0</code></pre></div>
+<p>Habilitar envio das posições de memória agrupadas:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;0;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<h3 id="configuracao-para-motos-pdf-comandos-sms">Configuração para MOTOS (PDF Comandos SMS)</h3>
+<p>Parâmetros de envio de posições:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;ID;02;0;60;60;3;0;0;0;0;0</code></pre></div>
+<p>Parâmetros de eventos:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;300;0;12;0;9;30;20;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Parâmetros de serviços:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;1;0;0;0;1;0;1;1;0;0;0</code></pre></div>
+<p>Parâmetros de M. Sensor:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MSR;ID;02;5;0.10;0.10;0.70</code></pre></div>
+<h3 id="acoes-st300cmd">Ações (ST300CMD)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Reboot</code></pre></div>
+<p>REINICIAR SEM APAGAR (aguarde em média 1 minuto para reiniciar)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Reset</code></pre></div>
+<p>REINICIAR FORMATANDO</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Enable1</code></pre></div>
+<p>Ativar saída 1 — Bloqueio (OBSERVAR LÓGICA DE ATIVAÇÃO)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;Disable1</code></pre></div>
+<p>Desativar saída 1 — Desbloqueio (OBSERVAR LÓGICA DE ATIVAÇÃO)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;EraseAll</code></pre></div>
+<p>Apagar posições de memória</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;InitDist
+ST300CMD;SERIAL;02;SetOwnNo=+55DDDNUMERO
+ST300CMD;SERIAL;02;RestartAntiTheft2</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;SetHMeter=1</code></pre></div>
+<p>SETAR CONTADOR DE HORAS TRABALHADAS</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;SetOdometer=12</code></pre></div>
+<p>SETAR ODÔMETRO TOTAL. Ex.: <code>ST300CMD;ID;02;SetOdometer=25999</code> → odômetro no sistema: 25999 km Habilitar odômetro:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300HTP;ID;02;1;1;A;A;0;0;0;0;;;1;0;0;0;0</code></pre></div>
+<p>Incrementação do odômetro com ignição desligada:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;SetOdoIgn=0</code></pre></div>
+<ul><li><code>0</code>: o dispositivo incrementa o odômetro, independente do status da ignição.</li><li><code>1</code>: o dispositivo não incrementa o odômetro se a ignição for desligada.</li><li>OBS: essa função é aplicada apenas para ignição física.</li></ul>
+<p>Otimização da bateria backup (quando está com a bateria principal desconectada) — 0 = desativa / 1 = ativa:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;SERIAL;02;ImproveBatteryLife=1</code></pre></div>
+<p>Protocolo antigo (SA200):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200CMD;XXXXX;02;StatusReq
+SA200CMD;XXXX;02;Enable1
+SA200CMD;XXXX;02;Disable1
+SA200CMD;XXXX;02;Enable2
+SA200CMD;XXXX;02;Disable2
+SA200CMD;XXXX;02;Preset</code></pre></div>
+<p>(Requisitar posição GPRS / Ativar Saída 1 / Desativar Saída 1 / Ativar Saída 2 / Desativar Saída 2 / Solicitar Configuração)</p>
+<h3 id="troca-de-protocolo-300-200">Troca de protocolo 300 → 200</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300ADP;id9digitos;02;T;T;0;;1;0;0;0;0;0</code></pre></div>
+<h3 id="st300hd-motoristas-ibutton">ST300HD — motoristas (iButton)</h3>
+<p>Adicionar motorista:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300HAD;ID;02;Número motorista;ID I-Button</code></pre></div>
+<p>Remover motorista:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300HRD;ID;02;Número motorista</code></pre></div>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-chip-vivo-tcp">TrackMax — chip VIVO (TCP)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;007856256;02;0;tmax.m2m.vivo.com.br;vivo;vivo;dns.trackmax.com.br;5011;35.230.168.225;5011;0;0</code></pre></div>
+<h3 id="trackmax-chip-algar">TrackMax — chip ALGAR</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;205621764;02;1;ss.algar.br;algar;algar;dns.trackmax.com.br;5011;35.230.168.225;5011;;</code></pre></div>
+<h3 id="trackmax-apn-trackmax-br-st310u-testado">TrackMax — APN trackmax.br (ST310U testado)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;511111342;02;1;trackmax.br;max;max;dns.trackmax.com.br;5011;35.230.168.225;5011;;</code></pre></div>
+<h3 id="trackmax-protocolo-antigo-sa200-vivo-zap">TrackMax — protocolo antigo SA200 (Vivo zap)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200NTW;digite aqui o id do equipamento;02;01;zap.vivo.com.br;vivo;vivo;35.230.168.225;5011;35.230.168.225;5011</code></pre></div>
+<p>(Comando SMS para tentativa de conexão com a Plataforma TRACKMAX)</p>
+<p>Servidor TrackMax: DNS <code>dns.trackmax.com.br</code> / IP <code>35.230.168.225</code> — porta <code>5011</code>.</p>
+<h3 id="vivo-smart-m2m-servidor-200-98-204-151-7210">Vivo smart.m2m (servidor 200.98.204.151 / 7210)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;SERIAL;02;0;smart.m2m.vivo.com.br;vivo;vivo;200.98.204.151;7210;200.98.204.152;7210;0;0</code></pre></div>
+<p>Somente IP primário:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;SERIAL;02;0;smart.m2m.vivo.com.br;vivo;vivo;200.98.204.151;7210;;;0;0</code></pre></div>
+<p>(Tabela do PDF mostra também exemplo: APN <code>smart.m2m.vivo.com.br</code>, usuário <code>Vivo</code>, senha <code>Vivo</code>, IP <code>193.193.165.166</code>, porta <code>7210</code>.)</p>
+<h3 id="iter-vivo-m2m-lb-iter-sc-8220">Iter / Vivo M2M (lb.iter.sc / 8220)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;ID;02;0;iter.m2m.vivo.com.br;;;lb.iter.sc;8220;lb1.iter.sc;8220;;</code></pre></div>
+<p>APN ESEYE:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;ID;02;1;ESEYE1;USER;PASS;lb.iter.sc;8220;lb1.iter.sc;8220;;</code></pre></div>
+<hr>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<h3 id="st310u-2g-sequencia-testada-se-nao-subir">ST310U 2G — sequência testada (se não subir)</h3>
+<p>&quot;SE NÃO SUBIR, ATIVAR SMS DE RETORNO E ENVIAR OS COMANDOS&quot;:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;511111342;02;1;trackmax.br;max;max;dns.trackmax.com.br;5011;35.230.168.225;5011;;
+
+ST300EVT;511111342;02;0;60;0;12;2;9;60;0;0;1;7;1;1;;;;;;;9;9;;;0
+
+ST300CMD;511111342;02;EraseAll
+
+ST300RPT;511111342;02;3000;60;60;3;0;600;0;0;0
+
+ST300EVT;511111342;02;0;300;0;12;0;9;30;30;0;0;7;1;1;0;0;0;0;0;0;9;9;0;0;0
+
+ST300GSM;511111342;02;0;;;;;0;;;;;;;
+
+ST300MSR;11111342;02;600;0.04;0.04;0.7
+
+ST300SVC;511111342;02;1;200;1;0;0;1;1;0;1;3;0;0;0
+
+ST300MSR;511111342;02;600;0.04;0.04;0.7</code></pre></div>
+<p>Retorno de configuração: <code>ST300CMD;511111342;02;PresetA</code> — Reboot: <code>ST300CMD;511111342;02;Reboot</code> — Requisitar status: <code>ST300CMD;511111342;02;StatusReq</code> (Obs.: no original a primeira linha ST300MSR está com o ID <code>11111342</code>, faltando o &quot;5&quot;; a linha seguinte repete com o ID correto.)</p>
+<h3 id="logica-das-saidas-bloqueio-invertido">Lógica das saídas (bloqueio invertido)</h3>
+<p>Bloqueio para Pino 87:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;XXXXXXXXX;02;0;10;0;12;0;9;30;20;0;0;7;0;0;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Bloqueio para Pino 86 — &quot;<em>DEU CERTO QUANDO O BLOQUEIO ESTAVA AO CONTRARIO</em>&quot;:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;XXXXXXXXX;02;0;10;0;12;0;9;30;20;0;0;7;1;0;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Ativar bloqueio reverso (Saída 1 em alta impedância) — relê 87 se lógica 0:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;10;0;12;13;9;30;20;0;1;7;0;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Desativar bloqueio reverso (Saída 1 em GND) — relê 87A se lógica 1:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;10;0;12;13;9;30;20;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<h3 id="diagnostico-sem-comunicacao-site-suntech-do-brasil">Diagnóstico sem comunicação (site Suntech do Brasil)</h3>
+<ol><li>Verificar com a operadora se não há nenhuma instabilidade na rede ou problemas no canal de dados, informando o número da linha telefônica do chip.</li><li>Verificar a sinalização dos LEDs do rastreador (quantidade de piscadas) para pré-diagnóstico (tabelas abaixo).</li><li>Verificar a conexão TCP com a porta do sistema de monitoramento, usando o recurso do Windows chamado &quot;telnet&quot;.</li></ol>
+<hr>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="led-indicador-gprs-azul">LED Indicador GPRS — Azul</h3>
+<div class="table-wrap"><table><thead><tr><th>GPRS</th><th>Piscadas</th><th>Possíveis causas</th></tr></thead><tbody><tr><td>Normal</td><td>1</td><td>—</td></tr><tr><td>Erro no Servidor</td><td>2</td><td>1. Parâmetros de rede estão errados; 2. Servidor está fechado; 3. Rede temporariamente barrada</td></tr><tr><td>Erro na Comunicação GPRS</td><td>3</td><td>1. Parâmetros de rede estão errados; 2. SIM Card está bloqueado para aplicação GPRS; 3. Rede temporariamente barrada; 4. Sinal de GPRS fraco</td></tr><tr><td>Sem Rede GPRS</td><td>4</td><td>1. Antena do GPRS desconectada; 2. Antena ou Conector de Antena GPRS quebrada</td></tr><tr><td>PIN Bloqueado</td><td>5</td><td>1. SIM PIN está habilitado</td></tr><tr><td>Sem Conexão com a Rede GPRS</td><td>6</td><td>1. Sinal de GPRS fraco</td></tr><tr><td>Sem SIM Card</td><td>7</td><td>1. SIM Card não está inserido no módulo; 2. SIM Card ou conector do SIM Card está danificado</td></tr></tbody></table></div>
+<h3 id="led-indicador-gps-vermelho">LED Indicador GPS — Vermelho</h3>
+<div class="table-wrap"><table><thead><tr><th>GPS</th><th>Piscadas</th><th>Possíveis causas</th></tr></thead><tbody><tr><td>Normal</td><td>1</td><td>—</td></tr><tr><td>Sem Sinal GPS</td><td>2</td><td>1. Se a alimentação estiver ligada, o módulo está tentando estabilizar o GPS; 2. Sinal fraco ou mau posicionamento da antena; 3. Verificar a conexão da antena do GPS</td></tr><tr><td>Erro no Chipset / Erro na Antena</td><td>4</td><td>1. Antena de GPS está desconectada; 2. Conector da antena está danificado</td></tr></tbody></table></div>
+<h3 id="rele-saida">Relé / saída</h3>
+<ul><li>Relê pino 87 se lógica 0; 87A se lógica 1 (ver bloqueio reverso acima).</li></ul>
+<hr>
+<h2 id="observacoes">Observações</h2>
+<ul><li>ID: protocolo 200 usar os 6 dígitos; protocolo 300 usar os 9 dígitos (ver etiqueta ST310U: final do IMEI).</li><li>No lugar de <code>X</code>/<code>XXXX</code>/<code>SERIAL</code>/<code>ID</code>, colocar o número de série do rastreador.</li><li>Campo Autenticação: <code>0</code> = chips da Vivo; <code>1</code> = chips Tim, Claro, Oi (e Algar) e outros.</li><li>Após Reboot, aguarde em média 1 minuto para reiniciar.</li><li>Os dois arquivos .xlsx são cópias idênticas.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/suntech2g/Suntech%20-%20Comandos%20SMS%20(1)%20(4).pdf" target="_blank" rel="noopener">Suntech - Comandos SMS (1) (4).pdf</a> <span class="muted">88 KB</span></li><li><a href="../pdf/suntech2g/SUNTECH%20STRING%20DE%20COMANDOS%20(3).pdf" target="_blank" rel="noopener">SUNTECH STRING DE COMANDOS (3).pdf</a> <span class="muted">170 KB</span></li></ul></section>
+    <nav class="pager"><a href="suntech.html">← SUNTECH</a><a href="trackmax-4g.html">TRACKMAX 4G →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

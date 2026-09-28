@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>WETRACK · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / WETRACK</p>
+    <h1>WETRACK — WeTrack 2</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> WeTrack 2</li><li><strong>Fabricante / protocolo:</strong> Concox (presumido — não citado no arquivo) — comandos SMS estilo GT06 (terminados em <code>#</code>)</li><li><strong>Arquivos-fonte:</strong><ul><li><code>WETRACK/WETRACK2.txt</code></li></ul></li></ul>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<p>Verificar configuração de parâmetros:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PARAM#</code></pre></div>
+<p>Verificar parâmetros GPRS:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRSSET#</code></pre></div>
+<p>Localização via SMS — coordenadas:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WHERE#</code></pre></div>
+<p>Link Google Maps:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>URL#</code></pre></div>
+<hr>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="numero-sos">Número SOS</h3>
+<p>Formato: <code>SOS,A,No.1,No.2,No.3#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SOS,A,18165542975,18165542976,18165542977#</code></pre></div>
+<h3 id="apn">APN</h3>
+<p>Formato: <code>APN,APN's Name#</code> — com usuário e senha: <code>APN,APNname,username,password#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<h3 id="servidor">Servidor</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,5023,0#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,0,35.230.168.225,5023,0#</code></pre></div>
+<h3 id="numero-central">Número central</h3>
+<p>Formato: <code>CENTER,A,mobile number#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CENTER,A,18165542976#</code></pre></div>
+<h3 id="intervalo-de-upload-de-dados">Intervalo de upload de dados</h3>
+<p>Formato: <code>TIMER,T1,T2#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,20,20#</code></pre></div>
+<h3 id="tempo-de-ativacao-defesa">Tempo de ativação (defesa)</h3>
+<p>Formato: <code>DEFENSE,TIME#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DEFENSE,1#</code></pre></div>
+<h3 id="alarme-de-vibracao">Alarme de vibração</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENALM,ON#</code></pre></div>
+<p>Ativar</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENALM,OFF#</code></pre></div>
+<p>Desativar</p>
+<h3 id="alarme-de-velocidade">Alarme de velocidade</h3>
+<p>Formato: <code>SPEED,ON,Time,Limited speed,way of alarm#</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SPEED,ON,10,120,1#</code></pre></div>
+<h3 id="corte-restauracao-de-combustivel">Corte / restauração de combustível</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,1#</code></pre></div>
+<p>Cortar combustível</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,O#</code></pre></div>
+<p>Restaurar combustível (no original está com a letra &quot;O&quot;; o padrão GT06 é <code>RELAY,0#</code> com zero)</p>
+<h3 id="reset-de-fabrica">Reset de fábrica</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORY#</code></pre></div>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-chip-vivo">TrackMax — chip Vivo</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.m2m.vivo.com.br,vivo,vivo#
+SERVER,1,dns.trackmax.com.br,5023,0#</code></pre></div>
+<p>ou por IP:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,0,35.230.168.225,5023,0#</code></pre></div>
+<ul><li>Servidor: <code>dns.trackmax.com.br</code> / <code>35.230.168.225</code> porta <strong>5023</strong></li><li>APN Vivo TrackMax: <code>tmax.m2m.vivo.com.br</code>, <code>vivo</code>, <code>vivo</code></li></ul>
+<hr>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li>Nenhum registrado no arquivo.</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<ul><li>Nenhuma informação de ligação/LED no arquivo.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Números de telefone dos exemplos (1816554297x) são ilustrativos do manual do fabricante.</li></ul>
+    
+    <nav class="pager"><a href="vitana.html">← VITANA</a><a href="x1.html">X1 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

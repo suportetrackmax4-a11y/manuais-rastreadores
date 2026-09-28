@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GT005 E GT003 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / GT005 E GT003</p>
+    <h1>GT005 / GT003</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> GT005 (a pasta cita também GT003, mas não há documento específico dele)</li><li><strong>Fabricante/Protocolo:</strong> não informado nos documentos. A sintaxe (<code>SERVER,...#</code>, <code>APN,...#</code>, <code>TIMER,...#</code>, <code>HBT,...#</code>) é a mesma da família Concox/J14 (protocolo GT06).</li><li><strong>Arquivos-fonte:</strong><ul><li><code>GT005 E GT003/MANUAL GT005.txt</code></li></ul></li></ul>
+<h2 id="consultas">Consultas</h2>
+<p>Nenhum comando de consulta nos documentos.</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Sequência que foi enviada e funcionou (&quot;ENVIEI ESSES COMANDOS E DEU CERTO&quot;):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,8520,35.230.168.225,5023,0#
+APN,tmax.claro.com.br,claro,claro#
+GMT,W,0#
+TIMER,60#
+HBT,2#</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>SERVER,8520,35.230.168.225,5023,0#</code></td><td>Servidor: IP 35.230.168.225, porta 5023 (8520 aparece no lugar do modo/senha)</td></tr><tr><td><code>APN,tmax.claro.com.br,claro,claro#</code></td><td>APN Claro TrackMax, usuário claro, senha claro</td></tr><tr><td><code>GMT,W,0#</code></td><td>Fuso horário GMT 0 (a plataforma converte)</td></tr><tr><td><code>TIMER,60#</code></td><td>Intervalo de envio de posição: 60 s</td></tr><tr><td><code>HBT,2#</code></td><td>Heartbeat (pacote de manutenção da conexão): 2 minutos</td></tr></tbody></table></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<ul><li><strong>Servidor TrackMax:</strong> <code>35.230.168.225</code> porta <code>5023</code></li><li><strong>Claro TrackMax:</strong> APN <code>tmax.claro.com.br</code>, usuário <code>claro</code>, senha <code>claro</code></li></ul>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>Nenhum registrado.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Não há informações.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>No arquivo original, depois de <code>TIMER,60#</code> havia um caractere invisível (espaço de largura zero). Ao copiar, envie só <code>TIMER,60#</code>.</li></ul>
+    
+    <nav class="pager"><a href="gf22.html">← GF22</a><a href="gt06.html">GT06 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

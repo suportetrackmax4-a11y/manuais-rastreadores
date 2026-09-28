@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>PG12 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#funcoes">Funções</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / PG12</p>
+    <h1>PG12</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> PG12 (mini gravador / escuta GSM com microSD)</li><li><strong>Fabricante / protocolo:</strong> não identificado; operado por SMS e ligação (sem servidor/plataforma).</li><li><strong>Arquivos-fonte:</strong><ul><li><code>PG12/Manual PG 12 talves funcional.txt</code> (&quot;talvez funcional&quot; — manual não confirmado)</li></ul></li></ul>
+<hr>
+<h2 id="funcoes">Funções</h2>
+<ul><li>Escuta remota via ligação automática.</li><li>Gravação de áudio ambiente por comando.</li><li>Armazenamento em cartão de memória microSD.</li><li>Ativação por SMS com comandos simples.</li><li>Aceita até 3 números autorizados.</li></ul>
+<h2 id="consultas">Consultas</h2>
+<p>Localização (o dispositivo envia SMS com link da localização):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1122</code></pre></div>
+<p>Escuta remota: ligue para o número do chip inserido no PG12. Ele atende automaticamente se o seu número estiver autorizado e você ouve o áudio ambiente.</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Cadastrar número autorizado (SMS para o número do chip dentro do PG12; repetir com até 3 números diferentes):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>admin123456 +55SEUNÚMERO</code></pre></div>
+<p>Exemplo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>admin123456 +551199999999</code></pre></div>
+<h3 id="comandos-por-sms-tabela-1-do-documento">Comandos por SMS — tabela 1 do documento</h3>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Função</th></tr></thead><tbody><tr><td><code>111</code></td><td>Inicia gravação de áudio por 10 minutos</td></tr><tr><td><code>444</code></td><td>Para a gravação</td></tr><tr><td><code>666</code></td><td>Ativa modo de detecção de som (o PG12 liga para você ao detectar ruído)</td></tr><tr><td><code>999</code></td><td>Reseta o aparelho para configurações de fábrica</td></tr></tbody></table></div>
+<h3 id="comandos-por-sms-lista-2-do-documento-texto-original">Comandos por SMS — lista 2 do documento (texto original)</h3>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Função</th></tr></thead><tbody><tr><td><code>111</code></td><td>Código para gravar sons ambientes por 10 minutos e salvá-los no cartão de memória</td></tr><tr><td><code>222</code></td><td>Código para registrar automaticamente os votos quando a força dos votos ultrapassar 60 pontos por dez minutos e enviá-los para o aplicativo (cada arquivo tem um minuto)</td></tr><tr><td><code>333</code></td><td>Código para ligar para o número principal quando a intensidade da voz ultrapassar 60 pontos</td></tr><tr><td><code>999</code></td><td>Código para enviar um alerta de mensagem de texto para o número principal quando qualquer vibração for detectada</td></tr><tr><td><code>1122</code></td><td>Código de localização do dispositivo (o dispositivo envia uma mensagem de texto contendo um link para a localização do dispositivo)</td></tr></tbody></table></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Não se aplica (o documento não traz APN/servidor).</p>
+<p>Como colocar crédito no chip: app da operadora (Meu Vivo, Meu TIM, Claro App etc.), site da operadora (opção &quot;Recarga&quot;), Pix, farmácias e mercados, ou apps como PicPay, RecargaPay, Mercado Pago. Certifique-se de que o chip está ativado, com sinal e desbloqueado (<strong>sem senha PIN</strong>).</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li>Sinal fraco: evite locais com muito metal ou isolamento (cofres, paredes muito grossas).</li><li>Teste o dispositivo antes de deixá-lo instalado.</li><li>Para melhor captação de som, mantenha o microfone voltado para o ambiente aberto.</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<ul><li>Carregar com cabo micro USB por 2 a 3 horas.</li><li>Duração média: 3 a 5 dias em standby, ou 2 a 3 horas em uso contínuo.</li><li>Luz vermelha: carregando / luz apagada: carga completa.</li><li>Cartão microSD de 8 GB a 32 GB (classe 10 recomendado). Inserir com o PG12 desligado. Gravações salvas automaticamente (normalmente em .amr); retirar o cartão e abrir no computador.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li><strong>Conflito no documento:</strong> <code>999</code> aparece como &quot;reset de fábrica&quot; (tabela 1) e como &quot;alerta SMS de vibração&quot; (lista 2); a detecção de som aparece como <code>666</code> (tabela 1) e como <code>222</code>/<code>333</code> (lista 2). Testar antes de confiar.</li><li>&quot;votos&quot; na lista 2 é provavelmente tradução errada de &quot;voice&quot; (voz).</li><li>Locais discretos sugeridos: no carro (debaixo do banco, porta-luvas, compartimento de som); mochila/bolsa (costura interna, fundo falso); em casa (atrás de móveis, caixas de som ou quadros).</li></ul>
+    
+    <nav class="pager"><a href="nt40.html">← NT40</a><a href="rastrek.html">RASTREK →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

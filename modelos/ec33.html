@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>EC33 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#modelo-s">Modelo(s)</a></li><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / EC33</p>
+    <h1>EC33 — Rastreador EC33 (TrackerKing)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <h2 id="modelo-s">Modelo(s)</h2>
+<ul><li><strong>EC33</strong>, firmware <strong>TrackerKing J16 2IP EG915N</strong> (módulo Quectel EG915N, 4G).</li><li>Protocolo GT06 (<code>SZCS#GT06SEL=0#GT06IEXVOL=2</code>); aceita comandos estilo Concox (<code>SERVER,</code>, <code>APN,</code>, <code>TIMER,</code>) e <code>SZCS#</code>.</li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<ul><li><code>EC33/EC33.txt</code> — lido</li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STATUS#
+GPRSSET#
+CXZT
+SERVER#</code></pre></div>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="modo-economia-indicado">Modo Economia (indicado)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,1800#
+HBT,60,1800#
+SZCS#GT06SEL=0#GT06IEXVOL=2
+SZCS#MTK_DISSLP=0
+SZCS#GPS_DISSLP=0
+SENALM,OFF#
+POWERALM,ON,0,5,300#
+MOVING,ON,1000,0#
+SZCS#ANGLEVALUE=10-030
+UTC,OFF#
+GMT,W,0,0#</code></pre></div>
+<h3 id="modo-online-rastreador-online-obedecendo-o-timer-e-hbt">Modo Online (rastreador online obedecendo o TIMER e HBT)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#MTK_DISSLP=1
+SZCS#GPS_DISSLP=1
+STA_SENDGPS,1#
+TIMER,60,600#
+HBT,60,600#</code></pre></div>
+<h3 id="enviar-posicao-gps-em-estado-parado">Enviar posição GPS em estado parado</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STA_SENDGPS,0#</code></pre></div>
+<p>→ NÃO envia posição quando está parado</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STA_SENDGPS,1#</code></pre></div>
+<p>→ Envia posição mesmo parado</p>
+<h3 id="ativar-voltagem-da-bateria-externa">Ativar voltagem da bateria externa</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GT06SEL=0#GT06IEXVOL=2</code></pre></div>
+<h3 id="ajustes-opcionais">Ajustes opcionais</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>LEVEL,3#
+SENDS,3#
+SENSOR,60,180,3#</code></pre></div>
+<h3 id="forcar-posicoes">Forçar posições</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>LJDW#
+POSITION#
+RESET#</code></pre></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Plataforma TrackMax (porta 2416):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SERVIP=dns.trackmax.com.br#SERVPORT=2416
+SERVER,1,dns.trackmax.com.br,2416,0#
+SERVER,0,179.127.23.86,2416,0#</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Operadora</th><th>Comando APN</th></tr></thead><tbody><tr><td>TrackMax (chip max)</td><td><code>APN,trackmax.br,max,max#</code></td></tr><tr><td>Algar</td><td><code>APN,tmax.algar.br,algar,algar#</code></td></tr><tr><td>Vivo</td><td><code>APN,tmax.m2m.vivo.com.br,vivo,vivo#</code></td></tr><tr><td>Claro</td><td><code>APN,tmax.claro.com.br,claro,claro#</code></td></tr><tr><td>TIM</td><td><code>APN,gn.br,tim,tim#</code></td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#
+APN,tmax.algar.br,algar,algar#
+APN,tmax.m2m.vivo.com.br,vivo,vivo#
+APN,tmax.claro.com.br,claro,claro#
+APN,gn.br,tim,tim#</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p><strong>Update para correção de bugs EC33 TrackerKing</strong></p>
+<p>Versão com BUG:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TrackerKing_J16_2IP_EG915N_V1.0_Sep_13_2025_10:19:42</code></pre></div>
+<p>Atenção: atualizar somente se for esta versão. Enviar este comando:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>OT,http://hq-hk.oss-cn-hongkong.aliyuncs.com/J16_2IP_EG915N_V16_%280913_1217%29_1.bin,http://hq-hk.oss-cn-hongkong.aliyuncs.com/J16_2IP_EG915N_V16_%280913_1217%29_2.bin#&quot;</code></pre></div>
+<p>Ele vai desligar os LEDs; aguardar até ligar novamente. Após a atualização, a versão será:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TrackerKing_J16_2IP_EG915N_V1.0_Dec_17_2025_19:06:05</code></pre></div>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<ul><li>Durante a atualização OTA os LEDs apagam; aguardar acenderem novamente.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>O comando OT no original termina com <code>#&quot;</code> (aspas incluídas no arquivo).</li><li>IP direto TrackMax: 179.127.23.86.</li></ul>
+    
+    <nav class="pager"><a href="crx.html">← CRX</a><a href="ev02.html">EV02 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

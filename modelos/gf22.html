@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GF22 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#modelo-s">Modelo(s)</a></li><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / GF22</p>
+    <h1>GF22 — Rastreadores GF22 / GF21 / GF-22 / GF-21</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <h2 id="modelo-s">Modelo(s)</h2>
+<ul><li><strong>GF22 / GF21</strong> (mini rastreador portátil 2G GSM, nano SIM, bateria).</li><li>Plataforma de origem: <strong>365GPS</strong> (www.365gps.com), app GPS365 (também citado &quot;zerogps&quot;). Comandos em SMS; também lista de comandos no formato <code>SL ...</code>.</li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<ul><li><code>GF22/GF22 GF21 GF-22 GF-21 (1).txt</code> — lido</li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="table-wrap"><table><thead><tr><th>Função</th><th>Comando</th></tr></thead><tbody><tr><td>Solicitar localização e nível de bateria</td><td><code>999</code></td></tr><tr><td>Consultar IMEI</td><td><code>Imei#</code></td></tr><tr><td>Checar localização (lista SL)</td><td><code>SL LC</code></td></tr><tr><td>Checar ID, IP, porta e APN (lista SL)</td><td><code>SL CX</code></td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>999
+Imei#
+SL LC
+SL CX</code></pre></div>
+<h2 id="configuracao">Configuração</h2>
+<p>Configurar APN:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN#tmax.m2m.vivo.com.br#vivo#vivo#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN#tmax.algar.br#algar#algar#</code></pre></div>
+<p>Configurar HBT <em>SEMPRE MAIOR QUE O TIMER</em>:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>heartbeat#120#</code></pre></div>
+<p>Timer 1 minuto:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>time#1</code></pre></div>
+<p>Rastreador 1 minuto:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#md#60</code></pre></div>
+<p>Ativar rastreamento:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>123#1</code></pre></div>
+<p>Alarme de vibração:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>6666#on#</code></pre></div>
+<p>Reiniciar:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sysrst</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SYSRST#</code></pre></div>
+<p>LED:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>LED#on
+LED#off</code></pre></div>
+<p>Idioma: <code>0086</code> = chinês, <code>0044</code> = inglês.</p>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Função</th><th>Resposta/efeito</th></tr></thead><tbody><tr><td><code>Pwrst</code></td><td>Restaura a senha original</td><td><code>123456</code></td></tr><tr><td><code>1122</code></td><td>Restaura o dispositivo</td><td><code>OK</code> — Device will be restored in 1 minute</td></tr></tbody></table></div>
+<p>Editar endereço IP: <code>domínio # IP # ID da porta #</code></p>
+<h3 id="lista-de-comandos-sms-formato-sl">Lista de comandos SMS (formato SL)</h3>
+<div class="table-wrap"><table><thead><tr><th>Formato</th><th>Função</th><th>Exemplo</th></tr></thead><tbody><tr><td><code>SL MT+TEL+#</code></td><td>Dispositivo liga para número pré-definido</td><td><code>SL MT15012404563#</code></td></tr><tr><td><code>SL LC</code></td><td>Checar localização</td><td><code>SL LC</code></td></tr><tr><td><code>SL CX</code></td><td>Checar ID, IP, porta, APN</td><td><code>SL CX</code></td></tr><tr><td><code>SL APNapn,user,pass</code></td><td>Definir APN</td><td><code>SL APNcmnet,,</code></td></tr><tr><td><code>SL RT</code></td><td>Reiniciar</td><td><code>SL RT</code></td></tr><tr><td><code>SL DP</code></td><td>Definir domínio e porta</td><td><code>SL DPwww.gpspos.net#8700#</code></td></tr><tr><td><code>SL IP</code></td><td>Definir IP e porta</td><td><code>SL IP104.243.132.242#8700#</code></td></tr><tr><td><code>SL XM</code></td><td>Entrar em modo sleep</td><td><code>SL XM</code></td></tr><tr><td><code>SL HX</code></td><td>Acordar</td><td><code>SL HX</code></td></tr><tr><td><code>SL SC</code></td><td>Intervalo de envio</td><td><code>SL SC0,50</code></td></tr><tr><td><code>SL INTV</code></td><td>Intervalo de acordar e dormir</td><td><code>SL INTV30,600</code></td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SL MT15012404563#
+SL LC
+SL CX
+SL APNcmnet,,
+SL RT
+SL DPwww.gpspos.net#8700#
+SL IP104.243.132.242#8700#
+SL XM
+SL HX
+SL SC0,50
+SL INTV30,600</code></pre></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Operadora</th><th>APN</th><th>Usuário/Senha</th></tr></thead><tbody><tr><td>Vivo</td><td>tmax.m2m.vivo.com.br</td><td>vivo / vivo</td></tr><tr><td>Algar</td><td>tmax.algar.br</td><td>algar / algar</td></tr></tbody></table></div>
+<p>Servidores de exemplo (fábrica): <code>www.gpspos.net:8700</code>, <code>104.243.132.242:8700</code>. Plataforma original: www.365gps.com (login = IMEI 15 dígitos, senha padrão <code>123456</code>).</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li>Chip novo precisa de 24 h para ativar; definir/remover o PIN do SIM; habilitar GPRS e identificador de chamadas (Caller ID) no chip.</li><li>Heartbeat deve ser sempre maior que o timer.</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="preparacao">Preparação</h3>
+<ol><li>Cartão nano SIM compatível com rede 2G GSM (chip novo: 24 h para ativar; definir código PIN).</li><li>Abrir o serviço GPRS e Caller ID Display do cartão SIM.</li></ol>
+<h3 id="botao-preto-ao-lado-do-slot-do-sim">Botão (preto, ao lado do slot do SIM)</h3>
+<ul><li>Ligar: pressão longa por 3 segundos</li><li>SOS: pressione e segure por 3 segundos no modo ligado</li><li>Desligar: pressione e segure por 10 segundos (com cartão SIM)</li><li>Desligar: pressão longa por 3 segundos (sem cartão SIM)</li></ul>
+<h3 id="leds">LEDs</h3>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Significado</th></tr></thead><tbody><tr><td>Vermelho</td><td>Bateria: lento = normal; rápido = bateria fraca; aceso = carregando</td></tr><tr><td>Amarelo</td><td>GSM: lento = normal; rápido = buscando sinal; aceso = sem SIM</td></tr><tr><td>Azul</td><td>GPS: lento = normal; rápido = pesquisando; aceso = GPS obtido</td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>App alternativo: 365GPS / GPS365 (Android/iOS); &quot;APP GF22 Tracking na Appstore ou Google Play 'zerogps'&quot;.</li><li>Login no app: ID = IMEI (adesivo com 15 dígitos), senha <code>123456</code>.</li></ul>
+    
+    <nav class="pager"><a href="ev02.html">← EV02</a><a href="gt005-e-gt003.html">GT005 E GT003 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

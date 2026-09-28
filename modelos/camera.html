@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>camera · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#modelo-s">Modelo(s)</a></li><li><a href="#arquivos-fonte-todos-lidos">Arquivos-fonte (todos lidos)</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao-resumo-dos-parametros-relevantes">Configuração (resumo dos parâmetros relevantes)</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / camera</p>
+    <h1>camera — Dashcam/MDVR com IA (ADAS/DMS)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <h2 id="modelo-s">Modelo(s)</h2>
+<ul><li>Câmera veicular 4G com IA (ADAS + DMS + BSD), 3 canais de vídeo ativos. Caminho OTA aponta para <strong>AT603</strong> (<code>/ota/AT603/ota.json</code>) → provável modelo <strong>AT603</strong>.</li><li>Fabricante/protocolo: presença de <code>jimi_para.json</code> indica firmware compatível <strong>Jimi (JimiIoT)</strong>; <code>jtbase.json</code>/<code>jtpara.json</code> indicam suporte <strong>JT/T 808 / JT/T 1078</strong> (padrão chinês de vídeo). Tipos de rede no servidor: NetType 5, 6, 7.</li><li>Versão de firmware: <code>V25101610</code> (version.json).</li><li>IMEI do módulo 4G: <code>86087907XXXXXXX</code>.</li></ul>
+<h2 id="arquivos-fonte-todos-lidos">Arquivos-fonte (todos lidos)</h2>
+<p><code>camera/etc/config/</code>: ai_function.json, ai_param.json, clock.json, dial.json, fourg_module.json, gps_filter.json, jimi_para.json, jtbase.json, jtpara.json, language.json, media_info.json, net_module_info.json, osd.json, ota_server.json, Photograph.json, power_set.json, record.json, server.json, speed_set.json, version.json, video_sensor_info.json, wifi.json</p>
+<h2 id="consultas">Consultas</h2>
+<p>Nenhum comando de consulta nos arquivos (são arquivos de configuração do sistema da câmera).</p>
+<h2 id="configuracao-resumo-dos-parametros-relevantes">Configuração (resumo dos parâmetros relevantes)</h2>
+<h3 id="servidor-server-json">Servidor (server.json)</h3>
+<div class="table-wrap"><table><thead><tr><th>Canal</th><th>NetType</th><th>IP</th><th>Porta</th><th>Backup</th></tr></thead><tbody><tr><td>net0</td><td>5</td><td>179.127.23.90</td><td>6023</td><td>—</td></tr><tr><td>net1</td><td>6</td><td>179.127.23.90</td><td>6024</td><td>—</td></tr><tr><td>net2</td><td>7</td><td>179.127.23.90</td><td>6028</td><td>—</td></tr><tr><td>net3</td><td>0 (desativado)</td><td>—</td><td>0</td><td>—</td></tr></tbody></table></div>
+<p>NeedAuth = 0 em todos.</p>
+<h3 id="apn-discagem-dial-json">APN / discagem (dial.json)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>&quot;apn&quot; : &quot;maxmovel.br&quot;,
+&quot;user&quot; : &quot;max&quot;,
+&quot;passwd&quot; : &quot;max&quot;,
+&quot;authentication&quot; : 0,
+&quot;protocol&quot; : &quot;IPV4&quot;</code></pre></div>
+<p>Módulo 4G: Band = 0 (automático).</p>
+<h3 id="wi-fi-wifi-json">Wi-Fi (wifi.json)</h3>
+<ul><li>Função Wi-Fi ativa (Function 1), modo SSID 2.</li><li>Hotspot da câmera: SSID <code>86087907XXXXXXX</code> (IMEI), senha <code>12345678</code>.</li><li>Cliente (STA): SSID <code>TRACKMAX_A34A</code>, senha <code>(removida)</code>.</li><li>WifiSOS 0.</li></ul>
+<h3 id="relogio-clock-json">Relógio (clock.json)</h3>
+<ul><li>NTP <code>182.92.12.11</code> porta 123; TimeZone 1, TimeZoneHour 3, TimeZoneMin 0 (fuso 3h — provavelmente GMT-3), Timing 7.</li></ul>
+<h3 id="ota-ota-server-json">OTA (ota_server.json)</h3>
+<ul><li>FTP <code>120.25.79.129</code> porta 21, usuário e senha (removidos), arquivo <code>/ota/AT603/ota.json</code>.</li></ul>
+<h3 id="gravacao-record-json">Gravação (record.json)</h3>
+<ul><li>Duração do arquivo 180 s; evento 10 s; áudio tipo 4; timelapse 0.</li><li>Stream principal: canais 0, 1 e 2 gravando, 15 fps, com áudio, qualidade 2097152 (≈2 Mbps), resolução 2. Canal 3 desativado.</li><li>Sub-stream: canais 0/1/2, 10 fps, qualidade 1048576 (≈1 Mbps), resolução 3 (ch2 resolução 4).</li></ul>
+<h3 id="sensores-de-video-video-sensor-info-json">Sensores de vídeo (video_sensor_info.json)</h3>
+<ul><li>chn0 ativo (WDR ligado), chn1 ativo (Light 1000 — provavelmente IR/cabine), chn2 e chn3 desativados no sensor.</li></ul>
+<h3 id="foto-photograph-json">Foto (Photograph.json)</h3>
+<ul><li>Compressão 60, qualidade 2097152.</li></ul>
+<h3 id="parametros-jimi-jimi-para-json">Parâmetros Jimi (jimi_para.json)</h3>
+<div class="table-wrap"><table><thead><tr><th>Parâmetro</th><th>Valor</th></tr></thead><tbody><tr><td>Anglerep (ângulo)</td><td>30</td></tr><tr><td>GpsInterval</td><td>10 s</td></tr><tr><td>MaxSpeed</td><td>80 km/h</td></tr><tr><td>MaxSpeedDiff</td><td>8</td></tr><tr><td>OverSpeedDuration</td><td>10 s</td></tr><tr><td>FatigueDuration</td><td>14400 s (4 h)</td></tr><tr><td>MinRestTime</td><td>900 s</td></tr><tr><td>Led</td><td>1</td></tr><tr><td>Relay / Relay2</td><td>0 / 0</td></tr><tr><td>WorkTime</td><td>5</td></tr></tbody></table></div>
+<h3 id="parametros-jt808-jtpara-json">Parâmetros JT808 (jtpara.json)</h3>
+<ul><li>Inflection (ângulo) 10, TimingInterval 10 s; excesso de velocidade/fadiga = 0 (desativados). jtbase.json: placa/ID/telefone vazios.</li></ul>
+<h3 id="energia-power-set-json">Energia (power_set.json)</h3>
+<ul><li>AccPowerfDelay 30 (desliga 30 s após ACC OFF), AwakeWakeTime 60, LowVoltage 0.</li></ul>
+<h3 id="gps-gps-filter-json">GPS (gps_filter.json)</h3>
+<ul><li>Filtro estático desativado (static_enable 0; static_dis 100 m; static_speed 5), gps_mode 0, AGPS desativado.</li></ul>
+<h3 id="midia-idioma-osd">Mídia / idioma / OSD</h3>
+<ul><li>Volume entrada 3, saída 10; áudio ao ligar 0; DmsCover 0.</li><li>language = 6 (provavelmente Português).</li><li>OSD: 4 regiões ativas (tipos 2,1,3,4) em (25,25), (25,910), (25,950), (800,950).</li><li>Unidade de velocidade 0 (km/h).</li></ul>
+<h3 id="ia-calibracao-ai-function-json">IA — calibração (ai_function.json)</h3>
+<ul><li>ADAS no canal 0: altura da câmera 1,5 m, largura do veículo 1,8 m, Pitch 110, Yaw 58, área de detecção total (0–1000).</li><li>DMS no canal 1: Pitch -26,13, Yaw -10,42, área x 500–1000.</li><li>BSD esquerdo/direito: canal -1 (não atribuídos).</li></ul>
+<h3 id="ia-alarmes-ai-param-json-principais">IA — alarmes (ai_param.json, principais)</h3>
+<ul><li><strong>ADAS</strong>: máscara 65519; distância do veículo à frente sens. 1200, ativa acima de 20 km/h; colisão frontal sens. 2500 acima de 30 km/h; pedestre sens. 1500 acima de 10 km/h; saída de faixa sens. 60 acima de 30 km/h; intervalos de alarme 300 s.</li><li><strong>DMS</strong>: máscara 16777151; fadiga, distração, celular (ligação), fumar, bebida, cinto, câmera coberta, motorista ausente/anormal — em geral 2000 ms de duração, ativos acima de 30 km/h, intervalo 30–60 s; uso de celular (play_phone) sens. 3000; reconhecimento de motorista a cada 180 s.</li><li><strong>BSD</strong>: desativado (alarm_enbale 0); laterais sens. 4000 até 100 km/h.</li><li><strong>Outros</strong> (máscara 65411): aceleração brusca (ahad) sens. 4 &gt;30 km/h, frenagem brusca (ahbd) sens. 4 &gt;40 km/h, curva brusca (ahtd) sens. 3, capotamento (roll) sens. 30, vibração (shake) sens. 2, SOS.</li></ul>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Servidor</th><th>Portas</th><th>APN</th><th>Usuário/Senha</th></tr></thead><tbody><tr><td>179.127.23.90</td><td>6023 / 6024 / 6028</td><td>maxmovel.br</td><td>max / max</td></tr></tbody></table></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>Nada registrado.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<ul><li>LED habilitado (<code>Led: 1</code>). Relés 1 e 2 desligados.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Arquivos parecem um backup de <code>/etc/config</code> da câmera; úteis para replicar a configuração em outra unidade.</li></ul>
+    
+    <nav class="pager"><a href="anotacoes-diversas.html">← anotações diversas</a><a href="crx.html">CRX →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NT20 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / NT20</p>
+    <h1>NT20 (S116)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> Rastreador S116 / NT20</li><li><strong>Fabricante / protocolo:</strong> não identificado; comandos estilo GT06 (<code>SERVER,8520,...#</code>).</li><li><strong>Arquivos-fonte:</strong><ul><li><code>NT20/MANUAL S116 E NT20 (9).xls</code> — &quot;CONFIGURAÇÃO CHIP M2M E PLATAFORMA&quot;, versão do manual 12/12/2019 (aba Plan1; Plan2 e Plan3 vazias). Todos os comandos marcados &quot;TESTE OK&quot;.</li></ul></li></ul>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Retorno</th></tr></thead><tbody><tr><td><code>PARAM#</code></td><td>Retorna informações</td></tr><tr><td><code>STATUS#</code></td><td>Retorna IMEI, APN, IP, porta, tempo etc.</td></tr><tr><td><code>URL#</code></td><td>Retorna localização com link Google</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PARAM#
+STATUS#
+URL#</code></pre></div>
+<h2 id="configuracao">Configuração</h2>
+<div class="table-wrap"><table><thead><tr><th>Formato</th><th>Exemplo a enviar</th><th>Função</th></tr></thead><tbody><tr><td><code>FACTORY#</code></td><td><code>FACTORY#</code></td><td>Reset de fábrica</td></tr><tr><td><code>SERVER,8520,IP,PORTA,0#</code></td><td><code>SERVER,8520,179.127.23.86,5023,0#</code></td><td>Necessário IP e porta TrackMax</td></tr><tr><td><code>APN,cmnet#</code></td><td><code>APN,smart.m2m.vivo.com.br#</code></td><td>Necessário APN chip Vivo M2M</td></tr><tr><td><code>GMT,E,8#</code></td><td><code>GMT,W,0#</code></td><td>Ajusta horário de Brasília</td></tr><tr><td><code>TIMER, INTERVALO EM SEGUNDOS#</code></td><td><code>TIMER,60#</code></td><td>Posições por intervalo 1 minuto</td></tr><tr><td><code>HBT,INTERVALO EM MINUTOS#</code></td><td><code>HBT,1#</code></td><td>Posições por intervalo 1 minuto</td></tr><tr><td><code>STATIC, INTERVALO EM  HORAS#</code></td><td><code>STATIC,1#</code></td><td>Posições por intervalo</td></tr><tr><td><code>SLEEP,minutos#</code></td><td><code>SLEEP,10#</code></td><td>Entra em sleep após 10 minutos</td></tr><tr><td><code>SLPON#</code></td><td><code>SLPON#</code></td><td>Ativar modo sleep</td></tr><tr><td><code>SLPOFF#</code></td><td><code>SLPOFF#</code></td><td>Desativar modo sleep</td></tr><tr><td><code>BEND,1,ÂNGULO DE 5 A 90 GRAUS#</code></td><td><code>BEND,1,30#</code></td><td>Posições por ângulo de 30 graus</td></tr><tr><td><code>POWER0#</code></td><td><code>POWER0#</code></td><td>Desativar alerta de bateria</td></tr><tr><td><code>POWER1#</code></td><td><code>POWER1#</code></td><td>Ativar alerta de bateria</td></tr><tr><td><code>RESET#</code></td><td>—</td><td>Reinicia o equipamento ou reboot</td></tr><tr><td><code>RELAY,0#</code></td><td>—</td><td>Desbloquear</td></tr><tr><td><code>RELAY,1#</code></td><td>—</td><td>Bloquear</td></tr></tbody></table></div>
+<p>Comandos de exemplo (copiáveis):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORY#
+SERVER,8520,179.127.23.86,5023,0#
+APN,smart.m2m.vivo.com.br#
+GMT,W,0#
+TIMER,60#
+HBT,1#
+STATIC,1#
+SLEEP,10#
+SLPON#
+SLPOFF#
+BEND,1,30#
+POWER0#
+POWER1#
+RESET#
+RELAY,0#
+RELAY,1#</code></pre></div>
+<p>Economizar bateria:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLPON#
+SLEEP,2#
+WAKE,24#</code></pre></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>TrackMax + chip Vivo M2M (sequência da planilha):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORY#
+SERVER,8520,179.127.23.86,5023,0#
+APN,smart.m2m.vivo.com.br#
+GMT,W,0#
+TIMER,60#
+HBT,1#</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>Nenhum documentado.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Não documentado.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>IP TrackMax nesta planilha (2019): <code>179.127.23.86</code>, porta <code>5023</code>. Documentos mais recentes de outros modelos usam <code>35.230.168.225</code> / <code>dns.trackmax.com.br</code>.</li><li><code>8520</code> no comando SERVER é o código/senha padrão do comando.</li></ul>
+    
+    <nav class="pager"><a href="n01-4g.html">← N01 4G</a><a href="nt40.html">NT40 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

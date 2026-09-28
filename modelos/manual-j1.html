@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>MANUAL J1 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora / servidor</a></li><li><a href="#configuracao-opcionais">Configuração (opcionais)</a></li><li><a href="#comandos-de-acao">Comandos de ação</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação / LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / MANUAL J1</p>
+    <h1>MANUAL J1 — Rastreador J1 MINI</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> J1 MINI</li><li><strong>Fabricante:</strong> não informado</li><li><strong>Protocolo:</strong> configurado para protocolo <code>E3</code> (<code>protocol,123456,E3</code>)</li><li><strong>Senha padrão:</strong> <code>123456</code></li><li><strong>Plataforma:</strong> TrackMax (<code>dns.trackmax.com.br</code> porta <code>2301</code>)</li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<ul><li><code>COMANDOS SMS J1 MINI TRACKMAX (2).txt</code></li><li><code>COMANDOS SMS J1 MINI TRACKMAX (3).txt</code> — <strong>idêntico</strong> ao (2) (conferido byte a byte)</li></ul>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora / servidor</h2>
+<p>COMANDOS PRINCIPAIS — PLATAFORMA TRACKMAX E CHIP ALGAR TRACKMAX</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>protocol,123456,E3
+ip,123456,dns.trackmax.com.br,2301
+apn,123456,tmax.algar.br,algar,algar
+alg,123456,1
+gprs,123456,1
+interval,123456,60,1800
+tangle,123456,30
+autofly,123456,0
+ipshift,123456,0
+sat,123456,1
+gert,123456,0
+gpsmileage,123456,2
+ativerg,123456,1
+jamblk,123456,0</code></pre></div>
+<p>***<strong>Ajuste para utilizar ALGAR</strong>*******</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>alg,123456,1</code></pre></div>
+<h2 id="configuracao-opcionais">Configuração (opcionais)</h2>
+<p>Definir ID (exemplo de IMEI)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ID,123456,IMEI_DO_EQUIPAMENTO</code></pre></div>
+<p>ATIVAR IGNIÇÃO VIRTUAL</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ignition,123456,1</code></pre></div>
+<p>DESATIVAR IGNIÇÃO VIRTUAL</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ignition,123456,0</code></pre></div>
+<p>ATIVAR BLOQUEIO POR JAMMER</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>jamblk,123456,1</code></pre></div>
+<p>DESATIVAR BLOQUEIO POR JAMMER</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>jamblk,123456,0</code></pre></div>
+<h2 id="comandos-de-acao">Comandos de ação</h2>
+<p>Resetar</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset,123456</code></pre></div>
+<p>Bloquear</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>relay,123456,1</code></pre></div>
+<p>Desbloquear</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>relay,123456,0</code></pre></div>
+<h2 id="consultas">Consultas</h2>
+<p>Forçar Localização</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>status,123456</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>Zerar Memória de Posição (Forçar Localização)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>locache,123456,0
+locache,123456,1</code></pre></div>
+<p>Chip ALGAR: enviar <code>alg,123456,1</code>.</p>
+<h2 id="ligacao-leds">Ligação / LEDs</h2>
+<p>Não há informação nos arquivos.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Os nomes dos comandos estão como no arquivo original (no arquivo: &quot;ATIVAR IGNÇÃO VIRTUAL&quot;).</li></ul>
+    
+    <nav class="pager"><a href="m1-f1.html">← M1 F1</a><a href="manula-e3.html">MANULA E3+ →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

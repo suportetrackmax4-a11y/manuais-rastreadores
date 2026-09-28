@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>NT40 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / NT40</p>
+    <h1>NT40</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> NT40</li><li><strong>Fabricante / protocolo:</strong> não identificado; comandos estilo GT06 (<code>SERVER,8520,...#</code>).</li><li><strong>Arquivos-fonte:</strong><ul><li><code>NT40/NT40.txt</code></li></ul></li></ul>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<p>Nenhuma consulta documentada no arquivo.</p>
+<h2 id="configuracao">Configuração</h2>
+<p>&quot;NT40 RECONFIGURAR POSIÇÃO&quot;:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,8520,35.230.168.225,5023#
+APN,trackmax.br,max,max#
+TIMER,60#
+HBT,1#
+SLPON#
+STATIC,180#
+WAKE,12#
+SLEEP,5#
+GMT,W,0#</code></pre></div>
+<p>Bloqueio:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DYD,000000#</code></pre></div>
+<p>Desbloqueio:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HFYD,000000#</code></pre></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<ul><li>TrackMax: IP <code>35.230.168.225</code>, porta <code>5023</code></li><li>APN TrackMax: <code>trackmax.br</code>, usuário <code>max</code>, senha <code>max</code></li></ul>
+<p>(Sequência completa na seção Configuração.)</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>Nenhum documentado.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Não documentado.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Bloqueio/desbloqueio usam senha <code>000000</code> (<code>DYD</code> / <code>HFYD</code>).</li></ul>
+    
+    <nav class="pager"><a href="nt20.html">← NT20</a><a href="pg12.html">PG12 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

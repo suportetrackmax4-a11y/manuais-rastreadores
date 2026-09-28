@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>N01 4G · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / N01 4G</p>
+    <h1>N01 4G</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> N01 4G</li><li><strong>Fabricante / protocolo:</strong> não identificado nos documentos. Sintaxe <code>COMANDO,parametros#</code> (estilo GT06/Concox).</li><li><strong>Arquivos-fonte:</strong><ul><li><code>N01 4G/COMANDOS SMS N01 4G (1).txt</code></li></ul></li></ul>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXZT
+PARAM#
+STATUS#
+VERSION#</code></pre></div>
+<h2 id="configuracao">Configuração</h2>
+<p>Bloqueio instantâneo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RLYMD,2#</code></pre></div>
+<p>Bloquear:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,1#</code></pre></div>
+<p>Desbloquear:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
+<p>Ajuste GMT:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
+<p>Temporizada:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,60#</code></pre></div>
+<p>Modo defense:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DEFENSE,3#</code></pre></div>
+<p>HBT:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HBT,1800,1800#</code></pre></div>
+<p>Sensor de movimento:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENSOR,10,60,60#</code></pre></div>
+<p>= ajusta o sensor de movimento para 10 segundos do tempo em modo posições, 60 segundos do tempo em modo alerta e 60 minutos do tempo em modo vibração.</p>
+<p>Alerta de movimento por distância:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVING,ON,1000,0#</code></pre></div>
+<p>= gera alerta de movimento de 1000 em 1000 metros.</p>
+<p>Posições por ângulo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ANGLEREP,ON,30,2#</code></pre></div>
+<p>= configura para enviar posições com ângulo de 30 graus.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>DNS e porta:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,sistema.prorrac.com.br,5023,0#</code></pre></div>
+<p>APN, usuário e senha (Algar TrackMax):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,TMAX.ALGAR.BR,ALGAR,ALGAR#</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>Nenhum documentado.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Não documentado.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>O servidor do exemplo é <code>sistema.prorrac.com.br</code>, porta 5023 (não é o DNS TrackMax).</li><li><code>CXZT</code> aparece sem <code>#</code> no original.</li></ul>
+    
+    <nav class="pager"><a href="mt2000.html">← MT2000</a><a href="nt20.html">NT20 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

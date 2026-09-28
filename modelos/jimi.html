@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JIMI · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / JIMI</p>
+    <h1>JIMI (VL01)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Jimi IoT (Concox) <strong>VL01</strong></li><li><strong>Fabricante/Protocolo:</strong> Jimi IoT / Concox. Comandos no padrão <code>CMD,param#</code>. Protocolo GT06/Concox.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>JIMI/VL01/TESTE DE COMANDOS DO VL01.txt</code>: comandos testados (marcados &quot;OK&quot;)</li><li><code>JIMI/VL01/vl01.txt</code>: notas de APN, servidor e ligação</li><li><code>JIMI/SWUPDATE DRIVER.txt</code>: links do software de atualização, do driver e do firmware</li><li>Ignorados: <code>Vysor-win-5.0.7.exe</code>, drivers (<code>DriversForWin10/78</code>, <code>SPRD_NPI_USBDriver_1.4</code>, <code>.rar</code>, <code>.zip</code>, <code>dpinst.xml</code>, <code>NOTICE</code>) e <code>Rlog.txt</code> (log)</li></ul></li></ul>
+<h2 id="consultas">Consultas</h2>
+<p>Todos marcados OK:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>VERSION#
+STATUS#
+WHERE#
+URL#
+ICCID#
+SIMNO#
+SOS#
+CENTER#
+SF#</code></pre></div>
+<ul><li><code>VERSION#</code>: versão do firmware</li><li><code>STATUS#</code>: status</li><li><code>WHERE#</code>: posição</li><li><code>URL#</code>: link do Google Maps</li><li><code>ICCID#</code>: ICCID do chip</li><li><code>SIMNO#</code>: verifica o IMEI (&quot;Check IMEI → SIMNO#&quot;)</li><li><code>SOS#</code>: números SOS</li><li><code>CENTER#</code>: número central</li><li><code>SF#</code>: consulta o filtro de efeito estrela</li></ul>
+<h2 id="configuracao">Configuração</h2>
+<blockquote><strong>IMPORTANTE:</strong> comandos enviados <strong>pela plataforma de rastreamento</strong> precisam ter <strong>uma vírgula antes do #</strong>. Exemplo: <code>SERVER,1,dns.trackmax.com.br,2502,0,#</code></blockquote>
+<h3 id="basic-setting-todos-ok">Basic setting (todos OK)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPSON#
+RESET#
+APN,claro.com.br#
+ASETAPN,OFF#
+SERVER,1,dns.trackmax.com.br,5023,0#
+GMT,W,3,0#
+ASETGMT,ON#
+SOS,A,+551192091,,#
+SOS,D,1,,#
+CENTER,A,+5511999990001#
+CENTER,D#
+TIMER,60,1800#
+DISTANCE,200#
+ADT,ON,60,60#
+LED,OFF#
+MILEAGE,ON,0#
+EXDATA,30,0#
+ACCDCE,1#</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>GPSON#</code></td><td>Liga o GPS</td></tr><tr><td><code>RESET#</code></td><td>Reinicia</td></tr><tr><td><code>APN,claro.com.br#</code></td><td>Define a APN</td></tr><tr><td><code>ASETAPN,OFF#</code></td><td>Desliga a APN automática (<strong>obrigatório com APN privada</strong>)</td></tr><tr><td><code>SERVER,1,dns.trackmax.com.br,5023,0#</code></td><td>Servidor. Formato: <code>SERVER,mode,domainName/IP,port,protocol#</code> (modo 1 = DNS, 0 = IP)</td></tr><tr><td><code>GMT,W,3,0#</code> / <code>ASETGMT,ON#</code></td><td>Fuso W 3:00 / fuso automático</td></tr><tr><td><code>SOS,A,+551192091,,#</code> / <code>SOS,D,1,,#</code></td><td>Adiciona ou apaga número SOS</td></tr><tr><td><code>CENTER,A,+5511999990001#</code> / <code>CENTER,D#</code></td><td>Adiciona ou apaga o número central</td></tr><tr><td><code>TIMER,60,1800#</code></td><td><code>TIMER,T1,T2#</code>: 60 s ligado / 1800 s desligado</td></tr><tr><td><code>DISTANCE,200#</code></td><td>Envio a cada 200 m</td></tr><tr><td><code>ADT,ON,60,60#</code></td><td>Envio por tempo e distância</td></tr><tr><td><code>LED,OFF#</code></td><td>Apaga os LEDs</td></tr><tr><td><code>MILEAGE,ON,0#</code></td><td>Odômetro. Formato <code>MILEAGE,A,B#</code> para inserir o valor</td></tr><tr><td><code>EXDATA,30,0#</code></td><td>Dados extras</td></tr><tr><td><code>ACCDCE,1#</code></td><td>Detecção de ACC</td></tr></tbody></table></div>
+<h3 id="alert-setting-todos-ok">Alert setting (todos OK)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENALM,ON,1#
+POWERALM,OFF#
+BATALM,ON,1#
+EXBATALM,ON,1,116,300#
+MOVING,ON,300,1#
+SPEED,ON,20,80,1#
+SOSALM,2#
+ACCE,0,3,16,1#
+BRAK,1,45,1#
+TURN,1,40,40,1#
+CRASH,1,15,20,1#
+ROLL,1,50,1#
+FATIGUE,1,240,20,30,1#
+OILALM,1,5,0,1#
+ACCALM,ON,1,10,0#
+ADCSW,1#</code></pre></div>
+<ul><li><code>SENALM</code>: alarme de vibração</li><li><code>POWERALM</code>: alarme de corte de alimentação</li><li><code>BATALM</code>: bateria interna baixa</li><li><code>EXBATALM,ON,1,116,300#</code>: bateria externa baixa (11,6 V, 300 s)</li><li><code>MOVING</code>: alarme de movimento</li><li><code>SPEED,ON,20,80,1#</code>: excesso de velocidade (80 km/h, 20 s)</li><li><code>SOSALM</code>: modo do alarme SOS</li><li><code>ACCE</code>: aceleração brusca</li><li><code>BRAK</code>: frenagem brusca</li><li><code>TURN</code>: curva brusca</li><li><code>CRASH</code>: colisão</li><li><code>ROLL</code>: capotamento</li><li><code>FATIGUE</code>: direção cansativa</li><li><code>OILALM</code>: combustível</li><li><code>ACCALM</code>: alarme de ACC</li><li><code>ADCSW</code>: chave ADC</li></ul>
+<h3 id="advanced-setting-ok-exceto-password-que-nao-esta-marcado">Advanced setting (OK, exceto PASSWORD, que não está marcado)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PASSWORD,000000,131313#
+RAT,1#
+HBT,3,5#
+BSERVER,1,backup.trackmax.com.br,5023,0#
+LEVEL,2#
+CALL,3#
+PERMIT,0#
+ACCREP,131313,ON#
+DEFENSE,131313,10#
+SENDS,131313,3#
+GPSDUP,131313,ON#
+ERELAY,1#
+PRELAY,131313,1#
+RELAY,131313,1#
+SF,131313,ON,50#
+EXPORTSET,131313#</code></pre></div>
+<ul><li><code>PASSWORD,000000,131313#</code>: troca a senha de 000000 para 131313</li><li><code>RAT,1#</code>: tecnologia de rede</li><li><code>HBT,3,5#</code>: heartbeat</li><li><code>BSERVER,...</code>: servidor backup <code>backup.trackmax.com.br:5023</code></li><li><code>LEVEL</code>: nível de sensibilidade</li><li><code>CALL</code>: modo de chamada</li><li><code>PERMIT</code>: permissão</li><li><code>ACCREP</code>: relatório na mudança de ACC</li><li><code>DEFENSE</code>: tempo para armar</li><li><code>SENDS</code>: sensor</li><li><code>GPSDUP,ON</code>: envia dados com informações do GPS</li><li><code>ERELAY</code>, <code>PRELAY</code>, <code>RELAY</code>: relé/bloqueio</li><li><code>SF,...,ON,50</code>: filtro de efeito estrela (<code>SF,OFF#</code> desliga)</li><li><code>EXPORTSET</code>: exporta a configuração</li></ul>
+<h3 id="outros">Outros</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ACCV,12.6,30#</code></pre></div>
+<p>Ignição por tensão (12,6 V, 30 s).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>OUTPUT,ON#
+OUTSET,5,60,3#</code></pre></div>
+<p>Ativa a saída temporariamente.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FENCE,1,ON,-23.548900,-46.638200,500,0,1#</code></pre></div>
+<p>Geocerca (ainda <strong>a testar</strong>: como ativar e visualizar).</p>
+<h3 id="formatos-de-referencia-vl01-txt">Formatos de referência (vl01.txt)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ASETAPN,OFF#
+APN,apnname,user,pwd#
+SERVER,mode,domainName/IP,port,protocol#
+GPSDUP,ON#
+SF,OFF#
+SF#
+TIMER,T1,T2#
+MILEAGE,A,B#
+SIMNO#</code></pre></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<ul><li><strong>TrackMax principal:</strong> <code>dns.trackmax.com.br</code> porta <code>5023</code> (o exemplo pela plataforma usa a porta <code>2502</code>)</li><li><strong>TrackMax backup:</strong> <code>backup.trackmax.com.br</code> porta <code>5023</code></li><li><strong>Claro:</strong> APN <code>claro.com.br</code></li></ul>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li><strong>APN privada:</strong> desative a APN automática com <code>ASETAPN,OFF#</code> antes de <code>APN,...#</code>.</li><li><strong>Comando pela plataforma não funciona:</strong> coloque a vírgula antes do <code>#</code> (ex.: <code>SERVER,1,dns.trackmax.com.br,2502,0,#</code>).</li><li><strong>Efeito estrela (posições espalhadas parado):</strong> <code>SF,OFF#</code> desliga o filtro. Use <code>SF#</code> para consultar.</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<div class="table-wrap"><table><thead><tr><th>Fio</th><th>Função</th></tr></thead><tbody><tr><td>Preto</td><td>Negativo</td></tr><tr><td>Vermelho</td><td>Positivo</td></tr><tr><td>Laranja</td><td>Ignição</td></tr><tr><td>Amarelo</td><td>Bloqueio</td></tr><tr><td>Roxo/Branco</td><td>Botão de pânico</td></tr></tbody></table></div>
+<ul><li>2 entradas digitais: ignição (ACC) e botão de pânico (SOS)</li><li>1 saída digital: relé</li></ul>
+<h2 id="observacoes">Observações</h2>
+<p>Atualização de firmware (SWUPDATE DRIVER.txt):</p>
+<ul><li>Software de atualização: <a href="https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgATSkRYAELgQIS_G_agxw-xAVNAO-VBHjbaUin6pnu-8WU?e=Rzw6dk" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgATSkRYAELgQIS_G_agxw-xAVNAO-VBHjbaUin6pnu-8WU?e=Rzw6dk</a></li><li>Driver: <a href="https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgB2zBsaXvp_T6GH7Jn-rp3sATk5Uep1deflc3RRUsHgsGw?e=KutZdG" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:f:/g/personal/administracao_akrozgroup_com_br/IgB2zBsaXvp_T6GH7Jn-rp3sATk5Uep1deflc3RRUsHgsGw?e=KutZdG</a></li><li>Firmware: <a href="https://newtectelemetria-my.sharepoint.com/:u:/g/personal/administracao_akrozgroup_com_br/IQBbGcYY3OuLTapfKjXJgVKFAUydatwUmDcdyYnbqTLSm00?e=z8oJ5T" target="_blank" rel="noopener">https://newtectelemetria-my.sharepoint.com/:u:/g/personal/administracao_akrozgroup_com_br/IQBbGcYY3OuLTapfKjXJgVKFAUydatwUmDcdyYnbqTLSm00?e=z8oJ5T</a></li><li>A pasta tem drivers USB Spreadtrum/Unisoc (<code>SPRD_NPI_USBDriver_1.4</code>) para Win10 e Win7/8, usados na atualização por USB, e o Vysor.</li></ul>
+    
+    <nav class="pager"><a href="j14-gt06.html">← J14 GT06</a><a href="linha-tk.html">LINHA TK →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

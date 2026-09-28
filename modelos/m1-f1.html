@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>M1 F1 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora / servidor</a></li><li><a href="#configuracao-planilha-manual-f1-m1-formato-exemplo-observacao">Configuração (planilha MANUAL F1 M1 — formato | exemplo | observação)</a></li><li><a href="#comandos-de-acao">Comandos de ação</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação / LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / M1 F1</p>
+    <h1>M1 F1 — Rastreador F1 / M1 (2G)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> Rastreador F1 / M1 (M1 2G)</li><li><strong>Fabricante/protocolo:</strong> mesma família do M1 UNIGPS (senha <code>888888</code>, protocolo GT06 — ver <code>M1 CONFI.md</code>)</li><li><strong>Plataforma:</strong> TrackMax</li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<ul><li><code>MANUAL F1 M1 (7).xls</code> — planilha &quot;RASTREADOR F1/ M1 — CONFIGURAÇÃO CHIP M2M E PLATAFORMA — VERSÃO DESSE MANUAL 10/12/2019&quot; (todos com &quot;TESTE OK&quot; exceto <code>#dormir,888888,0#</code>). Contém 3 imagens embutidas (logo e uma figura 1153×566) que <strong>não puderam ser visualizadas</strong>.</li><li><code>,1 F1.txt</code> — mesma lista da planilha em texto</li><li><code>TRACKMAX_M1_2G.txt</code> — comandos básicos M1 TrackMax</li></ul>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora / servidor</h2>
+<p>DNS E PORTA TRACKMAX (INDICADO)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP,888888,dns.trackmax.com.br,2001,1#</code></pre></div>
+<p>IP E PORTA TRACKMAX</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP,888888,35.230.168.225,2001,1#</code></pre></div>
+<p>APN ALGAR TRACKMAX</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#APN,888888,tmax.algar.br,algar,algar#</code></pre></div>
+<p>APN chip VIVO M2M (planilha/<code>,1 F1.txt</code>)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#APN,888888,smart.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<p>Receita básica (final do TRACKMAX_M1_2G.txt):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Tracking,888888,60,180#
+#Vibrar,888888,4#
+#Dormir,888888,1#</code></pre></div>
+<hr>
+<h2 id="configuracao-planilha-manual-f1-m1-formato-exemplo-observacao">Configuração (planilha MANUAL F1 M1 — formato | exemplo | observação)</h2>
+<div class="table-wrap"><table><thead><tr><th>Formato</th><th>Exemplo</th><th>Observação</th></tr></thead><tbody><tr><td><code>#IP,888888,IP,Porta,1#</code></td><td><code>#IP,888888,35.230.168.225,2001,1#</code></td><td>NECESSÁRIO IP E PORTA TRACKMAX</td></tr><tr><td><code>#APN,888888,apn,usuário,senha#</code></td><td><code>#APN,888888,smart.m2m.vivo.com.br,vivo,vivo#</code></td><td>NECESSÁRIO APN CHIP VIVO M2M</td></tr><tr><td><code>#Fusohorario,888888,1 a 12/-1 a -12#</code></td><td><code>#Fusohorario,888888,-3#</code></td><td>AJUSTA HORARIO DE BRASILIA</td></tr><tr><td><code>#Senha,888888,nova senha#</code></td><td><code>#Senha,888888,123456#</code></td><td>TROCA SENHA PARA 123456</td></tr><tr><td><code>#Vibrar,888888,0/1/2/3/4/5#</code></td><td><code>#Vibrar,888888,4#</code></td><td>ALARME MOVIMENTO NA PLATAFORMA</td></tr><tr><td><code>#Tracking,888888, AccOn,AccOff#</code></td><td><code>#Tracking,888888,60,180#</code></td><td>CHAVE LIGADA 1, CHAVE OFF 3 MINUTOS</td></tr><tr><td><code>#Dormir,888888,0/1/2#</code></td><td><code>#Dormir,888888,1#</code></td><td>ATIVAR MODO SLEEP</td></tr><tr><td><code>#Dormir,888888,3,dormir ,acordar#</code></td><td><code>#Dormir,888888,3,3600,600#</code></td><td>DORMIR A ACORDAR</td></tr><tr><td><code>#dormir,888888,0#</code></td><td><code>#dormir,888888,0#</code></td><td>DESATIVA MODO SLEEP</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP,888888,35.230.168.225,2001,1#
+#APN,888888,smart.m2m.vivo.com.br,vivo,vivo#
+#Fusohorario,888888,-3#
+#Senha,888888,123456#
+#Vibrar,888888,4#
+#Tracking,888888,60,180#
+#Dormir,888888,1#
+#Dormir,888888,3,3600,600#
+#dormir,888888,0#</code></pre></div>
+<h2 id="comandos-de-acao">Comandos de ação</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Restaurar,888888#    RESTAURA DE FABRICA O EQUIPAMENTO
+#Reiniciar,888888#    REINICIA O EQUIPAMENTO OU REBOOT
+#Religar,888888#      DESBLOQUEAR
+#Cortar,888888#       Bloqueia o veiculo somente a baixo de 20 km/h, sera bloqueado assim que automovel reduzir velocidade</code></pre></div>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Parametro,888888#    RETORNA IMEI ,APN,IP,Intervalo ,Fuso Hórario ,Número de Admin
+#Status,888888#       RETORNA status de Ignição e Nivel de sinal GPS ,GSM e KM e Voltagem do equipamento
+#Google,888888#       RETORNA LOCALIZAÇÃO COM LINK GOOGLE</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>FORÇAR CONEXÃO (TRACKMAX_M1_2G.txt)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Status,888888#</code></pre></div>
+<p>RESET</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Reiniciar,888888#</code></pre></div>
+<h2 id="ligacao-leds">Ligação / LEDs</h2>
+<p>Não há informação em texto (possível figura embutida na planilha, não visualizada). Ver diagrama do M1 em <code>M1 CONFI.md</code>.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>OBS: Depois de enviar os comandos de IP, PORTA E APN, aguarde 15 segundos, o equipamento vai reiniciar.</li></ul>
+    
+    <nav class="pager"><a href="m1-confi.html">← M1 CONFI</a><a href="manual-j1.html">MANUAL J1 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

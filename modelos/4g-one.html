@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>4G ONE · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#modelo-s">Modelo(s)</a></li><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#versoes-de-firmware">Versões de firmware</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / 4G ONE</p>
+    <h1>4G ONE — TMAX ONE 4G</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <h2 id="modelo-s">Modelo(s)</h2>
+<ul><li><strong>TMAX ONE 4G</strong> (rastreador 4G TrackMax).</li><li>Firmwares citados: <code>J24B_CNCC_GT06_B37</code>, <code>J24E_307X_B21</code> (placa J24). Protocolo <strong>GT06</strong> (<code>GT06SEL=1</code>, resposta <code>CXZT</code> mostra <code>-GT06</code>).</li><li>Comandos no padrão <code>SZCS#</code> / <code>CXCS#</code> e SMS estilo Concox (<code>PARAM#</code>, <code>STATUS#</code>...).</li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<ul><li><code>4G ONE/COMANDOS TMAX ONE 4G.txt</code> — lido</li></ul>
+<h2 id="versoes-de-firmware">Versões de firmware</h2>
+<div class="table-wrap"><table><thead><tr><th>Situação</th><th>Versão</th></tr></thead><tbody><tr><td>SEM PROBLEMAS</td><td><code>J24B_CNCC_GT06_B37 2025-06-20 V6.62</code></td></tr><tr><td>SEM PROBLEMAS</td><td><code>J24E_307X_B21_V5.27 20260402</code></td></tr><tr><td>COM PROBLEMAS</td><td><code>J24E_307X_B21_V5.22 20251202</code></td></tr></tbody></table></div>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXZT</code></pre></div>
+<p>Resposta exemplo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>J24E_307X_B21_V5.27-GT06 ID:86826407XXXXXXX dns.trackmax.com.br-2509 APN:trackmax.br USER:max PW:max GPS:A 4G:31 Freq:45-300|HRT:180|SLPDIS:1|WIFI:1|LBS:1|POW:1|ACC:1|SF:0|BAT:3989|EXVol:186|Sleep:180-0|VIB:0|RT:155</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXGPS</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>POWER:1-DW:A-Colltimes:5338 Gps--Num:12,Star:31-26-25-23-19-19-18-18-16-13 BD--Num:5,Star:32-30-27-24-15</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STATUS#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Battery:3.97V;GPRS:Online;GSM Signal Level:29;ACC:ON;GPS:Successful positioning;GPS Signal Level:35,34,28,24,23,22;Defense:OFF;</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PARAM#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IMEI:86826407XXXXXXX;TIMER:60,1800;SENDS:3;HBT:1800Sec;Defense:1;</code></pre></div>
+<p>Consulta o ICCID do chip:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#ICCID</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>READOK: ICCID=8988303000XXXXXXXXXX</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER:1,dns.trackmax.com.br,2509,0</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRSSET#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRS:ON,APN:trackmax.br,max,max,0;Server:1,dns.trackmax.com.br,2509;</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#APN#USERPPP#PWPPP</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>READOK: APN=trackmax.br*USERPPP=max*PWPPP=max</code></pre></div>
+<p>Consulta ID:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#TERIID</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>READOK: TERIID=86826407XXXXXXX</code></pre></div>
+<p>Status ignição virtual:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#ACCLINE</code></pre></div>
+<p>Ler memória interna:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>BLINDINFO#</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Blind Info EN:1, Total:4000,Use:0,Leave:4000,rp:61,wp:61</code></pre></div>
+<p>Consultar limite de velocidade:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#SPEED</code></pre></div>
+<p>Consultar tempo de GPS após desligar ignição:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SEDS#</code></pre></div>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="forcar-localizacao">Forçar localização</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>POSITION#</code></pre></div>
+<p>Resposta: <code>&lt;04-09 18:36&gt;http://maps.google.com/maps?q=-23.534097,-46.704258</code></p>
+<h3 id="resetar-reiniciar">Resetar / reiniciar</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
+<p>Resposta: <code>RESET OK</code></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CQ</code></pre></div>
+<p>Resposta: <code>CQ OK</code></p>
+<h3 id="configuracao-completa-pos-atualizacao">Configuração completa pós-atualização</h3>
+<p>Após atualizar, enviar em sequência:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FORMAT
+FACTORY#
+FACTORYALL#
+SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800#GT06SEL=1#GT06IEXVOL=2#ACCLT=1#GPS_DISSLP=0#MTK_DISSLP=0#SLPDISCONNECT=1#SLEEPUPDATE=1#ANGLEVALUE=05-030#VIBCHK=10:3#VIBL=3#SLEEPT=3</code></pre></div>
+<p>Via SMS esse comando precisa ser dividido em dois:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800#GT06SEL=1#GT06IEXVOL=2#ACCLT=1</code></pre></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GPS_DISSLP=0#MTK_DISSLP=0#SLPDISCONNECT=1#SLEEPUPDATE=1#ANGLEVALUE=05-030#VIBCHK=10:3#VIBL=3#SLEEPT=3</code></pre></div>
+<h3 id="ajustes-individuais">Ajustes individuais</h3>
+<div class="table-wrap"><table><thead><tr><th>Ajuste</th><th>Comando</th></tr></thead><tbody><tr><td>Ajustes de time</td><td><code>SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800</code></td></tr><tr><td>Ajuste de protocolo</td><td><code>SZCS#GT06SEL=1#GT06IEXVOL=2</code></td></tr><tr><td>Status de ignição</td><td><code>SZCS#ACCLT=1</code></td></tr><tr><td>Bloqueio instantâneo</td><td><code>SZCS#SOURCE_OFF_TYPE=1</code></td></tr><tr><td>Ativa sleep</td><td><code>SZCS#MTK_DISSLP=0#SLPDISCONNECT=1#SLEEPUPDATE=1#VIBCHK=10:3#VIBL=3#SLEEPT=3</code></td></tr><tr><td>Desativa sleep</td><td><code>SZCS#MTK_DISSLP=1#SLPDISCONNECT=0#SLEEPUPDATE=0#SLEEPT=0</code></td></tr><tr><td>Ângulo</td><td><code>SZCS#ANGLEVALUE=05-030</code></td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800
+SZCS#GT06SEL=1#GT06IEXVOL=2
+SZCS#ACCLT=1
+SZCS#SOURCE_OFF_TYPE=1
+SZCS#MTK_DISSLP=0#SLPDISCONNECT=1#SLEEPUPDATE=1#VIBCHK=10:3#VIBL=3#SLEEPT=3
+SZCS#MTK_DISSLP=1#SLPDISCONNECT=0#SLEEPUPDATE=0#SLEEPT=0
+SZCS#ANGLEVALUE=05-030</code></pre></div>
+<h3 id="ignicao-virtual-acelerometro">Ignição virtual (acelerômetro)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ACCLINE=1</code></pre></div>
+<p>Ignição virtual por acelerômetro <em><strong>DESLIGADA</strong></em></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ACCLINE=0</code></pre></div>
+<p>Ignição virtual por acelerômetro LIGADA</p>
+<h3 id="leds">LEDs</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#LED_ENABLE=0</code></pre></div>
+<p>Apagar LEDs</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#LED_ENABLE=1</code></pre></div>
+<p>Acender LEDs</p>
+<h3 id="memoria-interna-posicoes-offline">Memória interna (posições offline)</h3>
+<p>Salvar e descarregar posições de memória:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#BLIND_EN=1</code></pre></div>
+<p>ou</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#BLIND,EN=1</code></pre></div>
+<p>Apagar memória interna:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>BLINDINIT#</code></pre></div>
+<h3 id="velocidade">Velocidade</h3>
+<p>Configurar limite (km/h):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SPEED=110</code></pre></div>
+<p>Resposta: <code>SETOK: SPEED=110</code></p>
+<p>Alerta de velocidade:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SPEED,ON,10,110,1#</code></pre></div>
+<p>Resposta: <code>SPEED:ON,10,110,1</code></p>
+<ul><li>ON = ativa o monitoramento de excesso de velocidade</li><li>10 = intervalo de verificação (segundos)</li><li>110 = limite de velocidade (km/h)</li><li>1 = modo de alarme</li></ul>
+<h3 id="gps-apos-desligar-ignicao">GPS após desligar ignição</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENDS,3#</code></pre></div>
+<p>Padrão: desativa após 3 minutos</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENDS,0#</code></pre></div>
+<p>Nunca desliga</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Plataforma TrackMax:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SERVIP=dns.trackmax.com.br#SERVPORT=2509</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Chip</th><th>Comando APN</th></tr></thead><tbody><tr><td>CHIPMAX</td><td><code>SZCS#APN=trackmax.br#USERPPP=max#PWPPP=max</code></td></tr><tr><td>ALGAR TMAX</td><td><code>SZCS#APN=tmax.algar.br#USERPPP=algar#PWPPP=algar</code></td></tr><tr><td>VIVO TMAX</td><td><code>SZCS#APN=tmax.m2m.vivo.com.br#USERPPP=vivo#PWPPP=vivo</code></td></tr><tr><td>CLARO TMAX</td><td><code>SZCS#APN=tmax.claro.com.br#USERPPP=claro#PWPPP=claro</code></td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#APN=trackmax.br#USERPPP=max#PWPPP=max
+SZCS#APN=tmax.algar.br#USERPPP=algar#PWPPP=algar
+SZCS#APN=tmax.m2m.vivo.com.br#USERPPP=vivo#PWPPP=vivo
+SZCS#APN=tmax.claro.com.br#USERPPP=claro#PWPPP=claro</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p><strong>Firmware J24E_307X_B21_V5.22 (20251202) com problemas</strong> → atualizar para V5.27 com o equipamento ONLINE:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J24E_307X_B21_V527.bin,C6#</code></pre></div>
+<p>ou</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ, http://139.9.60.174/update/J24E_307X_B21_V527.bin,C6#</code></pre></div>
+<p>Enviar o comando e aguardar 5 MINUTOS ou posição após o resultado do comando ser <code>YCSJ START OK</code>. Depois enviar a sequência de &quot;Configuração completa pós-atualização&quot; (FORMAT, FACTORY#, FACTORYALL#, SZCS#...).</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<ul><li>LEDs podem ser apagados/acesos com <code>SZCS#LED_ENABLE=0</code> / <code>SZCS#LED_ENABLE=1</code>.</li><li>Ignição: <code>SZCS#ACCLT=1</code> (status de ignição); ignição virtual por acelerômetro via <code>SZCS#ACCLINE</code>.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Memória interna comporta 4000 posições (<code>BLINDINFO#</code>).</li><li><code>SENDS,3#</code> é o padrão (GPS desliga 3 min após ignição desligada).</li></ul>
+    
+    <nav class="pager"><span></span><a href="4g.html">4G →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

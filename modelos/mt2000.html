@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>MT2000 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / MT2000</p>
+    <h1>MT2000</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> MT2000 (firmware versões 1.3.x / &quot;1_3_7+&quot;)</li><li><strong>Fabricante / protocolo:</strong> não identificado nos documentos. Comandos no formato <code>SET XXX=...</code> / <code>GET XXX</code>; nos exemplos do manual os comandos aparecem entre asteriscos (<code>*SET ...*</code>).</li><li><strong>Arquivos-fonte:</strong><ul><li><code>MT2000/Comandos MT2000 1_3_7+ (1) (1).txt</code> (manual de comandos completo)</li><li><code>MT2000/MT2000.txt</code> (receita TrackMax resumida)</li></ul></li></ul>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<p>Comandos apenas de consulta:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GET INFO
+GET PROG
+GET NST
+GET HELP</code></pre></div>
+<p>Leitura de cada grupo de configuração:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>*GET NTW*
+*GET FREQ*
+*GET REPORT*
+*GET MOD*
+*GET BAT*
+*GET ACM*
+*GET ACL*
+*GET RELAY*
+*GET ENGINEV*
+*GET GF1*</code></pre></div>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="comunicacao-completa-apn-servidor-primario-e-secundario">Comunicação completa (APN + servidor primário e secundário)</h3>
+<p>Formato:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET NTW=apn_da_operadora:usuario_apn:senha_apn:ip_ou_dns_servidor_primario:porta_servidor_primario:ip_ou_dns_servidor_secundario:porta_servidor_secundario</code></pre></div>
+<p>Exemplo (DNS no primário e IP no secundário — pode usar DNS ou IP em ambos):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>*SET NTW=allcom.vivo.com.br:vivo:vivo:mbxlabcps.ddns.net:80569:187:11:203:81:80569*</code></pre></div>
+<ul><li>APN = allcom.vivo.com.br / usuário = vivo / senha = vivo</li><li>DNS do servidor primário = mbxlabcps.ddns.net, porta 80569</li><li>IP do servidor secundário = 187:11:203:81 (grafado assim no original), porta 80569</li></ul>
+<h3 id="apenas-url-primario">Apenas URL primário</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET URL=ip_ou_dns_servidor_primario:porta_servidor_primario
+*SET URL=mbxlabcps.ddns.net:80569*</code></pre></div>
+<h3 id="apenas-apn">Apenas APN</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET APN=apn_da_operadora:usuario_apn:senha_apn
+*SET APN=allcom.vivo.com.br:vivo:vivo*</code></pre></div>
+<h3 id="eventos-temporizados-freq">Eventos temporizados (FREQ)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET FREQ=transmissao_temporizada_com_ignicao_ligada:transmissao_temporizada_com_ignicao_desligada:tempo_para_entrar_modo_de_economia_de_energia:tempo_heartbeat:reservado(futura_implementacao_envio_temporizado_em_situacao_de_guincho)
+*SET FREQ=60:60:120:0:0*</code></pre></div>
+<ul><li>transmissão com ignição ligada: 60 segundos</li><li>transmissão com ignição desligada: 60 minutos</li><li>tempo para entrar em economia de energia: 120 segundos</li><li>heartbeat: 0 = desligado</li><li>reservado (implementação futura: transmissão temporizada de pacote de reboque)</li></ul>
+<h3 id="eventos-nao-temporizados-angulo-distancia-velocidade">Eventos não temporizados (ângulo, distância, velocidade)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET REPORT=transmissao_mudanca_angulo:transmissao_distancia_percorrida:alerta_excesso_velocidade
+*SET REPORT=30:1000:120*</code></pre></div>
+<ul><li>mudança de ângulo = 30 graus; distância percorrida = 1000 metros; excesso de velocidade = 120 km/h</li></ul>
+<h3 id="modos-de-operacao-mod">Modos de operação (MOD)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET MOD=modo_operacao:modo_ignicao:prioridade_envio_buffer:modo_de_transmissão:modo_supervisão_de_pacotes
+*SET MOD=1:0:0:0:0*</code></pre></div>
+<ul><li>modo de economia de energia = 1 (0 - ultra-econômico, 1 - econômico, 2 - sempre ligado)</li><li>modo de detecção de ignição = 0 (0 - física, 1 - Smart Ignition, 2 - Virtual por tensão)</li><li>modo de envio de buffer = 0 (0 - alta prioridade, 1 - baixa prioridade)</li><li>modo de transmissão = 0 (0 - absoluto, 1 - relativo)</li><li>modo de supervisão de pacotes = 0 (0 - desligado, 1 a 255 número de pacotes para reiniciar)</li></ul>
+<h3 id="alarmes-de-bateria-bat">Alarmes de bateria (BAT)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET BAT=tensao_bateria_baixa:reservado:reservado:reservado:reservado
+*SET BAT=11500:15200:3300:4200:5*</code></pre></div>
+<ul><li>11500 (11,5 V): evento de bateria baixa e corte do consumo da bateria externa</li><li>15200 mV (15,2 V): evento de bateria alta</li><li>3300 mV (3,3 V): bateria interna baixa</li><li>4200 mV (4,2 V): bateria interna alta</li><li>5: atraso em segundos para envio de eventos de alerta de bateria</li></ul>
+<h3 id="hodometro-acumulativo-e-horimetro-acm">Hodômetro acumulativo e horímetro (ACM)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET ACM=hodometro_acumulativo:horimetro
+*SET ACM=20000:180*</code></pre></div>
+<ul><li>hodômetro total = 20000 metros; horímetro = 180 minutos</li></ul>
+<h3 id="acelerometro-acl">Acelerômetro (ACL)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET ACL=numero_ocorrencias_para_considerar_movimento:limite_forca_g
+*SET ACL=2:20*</code></pre></div>
+<ul><li>2 ocorrências para considerar movimento; limite de força G = 20 (2,0 G — programado x10)</li></ul>
+<h3 id="bloqueio-e-desbloqueio-imediato-relay">Bloqueio e desbloqueio imediato (RELAY)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET RELAY=0_para_desativar_1_para_ativar_saida
+*SET RELAY=0*
+SET RELAY=1</code></pre></div>
+<ul><li><code>SET RELAY=0</code> = saída desativada; <code>SET RELAY=1</code> = saída ativada</li></ul>
+<h3 id="ignicao-virtual-por-tensao-enginev">Ignição virtual por tensão (ENGINEV)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET ENGINEV=tensao_limite_para_considerar_ignicao_ligada
+*SET ENGINEV=13500*</code></pre></div>
+<ul><li>tensão limite para considerar ignição ligada: 13500 (o original escreve &quot;13000 mV (13,5 Volts)&quot;)</li><li>Usar junto com <code>SET MOD=x:2:...</code> (ignição virtual por tensão).</li></ul>
+<h3 id="cerca-virtual-embarcada-gf1">Cerca virtual embarcada (GF1)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET GF1=latitude:longitude:raio
+*SET GF1=33.697881:-117.764332:25500*</code></pre></div>
+<ul><li>latitude 33.697881, longitude -117.764332, raio 25500 metros (25,5 km)</li></ul>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-arquivo-mt2000-txt">TrackMax (arquivo MT2000.txt)</h3>
+<p>IP ou DNS:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET URL=dns.trackmax.com.br:5216
+SET URL=35.230.168.225:5216</code></pre></div>
+<p>APN:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET APN=trackmax.br:max:max
+SET APN=tmax.m2m.vivo.com.br:vivo:vivo</code></pre></div>
+<p>Frequência / report / modo / bateria / hodômetro / acelerômetro:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET FREQ=60:60:120:0:0
+SET REPORT=30:1000:120
+SET MOD=1:0:0:0:0
+SET BAT=11500:15200:3300:4200:5
+SET ACM=20000:180
+SET ACL=2:20</code></pre></div>
+<p>Bloqueio e desbloqueio:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SET RELAY=0
+SET RELAY=1</code></pre></div>
+<p>Consultas:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GET INFO
+GET PROG
+GET NST
+GET HELP</code></pre></div>
+<h3 id="exemplo-do-manual-vivo-allcom-servidor-de-laboratorio">Exemplo do manual (Vivo Allcom + servidor de laboratório)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>*SET NTW=allcom.vivo.com.br:vivo:vivo:mbxlabcps.ddns.net:80569:187:11:203:81:80569*</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p>Nenhum problema/solução documentado nos arquivos.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Não documentado nos arquivos.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Servidor TrackMax para o MT2000: porta <strong>5216</strong> (<code>dns.trackmax.com.br</code> ou <code>35.230.168.225</code>).</li><li>No exemplo do manual, a porta 80569 é maior que 65535 (inválida) e o IP secundário usa <code>:</code> no lugar de <code>.</code> — exemplo meramente ilustrativo.</li></ul>
+    
+    <nav class="pager"><a href="mt01.html">← MT01</a><a href="n01-4g.html">N01 4G →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

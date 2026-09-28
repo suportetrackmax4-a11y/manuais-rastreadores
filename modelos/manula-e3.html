@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>MANULA E3+ · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#arquivos-fonte">Arquivos-fonte</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora / servidor</a></li><li><a href="#configuracao-comandos-txt">Configuração (COMANDOS.txt)</a></li><li><a href="#tabela-oficial-pdf-e3-comandos-por-sms">Tabela oficial (PDF &quot;E3+ Comandos por SMS&quot;)</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#comandos-de-acao">Comandos de ação</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação / LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / MANULA E3+</p>
+    <h1>MANULA E3+ — Rastreador E3+ (BWS IoT)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo:</strong> E3+ (BWS E3+ / &quot;E3+ MT&quot;)</li><li><strong>Fabricante:</strong> BWS IoT (Business Well Safe) — Calçada das Acácias, 31 - Alphaville Comercial/Centro comercial, Barueri – SP — Tel.: +55 11 4191 – 7482 / 4193 – 1475 / 94017-4266 — suporte@bwsiot.com — bwsiot.com</li><li><strong>Protocolo:</strong> TCP (comando <code>TCP</code>); servidor TrackMax <code>dns.trackmax.com.br</code> porta <code>5056</code></li><li><strong>Senha de registro:</strong> <code>REG000000#</code></li></ul>
+<h2 id="arquivos-fonte">Arquivos-fonte</h2>
+<ul><li><code>E3+ COMANDOS (1).pdf</code> — tabela oficial &quot;E3+ Comandos por SMS&quot; (32 itens, versão em inglês e versão em chinês)</li><li><code>COMANDOS.txt</code> — &quot;BWS E3+&quot; configuração inicial e lista de comandos</li><li><code>E3+ TRACKMAX (1).txt</code> — receita TrackMax (ARQIA) + linha de configuração em um comando</li></ul>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora / servidor</h2>
+<h3 id="receita-trackmax-chip-arqia-e3-trackmax-txt">Receita TrackMax — chip ARQIA (E3+ TRACKMAX.txt)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>REG000000#
+SMS1
+DNS#dns.trackmax.com.br#5056#
+APN*WL.VODAFONE.BR*ARQIA*ARQIA
+TCP
+GPRS1
+EN
+TZW0
+HB60
+SHB180
+WAKE60
+CQ
+SMS0</code></pre></div>
+<p>APN alternativa (mesmo arquivo):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN*trackmax.br*max*max</code></pre></div>
+<p>Comando único de configuração (modelo):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>&lt;SPWW*P:WWGPS*Q:DNS_ou_IP:PORTA*A:APN,USER,PASS*C:180*O:3600*3Z:0*9E:0:00&gt;</code></pre></div>
+<h3 id="configuracao-inicial-chip-algar-comandos-txt">Configuração inicial — chip ALGAR (COMANDOS.txt)</h3>
+<p>(APN)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN*tmax.algar.br*algar*algar</code></pre></div>
+<p>(IP e Porta)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DNS#dns.trackmax.com.br#5056#</code></pre></div>
+<p>(tempo de comunicação chave ligada)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HB30</code></pre></div>
+<p>(tempo de comunicação chave desligada)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SHB7200</code></pre></div>
+<p>OBS: Para o E3+ adicionar os seguintes comandos:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>&lt;EXT87&gt;
+TX7200</code></pre></div>
+<hr>
+<h2 id="configuracao-comandos-txt">Configuração (COMANDOS.txt)</h2>
+<div class="table-wrap"><table><thead><tr><th>Descrição</th><th>Comando</th></tr></thead><tbody><tr><td>Liberar permissão de comando</td><td><code>REG000000#</code></td></tr><tr><td>Habilitar o recebimento por SMS</td><td><code>SMS1</code></td></tr><tr><td>Desabilitar o recebimento por SMS</td><td><code>SMS0</code></td></tr><tr><td>Configuração de fuso horário</td><td><code>TZW0</code></td></tr><tr><td>Configurar ajuste de fuso-horário</td><td><code>TZW3</code></td></tr><tr><td>Configurar tempo de chave ligada</td><td><code>HB30</code></td></tr><tr><td>Configurar tempo de chave desligada</td><td><code>SHB7200</code></td></tr><tr><td>Configurar modo de economia de energia</td><td><code>SDMS1</code></td></tr><tr><td>Configurar tempo de SLEEP (em minutos)</td><td><code>SLEEP60</code></td></tr><tr><td>Configurar tempo de WAKE (em minutos)</td><td><code>WAKE5</code></td></tr><tr><td>Configurar a sensibilidade do acelerômetro</td><td><code>ZD5</code></td></tr><tr><td>Ativa ignição via SMS</td><td><code>BJ1</code></td></tr><tr><td>Desativa ignição via SMS</td><td><code>BJ0</code></td></tr><tr><td>Ativa alerta de falha de GPRS</td><td><code>JD1</code></td></tr><tr><td>Desativa alerta de falha de GPRS</td><td><code>JD0</code></td></tr><tr><td>Reinicie sem perder os dados</td><td><code>RESTART</code></td></tr><tr><td>Redefinir padrão de fábrica</td><td><code>RST</code></td></tr><tr><td>Conferir configuração</td><td><code>ZT</code></td></tr><tr><td>Reinicia o aparelho</td><td><code>CQ</code></td></tr><tr><td>Bloquear o rastreador</td><td><code>DD</code></td></tr><tr><td>Desbloquear o rastreador</td><td><code>TD</code></td></tr></tbody></table></div>
+<h2 id="tabela-oficial-pdf-e3-comandos-por-sms">Tabela oficial (PDF &quot;E3+ Comandos por SMS&quot;)</h2>
+<div class="table-wrap"><table><thead><tr><th>Nº</th><th>Descrição</th><th>Ação</th><th>Versão em inglês</th><th>Versão em chinês</th></tr></thead><tbody><tr><td>1</td><td>Registro de dispositivo</td><td>Ação</td><td><code>REG000000#</code></td><td></td></tr><tr><td>2</td><td>Resposta de SMS</td><td>Ligado / Desligado</td><td><code>SMS1</code> / <code>SMS0</code></td><td></td></tr><tr><td>3</td><td>Idioma de SMS</td><td>Chinês / Inglês</td><td><code>CN</code> / <code>EN</code></td><td></td></tr><tr><td>4</td><td>APN</td><td>Configurar / Verificar</td><td><code>APN*suaapn*usuario*senha</code> / <code>CHECK</code></td><td><code>ZT</code></td></tr><tr><td>5</td><td>Endereço de IP</td><td>IP1 / IP2 / Verificar</td><td><code>IP1#999.999.999#0000#</code> / <code>IP2#999.999.999#0000#</code> / <code>CXIP</code></td><td></td></tr><tr><td>6</td><td>DNS</td><td>Configurar / Verificar</td><td><code>DNS#Nome#porta#</code> / <code>DNS</code></td><td></td></tr><tr><td>7</td><td>Fuso horário</td><td>Leste / Oeste / Verificar</td><td><code>TZE0</code> / <code>TZW0</code> / <code>CHECK</code></td><td><code>ZT</code></td></tr><tr><td>8</td><td>Intervalo de transmissão com carro ligado</td><td>Configurar / Verificar</td><td><code>HBn</code> (no modo TCP, 5&lt;n&lt;65535) / <code>CHECK</code></td><td><code>ZT</code></td></tr><tr><td>9</td><td>Intervalo de transmissão com carro desligado</td><td>Configurar / Verificar</td><td><code>SHBn</code> / <code>CHECK</code></td><td><code>ZT</code></td></tr><tr><td>10</td><td>Status</td><td>Verificar</td><td><code>CHECK</code></td><td><code>ZT</code></td></tr><tr><td>11</td><td>Google link</td><td>Verificar</td><td><code>GOOGLE</code></td><td></td></tr><tr><td>12</td><td>Alerta de alta velocidade</td><td>Configurar / Verificar / Desligado</td><td><code>SPEEDn</code> / <code>CHECK</code> / <code>SPEED0</code></td><td><code>CSn</code> / <code>ZT</code> / <code>SCn</code></td></tr><tr><td>13</td><td>Bloqueio</td><td>Bloquear / Desbloquear</td><td><code>ENGOFF</code> / <code>ENGON</code></td><td><code>DD</code> / <code>TD</code></td></tr><tr><td>14</td><td>LBS position</td><td>Ligado / Desligado</td><td><code>LBSON</code> / <code>LBSOFF</code></td><td></td></tr><tr><td>15</td><td>Posição de LBS</td><td>Verificar</td><td><code>LBS</code></td><td><code>JZ</code></td></tr><tr><td>16</td><td>IMEI</td><td>Verificar</td><td><code>IMEI</code></td><td></td></tr><tr><td>17</td><td>ICCID</td><td>Verificar</td><td><code>ICCID</code></td><td></td></tr><tr><td>18</td><td>Senha do dispositivo</td><td>Configurar</td><td><code>MODIFYPW000000123456</code></td><td><code>XGMM000000123456</code></td></tr><tr><td>19</td><td>Controle do equipamento</td><td>Configuração padrão / Reiniciar</td><td><code>RST</code> / <code>RESTART</code></td><td><code>CSH</code> / <code>CQ</code></td></tr><tr><td>20</td><td>Versão de Firmware</td><td>Verificar</td><td><code>ET</code> <em>(posição na tabela ambígua na extração)</em></td><td></td></tr><tr><td>21</td><td>Posição de GPS</td><td>Verificar</td><td><code>LOCA</code></td><td><code>DW</code></td></tr><tr><td>22</td><td>Atualizar Firmware</td><td>Configurar</td><td><code>&lt;EXT87&gt;</code></td><td></td></tr><tr><td>23</td><td>Hodômetro</td><td>Configurar</td><td><code>DKn</code> (n = valor em KM)</td><td></td></tr><tr><td>24</td><td>Atualização de posição em curva</td><td>On / Off</td><td><code>TURNDETON</code> / <code>TURNDETOFF</code></td><td></td></tr><tr><td>25</td><td>Tempo de TX</td><td>Definir</td><td><code>TXn</code> (n = tempo em segundos)</td><td></td></tr><tr><td>26</td><td>Sensibilidade do acelerômetro</td><td>Definir</td><td><code>SENSEn</code> (0-10, 0 mais sensível - 10 menos sensível)</td><td><code>ZD=n</code> (0-10)</td></tr><tr><td>27</td><td>Alerta de ignição / Corte de alimentação (SMS)</td><td>Ligado / Desligado</td><td><code>BJ1</code> / <code>BJ0</code></td><td></td></tr><tr><td>28</td><td>Alerta de falha de GPRS (SMS)</td><td>Ligado / Desligado</td><td><code>JD1</code> / <code>JD0</code></td><td></td></tr><tr><td>29</td><td>Tipo de bloqueio</td><td>Progressivo / Instantâneo / Comando inverso (instantâneo)</td><td><code>MODE1</code> / <code>MODE2</code> / <code>MODE3</code></td><td></td></tr><tr><td>30</td><td>LED</td><td>Ligado / Desligado</td><td><code>LEDON</code> / <code>LEDOFF</code></td><td></td></tr><tr><td>31</td><td>Ignição virtual</td><td>Ligado / Desligado</td><td><code>IVON</code> / <code>IVOFF</code></td><td></td></tr><tr><td>32</td><td>Status</td><td>Verificar</td><td><code>STATUS</code></td><td></td></tr></tbody></table></div>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZT
+CHECK
+CXIP
+DNS
+GOOGLE
+LBS
+IMEI
+ICCID
+LOCA
+STATUS</code></pre></div>
+<p>Comando para requisitar localização (sequência do COMANDOS.txt):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>REG000000#
+SMS1
+CQ
+LOCA</code></pre></div>
+<h2 id="comandos-de-acao">Comandos de ação</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DD        (bloquear)
+TD        (desbloquear)
+ENGOFF    (bloquear – versão inglês)
+ENGON     (desbloquear – versão inglês)
+RESTART   (reinicia sem perder os dados)
+CQ        (reinicia o aparelho)
+RST       (redefinir padrão de fábrica)</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li>Antes de qualquer comando enviar <code>REG000000#</code> (liberar permissão) e <code>SMS1</code> (habilitar resposta por SMS). Ao final da receita TrackMax, <code>SMS0</code> desliga as respostas.</li><li>Nenhum outro problema registrado nos arquivos.</li></ul>
+<h2 id="ligacao-leds">Ligação / LEDs</h2>
+<ul><li><code>LEDON</code> / <code>LEDOFF</code> liga/desliga LED. Sem diagrama de ligação no PDF (apenas foto do produto: módulo azul com cabo e conector de 4 vias).</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Duas receitas de tempo diferentes: ALGAR <code>HB30</code> / <code>SHB7200</code> (+ <code>TX7200</code>) e ARQIA <code>HB60</code> / <code>SHB180</code> / <code>WAKE60</code>.</li><li><code>TZW0</code> = fuso Oeste 0 (UTC); <code>TZW3</code> = UTC-3.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/manula-e3/E3%2B%20COMANDOS%20(1).pdf" target="_blank" rel="noopener">E3+ COMANDOS (1).pdf</a> <span class="muted">537 KB</span></li></ul></section>
+    <nav class="pager"><a href="manual-j1.html">← MANUAL J1</a><a href="micodus.html">MICODUS →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

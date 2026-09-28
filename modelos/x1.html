@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>X1 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / X1</p>
+    <h1>X1 — TrackMax X1 2G GPRS</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> TrackMax X1 2G (GPRS)</li><li><strong>Fabricante / protocolo:</strong> TrackMax — comandos SMS com senha no formato <code>COMANDO,123456,parâmetros</code> (senha padrão <code>123456</code>)</li><li><strong>Hardware:</strong> Modem RDA6625E; redes 2G GPRS; GSM850/900/1800/1900MHz; CPU MT6261DA; memória 32MB; bateria interna 90mha; tensão de entrada DC 9 a 36 Volts; compacto 66 x 33 x 10,5 mm; 1 saída negativa bloqueio/desbloqueio; 1 entrada positiva pós-chave ACC+; slot micro SIM; antenas GPS e GSM internas; GPS AT6568 (Dual BeiDou e GLONASS); sensibilidade (rastreamento) -159 dBm; partida a frio 60 s; partida quente 3 s; precisão 1 a 2 metros; configuração via SMS e plataforma; 2 LEDs (GPS e GSM); envio temporizado e por ângulo; alarme após corte de energia principal; alarme por movimento.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>X1/MANUAL TRACKMAX X1 2G GPRS V01-2025.pdf</code> (14 páginas; diagrama visualizado como imagem)</li></ul></li></ul>
+<hr>
+<h2 id="consultas">Consultas</h2>
+<p>Solicitar posição:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Pos,123456</code></pre></div>
+<hr>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="servidor-e-porta-da-plataforma-trackmax">Servidor e porta da plataforma TrackMax</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IP,123456,dns.trackmax.com.br,2501</code></pre></div>
+<h3 id="apn-usuario-e-senha-chip-max-multi-operadora">APN, usuário e senha (CHIP MAX MULTI OPERADORA)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,123456,trackmax.br,max,max</code></pre></div>
+<h3 id="intervalo-de-envio-de-posicoes-em-segundos">Intervalo de envio de posições (em SEGUNDOS)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>interval,123456,600,1800</code></pre></div>
+<h3 id="bloqueio-desbloqueio">Bloqueio / desbloqueio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY ,123456,1</code></pre></div>
+<p>bloquear o veículo</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY ,123456,0</code></pre></div>
+<p>desbloquear o veículo (No manual aparece com espaço antes da vírgula: <code>RELAY ,123456,1</code>.)</p>
+<h3 id="fuso-horario">Fuso horário</h3>
+<p>Ajuste de fuso horário para zero (a plataforma que ajusta):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Timezone,123456,0</code></pre></div>
+<hr>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-chip-max-multi-operadora">TrackMax — chip MAX multi operadora</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IP,123456,dns.trackmax.com.br,2501
+APN,123456,trackmax.br,max,max
+interval,123456,600,1800
+Timezone,123456,0</code></pre></div>
+<ul><li>Servidor: <code>dns.trackmax.com.br</code> porta <strong>2501</strong></li><li>APN: <code>trackmax.br</code>, <code>max</code>, <code>max</code></li></ul>
+<hr>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<div class="table-wrap"><table><thead><tr><th>Problema</th><th>Descrição</th><th>Solução</th></tr></thead><tbody><tr><td>NÃO FICA ONLINE OU CONECTA NA PLATAFORMA DE RASTREAMENTO</td><td>CHIP SIM CARD não inserido, mal inserido, sem rede ou sinal fraco de GSM/GPRS</td><td>Verifique a posição a ser inserido no manual; verifique se seu chip está ativo e pronto; mude de local a fim de melhorar o sinal GSM/GPRS; alimentar o Rastreador e ligar a ignição pós-chave do veículo</td></tr><tr><td>SEM LOCALIZAÇÃO, PORÉM FICA ONLINE</td><td>Ficou online, porém mostrando em outro local. Visada GPS</td><td>O veículo precisa estar em local com céu aberto; nada metálico entre o rastreador e o céu; se possível visada livre de 180 graus; o rastreador precisa ficar fixo; verifique a posição do GPS deixando para cima</td></tr></tbody></table></div>
+<p>MOTOS — ATENÇÃO! Ao alocar o Rastreador embaixo de tanques de combustível metálicos de motocicletas, próximo ao motor ou ao filtro, o sinal de GPS e a conexão de dados podem ficar comprometidos.</p>
+<hr>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="chicote">Chicote</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor do fio</th><th>Significado</th></tr></thead><tbody><tr><td>VERMELHO</td><td>Alimentação Principal Positivo (9-90V) (obs.: especificação indica DC 9 a 36 V)</td></tr><tr><td>PRETO</td><td>Negativo - GND - Terra</td></tr><tr><td>LARANJA</td><td>Linha 15 ACC pós Chave Positivo</td></tr><tr><td>AMARELO</td><td>Saída Negativa para Bloqueio</td></tr></tbody></table></div>
+<h3 id="instalacao">Instalação</h3>
+<p>ATENÇÃO: Antes de inserir o chip, desligar a chave de bateria, inserir o chip, ligar chave de bateria e conectar ao cabo de alimentação.</p>
+<ol><li>Conecte o fio VERMELHO no polo positivo da bateria (+)</li><li>Conecte o fio PRETO no polo negativo da bateria (-) TERRA/GND.</li><li>Conecte o fio LARANJA na linha pós chave ACC +.</li><li>Identifique, teste e corte o fio utilizado para Bloqueio. Efetue os testes e verifique as tensões com Multímetro.</li><li>Monte o relé de bloqueio e ligue o fio AMARELO no pino 86.</li></ol>
+<p>ATENÇÃO: relé de 12 volts para carros e motos, 24 volts para caminhões.</p>
+<p>Diagrama (figura do manual): amarelo → pino 86 do relé; pino 85 → pós-chave ACC ON; fio da bomba de combustível cortado e ligado aos pinos 30 e 87a (NF); vermelho → + bateria; preto → − bateria/terra.</p>
+<p>Chip: abra a tampa do rastreador, ATENÇÃO AO DESTRAVAR SLOT, insira o CHIP MICRO SIM CARD e trave o SLOT; chip com *SMS e GPRS ativados; verifique se os LEDs acendem; fixe com fitas ou presilhas.</p>
+<p>Precauções: local à prova d'água e escondido; verificar os LEDs antes de iniciar os testes; rastreador virado para CIMA conforme ETIQUETA DE ORIENTAÇÃO; visada livre de 180 graus para a antena GPS; FRENTE PARA CIMA.</p>
+<h3 id="leds">LEDs</h3>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Status</th><th>Significado</th></tr></thead><tbody><tr><td>VERMELHO (GSM)</td><td>Aceso Direto</td><td>Iniciando ou chip não registrado</td></tr><tr><td>VERMELHO</td><td>Piscando Lento</td><td>Procurando Rede GSM</td></tr><tr><td>VERMELHO</td><td>Piscando Rápido</td><td>OK Conectado e transferindo dados</td></tr><tr><td>AZUL (GPS)</td><td>Aceso Direto</td><td>Iniciando ou sem visada GPS</td></tr><tr><td>AZUL</td><td>Piscando Lento</td><td>Sem Visada GPS ou Pesquisando Satélites</td></tr><tr><td>AZUL</td><td>Piscando Rápido</td><td>Visada GPS OK e com Satélites operantes</td></tr></tbody></table></div>
+<ul><li>Depois de cerca de 4 minutos, os LEDs entram em standby (apagam) para economizar energia.</li></ul>
+<hr>
+<h2 id="observacoes">Observações</h2>
+<ul><li><code>123456</code> é a senha padrão usada nos comandos.</li><li>&quot;Nesse manual constam os comandos SMS considerados essenciais para o bom funcionamento do Equipamento. Na necessidade de outras funcionalidades contactem o suporte técnico.&quot;</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/x1/MANUAL%20TRACKMAX%20X1%202G%20GPRS%20V01-2025.pdf" target="_blank" rel="noopener">MANUAL TRACKMAX X1 2G GPRS V01-2025.pdf</a> <span class="muted">1.3 MB</span></li></ul></section>
+    <nav class="pager"><a href="wetrack.html">← WETRACK</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>
