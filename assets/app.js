@@ -60,6 +60,10 @@
       cards.forEach(function (c) {
         c.hidden = terms.length > 0 && !terms.every(function (t) { return norm(c.dataset.name).indexOf(t) >= 0; });
       });
+      // esconde grupos (pastas) sem nenhum card visível
+      Array.prototype.forEach.call(document.querySelectorAll('.home > section:not(.hero)'), function (s) {
+        s.hidden = !s.querySelector('.card:not([hidden])');
+      });
       if (!terms.length) { box.hidden = true; box.innerHTML = ''; return; }
       idx = idx || (window.SEARCH_INDEX || []).map(function (r) { return { r: r, n: norm(r.m + ' ' + r.s + ' ' + r.t), m: norm(r.m) }; });
       var hits = [];

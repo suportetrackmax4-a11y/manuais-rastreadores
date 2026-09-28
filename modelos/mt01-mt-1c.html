@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>MT-1C · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#configuracao">Configuração</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / MT01 / MT-1C</p>
+    <h1>Rastreador MT-1C (MT01)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> MT-1C (MT01)</li><li><strong>Pasta:</strong> MT01</li><li><strong>Fabricante/Protocolo:</strong> Comandos SMS numéricos com senha <code>0000</code></li><li><strong>Arquivos-fonte:</strong> <code>MANUAL MT-1C (2).xls</code> (manual &quot;Rastreador MT-1C — Configuração chip M2M e plataforma&quot;, versão 25/07/2018)</li></ul>
+<h2 id="configuracao">Configuração</h2>
+<div class="table-wrap"><table><thead><tr><th>Formato</th><th>Exemplo</th><th>Função</th><th>Status</th></tr></thead><tbody><tr><td><code>8040000 000.000.000.000 0000</code></td><td><code>8040000 35.230.168.225 5013</code></td><td>IP e porta TrackMax</td><td>Necessário</td></tr><tr><td><code>8030000 suaapn.com.br</code></td><td><code>8030000 smart.m2m.vivo.com.br</code></td><td>APN do chip Vivo M2M</td><td>Necessário</td></tr><tr><td><code>8030000 APN USUARIO SENHA</code></td><td><code>8030000 smart.m2m.vivo.com.br vivo vivo</code></td><td>APN com usuário e senha</td><td>Necessário</td></tr><tr><td><code>7100000</code></td><td><code>7100000</code></td><td>Ativar conexão de dados do rastreador</td><td>Necessário</td></tr><tr><td><code>8050000 60</code></td><td><code>8050000 60</code></td><td>Envia posições de 1 em 1 minuto com chave ligada</td><td>Necessário</td></tr><tr><td><code>8090000 120</code></td><td><code>8090000 120</code></td><td>Envia posições de 2 em 2 minutos com chave desligada</td><td>Necessário</td></tr><tr><td><code>SLEEP0000 TEMPO EM MINUTO</code></td><td><code>SLEEP0000 10</code></td><td>Sleep de 10 minutos</td><td>Necessário</td></tr><tr><td><code>1810000T180</code></td><td><code>1810000T180</code></td><td>Alerta de movimento sem pós-chave de 3 em 3 minutos</td><td>Necessário</td></tr><tr><td><code>RESET</code></td><td><code>RESET</code></td><td>Inicia de fábrica</td><td>Opcional</td></tr><tr><td><code>RESTART</code></td><td><code>RESTART</code></td><td>Reinicia o equipamento</td><td>Opcional</td></tr></tbody></table></div>
+<h3 id="sequencia-trackmax-chip-vivo-m2m">Sequência TrackMax (chip Vivo M2M)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 35.230.168.225 5013</code></pre></div>
+<p>Aponta para o servidor TrackMax, porta 5013.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 smart.m2m.vivo.com.br vivo vivo</code></pre></div>
+<p>APN Vivo M2M com usuário e senha.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7100000</code></pre></div>
+<p>Ativa a conexão de dados.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8050000 60</code></pre></div>
+<p>Envio a cada 60 s com chave ligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8090000 120</code></pre></div>
+<p>Envio a cada 120 s com chave desligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 10</code></pre></div>
+<p>Sleep após 10 minutos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T180</code></pre></div>
+<p>Alerta de movimento sem pós-chave a cada 3 minutos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESTART</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>O <code>0000</code> embutido nos comandos é a senha padrão do equipamento.</li><li>Todos os comandos foram marcados &quot;TESTE OK&quot; no manual, exceto <code>RESET</code>.</li></ul>
+    
+    <nav class="pager"><a href="minhas-anotacoes.html">← MINHAS ANOTAÇÕES</a><a href="mt2000.html">MT2000 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

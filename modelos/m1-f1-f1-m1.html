@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>F1 M1 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / M1 F1 / F1 M1</p>
+    <h1>Rastreador F1 / M1</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> F1 e M1 (mesmo manual e mesmos comandos; M1 TrackMax 2G)</li><li><strong>Pasta:</strong> M1 F1</li><li><strong>Fabricante/Protocolo:</strong> Comandos SMS no formato <code>#Comando,senha,...#</code> (senha padrão <code>888888</code>)</li><li><strong>Arquivos-fonte:</strong> <code>MANUAL F1 M1 (7).xls</code> (manual &quot;Rastreador F1/M1 — Configuração chip M2M e plataforma&quot;, versão 10/12/2019), <code>,1 F1.txt</code>, <code>TRACKMAX_M1_2G.txt</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Parametro,888888#</code></pre></div>
+<p>Retorna IMEI, APN, IP, intervalo, fuso horário e número de admin.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Status,888888#</code></pre></div>
+<p>Retorna status de ignição, nível de sinal GPS e GSM, km e voltagem do equipamento. Também usado para <strong>forçar conexão</strong>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Google,888888#</code></pre></div>
+<p>Retorna localização com link do Google.</p>
+<h2 id="configuracao">Configuração</h2>
+<div class="table-wrap"><table><thead><tr><th>Formato</th><th>Exemplo</th><th>Função</th></tr></thead><tbody><tr><td><code>#IP,888888,IP,Porta,1#</code></td><td><code>#IP,888888,35.230.168.225,2001,1#</code></td><td>IP e porta TrackMax (necessário)</td></tr><tr><td><code>#APN,888888,apn,usuário,senha#</code></td><td><code>#APN,888888,smart.m2m.vivo.com.br,vivo,vivo#</code></td><td>APN do chip (necessário)</td></tr><tr><td><code>#Fusohorario,888888,1 a 12/-1 a -12#</code></td><td><code>#Fusohorario,888888,-3#</code></td><td>Ajusta horário de Brasília</td></tr><tr><td><code>#Senha,888888,nova senha#</code></td><td><code>#Senha,888888,123456#</code></td><td>Troca a senha (ex.: para 123456)</td></tr><tr><td><code>#Vibrar,888888,0/1/2/3/4/5#</code></td><td><code>#Vibrar,888888,4#</code></td><td>Alarme de movimento na plataforma</td></tr><tr><td><code>#Tracking,888888,AccOn,AccOff#</code></td><td><code>#Tracking,888888,60,180#</code></td><td>Envio: chave ligada 1 min, chave desligada 3 min</td></tr><tr><td><code>#Dormir,888888,0/1/2#</code></td><td><code>#Dormir,888888,1#</code></td><td>Ativar modo sleep</td></tr><tr><td><code>#Dormir,888888,3,dormir,acordar#</code></td><td><code>#Dormir,888888,3,3600,600#</code></td><td>Dormir e acordar por tempo</td></tr><tr><td><code>#dormir,888888,0#</code></td><td><code>#dormir,888888,0#</code></td><td>Desativa modo sleep</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Restaurar,888888#</code></pre></div>
+<p>Restaura de fábrica o equipamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Reiniciar,888888#</code></pre></div>
+<p>Reinicia o equipamento (reboot / reset).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Cortar,888888#</code></pre></div>
+<p>Bloqueia o veículo somente abaixo de 20 km/h (será bloqueado assim que o veículo reduzir a velocidade).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Religar,888888#</code></pre></div>
+<p>Desbloqueia.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-m1-2g-basico">TrackMax — M1 2G (básico)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP,888888,dns.trackmax.com.br,2001,1#</code></pre></div>
+<p>DNS e porta TrackMax (indicado).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#IP,888888,35.230.168.225,2001,1#</code></pre></div>
+<p>IP e porta TrackMax.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#APN,888888,tmax.algar.br,algar,algar#</code></pre></div>
+<p>APN Algar TrackMax.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#APN,888888,smart.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<p>APN Vivo M2M.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#Tracking,888888,60,180#
+#Vibrar,888888,4#
+#Dormir,888888,1#</code></pre></div>
+<p>Complementos recomendados: tempos de envio, alarme de movimento e modo sleep.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Depois de enviar os comandos de IP, porta e APN, aguarde 15 segundos: o equipamento vai reiniciar.</li><li>Todos os comandos do manual estão marcados como &quot;TESTE OK&quot; (exceto <code>#dormir,888888,0#</code>, sem marcação).</li><li>Os arquivos do F1 e do M1 trazem exatamente os mesmos comandos — por isso ficam numa página única.</li></ul>
+    
+    <nav class="pager"><a href="m1-confi.html">← M1 CONFI</a><a href="manual-j1.html">MANUAL J1 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

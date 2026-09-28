@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LV12B RK102 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / LV12 / LV12B RK102</p>
+    <h1>LV12B / RK102</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> LV12B, RK102</li><li><strong>Pasta:</strong> LV12 (versão quase igual também na pasta RASTREK)</li><li><strong>Fabricante/Protocolo:</strong> Rastrek. Protocolo GT06 (porta TrackMax 5023)</li><li><strong>Arquivos-fonte:</strong> <code>LV12/COMANDOS LV12B RK102.txt</code>; <code>RASTREK/COMANDOS LV12B RK102.txt</code> (mesmo conteúdo com uma APN a mais: <code>trackmax.br</code>)</li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WHERE#</code></pre></div>
+<p>Obtém a localização atual.</p>
+<h2 id="configuracao">Configuração</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apninit#</code></pre></div>
+<p>Inicia a configuração de APN.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.algar.br,algar,algar#</code></pre></div>
+<p>APN do chip Algar TrackMax.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#</code></pre></div>
+<p>APN alternativa <code>trackmax.br</code> (só aparece na cópia da pasta RASTREK).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMNET,dns.trackmax.com.br,5023#</code></pre></div>
+<p>DNS e porta TrackMax, protocolo GT06.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60#</code></pre></div>
+<p>Tempo de transmissão, em segundos (60).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0#</code></pre></div>
+<p>Fuso horário: oeste, 0.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,1#</code></pre></div>
+<p>Bloqueio.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
+<p>Desbloqueio.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Servidor TrackMax (GT06)</td><td><code>dns.trackmax.com.br</code> porta <code>5023</code></td></tr><tr><td>APN Algar TrackMax</td><td><code>tmax.algar.br</code> / <code>algar</code> / <code>algar</code></td></tr><tr><td>APN alternativa</td><td><code>trackmax.br</code> / <code>max</code> / <code>max</code></td></tr></tbody></table></div>
+<p>Sequência sugerida: <code>apninit#</code> → <code>APN,...#</code> → <code>GMNET,dns.trackmax.com.br,5023#</code> → <code>TIMER,60#</code> → <code>GMT,W,0#</code> → <code>RESET#</code>.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>A única diferença entre a cópia da pasta LV12 e a da pasta RASTREK é a linha extra <code>APN,trackmax.br,max,max#</code> na da RASTREK. A página fica na pasta LV12 e não é repetida na RASTREK.</li><li>Este modelo não usa os mesmos comandos do LV12 / RK101 (<code>SERVER,1,...,2012</code>), que tem página própria.</li></ul>
+    
+    <nav class="pager"><a href="lv12-lv12-rk101.html">← LV12 RK101</a><a href="m1-confi.html">M1 CONFI →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

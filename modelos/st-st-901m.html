@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ST-901M · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#especificacoes">Especificações</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / ST / ST-901M</p>
+    <h1>ST-901M</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> ST-901M</li><li><strong>Pasta:</strong> ST</li><li><strong>Fabricante/Protocolo:</strong> SinoTrack (protocolo SinoTrack, comandos SMS numéricos com senha padrão 0000; servidor do fabricante 45.112.204.246 porta 8090)</li><li><strong>Arquivos-fonte:</strong> <code>ST-901M User Manual 246.pdf</code></li></ul>
+<h2 id="especificacoes">Especificações</h2>
+<p>O manual não traz tabela de especificações técnicas. Dados que aparecem no texto:</p>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Chip</td><td>SIM card tamanho normal, sem PIN (tampa superior presa por parafuso)</td></tr><tr><td>Alimentação</td><td>bateria do veículo 12 V ou 24 V, com fusível 2 A</td></tr><tr><td>Senha padrão</td><td>0000</td></tr><tr><td>Modo padrão</td><td>trabalho normal (modo ACC); GPRS</td></tr><tr><td>Bateria interna</td><td>nível de 1 a 5 (5 = 100%, 1 = 20%)</td></tr><tr><td>Status GPS no SMS</td><td>A = com posição; V = posição inválida</td></tr></tbody></table></div>
+<h3 id="plataforma-do-fabricante">Plataforma do fabricante</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Site (PC)</td><td>Pro.SinoTrack.com (o manual também cita www.SinoTrack.com e <a href="http://45.112.204.246" target="_blank" rel="noopener">http://45.112.204.246</a>)</td></tr><tr><td>App</td><td>&quot;SinoTrack PRO&quot; na App Store (iOS) e Google Play (Android); servidor &quot;Pro.SinoTrack&quot;</td></tr><tr><td>Usuário</td><td>ID impresso no rastreador</td></tr><tr><td>Senha</td><td>123456</td></tr></tbody></table></div>
+<p>Para gerenciar vários rastreadores numa única conta é preciso pedir ao fabricante a criação de uma conta.</p>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>6690000</code></pre></div>
+<p>Pede a localização (669+senha). O rastreador lê o GPS e responde com um link do Google Maps.</p>
+<p><strong>Por ligação:</strong> ligue de qualquer celular para o número do chip do rastreador; ele desliga e responde por SMS com o link do Google Maps. Se estiver sem posição válida, envia a última posição válida e, quando obtiver nova posição, manda um segundo SMS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RCONF</code></pre></div>
+<p>Lê a configuração do rastreador (ver explicação da resposta abaixo).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESTART</code></pre></div>
+<p>Reinicia o rastreador.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="primeira-configuracao-passo-a-passo-do-manual">Primeira configuração (passo a passo do manual)</h3>
+<ol><li>Usar chip SIM de tamanho normal, sem código PIN.</li><li>Abrir a tampa superior (parafuso) e inserir o chip — o rastreador liga; conectar a alimentação externa.</li><li>Deixar em área aberta ~30 s; LEDs acesos fixos = funcionando.</li><li>Ligar para o número do aparelho: ele desliga e responde com a posição.</li><li>Configurar o APN:</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 APN
+8030000 APN APNuser APNpassword</code></pre></div>
+<ol><li>Apontar para o servidor do fabricante:</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 45.112.204.246 8090</code></pre></div>
+<ol><li>Pronto — rastreamento online.</li></ol>
+<h3 id="numero-de-controle-admin">Número de controle (admin)</h3>
+<p>Formato: número + senha + espaço + posição (1 a 3).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>NUMERO_CELULAR0000 1</code></pre></div>
+<p>Cadastra o celular como 1º número de controle (no exemplo do manual o número vem com o código do país; 0000 é a senha e 1 é a posição). Resposta &quot;SET OK&quot;. Da mesma forma se cadastram o 2º e o 3º números. Os alarmes são enviados aos números de controle.</p>
+<h3 id="modo-de-trabalho-sms-gprs">Modo de trabalho SMS / GPRS</h3>
+<p>O ST-901M tem os modos SMS (controle só pelo celular, recebendo link do Google Maps) e GPRS (monitoramento online em tempo real na plataforma, com histórico).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7000000</code></pre></div>
+<p>Modo SMS (formato 700+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7100000</code></pre></div>
+<p>Modo GPRS (formato 710+senha) — ativa a conexão de dados. Resposta &quot;SET OK&quot;. <strong>Padrão de fábrica.</strong></p>
+<h3 id="trocar-a-senha">Trocar a senha</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>77712340000</code></pre></div>
+<p>Formato: 777 + senha nova + senha antiga. No exemplo, 1234 é a senha nova e 0000 a antiga (senha padrão 0000). Resposta &quot;SET OK&quot;.</p>
+<h3 id="fuso-horario">Fuso horário</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8960000E00</code></pre></div>
+<p>Formato: 896+senha+E/W+HH (E = leste, W = oeste, HH = horas). 8960000E00 é o padrão (GMT 0). Resposta &quot;SET OK&quot;.</p>
+<h3 id="cerca-eletronica-alarme-so-para-o-1-numero">Cerca eletrônica (alarme só para o 1º número)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>2110000</code></pre></div>
+<p>Liga a cerca (211+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>2100000</code></pre></div>
+<p>Desliga a cerca (210+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0050000 1000</code></pre></div>
+<p>Define o raio da cerca em metros (no exemplo, 1000 m). Resposta &quot;SET OK&quot;. O fabricante recomenda raio acima de 1000 m.</p>
+<h3 id="alarme-de-excesso-de-velocidade-para-os-numeros-de-controle">Alarme de excesso de velocidade (para os números de controle)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 120</code></pre></div>
+<p>Formato: 122+senha+espaço+XXX. XXX = velocidade de 0 a 999 km/h. Com XXX = 0 o alarme é desligado. Resposta &quot;SET OK&quot;.</p>
+<h3 id="alarme-de-vibracao-choque-sms-para-o-1-numero">Alarme de vibração/choque (SMS para o 1º número)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T10</code></pre></div>
+<p>Liga o alarme (181+senha+T). T = tempo de vibração em segundos, de 0 a 120. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1800000</code></pre></div>
+<p>Desliga o alarme de vibração (180+senha). Resposta &quot;SET OK&quot;.</p>
+<h3 id="alarme-de-corte-de-alimentacao">Alarme de corte de alimentação</h3>
+<p>Automático: quando a bateria é desconectada, envia o alarme ao servidor e SMS ao 1º número.</p>
+<h3 id="alarme-de-ignicao-acc-ligada">Alarme de ignição (ACC ligada)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8860000</code></pre></div>
+<p>Liga o aviso de ACC ligada por SMS (886+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8870000</code></pre></div>
+<p>Desliga o aviso de ACC ligada por SMS (887+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8880000</code></pre></div>
+<p>Liga o aviso de ACC ligada por ligação telefônica (888+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8890000</code></pre></div>
+<p>Desliga o aviso de ACC ligada por ligação (889+senha). Resposta &quot;SET OK&quot;.</p>
+<h3 id="modo-de-chamada-alarmes-com-ligacao">Modo de chamada (alarmes com ligação)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1500000</code></pre></div>
+<p>Liga o modo de chamada (150+senha): os alarmes ligam <strong>e</strong> mandam SMS para os números de controle. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1510000</code></pre></div>
+<p>Desliga o modo de chamada (151+senha): os alarmes só mandam SMS. Resposta &quot;SET OK&quot;.</p>
+<h3 id="corte-restauracao-do-motor-bloqueio">Corte / restauração do motor (bloqueio)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>9400000</code></pre></div>
+<p>Corta o motor (940+senha). O rastreador responde &quot;SET OK&quot;. Função exclusiva do ST-901M, segundo o manual.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>9410000</code></pre></div>
+<p>Restaura o motor (formato 941+senha; o manual não traz o exemplo escrito, este é o formato aplicado à senha padrão 0000). Resposta &quot;SET OK&quot;.</p>
+<h3 id="apn">APN</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 CMNET</code></pre></div>
+<p>Formato: 803+senha+espaço+APN. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 CMNET CMNET CMNET</code></pre></div>
+<p>Com usuário e senha: 803+senha+espaço+APN+espaço+usuário+espaço+senha do APN. Resposta &quot;SET OK&quot;.</p>
+<h3 id="servidor-ip-e-porta">Servidor (IP e porta)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 45.112.204.246 8090</code></pre></div>
+<p>Formato: 804+senha+espaço+IP+espaço+porta. Exemplo com o servidor do fabricante (SinoTrack). Resposta &quot;SET OK&quot;.</p>
+<h3 id="intervalos-de-envio">Intervalos de envio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8050000 20</code></pre></div>
+<p>Intervalo de envio com <strong>ACC ligada</strong> (805+senha+espaço+T), em segundos. Padrão 20 s. T de 10 a 18000; T = 0 desliga o GPRS. Intervalo mínimo: 10 s. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8090000 180</code></pre></div>
+<p>Intervalo de envio com <strong>ACC desligada</strong> (809+senha+espaço+T), em segundos. Padrão 180 s. T de 10 a 18000; T = 0 desliga o GPRS. Intervalo mínimo: 10 s. Resposta &quot;SET OK&quot;.</p>
+<h3 id="modo-sleep-dormir">Modo sleep (dormir)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 5</code></pre></div>
+<p>Formato: SLEEP+senha+espaço+T (minutos). O rastreador dorme quando o veículo fica parado por 5 minutos. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 0</code></pre></div>
+<p>Desliga o modo sleep — o rastreador trabalha o tempo todo.</p>
+<h3 id="resposta-do-rconf-exemplo-do-manual">Resposta do RCONF (exemplo do manual)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-901,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:45.112.204.246:8090,
+GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td>ST-901</td><td>versão do software / modelo</td></tr><tr><td>ID: 8160528336</td><td>ID do rastreador (exemplo)</td></tr><tr><td>UP:0000</td><td>senha (padrão 0000)</td></tr><tr><td>U1: / U2: / U3:</td><td>1º, 2º e 3º números de controle</td></tr><tr><td>MODE:GPRS</td><td>modo de trabalho (padrão GPRS)</td></tr><tr><td>DAILY:OFF</td><td>relatório em horário diário (padrão desligado)</td></tr><tr><td>GEO FENCE: OFF</td><td>cerca eletrônica (padrão desligada)</td></tr><tr><td>OVER SPEED:OFF</td><td>excesso de velocidade (padrão desligado)</td></tr><tr><td>VOICE:ON</td><td>modo de chamada (padrão ligado)</td></tr><tr><td>SHAKE ALARM:OFF</td><td>alarme de vibração (padrão desligado)</td></tr><tr><td>SLEEP MODE : OFF</td><td>modo sleep (padrão desligado)</td></tr><tr><td>APN:CMNET,,,</td><td>APN (padrão CMNET)</td></tr><tr><td>IP:45.112.204.246:8090</td><td>IP e porta do servidor</td></tr><tr><td>GPRS UPLOAD TIME:20</td><td>intervalo de envio</td></tr><tr><td>TIME ZONE:E00</td><td>fuso horário (padrão +0)</td></tr></tbody></table></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Este manual (ST-901M) só traz o servidor do próprio fabricante:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 45.112.204.246 8090</code></pre></div>
+<p>Para usar na plataforma TrackMax, veja a página <strong>&quot;SinoTrack — Configuração TrackMax&quot;</strong> (receita genérica para aparelhos SinoTrack; não faz parte deste manual).</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<h3 id="rastreador-nao-fica-online">Rastreador não fica online</h3>
+<p>O manual manda enviar <code>RCONF</code> e conferir na resposta:</p>
+<ol><li>se o APN está correto;</li><li>se o IP e a porta estão corretos;</li><li>se o ID cadastrado na plataforma está correto;</li><li>o modo de trabalho do aparelho (SMS ou GPRS) — para online precisa estar em GPRS (<code>7100000</code>).</li></ol>
+<p>Suporte do fabricante citado no manual: deixar mensagem no pedido ou e-mail sino@sinotrack.com.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="leds">LEDs</h3>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Estado</th><th>Significado</th></tr></thead><tbody><tr><td>Azul — GPS</td><td>piscando</td><td>sem sinal de GPS ou GPS iniciando</td></tr><tr><td>Azul — GPS</td><td>aceso</td><td>GPS OK</td></tr><tr><td>Laranja — GSM</td><td>piscando</td><td>sem chip ou GSM iniciando</td></tr><tr><td>Laranja — GSM</td><td>aceso</td><td>GSM OK</td></tr><tr><td>Vermelho</td><td>apagado</td><td>rastreador desligado ou em sleep</td></tr><tr><td>Vermelho</td><td>piscando</td><td>rastreador funcionando</td></tr></tbody></table></div>
+<h3 id="instalacao">Instalação</h3>
+<ul><li>Lado da antena GPS voltado para o céu; não instalar sob metal (vidro/plástico ok).</li></ul>
+<h3 id="fios-conforme-diagrama-do-manual">Fios (conforme diagrama do manual)</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Ligação</th></tr></thead><tbody><tr><td>Vermelho</td><td>positivo (+) da bateria 12 V ou 24 V, com fusível de 2 A</td></tr><tr><td>Preto</td><td>negativo (−) da bateria</td></tr><tr><td>Laranja</td><td>ACC (pós-chave)</td></tr><tr><td>Amarelo</td><td>bobina do relé 12/24 V (relé liga a bomba de combustível — &quot;oil pump&quot;)</td></tr></tbody></table></div>
+<p>A outra ponta da bobina do relé vai ao positivo da bateria; os contatos do relé interrompem o fio da bomba de combustível.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>O RCONF de exemplo deste manual mostra o modelo como &quot;ST-901&quot;; o IP na explicação tem erro de digitação (45.112.201.246 → correto 45.112.204.246).</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/st-st-901m/ST-901M%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-901M User Manual 246.pdf</a> <span class="muted">713 KB</span></li></ul></section>
+    <nav class="pager"><a href="st-st-901al.html">← ST-901AL</a><a href="st-st-902.html">ST-902 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

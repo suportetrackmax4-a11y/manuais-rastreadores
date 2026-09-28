@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LV12 RK101 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / LV12 / LV12 RK101</p>
+    <h1>LV12 / RK101</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> LV12 (LV-12), RK101 e V1 (o arquivo &quot;Configurar por SMS LV12, RK101&quot; diz &quot;LV12 OU V1&quot;)</li><li><strong>Pasta:</strong> LV12 (arquivos repetidos também na pasta RASTREK)</li><li><strong>Fabricante/Protocolo:</strong> Rastrek. Comandos <code>SERVER,1,...#</code>, porta TrackMax 2012</li><li><strong>Arquivos-fonte:</strong> <code>LV12/LV-12 SMS TRACKMAX (3) (1).txt</code>; <code>RASTREK/LV-12 SMS TRACKMAX (3).txt</code> e <code>RASTREK/LV-12 SMS TRACKMAX (3) (1).txt</code> (cópias idênticas); <code>RASTREK/Configurar por SMS LV12, RK101.txt</code> (mesmos comandos mais o servidor do fabricante)</li></ul>
+<h2 id="configuracao">Configuração</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>UTC,OFF#</code></pre></div>
+<p>Desliga o horário UTC.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
+<p>Fuso horário: oeste, 0 horas e 0 minutos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.algar.br,algar,algar#</code></pre></div>
+<p>APN do chip Algar TrackMax (APN, usuário, senha).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2012,0#</code></pre></div>
+<p>Servidor TrackMax por DNS (modo 1 = domínio), porta 2012.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,lb-gateway.rastrek.com.br,14401,0#</code></pre></div>
+<p>Servidor da plataforma do fabricante (Rastrek), porta 14401.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HBT,3#</code></pre></div>
+<p>Intervalo do heartbeat (3 no carro, 5 na moto).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STATIC,1800#</code></pre></div>
+<p>Intervalo de envio com o veículo parado, em segundos (1800 no carro, 3600 na moto).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,1800#</code></pre></div>
+<p>Tempo de transmissão: 60 s com a ignição ligada e 1800 s desligada (na moto: <code>TIMER,60,300#</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ACCALM,ON,3,0#</code></pre></div>
+<p>Liga o alarme de ignição (ACC).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>BATALM,ON,0#</code></pre></div>
+<p>Liga o alarme de bateria (usado na receita de moto).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENALM,ON,0#</code></pre></div>
+<p>Liga o alarme do sensor de vibração (usado na receita de moto).</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="carro-chip-algar-trackmax">Carro (chip Algar TrackMax)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>UTC,OFF#
+GMT,W,0,0#
+APN,tmax.algar.br,algar,algar#
+SERVER,1,dns.trackmax.com.br,2012,0#
+HBT,3#
+STATIC,1800#
+TIMER,60,1800#
+ACCALM,ON,3,0#</code></pre></div>
+<p>Sequência completa para carro: fuso, APN Algar, servidor TrackMax, heartbeat 3, parado 1800 s, transmissão 60 s ligado / 1800 s desligado, alarme de ignição.</p>
+<h3 id="moto-chip-algar-trackmax">Moto (chip Algar TrackMax)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>UTC,OFF#
+GMT,W,0,0#
+APN,tmax.algar.br,algar,algar#
+SERVER,1,dns.trackmax.com.br,2012,0#
+TIMER,60,300#
+HBT,5#
+STATIC,3600#
+ACCALM,ON,3,0#
+BATALM,ON,0#
+SENALM,ON,0#</code></pre></div>
+<p>Sequência completa para moto: transmissão 60 s ligado / 300 s desligado, heartbeat 5, parado 3600 s, alarmes de ignição, bateria e vibração.</p>
+<div class="table-wrap"><table><thead><tr><th>Destino</th><th>Comando de servidor</th></tr></thead><tbody><tr><td>TrackMax</td><td><code>SERVER,1,dns.trackmax.com.br,2012,0#</code></td></tr><tr><td>Plataforma do fabricante (Rastrek)</td><td><code>SERVER,1,lb-gateway.rastrek.com.br,14401,0#</code></td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Os arquivos &quot;LV-12 SMS TRACKMAX&quot; da pasta LV12 e da pasta RASTREK são idênticos. Esta página vale para os dois, e o LV12 não ganha página própria na pasta RASTREK.</li><li>O arquivo &quot;Configurar por SMS LV12, RK101&quot; (pasta RASTREK) tem as mesmas receitas de carro e moto, mais o servidor do fabricante. Por isso ficou nesta página.</li><li>O LV12B / RK102 usa outro conjunto de comandos (<code>GMNET</code>, protocolo GT06, porta 5023) e tem página separada.</li></ul>
+    
+    <nav class="pager"><a href="linha-tk-treinamento-e-lembretes.html">← Treinamento e lembretes</a><a href="lv12-lv12b-rk102.html">LV12B RK102 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

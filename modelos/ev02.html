@@ -23,10 +23,10 @@
   </nav>
   <main class="doc">
     <p class="crumb"><a href="../index.html">Início</a> / EV02</p>
-    <h1>EV02 — Rastreador EV02 (e anotações de equipamentos 4G / V2 via cabo)</h1>
+    <h1>EV02</h1>
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
     <h2 id="modelo-s">Modelo(s)</h2>
-<ul><li><strong>EV02</strong> — rastreador 2G com chipset MTK (log serial: &quot;MTK Bootloader V005&quot;). Versão lida no log: <code>Version:GC215V18_EV02_BX_V05  2020/10/23 14:06</code>.</li><li>Comandos estilo Concox/GT06 (<code>SERVER,</code>, <code>APN,</code>, <code>TIMER,</code>...). Via SMS/plataforma usa-se o comando puro; <strong>via cabo serial</strong> usa-se o prefixo <code>AT^GT_CM=</code> (ex.: <code>AT^GT_CM=PARAM#</code>).</li><li>Servidor de fábrica encontrado no log: <code>ev02.iotchs.xyz:9016</code>; servidor AGPS: <code>gw.gwgps12580.com:8009</code>.</li><li>Senha de comando padrão (quando PWDSW exige): <code>666666</code>.</li><li>A pasta também contém o arquivo &quot;CONFIGURAR VIA CABO&quot; com strings para <strong>equipamentos 4G e V2</strong> (formato <code>#FREQ=...</code>, família <code>SZCS#</code>).</li></ul>
+<ul><li><strong>EV02</strong> — rastreador 2G com chipset MTK (log serial: &quot;MTK Bootloader V005&quot;). Versão lida no log: <code>Version:GC215V18_EV02_BX_V05  2020/10/23 14:06</code>.</li><li>Comandos estilo Concox/GT06 (<code>SERVER,</code>, <code>APN,</code>, <code>TIMER,</code>...). Via SMS/plataforma usa-se o comando puro; <strong>via cabo serial</strong> usa-se o prefixo <code>AT^GT_CM=</code> (ex.: <code>AT^GT_CM=PARAM#</code>).</li><li>Servidor de fábrica encontrado no log: <code>ev02.iotchs.xyz:9016</code>; servidor AGPS: <code>gw.gwgps12580.com:8009</code>.</li><li>Senha de comando padrão (quando PWDSW exige): <code>666666</code>.</li><li>O arquivo &quot;CONFIGURAR VIA CABO&quot; desta pasta é de outros modelos (V2 e TrackMax 4G) e está nas páginas deles.</li></ul>
 <h2 id="arquivos-fonte">Arquivos-fonte</h2>
 <p>Lidos:</p>
 <ul><li><code>EV02/EV02 COMANDOS NOVOS.txt</code> (inclui tabela do fornecedor em chinês — traduzida abaixo)</li><li><code>EV02/EV02 COMANDOS.txt</code>, <code>EV02/EV02 TUDO.txt</code>, <code>EV02/OUTROS/COMANDOS EV02.txt</code> (quase idênticos — deduplicados)</li><li><code>EV02/OUTROS/1-INICIAR.txt</code>, <code>3-CHECAR CONFIGURAÇÕES.txt</code>, <code>Configurando.txt</code></li><li><code>EV02/OUTROS/2-CONFIG *.txt</code> (14 receitas por operadora/servidor — consolidadas em tabela)</li><li><code>EV02/OUTROS/CONFIGURAR VIA CABO.txt</code>, <code>descarregando a bateria.txt</code>, <code>ev02 resolvendo.txt</code></li><li><code>EV02/OUTROS/Serial port manual.docx</code> e <code>Serial port manual (1).docx</code> (idênticos: texto + 4 imagens do SSCOM)</li><li><code>EV02/OUTROS/SaveWindows10_11_2021_08-51-55.TXT</code>, <code>SaveWindows17_11_2021_11-14-13.TXT</code> (logs do SSCOM — aproveitados)</li><li><code>EV02/OUTROS/sscom51.ini</code> (config do SSCOM, sem conteúdo útil)</li><li><code>EV02/OUTROS/ReleaseNote_Driver_Auto_Installer_v5.1453.03.xls</code> (release note de driver MTK — só notas de instalação)</li></ul>
@@ -113,8 +113,6 @@ SPEEDCHGALM,0#</code></pre></div>
 <p>Configura DNS e porta da plataforma com protocolo TCP</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,smart.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
 <p>APN, usuário e senha para chip VIVO SMART</p>
-<p>Comando V2 APN:</p>
-<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#APN=ss.algar.br#USERPPP=algar#PWPPP=algar</code></pre></div>
 <h3 id="sequencia-ajustar-ev02-padrao">Sequência &quot;AJUSTAR EV02&quot; (padrão)</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#
 HBT,1,60#
@@ -203,7 +201,7 @@ AT^GT_CM=SERVER,1,dns.trackmax.com.br,2002,0#
 AT^GT_CM=APN,wl.vivo.com.br,vivo,vivo#
 AT^GT_CM=ANGLEREP,ON,30,2#</code></pre></div>
 <p>Obs.: várias linhas APN no original estão sem o <code>#</code> final, e a Voxter usa <code>*</code> como separador — mantido verbatim; convém conferir com <code>APN#</code> após enviar.</p>
-<h3 id="servidores-trackmax-para-ev02-v2">Servidores TrackMax para EV02 / V2</h3>
+<h3 id="servidores-trackmax">Servidores TrackMax</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,0,35.230.168.225,5023,0#</code></pre></div>
 <p>IP e porta TrackMax, protocolo TCP</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2222 ou 2223,0#</code></pre></div>
@@ -218,18 +216,6 @@ APN,ss.arqia.br,arqia,arqia#
 APN,ss.claro.com.br,claro,claro#
 APN,trackmax.br,max,max#
 APN,smart.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
-<h3 id="equipamento-4g-e-v2-configurar-via-cabo">Equipamento 4G e V2 — CONFIGURAR VIA CABO</h3>
-<p>Corpo comum (2 linhas):</p>
-<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=&lt;porta&gt;#APN=&lt;apn&gt;#USERPPP=&lt;user&gt;#PWPPP=&lt;senha&gt;
-#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
-<div class="table-wrap"><table><thead><tr><th>Equipamento</th><th>Protocolo</th><th>SERVPORT</th></tr></thead><tbody><tr><td>4G</td><td>PROTOCOLO 1</td><td>2204</td></tr><tr><td>4G</td><td>PROTOCOLO 2</td><td>2244</td></tr><tr><td>V2</td><td>PROTOCOLO 1</td><td>2222</td></tr><tr><td>V2</td><td>PROTOCOLO 2</td><td>2223</td></tr></tbody></table></div>
-<div class="table-wrap"><table><thead><tr><th>Operadora</th><th>APN</th><th>USERPPP / PWPPP</th></tr></thead><tbody><tr><td>TMAX ALGAR</td><td>tmax.algar.br</td><td>algar / algar</td></tr><tr><td>TMAX VIVO</td><td>tmax.m2m.vivo.com.br</td><td>vivo / vivo</td></tr><tr><td>TMAX CLARO</td><td>tmax.claro.com.br</td><td>claro / claro</td></tr><tr><td>TMAX ARQIA</td><td>wl.vodafone.br</td><td>arqia / arqia</td></tr><tr><td>TMAX TIM</td><td>ss.tim.br</td><td>tim / tim</td></tr></tbody></table></div>
-<p>Exemplo (4G PROTOCOLO 2, ALGAR):</p>
-<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2244#APN=tmax.algar.br#USERPPP=algar#PWPPP=algar
-#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
-<p>Exemplo (V2 PROTOCOLO 1, VIVO):</p>
-<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2222#APN=tmax.m2m.vivo.com.br#USERPPP=vivo#PWPPP=vivo
-#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
 <hr>
 <h2 id="problemas-e-solucoes">Problemas e soluções</h2>
 <h3 id="ev02-nao-atualiza-resolvendo-ev02-resolvendo-txt">EV02 não atualiza / resolvendo (&quot;ev02 resolvendo.txt&quot;)</h3>
@@ -278,7 +264,7 @@ AT^GT_CM=APN,wl.vivo.com.br,vivo,vivo#</code></pre></div>
 <hr>
 <h2 id="observacoes">Observações</h2>
 <h3 id="outros">Outros</h3>
-<ul><li>Portas TrackMax: EV02 = 2002; V2 = 2222 (protocolo 1) / 2223 (protocolo 2); 4G = 2204 / 2244; JM01/CRX = 5023 (IP 35.230.168.225).</li><li><code>POWERALM,OFF#</code> recomendado para motos com pós-chave.</li></ul>
+<ul><li>Porta TrackMax do EV02: 2002.</li><li><code>POWERALM,OFF#</code> recomendado para motos com pós-chave.</li></ul>
     
     <nav class="pager"><a href="ec33.html">← EC33</a><a href="gf22.html">GF22 →</a></nav>
   </main>

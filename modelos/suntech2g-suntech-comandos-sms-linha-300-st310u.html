@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Suntech Comandos SMS (Linha 300 ST310U) · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / SUNTECH2G / Suntech Comandos SMS (Linha 300 ST310U)</p>
+    <h1>Suntech — Comandos SMS (Linha 300 / ST310U)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Suntech linha 300 — ST310U (vale também para ST300/ST340; ST300HD na última seção)</li><li><strong>Pasta:</strong> SUNTECH2G</li><li><strong>Fabricante/Protocolo:</strong> Suntech — protocolo ST300 (ID de 9 dígitos)</li><li><strong>Arquivos-fonte:</strong> <code>Suntech - Comandos SMS (1) (4).pdf</code></li></ul>
+<blockquote>Substitua <code>ID</code> pelo número de série de 9 dígitos do equipamento (<code>ID_EQUIPAMENTO</code>).</blockquote>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;StatusReq</code></pre></div>
+<p>Requisitar posição.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;ReqICCID</code></pre></div>
+<p>Requisitar ICCID do chip.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Where are you</code></pre></div>
+<p>Solicitar link de localização no Google Maps (SMS).</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="ignicao">Ignição</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;60;0;12;2;9;60;0;0;1;7;1;1;;;;;;;9;9;;;0</code></pre></div>
+<p>Ignição pelo fio (entrada 1).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;3;Desligado(segundos);Ligado(segundos);0;13;9;30;20;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Ativar ignição virtual por acelerômetro (informar tempos desligado/ligado em segundos).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;2;10;0;0;13;9;30;20;0;0;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Ativar ignição virtual por tensão da bateria.</p>
+<h3 id="bateria">Bateria</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MBV;ID;02;0;0;17.20;9.00;19.00;0;0</code></pre></div>
+<p>Definir a tensão da bateria. Formato: <code>ST300MBV;ID;02;0;0;17.20;9.00;19.00;(Alta);(Baixa)</code> — deixar <code>0;0</code> para detecção automática.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;ImproveBatteryLife=0</code></pre></div>
+<p>Otimizar uso da bateria backup quando a bateria principal está desconectada (0 = desativa / 1 = ativa).</p>
+<h3 id="manutencao">Manutenção</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;Reboot</code></pre></div>
+<p>Reinicia o dispositivo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;EraseAll</code></pre></div>
+<p>Apagar posições de memória.</p>
+<h3 id="memoria-ordem-de-envio">Memória (ordem de envio)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NPT;ID;02;0.0;1;30;0;0;300;300;5;10;100;10;180;100;1</code></pre></div>
+<p>LIFO (envia primeiro a posição mais recente).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NPT;ID;02;0.0;0;30;0;0;300;300;5;10;100;10;180;100;1</code></pre></div>
+<p>FIFO (envia primeiro a posição mais antiga).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;0;0;0;0;1;0;1;0;0;1;0</code></pre></div>
+<p>Desabilitar envio das posições de memória agrupadas.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;0;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<p>Habilitar envio das posições de memória agrupadas.</p>
+<h3 id="saida-bloqueio">Saída (bloqueio)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;Enable1</code></pre></div>
+<p>Ativar saída 1 (bloqueio).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;Disable1</code></pre></div>
+<p>Desativar saída 1 (desbloqueio).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;10;0;12;13;9;30;20;0;1;7;0;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Ativar bloqueio reverso (saída 1 em alta impedância) — relé: 87 se lógica 0.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;10;0;12;13;9;30;20;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Desativar bloqueio reverso (saída 1 em GND) — relé: 87A se lógica 1.</p>
+<h3 id="odometro">Odômetro</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300HTP;ID;02;1;1;A;A;0;0;0;0;;;1;0;0;0;0</code></pre></div>
+<p>Habilitar odômetro.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;SetOdometer=25999</code></pre></div>
+<p>Setar odômetro (exemplo: aparecerá 25999 km no sistema).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID;02;SetOdoIgn=0</code></pre></div>
+<p>Incremento do odômetro com ignição desligada. <code>0</code>: incrementa independente da ignição; <code>1</code>: não incrementa com ignição desligada. Aplica-se apenas à ignição física.</p>
+<h3 id="comunicacao">Comunicação</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;ID;02;Parado(segundos);Movimento(segundos);60;3;0;200;0;0;0</code></pre></div>
+<p>Intervalo de comunicação (tempo parado e em movimento, em segundos).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;ID;02;0;iter.m2m.vivo.com.br;;;lb.iter.sc;8220;lb1.iter.sc;8220;;</code></pre></div>
+<p>Configurar APN, DNS e porta (exemplo do fabricante, Vivo sem autenticação).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;ID;02;1;ESEYE1;USER;PASS;lb.iter.sc;8220;lb1.iter.sc;8220;;</code></pre></div>
+<p>Configurar APN ESEYE (com autenticação).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;318;1;300;0;0;0;0;1;0;1;0;0;1;0</code></pre></div>
+<p>Desativar protocolo ZIP (comando reproduzido como está no PDF).</p>
+<h3 id="modos-de-economia">Modos de economia</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;2;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<p>Ativar modo sleep.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;1;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<p>Ativar modo ultra sleep.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;0;0;0;1;1;0;1;0;0;1;0</code></pre></div>
+<p>Desativar modo sleep / ultra sleep.</p>
+<h3 id="st300hd-motoristas-ibutton">ST300HD — motoristas (iButton)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300HAD;ID;02;Número motorista;ID I-Button</code></pre></div>
+<p>Adicionar motorista.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300HRD;ID;02;Número motorista</code></pre></div>
+<p>Remover motorista.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="configuracao-para-motos">Configuração para motos</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;ID;02;0;60;60;3;0;0;0;0;0</code></pre></div>
+<p>Parâmetros de envio de posições.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID;02;0;300;0;12;0;9;30;20;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Parâmetros de eventos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID;02;1;300;1;0;0;0;1;0;1;1;0;0;0</code></pre></div>
+<p>Parâmetros de serviços.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MSR;ID;02;5;0.10;0.10;0.70</code></pre></div>
+<p>Parâmetros do sensor de movimento.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Os comandos são do protocolo novo (ST300/ST340, ID de 9 dígitos). Para o protocolo antigo (ST215/ST240, ID de 6 dígitos), troque <code>ST300</code> por <code>SA200</code> (ex.: <code>SA200CMD;XXXX;02;Enable1</code>).</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/suntech2g-suntech-comandos-sms-linha-300-st310u/Suntech%20-%20Comandos%20SMS%20(1)%20(4).pdf" target="_blank" rel="noopener">Suntech - Comandos SMS (1) (4).pdf</a> <span class="muted">88 KB</span></li></ul></section>
+    <nav class="pager"><a href="suntech2g-st310u.html">← ST310U</a><a href="suntech2g-suntech-string-de-comandos-st300-carro-moto.html">Suntech String de Comandos (ST300 carro-moto) →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

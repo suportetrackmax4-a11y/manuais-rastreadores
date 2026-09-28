@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>X1 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / CRX / X1</p>
+    <h1>X1</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> X1</li><li><strong>Pasta:</strong> CRX</li><li><strong>Fabricante/Protocolo:</strong> Protocolo TianQin (precisa ser ativado para funcionar na plataforma). Comandos no formato <code>Comando,123456,...</code></li><li><strong>Arquivos-fonte:</strong> <code>CRX/X1.txt</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Param,123456</code></pre></div>
+<p>Confirma a configuração (retorna os parâmetros).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Status,123456</code></pre></div>
+<p>Status do equipamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GOOGLE,123456</code></pre></div>
+<p>Retorna o link do mapa com a posição.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Pos,123456</code></pre></div>
+<p>Solicita a posição em latitude/longitude.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="configuracao-inicial">Configuração inicial</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Apn,123456,lf.br,lf,lf</code></pre></div>
+<p>APN da Linksfield.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Apn,123456,transmeet.br,vivo,vivo</code></pre></div>
+<p>APN Transmeet (Vivo).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IP,123456,168.119.25.88,7013</code></pre></div>
+<p>Define IP e porta do servidor (168.119.25.88:7013).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Interval,123456,30,7200</code></pre></div>
+<p>Tempo de transmissão: a cada 30 s andando e a cada 7200 s parado.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Protocol,123456,TianQin</code></pre></div>
+<p>Muda o protocolo para TianQin. <strong>Atenção:</strong> necessário para funcionar na plataforma.</p>
+<h3 id="outros-comandos">Outros comandos</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Clear,123456</code></pre></div>
+<p>Desliga os alertas.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Monitor,123456,NUMERO_CELULAR</code></pre></div>
+<p>Monitoramento por telefone (escuta) no número informado. No original está escrito <code>Monitor, 123456,PHONE_NUMBER</code>, com um espaço depois da vírgula.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Timezone,123456,0</code></pre></div>
+<p>Fuso horário 0.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Lang,123456,1</code></pre></div>
+<p>Idioma: 0 = chinês, 1 = inglês.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Speed,123456,120</code></pre></div>
+<p>Alerta de velocidade em km/h (120).</p>
+<h3 id="bloqueio-desbloqueio">Bloqueio / desbloqueio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Relay,123456,1</code></pre></div>
+<p>Pelo título da seção (&quot;0 = DESBLOQUEIO, 1 = BLOQUEIO&quot;), bloqueia. <strong>Mas a linha do comando no arquivo diz &quot;desbloquear o equipamento&quot;.</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Relay,123456,0</code></pre></div>
+<p>Pelo título da seção, desbloqueia. <strong>Mas a linha do comando no arquivo diz &quot;bloquear o equipamento&quot;.</strong></p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Chip</th><th>Comando de APN</th></tr></thead><tbody><tr><td>Linksfield</td><td><code>Apn,123456,lf.br,lf,lf</code></td></tr><tr><td>Transmeet (Vivo)</td><td><code>Apn,123456,transmeet.br,vivo,vivo</code></td></tr></tbody></table></div>
+<p>Sequência inicial: <code>Apn,...</code> → <code>IP,123456,168.119.25.88,7013</code> → <code>Interval,123456,30,7200</code> → <code>Protocol,123456,TianQin</code> → <code>Param,123456</code> para conferir.</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li><strong>Não aparece na plataforma:</strong> confirme se o protocolo foi trocado com <code>Protocol,123456,TianQin</code>.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li><strong>O arquivo se contradiz sobre o bloqueio.</strong> O título diz &quot;0 = DESBLOQUEIO, 1 = BLOQUEIO&quot;, mas as linhas dos comandos dizem <code>Relay,123456,0</code> = bloquear e <code>Relay,123456,1</code> = desbloquear. Teste em bancada antes de usar em campo.</li><li>Senha padrão do equipamento: <code>123456</code>.</li></ul>
+    
+    <nav class="pager"><a href="crx-jm01-mw2000-crx-jm-c21.html">← JM01 MW2000 CRX JM-C21</a><a href="ec33.html">EC33 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

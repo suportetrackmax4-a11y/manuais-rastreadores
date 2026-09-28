@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ST-904(L) · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#especificacoes">Especificações</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / ST / ST-904(L)</p>
+    <h1>ST-904 / ST-904L</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> ST-904 (2G) e ST-904L (4G) — mini rastreador portátil com bateria</li><li><strong>Pasta:</strong> ST</li><li><strong>Fabricante/Protocolo:</strong> SinoTrack (protocolo SinoTrack, comandos SMS numéricos com senha padrão 0000; servidor do fabricante 45.112.204.246 porta 8090)</li><li><strong>Arquivos-fonte:</strong> <code>ST-904(L) User Manual 246.pdf</code></li></ul>
+<h2 id="especificacoes">Especificações</h2>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Dimensões</td><td>58 × 39 × 20 mm</td></tr><tr><td>Peso</td><td>52 g</td></tr><tr><td>Rede</td><td>GSM/GPRS/LTE</td></tr><tr><td>Bandas</td><td>GSM 850/900/1800/1900 MHz; LTE-FDD B1/B2/B3/B4/B5/B7/B8/B28/B66</td></tr><tr><td>Sensibilidade GPS</td><td>−159 dBm</td></tr><tr><td>Precisão GPS</td><td>5 m</td></tr><tr><td>Bateria</td><td>3,7 V 1200 mAh</td></tr><tr><td>Standby</td><td>7–15 dias</td></tr><tr><td>Temperatura de armazenamento</td><td>−40 °C a +85 °C</td></tr><tr><td>Temperatura de operação</td><td>−20 °C a +55 °C</td></tr><tr><td>Umidade</td><td>5%–95% sem condensação</td></tr><tr><td>Carregador veicular</td><td>entrada 12–24 V; saída 5 V 1 A</td></tr><tr><td>Carregador de parede</td><td>entrada 110–220 V; saída 5 V 1 A</td></tr><tr><td>Posicionamento</td><td>GPS + AGPS; sem GPS usa LBS/WIFI</td></tr></tbody></table></div>
+<h3 id="plataforma-do-fabricante">Plataforma do fabricante</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Site</td><td>Pro.SinoTrack.com</td></tr><tr><td>App</td><td>&quot;SinoTrack PRO&quot; (iOS/Android), servidor &quot;Pro.SinoTrack&quot;</td></tr><tr><td>Usuário</td><td>ID do rastreador</td></tr><tr><td>Senha</td><td>123456</td></tr></tbody></table></div>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>6690000</code></pre></div>
+<p>Pede a posição por SMS — responde com link do Google Maps. Ligar para o número do chip do rastreador também retorna o link.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RCONF</code></pre></div>
+<p>Lê a configuração: ID, modo de trabalho, IP e porta, APN.</p>
+<p>Exemplo real de resposta mostrado no manual (imagem):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST904(M),ID:7026015803,UP:0000,U1
+:,U2:,U3:,MODE:GPRS-
+MOVE,GEO FENCE:OFF,OVER
+SPEED:ON,VOICE:OFF,SHAKE
+ALARM:ON,SLEEP
+MODE:ON,APN:interne
+t,,,IP:45.112.204.242:8090,GPRS
+UPLOAD TIME:30TIME ZONE:+8.0</code></pre></div>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="configuracao-rapida-passo-a-passo-do-manual">Configuração rápida (passo a passo do manual)</h3>
+<ol><li><strong>Ativar o chip:</strong> coloque o chip com rede 2G/4G num celular e ative-o; confirme que ele faz ligação, envia SMS e tem internet. Depois insira no rastreador (chip sem PIN).</li><li><strong>Ligar o rastreador:</strong> carregue por cerca de 1 hora. Os LEDs amarelo e azul piscam enquanto buscam rede e GPS. Aguarde 5 minutos em local com boa recepção (janela ou área externa) até os dois ficarem acesos fixos. Se o amarelo continuar piscando, não achou rede — mude de lugar. Com GPS usa posição GPS; sem GPS usa LBS/WIFI.</li><li><strong>Configurar o APN</strong> (SMS enviado de outro celular para o número do chip do rastreador). Exemplo do manual (APN &quot;everywhere&quot;, usuário &quot;eesecure&quot;, senha &quot;secure&quot;):</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 everywhere</code></pre></div>
+<p>Sem usuário/senha: 8030000+espaço+APN. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 everywhere eesecure secure</code></pre></div>
+<p>Com usuário e senha: 8030000+espaço+APN+espaço+usuário+espaço+senha. Aplique a fórmula com o APN real do seu chip.</p>
+<ol><li><strong>Modo GPRS:</strong></li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7100000</code></pre></div>
+<p>Aguarde ~30 s; os LEDs azul e laranja/amarelo devem ficar acesos. Entre no site/app SinoTrack Pro (usuário = ID escrito no aparelho, senha 123456). Se aparecer online mas com posição na China, leve o aparelho para área externa com bom sinal para atualizar a posição.</p>
+<h3 id="numero-admin">Número admin</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>NUMERO_CELULAR0000 1</code></pre></div>
+<p>Formato: número do seu celular (não o do chip do rastreador) + senha + espaço + 1. 0000 é a senha e 1 é a posição (1º número). Resposta &quot;SET OK!&quot;. Depois de cadastrado, todas as operações por SMS ficam restritas a esse número. Alarmes de excesso de velocidade, vibração e bateria fraca vão para o número admin.</p>
+<p>Escuta (monitor de voz):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>66</code></pre></div>
+<p>Enviado <strong>a partir de um número de controle</strong>, faz o rastreador ligar de volta para esse número (escuta ambiente). Só funciona se o número de controle estiver cadastrado.</p>
+<p>Também é possível ligar do número admin para o rastreador para escutar.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>D101#</code></pre></div>
+<p>Cancela o número admin. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="alarme-de-excesso-de-velocidade">Alarme de excesso de velocidade</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 070</code></pre></div>
+<p>Define o limite (exemplo 70 km/h). Acima do limite envia &quot;speed alarm!&quot; ao admin a cada 5 minutos. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 0</code></pre></div>
+<p>Cancela o alarme de velocidade. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="alarme-de-vibracao">Alarme de vibração</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T10</code></pre></div>
+<p>Liga o alarme de vibração. O aparelho precisa ficar parado por 5 minutos para a função armar; ao ser sacudido envia &quot;Shock alarm!&quot; ao admin. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1800000</code></pre></div>
+<p>Cancela o alarme de vibração. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="modos-de-trabalho-economia-de-bateria">Modos de trabalho (economia de bateria)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WORK0000</code></pre></div>
+<p>Modo WORK (sempre ativo): envia dados continuamente pelo intervalo configurado. Autonomia: 18 a 24 horas. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVE0000</code></pre></div>
+<p>Modo MOVE (<strong>padrão de fábrica</strong>): só trabalha em movimento; parado ele dorme (GPS desligado, GSM em baixo consumo). Vibração, SMS ou ligação acordam o aparelho por 5 minutos. Autonomia: 3 a 10 dias. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STANDBY0000</code></pre></div>
+<p>Modo STANDBY: GPS desligado, GSM em baixo consumo; SMS ou ligação acordam por 5 minutos. Autonomia: até 15 dias. Resposta &quot;SET OK!&quot;.</p>
+<p><strong>Atenção:</strong> em modo MOVE, se o veículo roda o dia todo, não há economia — vale o mesmo que o modo WORK (18–24 h).</p>
+<h3 id="fuso-horario-local-padrao-gmt-0">Fuso horário local (padrão GMT 0)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8960000E00</code></pre></div>
+<p>Define o fuso. Resposta &quot;SET OK!&quot;. Exemplos do manual:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8960000E01
+8960000W01</code></pre></div>
+<p>E = leste (+), W = oeste (−).</p>
+<h3 id="reset-e-leitura-de-configuracao">Reset e leitura de configuração</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET</code></pre></div>
+<p>Reset do hardware. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RCONF</code></pre></div>
+<p>Lê a configuração: ID, modo de trabalho, IP e porta, APN.</p>
+<h3 id="explicacao-dos-campos-da-resposta-de-configuracao-rconf">Explicação dos campos da resposta de configuração (RCONF)</h3>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td>ST-904/ST-904L</td><td>modelo do rastreador</td></tr><tr><td>ID:7028313929</td><td>ID do rastreador (exemplo)</td></tr><tr><td>UP:0000</td><td>senha dos SMS</td></tr><tr><td>U1:,U2:,U3:</td><td>números de controle</td></tr><tr><td>MODE: GPRS-MOVE</td><td>modo de trabalho</td></tr><tr><td>DAILY:OFF, GEO FENCE:OFF, OVER SPEED:OFF, VOICE:ON, SHAKE ALARM:OFF, SLEEP:ON</td><td>estados das funções</td></tr><tr><td>APN: internet</td><td>APN do chip</td></tr><tr><td>IP:45.112.204.246:8090</td><td>IP e porta do servidor</td></tr><tr><td>GPRS UPLOAD TIME:30</td><td>intervalo de envio GPS</td></tr><tr><td>TIME ZONE:E3.0</td><td>fuso horário</td></tr></tbody></table></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Este manual não traz comando de IP/porta; os exemplos mostram o servidor do fabricante (45.112.204.246:8090; o print de RCONF mostra 45.112.204.242:8090). Para TrackMax, veja a página <strong>&quot;SinoTrack — Configuração TrackMax&quot;</strong> (receita genérica SinoTrack; não faz parte deste manual).</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<h3 id="faq-do-manual">FAQ do manual</h3>
+<div class="table-wrap"><table><thead><tr><th>Problema</th><th>Solução</th></tr></thead><tbody><tr><td>Não liga</td><td>Verifique se a bateria está carregada.</td></tr><tr><td>Sem sinal GSM</td><td>Verifique se o chip está instalado corretamente e tem rede GSM; não use chip com PIN; desative o desvio de chamadas; verifique se a tensão de alimentação está normal.</td></tr><tr><td>Sem GPS</td><td>Recomenda-se local com visão mais aberta do céu para o aparelho receber o sinal GPS.</td></tr><tr><td>Não responde SMS</td><td>Senha errada ou formato do comando errado.</td></tr><tr><td>Não responde à ligação / não recebe alarme</td><td>O número autorizado/admin está incorreto ou não foi cadastrado.</td></tr><tr><td>Posição por SMS OK, mas não aparece no app/site</td><td>Verifique se o APN está configurado corretamente e descubra o APN correto do chip.</td></tr><tr><td>Posição da plataforma diferente da real</td><td>Ainda não chegou o tempo de envio ou está sem GPS: ligue para o aparelho e receba a posição. Sem GPS, a posição é a última posição GPS válida; com GPS, significa que ainda não atingiu o intervalo de envio.</td></tr></tbody></table></div>
+<h3 id="avisos-do-manual">Avisos do manual</h3>
+<ol><li>O rastreamento GPS funciona ao ar livre.</li><li>O chip precisa permitir ligações, SMS e dados (GPRS).</li><li>O chip precisa ter saldo suficiente.</li><li>Desative o desvio de chamadas no chip.</li><li>Insira o chip corretamente.</li><li>Não desmonte o aparelho.</li></ol>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Aparelho portátil, sem fios de instalação (bateria interna, recarga 5 V).</p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Estado</th><th>Significado</th></tr></thead><tbody><tr><td>Amarelo</td><td>aceso</td><td>conexão GPRS</td></tr><tr><td>Amarelo</td><td>piscando</td><td>sem sinal GPRS</td></tr><tr><td>Azul</td><td>aceso</td><td>conexão GPS</td></tr><tr><td>Azul</td><td>piscando</td><td>sem sinal GPS</td></tr><tr><td>Vermelho</td><td>aceso</td><td>carregando</td></tr><tr><td>Vermelho</td><td>apagado</td><td>não está carregando</td></tr></tbody></table></div>
+<p>Chip: na versão 2G só funciona chip GSM (se usar chip 3G/4G, ele precisa ter função GSM). Chip sem PIN.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Mini rastreador de 1.200 mAh. Para autonomia maior o fabricante sugere ST-905/ST-905L (5.000 mAh), ST-915/ST-915L (10.000 mAh) ou ST-925 (20.800 mAh).</li><li>Contato do fabricante: support@sinotrack.com (Amazon), sino@sinotrack.com (AliExpress).</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/st-st-904-l/ST-904(L)%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-904(L) User Manual 246.pdf</a> <span class="muted">591 KB</span></li></ul></section>
+    <nav class="pager"><a href="st-st-903.html">← ST-903</a><a href="st-st-905.html">ST-905 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

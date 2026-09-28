@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ST310U · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / SUNTECH2G / ST310U</p>
+    <h1>Suntech ST310U (2G) — configuração TrackMax</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Suntech ST310U (linha ST300, 2G)</li><li><strong>Pasta:</strong> SUNTECH2G</li><li><strong>Fabricante/Protocolo:</strong> Suntech — protocolo ST300 (comandos <code>ST300xxx</code>, ID de 9 dígitos)</li><li><strong>Arquivos-fonte:</strong> <code>SUNTECH 2G 310U TESTADO.txt</code>, <code>ANGULO 30 GRAUS SUNTECH ST3.txt</code>, <code>SUNTECH LOGICA DAS SAIDA SMS.txt</code>, <code>SUNTECH SMS TRACKMAX V1 2022 (6).xlsx</code> (a cópia &quot;- Copia.xlsx&quot; é idêntica), <code>LEDS GPRS SUNTECH.jpeg</code>, <code>LEDS GPS SUNTECH.jpeg</code></li></ul>
+<blockquote>Em todos os comandos, <code>ID_EQUIPAMENTO</code> = número de série de 9 dígitos que aparece na etiqueta (parte final do IMEI). O campo <code>02</code> é o padrão SMS.</blockquote>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID_EQUIPAMENTO;02;StatusReq</code></pre></div>
+<p>Requisita status/posição.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID_EQUIPAMENTO;02;PresetA</code></pre></div>
+<p>Retorno de configuração (configuração completa).</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Sequência testada (arquivo &quot;310U TESTADO&quot;). <strong>Se o equipamento não subir, ativar o SMS de retorno e enviar os comandos abaixo.</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;ID_EQUIPAMENTO;02;1;trackmax.br;max;max;dns.trackmax.com.br;5011;35.230.168.225;5011;;</code></pre></div>
+<p>Rede: autenticação 1, APN <code>trackmax.br</code> (usuário/senha <code>max</code>/<code>max</code>), servidor primário <code>dns.trackmax.com.br:5011</code>, secundário <code>35.230.168.225:5011</code>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID_EQUIPAMENTO;02;0;60;0;12;2;9;60;0;0;1;7;1;1;;;;;;;9;9;;;0</code></pre></div>
+<p>Parâmetros de eventos (ignição pelo fio / entrada 1).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID_EQUIPAMENTO;02;EraseAll</code></pre></div>
+<p>Apaga as posições da memória.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;ID_EQUIPAMENTO;02;3000;60;60;3;0;600;0;0;0</code></pre></div>
+<p>Parâmetros de envio: 3000 s parado, 60 s em movimento, 60 s emergência, keep alive 600.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID_EQUIPAMENTO;02;0;300;0;12;0;9;30;30;0;0;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Parâmetros de eventos (bloqueio com um pulso — carro).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300GSM;ID_EQUIPAMENTO;02;0;;;;;0;;;;;;;</code></pre></div>
+<p>Parâmetros GSM (sem número autorizado).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;ID_EQUIPAMENTO;02;1;200;1;0;0;1;1;0;1;3;0;0;0</code></pre></div>
+<p>Parâmetros de serviço.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MSR;ID_EQUIPAMENTO;02;600;0.04;0.04;0.7</code></pre></div>
+<p>Sensor de movimento (acelerômetro) — carro. Obs.: no arquivo original uma das linhas MSR estava com o ID incompleto (8 dígitos); use sempre os 9 dígitos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID_EQUIPAMENTO;02;Reboot</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<h3 id="envio-por-angulo-30-graus">Envio por ângulo (30 graus)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NPT;ID_EQUIPAMENTO;02;30.0;1;30;0;1;500;300;5;10;100;10;180;100;1</code></pre></div>
+<p>Ativa envio de posição por mudança de direção de 30 graus.</p>
+<h3 id="logica-da-saida-bloqueio">Lógica da saída (bloqueio)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID_EQUIPAMENTO;02;0;10;0;12;0;9;30;20;0;0;7;0;0;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Bloqueio para <strong>pino 87</strong> do relé.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;ID_EQUIPAMENTO;02;0;10;0;12;0;9;30;20;0;0;7;1;0;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Bloqueio para <strong>pino 86</strong> do relé.</p>
+<p>Anotação original: &quot;deu certo quando o bloqueio estava ao contrário&quot; — se o bloqueio atuar invertido, troque para a outra lógica.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Planilha &quot;SUNTECH SMS TRACKMAX V1 2022&quot; — exemplo com chip ALGAR:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;ID_EQUIPAMENTO;02;1;ss.algar.br;algar;algar;dns.trackmax.com.br;5011;35.230.168.225;5011;;</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td><code>ST300NTW;</code></td><td>Comando de rede do protocolo ST3XX</td></tr><tr><td><code>ID_EQUIPAMENTO;</code></td><td>Número de série do equipamento</td></tr><tr><td><code>02;</code></td><td>Padrão SMS</td></tr><tr><td><code>1;</code></td><td>Com autenticação (chip ALGAR); use <code>0;</code> sem autenticação para chip VIVO</td></tr><tr><td><code>ss.algar.br;</code></td><td>APN do chip</td></tr><tr><td><code>algar;algar;</code></td><td>Usuário e senha do APN</td></tr><tr><td><code>dns.trackmax.com.br;</code></td><td>DNS do servidor TrackMax</td></tr><tr><td><code>5011;</code></td><td>Porta do servidor TrackMax</td></tr><tr><td><code>35.230.168.225;</code></td><td>IP do servidor TrackMax</td></tr><tr><td><code>5011;</code></td><td>Porta do servidor TrackMax</td></tr><tr><td>(último campo)</td><td>Número de celular autorizado a enviar SMS (<code>NUMERO_CELULAR</code>)</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300CMD;ID_EQUIPAMENTO;02;Reboot</code></pre></div>
+<p>Reinicia. Aguarde em média 1 minuto para reiniciar.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300GSM;ID_EQUIPAMENTO;02;1;NUMERO_CELULAR;;;;1;;;;;;;</code></pre></div>
+<p>Parâmetros GSM com número de celular autorizado.</p>
+<div class="table-wrap"><table><thead><tr><th>Receita</th><th>APN</th><th>Usuário/Senha</th><th>Autenticação</th><th>Servidor</th></tr></thead><tbody><tr><td>TrackMax (testado)</td><td>trackmax.br</td><td>max / max</td><td>1</td><td>dns.trackmax.com.br:5011 / 35.230.168.225:5011</td></tr><tr><td>ALGAR</td><td>ss.algar.br</td><td>algar / algar</td><td>1</td><td>dns.trackmax.com.br:5011 / 35.230.168.225:5011</td></tr><tr><td>VIVO</td><td>(APN Vivo)</td><td>vivo / vivo</td><td>0</td><td>dns.trackmax.com.br:5011 / 35.230.168.225:5011</td></tr></tbody></table></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li><strong>Não sobe na plataforma:</strong> ativar SMS de retorno e reenviar a sequência completa de configuração (NTW, EVT, EraseAll, RPT, EVT, GSM, SVC, MSR, Reboot).</li><li><strong>Bloqueio invertido:</strong> alternar entre a lógica do pino 87 e do pino 86.</li><li><strong>Diagnóstico Suntech:</strong> (1) verificar com a operadora se há instabilidade na rede/canal de dados da linha; (2) conferir as piscadas dos LEDs (tabelas abaixo); (3) verificar a conexão TCP com a porta do servidor (ex.: telnet no Windows).</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p><strong>LED indicador GPRS — azul</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Estado</th><th>Piscadas</th><th>Possíveis causas</th></tr></thead><tbody><tr><td>Normal</td><td>1</td><td>—</td></tr><tr><td>Erro no servidor</td><td>2</td><td>Parâmetros de rede errados; servidor fechado; rede temporariamente barrada</td></tr><tr><td>Erro na comunicação GPRS</td><td>3</td><td>Parâmetros de rede errados; SIM bloqueado para GPRS; rede temporariamente barrada; sinal GPRS fraco</td></tr><tr><td>Sem rede GPRS</td><td>4</td><td>Antena GPRS desconectada; antena ou conector quebrado</td></tr><tr><td>PIN bloqueado</td><td>5</td><td>PIN do SIM habilitado</td></tr><tr><td>Sem conexão com a rede GPRS</td><td>6</td><td>Sinal GPRS fraco</td></tr><tr><td>Sem SIM card</td><td>7</td><td>SIM não inserido; SIM ou conector danificado</td></tr></tbody></table></div>
+<p><strong>LED indicador GPS — vermelho</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Estado</th><th>Piscadas</th><th>Possíveis causas</th></tr></thead><tbody><tr><td>Normal</td><td>1</td><td>—</td></tr><tr><td>Sem sinal GPS</td><td>2</td><td>Módulo estabilizando o GPS após ligar; sinal fraco ou antena mal posicionada; verificar conexão da antena</td></tr><tr><td>Erro no chipset / erro na antena</td><td>4</td><td>Antena GPS desconectada; conector da antena danificado</td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>ST310U usa protocolo ST300 com ID de 9 dígitos. Para trocar para o protocolo ST200 (6 dígitos) veja a página &quot;ST200 / ST300 (protocolo SA200/ST300)&quot;.</li><li>Lista completa de comandos da linha 300 nas páginas &quot;Suntech — Comandos SMS (Linha 300 ST310U)&quot; e &quot;Suntech — String de comandos (ST300 carro/moto)&quot;.</li></ul>
+    
+    <nav class="pager"><a href="suntech2g-st200-st300-protocolo-sa200-st300.html">← ST200 ST300 (protocolo SA200-ST300)</a><a href="suntech2g-suntech-comandos-sms-linha-300-st310u.html">Suntech Comandos SMS (Linha 300 ST310U) →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

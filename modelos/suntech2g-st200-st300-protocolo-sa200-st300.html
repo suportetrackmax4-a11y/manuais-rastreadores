@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ST200 ST300 (protocolo SA200-ST300) · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / SUNTECH2G / ST200 ST300 (protocolo SA200-ST300)</p>
+    <h1>Suntech ST200 / ST300 (protocolo SA200 e ST300)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Suntech linha ST2XX (ST215 E/I, ST215LC, ST215W, ST240) e ST3XX (ST300/ST310U/ST340) — diferença de protocolo e ID</li><li><strong>Pasta:</strong> SUNTECH2G</li><li><strong>Fabricante/Protocolo:</strong> Suntech — protocolo SA200 (ID 6 dígitos) e ST300 (ID 9 dígitos)</li><li><strong>Arquivos-fonte:</strong> <code>SUNTECH TRACKMAX.txt</code>, <code>SUNTECH ST200 ST300.jpg</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200CMD;ID_EQUIPAMENTO;02;StatusReq</code></pre></div>
+<p>Requisitar posição via GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Where are you</code></pre></div>
+<p>Requisitar posição por SMS (só funciona em versões acima de 200 — ver lista abaixo).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200CMD;ID_EQUIPAMENTO;02;Preset</code></pre></div>
+<p>Solicitar configuração.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="identificacao-do-id-protocolo">Identificação do ID (protocolo)</h3>
+<div class="table-wrap"><table><thead><tr><th>Protocolo</th><th>Dígitos do ID</th><th>Exemplo</th></tr></thead><tbody><tr><td>200 (ST2XX / SA200)</td><td>6 últimos dígitos</td><td>123456 (ilustrativo)</td></tr><tr><td>300 (ST3XX / ST300)</td><td>9 últimos dígitos</td><td>000123456 (ilustrativo)</td></tr></tbody></table></div>
+<p>O ID fica na etiqueta do equipamento (final do número impresso abaixo do código de barras).</p>
+<h3 id="trocar-do-protocolo-st300-para-st200">Trocar do protocolo ST300 para ST200</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300ADP;ID_9_DIGITOS;02;T;T;0;;1;0;0;0;0;0</code></pre></div>
+<p>Passa o equipamento do protocolo 300 para o 200 (depois disso usar comandos SA200 com ID de 6 dígitos).</p>
+<h3 id="parametros-de-rede-sa200">Parâmetros de rede (SA200)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200NTW;XXXX;02;Autenticação;APN;Usuário;Senha;IP primário;Porta;IP secundário;Porta;Número do SMS;PIN</code></pre></div>
+<p>Formato do comando. Autenticação: <code>0</code> = chips Vivo; <code>1</code> = chips Tim, Claro, Oi e outros.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200NTW;ID_EQUIPAMENTO;02;01;zap.vivo.com.br;vivo;vivo;35.230.168.225;5011;35.230.168.225;5011</code></pre></div>
+<p>Tentativa de conexão com a plataforma TrackMax (exemplo do arquivo).</p>
+<h3 id="parametros-de-envio-sa200">Parâmetros de envio (SA200)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200RPT;XXXXX;02;Tempo parado;Tempo Movimento;60;3;0;200;0;0;0</code></pre></div>
+<p>Define tempo de envio parado e em movimento.</p>
+<h3 id="saidas-sa200">Saídas (SA200)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200CMD;ID_EQUIPAMENTO;02;Enable1</code></pre></div>
+<p>Ativar saída 1.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200CMD;ID_EQUIPAMENTO;02;Disable1</code></pre></div>
+<p>Desativar saída 1.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200CMD;ID_EQUIPAMENTO;02;Enable2</code></pre></div>
+<p>Ativar saída 2.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200CMD;ID_EQUIPAMENTO;02;Disable2</code></pre></div>
+<p>Desativar saída 2.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;ID_EQUIPAMENTO;02;0;tmax.m2m.vivo.com.br;vivo;vivo;dns.trackmax.com.br;5011;35.230.168.225;5011;0;0</code></pre></div>
+<p>TCP TrackMax com chip VIVO (APN <code>tmax.m2m.vivo.com.br</code>), protocolo 300.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SA200NTW;ID_EQUIPAMENTO;02;01;zap.vivo.com.br;vivo;vivo;35.230.168.225;5011;35.230.168.225;5011</code></pre></div>
+<p>TrackMax via APN <code>zap.vivo.com.br</code>, protocolo 200.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Onde aparece <code>XXXX</code>, colocar o número de série do rastreador.</li><li>&quot;Requisitar posição SMS&quot; (<code>Where are you</code>) só funciona nas versões: 207B = ST215 E/I; 208B = ST215LC; 249 = ST215W; 212 = ST240.</li><li>LEDs Suntech (GPRS azul / GPS vermelho): ver a página ST310U.</li></ul>
+    
+    <nav class="pager"><a href="suntech-st4315u-4g.html">← ST4315U 4G</a><a href="suntech2g-st310u.html">ST310U →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

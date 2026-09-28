@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Suntech String de Comandos (ST300 carro-moto) · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / SUNTECH2G / Suntech String de Comandos (ST300 carro-moto)</p>
+    <h1>Suntech — String de comandos (ST300, carro/moto)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Suntech protocolo ST300 (linha ST3XX; perfil &quot;recomendado manual ST310U&quot;)</li><li><strong>Pasta:</strong> SUNTECH2G</li><li><strong>Fabricante/Protocolo:</strong> Suntech — protocolo ST300</li><li><strong>Arquivos-fonte:</strong> <code>SUNTECH STRING DE COMANDOS (3).pdf</code></li></ul>
+<blockquote><code>SERIAL</code> = número de série do equipamento (<code>ID_EQUIPAMENTO</code>).</blockquote>
+<h2 id="consultas">Consultas</h2>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>ST300CMD;SERIAL;02;StatusReq</code></td><td>Solicita posição</td></tr><tr><td><code>ST300CMD;SERIAL;02;Preset</code></td><td>Solicita configuração básica</td></tr><tr><td><code>ST300CMD;SERIAL;02;PresetA</code></td><td>Solicita configuração completa</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqIMSI</code></td><td>Solicita IMSI</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqICCID</code></td><td>Solicita ICCID</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqVer</code></td><td>Solicita versão</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqShortTest</code></td><td>Teste curto</td></tr><tr><td><code>ST300CMD;SERIAL;02;ReqTest</code></td><td>Teste</td></tr><tr><td><code>ST300CMD;SERIAL;02;InitMsgNo</code></td><td>Requisitar número</td></tr></tbody></table></div>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="comandos-gerais">Comandos gerais</h3>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Significado</th></tr></thead><tbody><tr><td><code>ST300CMD;SERIAL;02;Reboot</code></td><td>Reiniciar sem apagar</td></tr><tr><td><code>ST300CMD;SERIAL;02;Reset</code></td><td>Reiniciar formatando</td></tr><tr><td><code>ST300CMD;SERIAL;02;Enable1</code></td><td>Bloqueio (observar lógica de ativação)</td></tr><tr><td><code>ST300CMD;SERIAL;02;Disable1</code></td><td>Desbloqueio (observar lógica de ativação)</td></tr><tr><td><code>ST300CMD;SERIAL;02;EraseAll</code></td><td>Apaga memória de posições</td></tr><tr><td><code>ST300CMD;SERIAL;02;InitDist</code></td><td>Zera distância</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetOwnNo=NUMERO_CELULAR</code></td><td>Define número próprio (formato +55DDDNÚMERO)</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetHMeter=1</code></td><td>Setar contador de horas trabalhadas</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetOdometer=12</code></td><td>Setar odômetro total</td></tr><tr><td><code>ST300CMD;SERIAL;02;RestartAntiTheft2</code></td><td>Reinicia antifurto 2</td></tr><tr><td><code>ST300CMD;SERIAL;02;ImproveBatteryLife=1</code></td><td>Otimização da bateria de backup</td></tr><tr><td><code>ST300CMD;SERIAL;02;SetOdoIgn=0</code></td><td>Incrementação do odômetro com ignição desligada</td></tr></tbody></table></div>
+<h3 id="parametros-de-rede">Parâmetros de rede</h3>
+<p>Campos: autenticação (0 = Vivo, 1 = outros); APN; usuário; senha; IP1; porta1; IP2; porta2; número SMS (0); PIN (0).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;SERIAL;02;0;smart.m2m.vivo.com.br;vivo;vivo;200.98.204.151;7210;200.98.204.152;7210;0;0</code></pre></div>
+<p>Vivo Smart M2M com IP primário e secundário (exemplo do documento).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300NTW;SERIAL;02;0;smart.m2m.vivo.com.br;vivo;vivo;200.98.204.151;7210;;;0;0</code></pre></div>
+<p>Somente IP primário.</p>
+<h3 id="parametros-de-tensao">Parâmetros de tensão</h3>
+<p>Campos: parar de carregar bateria 12V (0); parar de carregar 24V (0); tensão que decide 12/24 V (17.20); tensão de proteção 12V (8.00); tensão de proteção 24V (18.00); ignição virtual alta (0.00); ignição virtual baixa (0.00).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MBV;SERIAL;02;0;0;17.20;8.00;18.00;0.00;0.00</code></pre></div>
+<p>Parâmetros de tensão padrão.</p>
+<h3 id="parametros-de-envio">Parâmetros de envio</h3>
+<p>Campos: tempo parado; envio em movimento; envio emergência; ...; keep alive; ...</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3000;60;60;3;0;600;0;0;0</code></pre></div>
+<p>Carro.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3600;60;60;3;0;0;0;0;0</code></pre></div>
+<p>Moto.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300RPT;SERIAL;02;3600;60;60;3;0;300;0;0;0</code></pre></div>
+<p>Recomendado (manual ST310U).</p>
+<h3 id="bateria-interna">Bateria interna</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300BAT;SERIAL;02;0;3.4</code></pre></div>
+<p>Desligar bateria.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300BAT;SERIAL;02;1;3.4</code></pre></div>
+<p>Ligar bateria.</p>
+<h3 id="parametros-de-eventos">Parâmetros de eventos</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;SERIAL;02;0;300;0;12;0;9;30;30;0;0;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Bloqueio com um pulso (carro).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300EVT;SERIAL;02;0;300;0;12;0;9;30;30;0;1;7;1;1;0;0;0;0;0;0;9;9;0;0;0</code></pre></div>
+<p>Bloqueio gradativo (moto).</p>
+<h3 id="parametros-gsm">Parâmetros GSM</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300GSM;SERIAL;02;0;;;;;0;;;;;;;</code></pre></div>
+<p>GSM padrão.</p>
+<h3 id="sensor-de-movimento-acelerometro">Sensor de movimento (acelerômetro)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MSR;SERIAL;02;600;0.04;0.04;0.7</code></pre></div>
+<p>Carro.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300MSR;SERIAL;02;600;0.10;0.10;0.7</code></pre></div>
+<p>Moto.</p>
+<h3 id="parametro-de-servico">Parâmetro de serviço</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;SERIAL;02;1;200;1;0;0;1;1;0;1;3;0;0;0</code></pre></div>
+<p>Recomendado carro/moto.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;SERIAL;02;1;200;1;0;0;0;1;0;1;1;0;0;0</code></pre></div>
+<p>Carro.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST300SVC;SERIAL;02;1;200;1;0;0;0;1;0;1;2;0;0;0</code></pre></div>
+<p>Moto.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Documento intitulado &quot;CARRO/MOTO — STRING DE COMANDOS&quot;. O exemplo de rede usa servidor 200.98.204.151/152:7210 do próprio documento; para a TrackMax use <code>dns.trackmax.com.br;5011;35.230.168.225;5011</code> (ver página ST310U).</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/suntech2g-suntech-string-de-comandos-st300-carro-moto/SUNTECH%20STRING%20DE%20COMANDOS%20(3).pdf" target="_blank" rel="noopener">SUNTECH STRING DE COMANDOS (3).pdf</a> <span class="muted">170 KB</span></li></ul></section>
+    <nav class="pager"><a href="suntech2g-suntech-comandos-sms-linha-300-st310u.html">← Suntech Comandos SMS (Linha 300 ST310U)</a><a href="trackmax-4g-a16.html">A16 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

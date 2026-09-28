@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ST-905 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#especificacoes">Especificações</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / ST / ST-905</p>
+    <h1>ST-905 (ST-915 / ST-925)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> ST-905 — o manual é compartilhado com ST-915 e ST-925 (mesma linha de rastreadores portáteis com bateria grande e ímã)</li><li><strong>Pasta:</strong> ST</li><li><strong>Fabricante/Protocolo:</strong> SinoTrack (protocolo SinoTrack, comandos SMS numéricos com senha padrão 0000; servidor do fabricante 45.112.204.246 porta 8090)</li><li><strong>Arquivos-fonte:</strong> <code>ST-905 User Manual 246.pdf</code></li></ul>
+<h2 id="especificacoes">Especificações</h2>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>ST-905</th><th>ST-915</th><th>ST-925</th></tr></thead><tbody><tr><td>Dimensões</td><td>80 × 68 × 22 mm</td><td>80 × 68 × 40 mm</td><td>112 × 78 × 45 mm</td></tr><tr><td>Peso</td><td>150 g</td><td>300 g</td><td>500 g</td></tr><tr><td>Bateria</td><td>3,7 V 5000 mAh</td><td>3,7 V 10.000 mAh</td><td>3,7 V 20.800 mAh</td></tr><tr><td>Standby</td><td>60 dias</td><td>120 dias</td><td>240 dias</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Item comum</th><th>Valor</th></tr></thead><tbody><tr><td>Rede</td><td>GSM/GPRS</td></tr><tr><td>Bandas</td><td>850/900/1800/1900 MHz</td></tr><tr><td>Sensibilidade GPS</td><td>−159 dBm</td></tr><tr><td>Precisão GPS</td><td>5 m</td></tr><tr><td>Entrada de carga</td><td>DC 5 V 1,0 A (conector USB-C na imagem)</td></tr><tr><td>Temperatura de armazenamento</td><td>−40 °C a +85 °C</td></tr><tr><td>Temperatura de operação</td><td>−20 °C a +55 °C</td></tr><tr><td>Umidade</td><td>5%–95% sem condensação</td></tr><tr><td>Posicionamento</td><td>GPS + AGPS; sem GPS usa LBS</td></tr></tbody></table></div>
+<h3 id="plataforma-do-fabricante">Plataforma do fabricante</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Site</td><td>Pro.SinoTrack.com</td></tr><tr><td>App</td><td>&quot;SinoTrack PRO&quot; (iOS/Android), servidor &quot;Pro.SinoTrack&quot;</td></tr><tr><td>Usuário</td><td>ID do rastreador</td></tr><tr><td>Senha</td><td>123456</td></tr></tbody></table></div>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>6690000</code></pre></div>
+<p>Pede a posição por SMS — responde com link do Google Maps. Ligar para o número do chip também retorna o link.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RCONF</code></pre></div>
+<p>Lê a configuração: ID, modo de trabalho, IP e porta, APN.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="ligar-o-aparelho">Ligar o aparelho</h3>
+<p>Abra a tampa de borracha e insira o chip (contatos para cima) no slot. O LED acende quando o chip é inserido. Com GPS usa posição GPS; sem GPS usa LBS. <strong>O aparelho desliga automaticamente quando o chip é removido.</strong> Há também chave OFF/ON e entrada de carga ao lado do slot.</p>
+<h3 id="apn-e-servidor-secao-start-online-tracking">APN e servidor (seção &quot;Start online tracking&quot;)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 APN
+8030000 APN APNuser APNpassword</code></pre></div>
+<p>Exemplos do manual:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 internet</code></pre></div>
+<p>MTN (África do Sul): APN &quot;internet&quot;, sem usuário/senha.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 prepay.tesco-mobile.com tescowap password</code></pre></div>
+<p>Tesco Mobile (Reino Unido): APN, usuário e senha.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 45.112.204.246 8090</code></pre></div>
+<p>Formato 8040000 IP PORTA — aponta para o servidor do fabricante.</p>
+<h3 id="numero-admin">Número admin</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>NUMERO_CELULAR0000 1</code></pre></div>
+<p>Formato: número do seu celular (não o do chip do rastreador) + senha + espaço + 1. 0000 é a senha e 1 é a posição (1º número). Resposta &quot;SET OK!&quot;. Depois de cadastrado, todas as operações por SMS ficam restritas a esse número. Alarmes de excesso de velocidade, vibração e bateria fraca vão para o número admin.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>D101#</code></pre></div>
+<p>Cancela o número admin. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="alarme-de-excesso-de-velocidade">Alarme de excesso de velocidade</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 070</code></pre></div>
+<p>Define o limite (exemplo 70 km/h). Acima do limite envia &quot;speed alarm!&quot; ao admin a cada 5 minutos. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 0</code></pre></div>
+<p>Cancela o alarme de velocidade. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="alarme-de-vibracao">Alarme de vibração</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T10</code></pre></div>
+<p>Liga o alarme de vibração. O aparelho precisa ficar parado por 5 minutos para a função armar; ao ser sacudido envia &quot;Shock alarm!&quot; ao admin. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1800000</code></pre></div>
+<p>Cancela o alarme de vibração. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="alarme-de-remocao-take-off-padrao-ligado">Alarme de remoção (take off) — padrão ligado</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TAKEOFF0000 1</code></pre></div>
+<p>Liga o alarme de remoção. Há um sensor anti-remoção na traseira do aparelho; se ele deixar de estar coberto, envia &quot;Take off Alarms!&quot; por SMS ao admin e ao número SOS. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TAKEOFF0000 0</code></pre></div>
+<p>Cancela o alarme de remoção. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="modos-de-trabalho-economia-de-bateria">Modos de trabalho (economia de bateria)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WORK0000</code></pre></div>
+<p>Modo WORK (sempre ativo): envia dados continuamente pelo intervalo configurado. Autonomia: 7 dias por 10.000 mAh. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVE0000</code></pre></div>
+<p>Modo MOVE (<strong>padrão de fábrica</strong>): só trabalha em movimento; parado ele dorme (GPS desligado, GSM em baixo consumo). Vibração, SMS ou ligação acordam o aparelho por 5 minutos. Autonomia: 30 dias por 10.000 mAh. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STANDBY0000</code></pre></div>
+<p>Modo STANDBY: GPS desligado, GSM em baixo consumo; SMS ou ligação acordam por 5 minutos. Autonomia: 120 dias por 10.000 mAh. Resposta &quot;SET OK!&quot;.</p>
+<p>Na versão 4G a autonomia é cerca de 20% menor.</p>
+<h3 id="fuso-horario-local-padrao-gmt-0">Fuso horário local (padrão GMT 0)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8960000E00</code></pre></div>
+<p>Define o fuso. Resposta &quot;SET OK!&quot;. Exemplos do manual:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8960000E01
+8960000W01
+8960000E00</code></pre></div>
+<p>E = leste (+), W = oeste (−).</p>
+<h3 id="reset-e-leitura-de-configuracao">Reset e leitura de configuração</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET</code></pre></div>
+<p>Reset do hardware. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RCONF</code></pre></div>
+<p>Lê a configuração: ID, modo de trabalho, IP e porta, APN.</p>
+<h3 id="explicacao-dos-campos-da-resposta-de-configuracao-rconf">Explicação dos campos da resposta de configuração (RCONF)</h3>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td>ST-915</td><td>modelo do rastreador</td></tr><tr><td>ID:6180127780</td><td>ID do rastreador (exemplo)</td></tr><tr><td>UP:0000</td><td>senha dos SMS</td></tr><tr><td>U1:,U2:,U3:</td><td>números de controle</td></tr><tr><td>MODE: GPRS-MOVE</td><td>modo de trabalho</td></tr><tr><td>DAILY:OFF, GEO FENCE:OFF, OVER SPEED:OFF, VOICE:ON, SHAKE ALARM:OFF, SLEEP:ON</td><td>estados das funções</td></tr><tr><td>APN: internet</td><td>APN do chip</td></tr><tr><td>IP:45.112.204.246:8090</td><td>IP e porta do servidor</td></tr><tr><td>GPRS UPLOAD TIME:30</td><td>intervalo de envio GPS</td></tr><tr><td>TIME ZONE:0.0</td><td>fuso horário</td></tr></tbody></table></div>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<p>Servidor do fabricante: <code>8040000 45.112.204.246 8090</code>. Para TrackMax, veja a página <strong>&quot;SinoTrack — Configuração TrackMax&quot;</strong> (receita genérica SinoTrack; não faz parte deste manual).</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<h3 id="faq-do-manual">FAQ do manual</h3>
+<div class="table-wrap"><table><thead><tr><th>Problema</th><th>Solução</th></tr></thead><tbody><tr><td>Não liga</td><td>Verifique se a bateria está carregada. Verifique se o chip está bem instalado e se é de rede GSM.</td></tr><tr><td>Sem sinal GSM</td><td>Verifique se o chip está instalado corretamente e tem rede GSM; não use chip com PIN; desative o desvio de chamadas; verifique se a tensão de alimentação está normal.</td></tr><tr><td>Sem GPS</td><td>Recomenda-se local com visão mais aberta do céu para o aparelho receber o sinal GPS.</td></tr><tr><td>Não responde SMS</td><td>Senha errada ou formato do comando errado.</td></tr><tr><td>Não responde à ligação / não recebe alarme</td><td>O número autorizado/admin está incorreto ou não foi cadastrado.</td></tr><tr><td>Posição por SMS OK, mas não aparece no app/site</td><td>Verifique se o APN está configurado corretamente e descubra o APN correto do chip.</td></tr><tr><td>Posição da plataforma diferente da real</td><td>Ainda não chegou o tempo de envio ou está sem GPS: ligue para o aparelho e receba a posição. Sem GPS, a posição é a última posição GPS válida; com GPS, significa que ainda não atingiu o intervalo de envio.</td></tr></tbody></table></div>
+<h3 id="avisos-do-manual">Avisos do manual</h3>
+<ol><li>O rastreamento GPS funciona ao ar livre.</li><li>O chip precisa permitir ligações, SMS e dados (GPRS).</li><li>O chip precisa ter saldo suficiente.</li><li>Desative o desvio de chamadas no chip.</li><li>Insira o chip corretamente.</li><li>Não desmonte o aparelho.</li></ol>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Aparelho portátil, sem fios de instalação (bateria interna; carga DC 5 V 1 A).</p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Estado</th><th>Significado</th></tr></thead><tbody><tr><td>Amarelo</td><td>aceso fixo</td><td>conexão GPRS</td></tr><tr><td>Amarelo</td><td>piscando</td><td>sem sinal GPRS</td></tr><tr><td>Azul</td><td>aceso fixo</td><td>conexão GPS</td></tr><tr><td>Azul</td><td>piscando</td><td>sem sinal GPS</td></tr></tbody></table></div>
+<p>(Descrição de hardware feita pelo manual usando o ST-915 como exemplo.) Só funciona com chip GSM; chip 3G/4G precisa ter função GSM. Chip sem PIN.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Apesar de o arquivo se chamar ST-905, o manual cobre ST-905, ST-915 e ST-925; o exemplo de RCONF é de um ST-915.</li><li>Aviso do manual: o chip deve ter identificação de chamadas ativa e desvio de chamadas desativado.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/st-st-905/ST-905%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-905 User Manual 246.pdf</a> <span class="muted">460 KB</span></li></ul></section>
+    <nav class="pager"><a href="st-st-904-l.html">← ST-904(L)</a><a href="st-st-906.html">ST-906 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

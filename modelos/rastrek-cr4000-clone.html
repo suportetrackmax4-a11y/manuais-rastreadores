@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>CR4000 CLONE · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / RASTREK / CR4000 CLONE</p>
+    <h1>CR4000 CLONE</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> CR4000 clone (ou réplica)</li><li><strong>Pasta:</strong> RASTREK</li><li><strong>Fabricante/Protocolo:</strong> Clone da linha CR4000. Comandos com prefixo <code>ZD1234</code> (senha 1234), alguns com <code>CC1234</code> e alguns em formato <code>A7777AT+...;</code></li><li><strong>Arquivos-fonte:</strong> <code>RASTREK/CR4000 CLONE.txt</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,IMEI#</code></pre></div>
+<p>Consulta o IMEI.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CC1234,CHECK#</code></pre></div>
+<p>Consulta o status/checagem do equipamento (prefixo CC1234).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>A7777AT+CHECK;</code></pre></div>
+<p>Mesma checagem, no formato A7777AT.</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Comandos SMS marcados no arquivo como &quot;TESTADOS&quot;:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,APN*SS.ALGAR.BR,ALGAR,ALGAR#</code></pre></div>
+<p>Define APN, usuário e senha (chip Algar).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,DNS*DNS.TRACKMAX.COM.BR,5023#</code></pre></div>
+<p>Define DNS e porta do servidor TrackMax (5023).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,ANG*30#</code></pre></div>
+<p>Envia posição a cada mudança de direção de 30 graus.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,TE*60,5,1800#</code></pre></div>
+<p>Tempos de transmissão/sleep (parâmetros 60, 5 e 1800; o arquivo não detalha o significado de cada um).</p>
+<p>Comandos listados na seção &quot;testes&quot;:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>A7777AT+DNS=DNS.TRACKMAX.COM.BR,5023;</code></pre></div>
+<p>DNS e porta TrackMax no formato A7777AT.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CC1234,IGNVIRTUAL*OFF#</code></pre></div>
+<p>Desativa a ignição virtual.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,ACC*1#</code></pre></div>
+<p>Ativa a detecção de ignição pelo fio ACC. Também aparece como <code>CC1234,ACC*1#</code> e <code>A7777AT+ACC=1;</code>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD123456,begin#</code></pre></div>
+<p>Inicializa o equipamento (aqui com a senha 123456).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,RSTG#</code></pre></div>
+<p>Reinicia (reset).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,TE*10,5,360#</code></pre></div>
+<p>Tempos de transmissão/sleep com parâmetros 10, 5 e 360.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,SENSVIB*1#</code></pre></div>
+<p>Sensibilidade do sensor de vibração em 1.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,allgps*ON#</code></pre></div>
+<p>Mantém o GPS sempre ligado.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,MSERVER*159.65.43.73,5002#</code></pre></div>
+<p>Define o servidor por IP e porta (159.65.43.73:5002). O arquivo não diz de quem é esse servidor.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,APN*SIMPLE.ALGAR.BR,ALGAR,ALGAR#</code></pre></div>
+<p>APN Algar alternativa (<code>SIMPLE.ALGAR.BR</code>).</p>
+<h3 id="bloqueio-e-reset">Bloqueio e reset</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,stop#</code></pre></div>
+<p>Bloqueio.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,resume#</code></pre></div>
+<p>Desbloqueio via SMS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,RSTG#</code></pre></div>
+<p>Reset.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Uso</th><th>Comandos</th></tr></thead><tbody><tr><td>TrackMax + chip Algar (sequência testada)</td><td><code>ZD1234,APN*SS.ALGAR.BR,ALGAR,ALGAR#</code> → <code>ZD1234,DNS*DNS.TRACKMAX.COM.BR,5023#</code> → <code>ZD1234,ANG*30#</code> → <code>ZD1234,TE*60,5,1800#</code></td></tr><tr><td>Servidor por IP (bloco final do arquivo)</td><td><code>ZD1234,MSERVER*159.65.43.73,5002#</code> → <code>ZD1234,APN*SIMPLE.ALGAR.BR,ALGAR,ALGAR#</code> → <code>ZD1234,TE*10,5,360#</code> → <code>ZD1234,SENSVIB*1#</code> → <code>ZD1234,allgps*ON#</code> → <code>CC1234,ACC*1#</code></td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Só a primeira parte do arquivo está marcada como &quot;COMANDOS SMS TESTADOS&quot;. O restante está na seção &quot;testes&quot;, sem confirmação de funcionamento.</li><li>O arquivo mistura os prefixos <code>ZD1234</code>, <code>ZD123456</code>, <code>CC1234</code> e <code>A7777AT</code>; use o que o equipamento aceitar.</li><li>Existe uma página separada para o &quot;CR4000 CARCELL&quot;.</li></ul>
+    
+    <nav class="pager"><a href="rastrek-cr4000-carcell.html">← CR4000 CARCELL</a><a href="rastrek-mini-tracker.html">MINI TRACKER →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

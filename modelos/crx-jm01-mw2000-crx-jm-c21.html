@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>JM01 MW2000 CRX JM-C21 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / CRX / JM01 MW2000 CRX JM-C21</p>
+    <h1>JM01 / MW2000 / CRX / JM-C21</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> JM01, MW2000, CRX, JM-C21 (o JM-C21 aparece só no nome do arquivo .txt)</li><li><strong>Pasta:</strong> CRX</li><li><strong>Fabricante/Protocolo:</strong> Linha JM (Jimi). Comandos <code>SERVER,...#</code>, porta TrackMax 5023</li><li><strong>Arquivos-fonte:</strong> <code>CRX/JM01 MW2000 CRX JM-C21.txt</code>; <code>CRX/MANUAL CRX JM01 E MW2000 (3).xls</code> (planilha &quot;Plan1&quot;, versão do manual de 22/11/2018)</li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PARAM#</code></pre></div>
+<p>Retorna as configurações (IP, porta, APN etc.). Opcional.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRSSET#</code></pre></div>
+<p>Retorna as configurações de GPRS (IP, porta, APN etc.). Opcional.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPSON#</code></pre></div>
+<p>Força o GPS. Opcional.</p>
+<h2 id="configuracao">Configuração</h2>
+<p>Tabela do manual (.xls) — todos os comandos marcados como &quot;TESTE OK&quot;:</p>
+<div class="table-wrap"><table><thead><tr><th>Comando</th><th>Função</th><th>Necessidade</th></tr></thead><tbody><tr><td><code>FACTORYALL#</code></td><td>Volta às configurações de fábrica (zera tudo)</td><td>Necessário</td></tr><tr><td><code>SERVER,0,35.230.168.225,5023,0#</code></td><td>IP e porta TrackMax</td><td>Necessário (IP <strong>ou</strong> DNS)</td></tr><tr><td><code>SERVER,1,dns.trackmax.com.br,5023,0#</code></td><td>DNS e porta TrackMax</td><td>Necessário (IP <strong>ou</strong> DNS)</td></tr><tr><td><code>APN,smart.m2m.vivo.com.br,vivo,vivo#</code></td><td>APN Vivo Smart (chip Vivo M2M)</td><td>Necessário</td></tr><tr><td><code>GMT,W,0,0#</code></td><td>Fuso horário da plataforma (padrão -3)</td><td>Necessário</td></tr><tr><td><code>GPRSON,1#</code></td><td>Ativa o GPRS e a conexão com a plataforma</td><td>Necessário</td></tr><tr><td><code>TIMER,60,180#</code></td><td>Posições a cada 1 min com a chave ligada e a cada 3 min desligada</td><td>Necessário</td></tr><tr><td><code>ANGLEREP,ON,30,2#</code></td><td>Envia posição a cada mudança de direção de 30 graus</td><td>Necessário</td></tr><tr><td><code>MOVING,ON,300#</code></td><td>Alarme por movimento</td><td>Necessário</td></tr><tr><td><code>DEFENSE,10#</code></td><td>Entra em sleep em 10 minutos</td><td>Necessário</td></tr><tr><td><code>PARAM#</code></td><td>Retorna as configurações</td><td>Opcional</td></tr><tr><td><code>RESET#</code></td><td>Reinicia em 20 segundos</td><td>Opcional</td></tr><tr><td><code>GPSON#</code></td><td>Força o GPS</td><td>Opcional</td></tr><tr><td><code>POWERALM,OFF#</code></td><td>Desativa o alarme de bateria (para motos)</td><td>Opcional</td></tr><tr><td><code>GPRSSET#</code></td><td>Retorna as configurações</td><td>Opcional</td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORYALL#</code></pre></div>
+<p>Volta às configurações de fábrica. Enviar primeiro.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,0,35.230.168.225,5023,0#</code></pre></div>
+<p>Servidor TrackMax por IP (modo 0), porta 5023.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,5023,0#</code></pre></div>
+<p>Servidor TrackMax por DNS (modo 1), porta 5023.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,smart.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<p>APN do chip Vivo M2M (Smart).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
+<p>Fuso horário (a plataforma ajusta o padrão -3).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRSON,1#</code></pre></div>
+<p>Ativa o GPRS e a conexão com a plataforma.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,1800#</code></pre></div>
+<p>Versão do .txt: 60 s com a chave ligada e 1800 s desligada (o .xls usa <code>TIMER,60,180#</code>; veja as Observações).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ANGLEREP,ON,30,2#</code></pre></div>
+<p>Envio de posição por ângulo de 30 graus.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVING,ON,300#</code></pre></div>
+<p>Alarme por movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DEFENSE,10#</code></pre></div>
+<p>Entra em sleep em 10 minutos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
+<p>Reinicia (em 20 segundos).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>POWERALM,OFF#</code></pre></div>
+<p>Desativa o alarme de bateria. Recomendado para motos.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="trackmax-chip-vivo-m2m">TrackMax + chip Vivo M2M</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORYALL#
+SERVER,1,dns.trackmax.com.br,5023,0#
+APN,smart.m2m.vivo.com.br,vivo,vivo#
+GMT,W,0,0#
+GPRSON,1#
+TIMER,60,180#
+ANGLEREP,ON,30,2#
+MOVING,ON,300#
+DEFENSE,10#</code></pre></div>
+<p>Sequência completa: reset de fábrica, servidor por DNS (ou <code>SERVER,0,35.230.168.225,5023,0#</code> por IP), APN Vivo, fuso, GPRS, tempos, ângulo, alarme de movimento e sleep. Depois confira com <code>PARAM#</code>.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li><strong>Diferença entre as fontes:</strong> o .txt traz <code>TIMER,60,1800#</code> e o .xls traz <code>TIMER,60,180#</code>, descrito como &quot;3 [min] desligada&quot; (180 s). Confirmar qual valor usar.</li><li>As planilhas &quot;Plan2&quot; e &quot;Plan3&quot; do .xls estão vazias.</li></ul>
+    
+    <nav class="pager"><a href="camera.html">← camera</a><a href="crx-x1.html">X1 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

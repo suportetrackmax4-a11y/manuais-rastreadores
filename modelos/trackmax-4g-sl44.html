@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SL44 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / TRACKMAX 4G / SL44</p>
+    <h1>SL44</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> SL44</li><li><strong>Pasta:</strong> TRACKMAX 4G (subpasta <code>j16 4G</code>)</li><li><strong>Fabricante/Protocolo:</strong> Não informado; comandos SMS no padrão <code>COMANDO,parâmetros#</code></li><li><strong>Arquivos-fonte:</strong> <code>TRACKMAX 4G/j16 4G/sl44 e j16.txt</code> (somente a parte SL44)</li></ul>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="configuracao-trackmax-chip-algar">Configuração TrackMax (chip Algar)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2304,0#</code></pre></div>
+<p>Servidor TrackMax (DNS), porta 2304.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.algar.br,algar,algar#</code></pre></div>
+<p>APN, usuário e senha do chip Algar TrackMax.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,1800#</code></pre></div>
+<p>Envio a cada 60 s com ignição ligada e 1800 s com ignição desligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HBT,3,60#</code></pre></div>
+<p>Intervalo de heartbeat.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENDS,3#</code></pre></div>
+<p>Parâmetro de envio/sensor (conforme anotação original).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ANGLEREP,ON,30,2#</code></pre></div>
+<p>Ativa envio de posição por ângulo (30°).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRSON,1#</code></pre></div>
+<p>Ativa a conexão GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
+<p>Fuso horário zero (a plataforma ajusta).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DEFENSE,10#</code></pre></div>
+<p>Tempo do modo defense (10 min).</p>
+    
+    <nav class="pager"><a href="trackmax-4g-j16.html">← J16</a><a href="trackmax-4g-speed.html">SPEED →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

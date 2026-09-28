@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>J16 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / TRACKMAX 4G / J16</p>
+    <h1>J16 (TrackMax 4G / TrackerKing J16)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> TrackMax 4G + 2G (J16 / TrackerKing J16) — modem SIMCOM A7670SA</li><li><strong>Pasta:</strong> TRACKMAX 4G (subpastas <code>j16</code> e <code>j16 4G</code>); trecho &quot;#J16&quot; de <code>ITR 120</code></li><li><strong>Fabricante/Protocolo:</strong> TrackerKing; protocolos selecionáveis GT06 / CRX3 / 808 (JT808) / TQ; comandos no padrão <code>SZCS#</code> (configurar) e <code>CXCS#</code> (consultar)</li><li><strong>Arquivos-fonte:</strong> <code>TRACKMAX 4G/j16 4G/MANUAL TRACKMAX 4G V082024 USB (3).pdf</code>; <code>TRACKMAX 4G/j16/MANUAL SMSJ16.txt</code> (somente partes J16); <code>TRACKMAX 4G/j16/ANOTAÇÕES 4G COMANDOS.txt</code>; <code>TRACKMAX 4G/j16 4G/NOVOS COMANDOS SMS J16 4G.txt</code> (somente partes J16); <code>TRACKMAX 4G/j16 4G/APN EQUIPAMENTO TrackerKing_J16.txt</code>; <code>TRACKMAX 4G/j16 4G/sl44 e j16.txt</code> (somente parte J16); <code>ITR 120/#ITR 120.txt</code> (somente seção &quot;#J16&quot;)</li></ul>
+<blockquote>Todos os comandos são em MAIÚSCULO, exceto a APN do chip e o servidor da plataforma (conforme manual).</blockquote>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXZT</code></pre></div>
+<p>Consulta todos os parâmetros (protocolo, ID, servidor, APN etc.).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STATUS#</code></pre></div>
+<p>Consulta status de bateria, GPRS, GPS, ACC e modo defense (também força conexão).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRSSET#</code></pre></div>
+<p>Consulta status de conexão (ON/OFF), servidor e APN configurados.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#ICCID</code></pre></div>
+<p>Consulta o ICCID do chip inserido no rastreador.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#IMEI</code></pre></div>
+<p>Consulta o IMEI do rastreador.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN#</code></pre></div>
+<p>Consulta a APN.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#APN#USERPPP#PWPPP</code></pre></div>
+<p>Consulta APN, usuário e senha.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#SERVIP#SERVPORT</code></pre></div>
+<p>Consulta servidor e porta da plataforma.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WHERE#</code></pre></div>
+<p>Consulta localização.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>URL#</code></pre></div>
+<p>ou</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>POSITION#</code></pre></div>
+<p>Solicita posição.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>VERSION#</code></pre></div>
+<p>Consulta versão do firmware.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#PTL_SEL</code></pre></div>
+<p>(variante: <code>CXCS#PTL,SEL</code>) Verifica se o protocolo é GT06 ou 808.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ASETAPN#</code></pre></div>
+<p>Consulta se a APN automática está ativa.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#ACCLINE</code></pre></div>
+<p>Consulta ignição virtual por movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#SOURCE_OFF_TYPE</code></pre></div>
+<p>Consulta status do bloqueio instantâneo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#VIBL</code></pre></div>
+<p>Consulta o nível do sensor de vibração.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#VIBCHK</code></pre></div>
+<p>Consulta o tempo de checagem do sensor de vibração.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#ANGLE_SEND</code></pre></div>
+<p>Consulta status do envio de posições por ângulo / armazenamento em memória.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#SPEED</code></pre></div>
+<p>Consulta a velocidade configurada para alerta.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#GPS_FINTER_EN</code></pre></div>
+<p>Consulta o filtro de GPS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXCS#POF</code></pre></div>
+<p>Consulta o alerta de corte de energia (powercut).</p>
+<blockquote>Dica: para verificar qualquer parâmetro, troque <code>SZCS#</code> por <code>CXCS#</code>.</blockquote>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="servidor-e-apn-padrao-trackmax">Servidor e APN (padrão TrackMax)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SERVIP=dns.trackmax.com.br#SERVPORT=2204</code></pre></div>
+<p>Servidor e porta da plataforma TrackMax (por DNS).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SERVIP=35.230.168.225#SERVPORT=2204</code></pre></div>
+<p>Servidor TrackMax por IP.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#APN=tmax.algar.br#USERPPP=algar#PWPPP=algar</code></pre></div>
+<p>APN, usuário e senha — chip Algar TrackMax (manual).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#APN=ss.algar.br#USERPPP=algar#PWPPP=algar</code></pre></div>
+<p>ou</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,ss.algar.br,algar,algar#</code></pre></div>
+<p>APN Algar (alternativa).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#</code></pre></div>
+<p>ou</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#APN=trackmax.br#USERPPP=max#PWPPP=max</code></pre></div>
+<p>APN do chip MAX (trackmax.br / max / max).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ASETAPN,OFF#</code></pre></div>
+<p>Desativa a APN automática. <strong>Obrigatório ao usar APN privada</strong>; envie antes do comando de APN. (<code>ASETAPN,ON#</code> reativa.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SERV2_ADDR=0#SERV2_PORT=0</code></pre></div>
+<p>Comando relacionado ao segundo servidor (funcionamento em duas plataformas).</p>
+<h3 id="protocolo">Protocolo</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#PTL_SEL=0</code></pre></div>
+<p>Protocolo TQ.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#PTL_SEL=1</code></pre></div>
+<p>Protocolo 808 (JT808). No 808 use a porta 2244.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#PTL_SEL=2</code></pre></div>
+<p>Protocolo GT06.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#TERIID=IMEI_DO_EQUIPAMENTO</code></pre></div>
+<p>Grava o IMEI como ID do terminal (após mudar o protocolo).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#IMEI=IMEI_DO_EQUIPAMENTO</code></pre></div>
+<p>Grava o IMEI.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GT06SEL=0</code></pre></div>
+<p>Protocolo GT06 padrão (compatível com a maioria das plataformas).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GT06SEL=1</code></pre></div>
+<p>Protocolo CRX3 — adiciona estatística de milhagem (a plataforma precisa decodificar pacotes 0x22).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GT06SEL=1#GT06IEXVOL=2</code></pre></div>
+<p>Possivelmente mostra o nível da bateria externa (troca e atualiza).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GT06SEL=0
+SZCS#GT06IEXVOL=1</code></pre></div>
+<p>Desativa o recurso acima (usar para a plataforma Getrak).</p>
+<h3 id="tempos-de-envio">Tempos de envio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60</code></pre></div>
+<p>Tempo de envio de posições em movimento (segundos). Ex.: <code>SZCS#FREQ=30</code> = a cada 30 s.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#PULSE=1800</code></pre></div>
+<p>Tempo de envio parado / pacote completo (segundos). Ex.: <code>SZCS#PULSE=180</code> = 3 min.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ACC_OFF_FREQ=1800</code></pre></div>
+<p>Tempo de envio com ignição desligada / em modo sleep (1800 = 30 min).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SLEEPT=3</code></pre></div>
+<p>Minutos para entrar em modo sleep após parar.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DEFENSE,3#</code></pre></div>
+<p>Minutos para entrar em modo sleep defense (padrão 3 min).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HBT,1800,1800#</code></pre></div>
+<p>Envio de posições completas (heartbeat) em segundos; com ignição OFF pulsa a cada 30 min.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,1800#</code></pre></div>
+<p>Tempo de envio com chave ligada (60 s) e desligada (1800 s).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
+<p>Fuso horário zero (a plataforma ajusta).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ANGLEVALUE=10-045</code></pre></div>
+<p>Envia posição em curva a partir de 10 km/h e 45°. Variantes: <code>10-030</code>, <code>05-030</code>, <code>30</code>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ANGLE_SEND=1</code></pre></div>
+<p>(variante <code>SZCS#ANGLE,SEND=1</code>) Ativa envio de posições por ângulo / armazenamento em memória (1 ativado / 0 desativado).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#BLIND_EN=1</code></pre></div>
+<p>(variante <code>SZCS#BLIND,EN=1</code>) Ativa memória interna para salvar posições.</p>
+<h3 id="sleep-e-economia-de-energia">Sleep e economia de energia</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SLPDISCONNECT=0</code></pre></div>
+<p>Padrão de fábrica — sem economia de energia.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SLPDISCONNECT=1</code></pre></div>
+<p>Modo economia de energia, mantendo SMS ativo (desliga envio de pacote/HBT com ignição desligada).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SLPDISCONNECT=2</code></pre></div>
+<p>Super modo de economia — sem SMS e sem GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#MTK_DISSLP=0</code></pre></div>
+<p>Modo baixo consumo; deixa o aparelho off-line após o fim do tempo do DEFENSE.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GPS_DISSLP=0</code></pre></div>
+<p>Permite que o módulo GPS durma (desativa GPS com ignição desligada).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#sleepupdate=1</code></pre></div>
+<p>Mesmo em sleep envia atualizações periódicas (fixa posições em modo sleep, conforme TIMER/HBT).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#LED_ENABLE=0</code></pre></div>
+<p>Apaga os LEDs. (<code>SZCS#LED_ENABLE=1</code> acende.)</p>
+<h3 id="sensores-e-alertas">Sensores e alertas</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#VIBCHK=1:250</code></pre></div>
+<p>Verifica vibração a cada 1 s; ao detectar vibrações seguidas sai do sono ou alerta. Ex.: <code>SZCS#VIBCHK=10:5</code> = 5 vezes a cada 10 s.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#VIBL=6</code></pre></div>
+<p>Sensibilidade do sensor de vibração (níveis 1 a 6).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SPEED=120</code></pre></div>
+<p>Alerta de excesso de velocidade em 120 km/h.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GPS_FINTER_EN=1</code></pre></div>
+<p>Ativa o filtro de GPS melhorado (1 ativado / 0 desativado).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ZKWMODE=3</code></pre></div>
+<p>Ajuste de GPS (usado na solução de instabilidade).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#POF=1</code></pre></div>
+<p>Ativa alerta de corte de energia (powercut).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SOSALM,ON,1#</code></pre></div>
+<p>Alarme SOS. Formato <code>SOSALM,A,M#</code>: A=ON/OFF (padrão ON); M=0 só GPRS, 1 SMS+GPRS, 2 GPRS+SMS+ligação, 3 GPRS+ligação (padrão 1). <code>SOSALM,OFF#</code> desativa.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENALM,ON,2#</code></pre></div>
+<p>Alarme do sensor de vibração. Formato <code>SENALM,A,M#</code> (A padrão OFF; M como acima). <code>SENALM#</code> consulta; <code>SENALM,OFF#</code> desativa.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>POWERALM,ON,2,10,10,#</code></pre></div>
+<p>Alarme de corte de alimentação. Formato <code>POWERALM,A,M,T1,T2#</code>: A padrão ON; M padrão 1; T1 = 2–60 s tempo de detecção (padrão 5); T2 = 1–3600 s tempo mínimo de carga (padrão 10). <code>POWERALM#</code> consulta; <code>POWERALM,OFF#</code> desativa.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>voltup,1#</code></pre></div>
+<p>Ativa voltagem (alerta de tensão).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVING,ON,1000,0#</code></pre></div>
+<p>Alerta de movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENSOR,60,180,3#</code></pre></div>
+<p>Parâmetros do sensor.</p>
+<h3 id="ignicao">Ignição</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ACCLINE=1</code></pre></div>
+<p>Ignição virtual por acelerômetro/movimento DESLIGADA.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#ACCLINE=0</code></pre></div>
+<p>Ignição virtual por acelerômetro/movimento LIGADA.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GT06SEL=1#GT06IEXVOL=2#ACCLT=2</code></pre></div>
+<p>Ajusta ignição &quot;atrasada&quot;.</p>
+<h3 id="bloqueio-e-anti-furto">Bloqueio e anti-furto</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SOURCE_OFF_TYPE=1</code></pre></div>
+<p>(variante <code>SZCS#SOURCE,OFF,TYPE=1</code>) Bloqueio instantâneo ignorando velocidade e GPS (1 ativado / 0 desativado).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,1#</code></pre></div>
+<p>Bloqueia o veículo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
+<p>Desbloqueia o veículo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#DET_AUTO_ACC=1#ACCLOCK=1</code></pre></div>
+<p>Habilita anti-furto.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#DET_AUTO_ACC=0#ACCLOCK=0</code></pre></div>
+<p>Desabilita possível anti-furto.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#PRMLOCKEN=1</code></pre></div>
+<p>Tranca os parâmetros. (<code>SZCS#PRMLOCKEN=0</code> desbloqueia.)</p>
+<h3 id="rede">Rede</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#NETSELECT=0</code></pre></div>
+<p>Rede 2G e 4G automática (versões novas).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#NETSELECT=1</code></pre></div>
+<p>Apenas 2G (versões novas).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#NETSELECT=2</code></pre></div>
+<p>Apenas 4G (versões novas).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Signal,1#</code></pre></div>
+<p>Apenas 4G (versões antigas). <code>signal,0#</code> volta para 2G e 4G.</p>
+<h3 id="manutencao">Manutenção</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>BLINDINIT#</code></pre></div>
+<p>Apaga a memória / atualiza a posição.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FORMAT</code></pre></div>
+<p>Zera de fábrica.</p>
+<h3 id="atualizacao-de-firmware-ota-j16">Atualização de firmware (OTA) — J16</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J16_LOCK_MASCSA_B38_V430.bin,57#
+YCSJ,http://139.9.60.174/update/J16_FASESA_B34_V425.bin,EB#
+YCSJ,http://139.9.60.174/update/J16_MASC_SA_B38_V437.bin,F5#
+YCSJ,http://139.9.60.174/update/J16_MASC_SA_B38_V434.bin,A2#
+YCSJ,http://139.9.60.174/update/J16_MASC_SA_B38_V439.bin,F5#
+YCSJ,http://139.9.60.174/update/J16_MASC_SA_B38_V438.bin,F5#
+YCSJ,http://139.9.60.174/update/J16_ONEB_MASCSA_B38_V441.bin,66#
+YCSJ,http://200.98.160.94/J16_MASCSA_B38_V441.bin,D3#</code></pre></div>
+<p>Links de firmware J16 registrados (versões 425 a 441).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J16_ONEB_MASCSA_B38_V443.bin,16#</code></pre></div>
+<p>OTA para J16 (V443).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J16_ONEB_10D6J_B39_V444.bin,4A#</code></pre></div>
+<p>OTA para J16-1 (V444).</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="configuracao-padrao-3-comandos">Configuração padrão (3 comandos)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60#PULSE=1800#ACC_OFF_FREQ=1800#SLEEPT=3
+SZCS#VIBCHK=1:250#VIBL=6#SLPDISCONNECT=1#ANGLEVALUE=10-030
+SZCS#MTK_DISSLP=0#GPS_DISSLP=0#sleepupdate=1</code></pre></div>
+<p>Tempos 60 s / 1800 s, sleep em 3 min, vibração, economia com SMS ativo e curva 10 km/h–30° (algumas anotações usam <code>ANGLEVALUE=10-045</code>).</p>
+<h3 id="configuracao-completa-com-bloqueio-instantaneo">Configuração completa com bloqueio instantâneo</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800
+SZCS#GT06SEL=1#GT06IEXVOL=2#ACCLT=2#GPS_DISSLP=0#MTK_DISSLP=0#Slpdisconnect=1#sleepupdate=1
+SZCS#ANGLEVALUE=05-030#VIBCHK=1:250#VIBL=6
+MOVING,ON,1000,0#
+SENSOR,60,180,3#</code></pre></div>
+<h3 id="variante-com-intervalos-de-1-hora-secao-j16-do-arquivo-itr-120">Variante com intervalos de 1 hora (seção &quot;#J16&quot; do arquivo ITR 120)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#
+SZCS#APN=trackmax.br#USERPPP=max#PWPPP=max
+SZCS#FREQ=60#PULSE=3600#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=3600
+SZCS#GT06SEL=1#GT06IEXVOL=2#ACCLT=2#GPS_DISSLP=0#MTK_DISSLP=0#Slpdisconnect=1#sleepupdate=1
+SZCS#ANGLEVALUE=05-030#VIBCHK=1:250#VIBL=6
+TIMER,60,3600#
+HBT,3600,3600#</code></pre></div>
+<h3 id="configuracao-para-moto-menos-posicoes-sleep">Configuração para moto (menos posições + sleep)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,1800#
+HBT,1800,1800#
+SZCS#ACC_OFF_FREQ=1800
+SZCS#VIBCHK=1:250
+SZCS#VIBL=6
+SZCS#SLEEPT=3
+SZCS#SLPDISCONNECT=1
+SZCS#ANGLEVALUE=10-045
+SZCS#MTK_DISSLP=0
+SZCS#GPS_DISSLP=0
+SZCS#sleepupdate=1</code></pre></div>
+<p>Objetivo: enviar menos posições e ativar sleep para evitar rastreio excessivo (uma das anotações usa <code>SZCS#SLEEPT=5</code>). Versão agrupada:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#VIBCHK=1:250#VIBL=6#SLPDISCONNECT=1#ANGLEVALUE=10-045
+SZCS#MTK_DISSLP=0#GPS_DISSLP=0#sleepupdate=1</code></pre></div>
+<p>Pelo configurador USB chega o comando:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#VIBCHK=1:250#VIBL=6#ANGLEVALUE=10-045#PULSE=3600#ACC_OFF_FREQ=3600</code></pre></div>
+<h3 id="mandar-menos-dados-2g-e-4g">Mandar menos dados (2G e 4G)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,1800#
+SZCS#ACC_OFF_FREQ=1800
+SZCS#VIBCHK=1:250
+SZCS#VIBL=6
+SZCS#SLEEPT=3</code></pre></div>
+<h3 id="tempos-padrao">Tempos padrão</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60
+SZCS#PULSE=1800
+SZCS#ACC_OFF_FREQ=1800
+SZCS#SLEEPT=3
+DEFENSE,3#
+HBT,1800,1800#
+TIMER,60,1800#
+GMT,W,0,0#</code></pre></div>
+<h3 id="posicionar-mais-rapido">Posicionar mais rápido</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=30
+SZCS#PULSE=1800
+SZCS#ACC_OFF_FREQ=180
+SZCS#SLEEPT=3
+SZCS#ANGLEVALUE=05-030
+DEFENSE,3#
+HBT,180,180#
+TIMER,30,1800#
+GMT,W,0,0#</code></pre></div>
+<h3 id="ficar-online-o-tempo-todo">Ficar online o tempo todo</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800
+SZCS#Slpdisconnect=0#sleepupdate=0</code></pre></div>
+<h3 id="dificuldade-com-ignicao">Dificuldade com ignição</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#FREQ=60#PULSE=1800#SOURCE_OFF_TYPE=1#ACC_OFF_FREQ=1800#GT06SEL=1#GT06IEXVOL=2#ACCLT=1</code></pre></div>
+<h3 id="servidores-de-outras-plataformas-j16-formato-szcs">Servidores de outras plataformas (J16, formato SZCS)</h3>
+<div class="table-wrap"><table><thead><tr><th>Plataforma</th><th>Comando</th></tr></thead><tbody><tr><td>TrackMax (DNS)</td><td><code>SZCS#SERVIP=DNS.TRACKMAX.COM.BR#SERVPORT=2204</code></td></tr><tr><td>TrackMax (IP)</td><td><code>SZCS#SERVIP=35.230.168.225#SERVPORT=2204</code></td></tr><tr><td>TrackMax (porta alternativa)</td><td><code>SZCS#SERVIP=DNS.TRACKMAX.COM.BR#SERVPORT=2416</code></td></tr><tr><td>Rastreia Fácil (Redeveiculos)</td><td><code>SZCS#SERVIP=server04.redeveiculos.com#SERVPORT=5023</code></td></tr><tr><td>Rastreia Já</td><td><code>SZCS#SERVIP=119.8.181.173#SERVPORT=9996</code></td></tr><tr><td>Atech</td><td><code>SZCS#SERVIP=dns.mine.nu#SERVPORT=6023</code></td></tr><tr><td>Radsat</td><td><code>SZCS#SERVIP=dns.mine.nu#SERVPORT=10024</code></td></tr><tr><td>Radsat (alternativa)</td><td><code>SZCS#SERVIP=dns.mine.nu#SERVPORT=6023</code></td></tr></tbody></table></div>
+<h3 id="trackmax-4g-configurar-via-cabo-arquivo-ev02-outros-configurar-via-cabo-txt">TrackMax 4G — configurar via cabo (arquivo <code>EV02/OUTROS/CONFIGURAR VIA CABO.txt</code>)</h3>
+<p>Corpo comum (2 linhas):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=&lt;porta&gt;#APN=&lt;apn&gt;#USERPPP=&lt;user&gt;#PWPPP=&lt;senha&gt;
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Protocolo</th><th>SERVPORT</th></tr></thead><tbody><tr><td>PROTOCOLO 1</td><td>2204</td></tr><tr><td>PROTOCOLO 2</td><td>2244</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Operadora</th><th>APN</th><th>USERPPP / PWPPP</th></tr></thead><tbody><tr><td>TMAX ALGAR</td><td>tmax.algar.br</td><td>algar / algar</td></tr><tr><td>TMAX VIVO</td><td>tmax.m2m.vivo.com.br</td><td>vivo / vivo</td></tr><tr><td>TMAX CLARO</td><td>tmax.claro.com.br</td><td>claro / claro</td></tr><tr><td>TMAX ARQIA</td><td>wl.vodafone.br</td><td>arqia / arqia</td></tr><tr><td>TMAX TIM</td><td>ss.tim.br</td><td>tim / tim</td></tr></tbody></table></div>
+<p>Exemplo (4G PROTOCOLO 2, ALGAR):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60#PULSE=3000#SERVIP=dns.trackmax.com.br#SERVPORT=2244#APN=tmax.algar.br#USERPPP=algar#PWPPP=algar
+#VIBCHK=1:300#SLEEPT=3#ACC_OFF_FREQ=1800#VIBL=6</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p><strong>SMS chega mas o equipamento não sobe na plataforma:</strong> ative o SMS de retorno e envie <code>CXZT</code>; verifique o protocolo e o ID. Se estiver no protocolo 808, use a porta 2244. Se o ID estiver diferente, altere (<code>SZCS#TERIID=IMEI_DO_EQUIPAMENTO</code>).</p>
+<p><strong>APN não conecta:</strong> envie <code>ASETAPN,OFF#</code> e em seguida o comando de APN:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ASETAPN,OFF#
+APN,trackmax.br,max,max#
+SZCS#APN=trackmax.br#USERPPP=max#PWPPP=max</code></pre></div>
+<p><strong>Instabilidade, GPS fixado, relatórios com riscos no mapa:</strong> consulte a versão com <code>VERSION#</code>. Se responder <code>J16_10DKR_B60_V6.36 2025-05-14</code> (modem B60):</p>
+<ol><li>Recadastrar o equipamento;</li><li>Enviar o comando de apagar memória (<code>BLINDINIT#</code>);</li><li>Enviar ajuste de GPS <code>SZCS#ZKWMODE=3</code>;</li><li>Ajustar o HBT: <code>HBT,180,180#</code>;</li><li>Enviar <code>RESET#</code>;</li><li>Pedir que o veículo rode e analisar o relatório.</li></ol>
+<p><strong>Picos longos no trajeto:</strong></p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#BLIND_EN=1
+SZCS#ANGLEVALUE=30
+TIMER,60,1800#
+SZCS#FREQ=60
+SZCS#PULSE=180
+SZCS#ACC_OFF_FREQ=1800
+SZCS#SLEEPT=3
+DEFENSE,3#
+HBT,1800,1800#
+GMT,W,0,0#
+SZCS#MTK_DISSLP=0
+SZCS#SLPDISCONNECT=0</code></pre></div>
+<p><strong>Posição desatualizada:</strong> <code>BLINDINIT#</code> seguido de <code>RESET#</code>.</p>
+<p><strong>Não fica online / não conecta (manual):</strong> chip não inserido, mal inserido, sem rede ou sinal fraco. Verifique a posição do chip, se está ativo (SMS e GPRS), mude de local, ligue a ignição, reset o chip.</p>
+<p><strong>Online mas sem localização / em outro local (manual):</strong> deixe o veículo com visada livre de céu (idealmente 180°), sem nada metálico entre o rastreador e o céu; movimente o veículo.</p>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="fios-do-chicote">Fios do chicote</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor do fio</th><th>Função</th></tr></thead><tbody><tr><td>Vermelho</td><td>Alimentação principal positivo (9–90 V)</td></tr><tr><td>Preto</td><td>Negativo / GND / terra</td></tr><tr><td>Laranja</td><td>Linha 15 / ACC pós-chave positivo</td></tr><tr><td>Amarelo</td><td>Saída negativa para bloqueio (pino 86 do relé)</td></tr></tbody></table></div>
+<h3 id="etapas-de-instalacao">Etapas de instalação</h3>
+<ol><li>Antes de inserir o chip, desligue a chave da bateria interna, insira o chip (micro SIM), ligue a chave e conecte a alimentação.</li><li>Vermelho no positivo da bateria; preto no negativo; laranja no pós-chave.</li><li>Identifique, teste (multímetro) e corte o fio de bloqueio; monte o relé e ligue o amarelo no pino 86. Use relé correto: normalmente 12 V para carros/motos e 24 V para caminhões.</li><li>Confira se o chip tem SMS e GPRS ativos e se os LEDs acendem.</li><li>Instale em local escondido e protegido de água, com a frente (LEDs) para cima, sem blindagem metálica, longe de fios de alarme/comunicação do veículo.</li></ol>
+<h3 id="leds">LEDs</h3>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Estado</th><th>Significado</th></tr></thead><tbody><tr><td>Vermelho</td><td>Aceso direto</td><td>Ligado e carregando a bateria interna</td></tr><tr><td>Vermelho</td><td>Apagado</td><td>Falta de alimentação ou modo sleep</td></tr><tr><td>Amarelo/Laranja (GSM)</td><td>Aceso direto</td><td>Conectado à rede GSM e à plataforma</td></tr><tr><td>Amarelo/Laranja (GSM)</td><td>Piscando</td><td>Procurando rede GSM / desconectado</td></tr><tr><td>Amarelo/Laranja (GSM)</td><td>Apagado</td><td>Falta de alimentação ou modo sleep</td></tr><tr><td>Azul (GPS)</td><td>Aceso direto</td><td>GPS com visada e satélites OK</td></tr><tr><td>Azul (GPS)</td><td>Piscando</td><td>Sem visada / pesquisando satélites</td></tr><tr><td>Azul (GPS)</td><td>Apagado</td><td>Falta de alimentação ou modo sleep</td></tr></tbody></table></div>
+<p>Os LEDs azul e amarelo devem ficar estáveis. Após cerca de 4 minutos os LEDs apagam (sleep/standby) para economizar energia.</p>
+<h2 id="observacoes">Observações</h2>
+<h3 id="especificacoes-manual-v082024">Especificações (manual V082024)</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Modelo</td><td>TRACKMAX 4G + 2G</td></tr><tr><td>Modem</td><td>SIMCOM A7670SA</td></tr><tr><td>GSM</td><td>850/900/1800/1900 MHz</td></tr><tr><td>LTE-FDD</td><td>B1/B2/B3/B4/B5/B7/B8/B28/B66</td></tr><tr><td>Bateria interna</td><td>300 mAh (chave ON/OFF)</td></tr><tr><td>Tensão de entrada</td><td>9 a 90 V DC</td></tr><tr><td>Tamanho</td><td>79 × 34 × 14 mm</td></tr><tr><td>E/S</td><td>1 saída negativa (bloqueio), 1 entrada positiva ACC</td></tr><tr><td>Outros</td><td>Slot micro SIM, porta USB, antenas GPS/GSM internas, 3 LEDs</td></tr><tr><td>Configuração</td><td>Cabo USB, SMS e plataforma</td></tr></tbody></table></div>
+<p>Funções: posições por tempo e por ângulo, alarme de corte de energia, bateria interna baixa, vibração/movimento, excesso de velocidade, modo sleep com LEDs apagados.</p>
+<ul><li>O comando de ignição virtual (<code>SZCS#ACCLINE</code>) também funciona no TrackMax V2 (ver página própria do V2).</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/trackmax-4g-j16/MANUAL%20TRACKMAX%204G%20V082024%20USB%20(3).pdf" target="_blank" rel="noopener">MANUAL TRACKMAX 4G V082024 USB (3).pdf</a> <span class="muted">898 KB</span></li></ul></section>
+    <nav class="pager"><a href="trackmax-4g-a16.html">← A16</a><a href="trackmax-4g-sl44.html">SL44 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

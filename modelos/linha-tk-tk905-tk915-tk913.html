@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TK905 TK915 TK913 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / LINHA TK / TK905 TK915 TK913</p>
+    <h1>TK905 / TK915 / TK913</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> TKSTAR TK905, TK915, TK913 (rastreadores magnéticos/portáteis)</li><li><strong>Pasta:</strong> LINHA TK</li><li><strong>Fabricante/Protocolo:</strong> TKSTAR — comandos SMS com senha (padrão <code>123456</code>)</li><li><strong>Arquivos-fonte:</strong> <code>TK905 TK915.txt</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXZT</code></pre></div>
+<p>Retorna dados do equipamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>G123456#</code></pre></div>
+<p>Retorna dados e localização.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>check123456</code></pre></div>
+<p>Retorna dados do equipamento.</p>
+<h2 id="configuracao">Configuração</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 35.230.168.225 5093</code></pre></div>
+<p>Aponta para a plataforma TrackMax (IP 35.230.168.225, porta 5093).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456</code></pre></div>
+<p>Ativa GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456 on</code></pre></div>
+<p>Força GPRS ligado.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>tracker123456</code></pre></div>
+<p>Ativa rastreamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>upload123456 060</code></pre></div>
+<p>Intervalo de envio de posição (60 s).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sleep123456 shock</code></pre></div>
+<p>Sleep por sensor de movimento (acorda com vibração).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sleep123456 300</code></pre></div>
+<p>Sleep por tempo (300).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>timezone123456 -3</code></pre></div>
+<p>Fuso horário de Brasília.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>begin123456</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset123456</code></pre></div>
+<p>Inicia de fábrica (volta para a plataforma original).</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="chip-vivo-trackmax">Chip Vivo TrackMax</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 tmax.m2m.vivo.com.br
+apnuser123456 vivo
+apnpasswd123456 vivo</code></pre></div>
+<h3 id="chip-algar-trackmax">Chip Algar TrackMax</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 tmax.algar.br
+apnuser123456 algar
+apnpasswd123456 algar</code></pre></div>
+<h3 id="chip-tim">Chip TIM</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 ss.tim.br
+apnuser123456 tim
+apnpasswd123456 tim</code></pre></div>
+<h3 id="plataforma-original-tkstar">Plataforma original TKSTAR</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 47.88.85.196 7700</code></pre></div>
+<p>Volta para a plataforma original (ou use <code>reset123456</code>).</p>
+<div class="table-wrap"><table><thead><tr><th>Acesso</th><th>Endereço</th></tr></thead><tbody><tr><td>Web</td><td><a href="https://www.mytkstar.net/index.aspx" target="_blank" rel="noopener">https://www.mytkstar.net/index.aspx</a></td></tr><tr><td>App Android</td><td><a href="https://play.google.com/store/apps/details?id=com.fw.gps.lhyk" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id=com.fw.gps.lhyk</a></td></tr><tr><td>App iOS</td><td><a href="https://apps.apple.com/gb/app/tkstar-gps/id1508123897" target="_blank" rel="noopener">https://apps.apple.com/gb/app/tkstar-gps/id1508123897</a></td></tr></tbody></table></div>
+<ul><li>Usuário: ID da etiqueta do equipamento (<code>ID_EQUIPAMENTO</code>).</li><li>Senha padrão: <code>123456</code> (se não conectar, a senha foi mudada). Outras senhas possíveis da plataforma original: 6 últimos ou 4 últimos dígitos do ID.</li></ul>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li><strong>Equipamento não comunica:</strong> verificar se está no protocolo <code>TK905ZF690CJTS39138#240416</code>. Se estiver nesse protocolo é necessário usar a <strong>porta 5015</strong> e <strong>inserir dois zeros na frente do ID</strong> (ex.: <code>00</code> + <code>ID_EQUIPAMENTO</code>).</li><li>Conferir sempre o ID do equipamento.</li></ul>
+    
+    <nav class="pager"><a href="linha-tk-tk303-tk311.html">← TK303 TK311</a><a href="linha-tk-treinamento-e-lembretes.html">Treinamento e lembretes →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

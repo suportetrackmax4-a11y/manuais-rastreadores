@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>MINI TRACKER · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / RASTREK / MINI TRACKER</p>
+    <h1>Mini Tracker (Rastrek)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Mini Tracker Rastrek</li><li><strong>Pasta:</strong> RASTREK</li><li><strong>Fabricante/Protocolo:</strong> Rastrek. Comandos no estilo TK (<code>comando</code> + senha <code>123456</code>); o bloco &quot;Padrão Rastrek&quot; usa o formato <code>COMANDO,...#</code></li><li><strong>Arquivos-fonte:</strong> <code>RASTREK/MINI TRACKER RASTREK.txt</code></li></ul>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="configuracao-trackmax">Configuração TrackMax</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>begin123456</code></pre></div>
+<p>Inicia as configurações (reinicializa os parâmetros).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 35.230.168.225 5013</code></pre></div>
+<p>Define IP e porta do servidor TrackMax (35.230.168.225:5013).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 tmax.claro.com.br</code></pre></div>
+<p>Define a APN do chip Claro TrackMax.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>udp123456 0</code></pre></div>
+<p>Muda a comunicação para TCP.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456 1</code></pre></div>
+<p>Ativa o GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>tracker123456</code></pre></div>
+<p>Ativa o rastreamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>itv123456 60</code></pre></div>
+<p>Tempo de transmissão de 1 minuto (60 segundos).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>allgps123456 0</code></pre></div>
+<p>Ativa o modo sleep com a chave desligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>vibrate123456 1</code></pre></div>
+<p>Ativa o alerta de vibração.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset123456</code></pre></div>
+<p>Reseta e reinicia o equipamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>time zone123456 0</code></pre></div>
+<p>Fuso horário 0 (UTC).</p>
+<h3 id="padrao-rastrek">Padrão Rastrek</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>begin123456</code></pre></div>
+<p>Inicia as configurações.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#</code></pre></div>
+<p>APN <code>trackmax.br</code>, usuário <code>max</code>, senha <code>max</code>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IP,mini.rastrek.com.br,5015#</code></pre></div>
+<p>Servidor da plataforma Rastrek (<code>mini.rastrek.com.br</code>, porta 5015).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,20#</code></pre></div>
+<p>Transmissão a cada 20 segundos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WKMD,0#</code></pre></div>
+<p>Modo de trabalho 0.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Destino</th><th>Servidor</th><th>APN</th></tr></thead><tbody><tr><td>TrackMax (chip Claro)</td><td><code>35.230.168.225</code> porta <code>5013</code></td><td><code>tmax.claro.com.br</code></td></tr><tr><td>Plataforma Rastrek</td><td><code>mini.rastrek.com.br</code> porta <code>5015</code></td><td><code>trackmax.br</code> / <code>max</code> / <code>max</code></td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Senha padrão do equipamento: <code>123456</code>.</li><li>O bloco &quot;Padrão Rastrek&quot; usa uma sintaxe diferente (<code>APN,...#</code>, <code>IP,...#</code>, <code>WKMD</code>) da primeira parte (<code>apn123456 ...</code>). Os dois blocos estão no mesmo arquivo e são do mesmo modelo.</li></ul>
+    
+    <nav class="pager"><a href="rastrek-cr4000-clone.html">← CR4000 CLONE</a><a href="rastrek-rk-4g.html">RK-4G →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

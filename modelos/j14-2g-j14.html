@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>J14 2g · Manuais</title>
+<title>J14 · Manuais</title>
 <link rel="stylesheet" href="../assets/style.css">
 <script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 
@@ -19,61 +19,71 @@
   <nav class="toc" aria-label="Nesta página">
     <a class="back" href="../index.html">← Todos os modelos</a>
     <p class="toc-title">Nesta página</p>
-    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#observacoes">Observações</a></li></ul>
   </nav>
   <main class="doc">
-    <p class="crumb"><a href="../index.html">Início</a> / J14 2g</p>
-    <h1>J14 2G (e J16)</h1>
+    <p class="crumb"><a href="../index.html">Início</a> / J14 2g / J14</p>
+    <h1>J14 (2G)</h1>
     <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
-    <ul><li><strong>Modelo(s):</strong> J14 2G e J16 (V2 ONEBLOCK). Firmware citado: <code>J14_M216_GT06_V416/V417/V426</code>.</li><li><strong>Fabricante/Protocolo:</strong> protocolo GT06 (<code>SZCS#GT06SEL=1</code>). Padrão de configuração da Redeveiculos.com.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>J14 2g/Comandos J14 - J16 Padrão Redeveiculos.com (2).txt</code></li><li><code>J14 2g/GPS FAIL J14.txt</code></li></ul></li></ul>
+    <ul><li><strong>Modelo(s):</strong> J14 2G (firmware J14_M216)</li><li><strong>Pasta:</strong> J14 2g; trechos J14 de <code>TRACKMAX 4G</code> (subpastas <code>j16</code> e <code>j16 4G</code>)</li><li><strong>Fabricante/Protocolo:</strong> Família TrackerKing (J14/J16); protocolos GT06 ou 808; comandos <code>SERVER,...#</code> e <code>SZCS#</code></li><li><strong>Arquivos-fonte:</strong> <code>J14 2g/Comandos J14 - J16 Padrão Redeveiculos.com (2).txt</code>; <code>J14 2g/GPS FAIL J14.txt</code>; <code>TRACKMAX 4G/j16/MANUAL SMSJ16.txt</code> (somente coluna/linhas J14); <code>TRACKMAX 4G/j16 4G/NOVOS COMANDOS SMS J16 4G.txt</code> (somente firmwares J14 e solução GPS FAIL)</li></ul>
 <h2 id="consultas">Consultas</h2>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PARAM#</code></pre></div>
 <p>Consulta os parâmetros do equipamento.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER#</code></pre></div>
-<p>Consulta os parâmetros do servidor.</p>
+<p>Consulta os parâmetros de servidor.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXZT</code></pre></div>
-<p>Checa o equipamento (status).</p>
+<p>Checa o equipamento (parâmetros).</p>
 <h2 id="configuracao">Configuração</h2>
+<h3 id="padrao-redeveiculos-com">Padrão Redeveiculos.com</h3>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,server11.redeveiculos.com,5023,0#</code></pre></div>
-<p>Servidor por DNS (modo 1).</p>
+<p>ou</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,0,157.245.12.6,5023,0#</code></pre></div>
-<p>Servidor por IP (modo 0).</p>
+<p>Servidor Redeveiculos (DNS com <code>1</code>, IP com <code>0</code>), porta 5023.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,XXXX,USER,PASSWORD#</code></pre></div>
-<p>APN, usuário e senha.</p>
+<p>APN, usuário e senha da operadora do chip.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#GT06SEL=1#GT06IEXVOL=2</code></pre></div>
-<p>Seleciona o protocolo GT06 e o envio da tensão externa.</p>
+<p>Seleção de protocolo/tensão externa (troca e atualiza).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SLPDISCONNECT=0</code></pre></div>
-<p>Não desconecta no sleep.</p>
+<p>Sem desconexão em sleep (sempre online).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SZCS#SOURCE_OFF_TYPE=1</code></pre></div>
 <p>Bloqueio imediato.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,30,3600#</code></pre></div>
-<p>Tempo para carro: 30 s ligado / 3600 s desligado (mínimo 5 s, máximo 18000 s).</p>
+<p>Tempo para carro (mín. 5 s, máx. 18000 s): 30 s ligado / 3600 s desligado.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60,7200#</code></pre></div>
 <p>Tempo para moto: 60 s ligado / 7200 s desligado.</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
 <p>Reinicia o equipamento sem perder as configurações.</p>
-<h3 id="atualizacao-de-firmware-por-sms-ota">Atualização de firmware por SMS (OTA)</h3>
+<h3 id="servidor-trackmax">Servidor TrackMax</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2414,0#</code></pre></div>
+<p>Servidor TrackMax (DNS), porta 2414.</p>
+<h3 id="atualizacao-de-firmware-ota-j14">Atualização de firmware (OTA) — J14</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J14_M216_GT06_V416.bin,0B#</code></pre></div>
+<p>Firmware GT06 V416.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J14_M216_GT06_V417.bin,A9#</code></pre></div>
+<p>Firmware GT06 V417.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J14_M216_V634.bin,AB#</code></pre></div>
+<p>Firmware protocolo 808 (V634).</p>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://156.224.31.150/J14_M216_GT06_V426.bin,B1#</code></pre></div>
-<p>Atualiza para a V426.</p>
+<p>Firmware GT06 V426 (padrão Redeveiculos).</p>
 <h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
-<p>Servidores Redeveiculos.com (porta <strong>5023</strong>):</p>
+<h3 id="servidores-de-outras-plataformas-formato-server">Servidores de outras plataformas (formato SERVER)</h3>
+<div class="table-wrap"><table><thead><tr><th>Plataforma</th><th>Comando</th></tr></thead><tbody><tr><td>TrackMax</td><td><code>SERVER,1,dns.trackmax.com.br,2414,0#</code></td></tr><tr><td>CIA GPS</td><td><code>SERVER,1,online3.ciagps.com.br,5023,0#</code></td></tr><tr><td>Servidor por IP (191.252.195.30)</td><td><code>SERVER,0,191.252.195.30,5023,0#</code> (ou porta 5013)</td></tr><tr><td>Technosat</td><td><code>SERVER,0,54.211.174.210,5023,0#</code></td></tr><tr><td>Rastreamentox (Rastrosystem)</td><td><code>SERVER,1,serv1.rastrosystem.com.br,5023,0#</code></td></tr><tr><td>7 Serviços Auto</td><td><code>SERVER,0,18.232.201.231,3674,0#</code></td></tr><tr><td>Servidor sc.mine.nu</td><td><code>SERVER,1,sc.mine.nu,5023,0#</code></td></tr><tr><td>Cocais (Rastrosystem)</td><td><code>SERVER,1,serv6.rastrosystem.com.br,5023,0#</code></td></tr><tr><td>Redeveiculos (server15)</td><td><code>SERVER,1,server15.redeveiculos.com,5023,0#</code></td></tr></tbody></table></div>
+<h3 id="servidores-redeveiculos-com">Servidores Redeveiculos.com</h3>
 <div class="table-wrap"><table><thead><tr><th>Servidor</th><th>IP</th><th>DNS</th></tr></thead><tbody><tr><td>SERVER01</td><td>209.97.154.119</td><td>server01.redeveiculos.com</td></tr><tr><td>SERVER02</td><td>142.93.182.60</td><td>server02.redeveiculos.com</td></tr><tr><td>SERVER03</td><td>159.65.41.154</td><td>server03.redeveiculos.com</td></tr><tr><td>SERVER04</td><td>104.131.45.87</td><td>server04.redeveiculos.com</td></tr><tr><td>SERVER05</td><td>161.35.185.124</td><td>server05.redeveiculos.com</td></tr><tr><td>SERVER06</td><td>157.245.213.127</td><td>server06.redeveiculos.com</td></tr><tr><td>SERVER07</td><td>159.65.43.94</td><td>server07.redeveiculos.com</td></tr><tr><td>SERVER08</td><td>174.138.59.232</td><td>server08.redeveiculos.com</td></tr><tr><td>SERVER09</td><td>104.131.160.90</td><td>server09.redeveiculos.com</td></tr><tr><td>SERVER10</td><td>138.197.98.99</td><td>server10.redeveiculos.com</td></tr><tr><td>SERVER11</td><td>157.245.12.6</td><td>server11.redeveiculos.com</td></tr></tbody></table></div>
 <h2 id="problemas-e-solucoes">Problemas e soluções</h2>
-<h3 id="v2-oneblock-com-gps-fail-anotado-como-testado-e-funcionando">V2 ONEBLOCK com &quot;GPS FAIL&quot; (anotado como testado e funcionando)</h3>
-<ol><li>Envie o SMS para atualizar para a <strong>versão 416</strong>:</li></ol>
+<p><strong>GPS FAIL (testado e funcionou):</strong></p>
+<ol><li>Atualizar para a versão 416 e aguardar 5 minutos:</li></ol>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J14_M216_GT06_V416.bin,0B#</code></pre></div>
-<ol><li>Aguarde 5 minutos.</li><li>Envie o SMS para atualizar para a <strong>versão 417</strong>:</li></ol>
+<ol><li>Atualizar para a versão 417 e aguardar 5 minutos:</li></ol>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>YCSJ,http://139.9.60.174/update/J14_M216_GT06_V417.bin,A9#</code></pre></div>
-<ol><li>Aguarde 5 minutos.</li><li>Zere o equipamento:</li></ol>
+<ol><li>Zerar o equipamento:</li></ol>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FORMAT</code></pre></div>
-<ol><li>Cheque o equipamento:</li></ol>
+<ol><li>Checar o equipamento:</li></ol>
 <div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>CXZT</code></pre></div>
-<h2 id="ligacao-leds">Ligação/LEDs</h2>
-<p>Não há informações.</p>
 <h2 id="observacoes">Observações</h2>
-<ul><li>O último parâmetro do <code>YCSJ</code> (<code>B1</code>, <code>0B</code>, <code>A9</code>) é o checksum do arquivo <code>.bin</code>. Cada versão tem o seu.</li><li>Para servidor por DNS use o modo <code>1</code>. Para IP use o modo <code>0</code>.</li></ul>
+<ul><li>O arquivo &quot;Comandos J14 - J16 Padrão Redeveiculos.com&quot; é intitulado para J14 e J16 (lista única, sem separação por modelo).</li><li>A solução de GPS FAIL está intitulada no original como &quot;Solução para V2 ONEBLOCK com GPS FAIL&quot;, mas usa firmware J14_M216 e está no arquivo &quot;GPS FAIL J14&quot;.</li><li>No arquivo <code>MANUAL SMSJ16.txt</code>, a coluna J14 usa o formato <code>SERVER,...#</code>; as linhas no formato <code>SZCS#SERVIP=</code> foram colocadas na página do J16.</li></ul>
     
-    <nav class="pager"><a href="itr-120.html">← ITR 120</a><a href="j14-gt06.html">J14 GT06 →</a></nav>
+    <nav class="pager"><a href="itr-120-lv12.html">← LV12</a><a href="j14-gt06.html">J14 GT06 →</a></nav>
   </main>
 </div>
 <footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>

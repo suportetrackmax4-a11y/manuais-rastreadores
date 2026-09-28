@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SPEED · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / TRACKMAX 4G / SPEED</p>
+    <h1>SPEED</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Rastreador SPEED (4G/2G)</li><li><strong>Pasta:</strong> TRACKMAX 4G (subpasta <code>speed</code>)</li><li><strong>Fabricante/Protocolo:</strong> Não informado; comandos SMS no padrão <code>COMANDO,parâmetros#</code> e parâmetros <code>#CHAVE=valor</code> (senha padrão <code>123456</code> em alguns comandos)</li><li><strong>Arquivos-fonte:</strong> <code>TRACKMAX 4G/speed/SPEED.txt</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ACCVIRT#</code></pre></div>
+<p>Consulta a ignição virtual por movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER#</code></pre></div>
+<p>Consulta o servidor da plataforma.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>fotaurl#</code></pre></div>
+<p>Consulta o link de firmware configurado.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="servidor-e-apn">Servidor e APN</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2410,0#</code></pre></div>
+<p>DNS e porta da plataforma TrackMax.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,app.redsat.com.br,2410,0#</code></pre></div>
+<p>Servidor app.redsat.com.br, porta 2410 (anotado como &quot;servidor e porta da plataforma TrackMax&quot;).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,app.redsat.com.br,5023,0#</code></pre></div>
+<p>Servidor app.redsat.com.br, porta 5023.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,trackmax.br,max,max#</code></pre></div>
+<p>APN do chip MAX.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<p>APN, usuário e senha — chip Vivo TrackMax.</p>
+<h3 id="rede">Rede</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SETCNMP,0#</code></pre></div>
+<p>Seleção automática 4G/2G (padrão).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SETCNMP,1#</code></pre></div>
+<p>Somente 2G.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SETCNMP,2#</code></pre></div>
+<p>Somente 4G.</p>
+<h3 id="tempos-de-envio">Tempos de envio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,120,0#</code></pre></div>
+<p>Intervalo de envio de localização por tempo (anotado também <code>TIMER,60,0#</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FREQ,123456,60#</code></pre></div>
+<p>Intervalo de envio em movimento (123456 = senha padrão). Variante: <code>FREQ,123456,120#</code>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#FREQ=60</code></pre></div>
+<p>Intervalo padrão de envio de localização (variante <code>#FREQ=120</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#ACC_OFF_FREQ=1800</code></pre></div>
+<p>Intervalo de envio com ignição desligada (variantes <code>#ACC_OFF_FREQ=600</code>, <code>#ACC_OFF_FREQ=3600</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#SLEEPT=5</code></pre></div>
+<p>Tempo para entrar em sleep.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>HBT,300,300#</code></pre></div>
+<p>Intervalo de heartbeat enviado ao servidor (variante <code>HBT,600,600#</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GMT,W,0,0#</code></pre></div>
+<p>Fuso horário zero.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>tzw03</code></pre></div>
+<p>Fuso horário automático do dispositivo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ANGLEVAL,30#</code></pre></div>
+<p>Ângulo (variante <code>ANGLEVAL,45#</code> — ângulo máximo de inclinação para gerar alerta).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DEFENSE,60#</code></pre></div>
+<p>Tempo do modo defense.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#SLPDISCONNECT=1</code></pre></div>
+<p>Ativa economia de energia e permite desconectar o GPRS no sleep.</p>
+<h3 id="ignicao-bloqueio-e-sirene">Ignição, bloqueio e sirene</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,1#</code></pre></div>
+<p>Bloqueia o veículo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RELAY,0#</code></pre></div>
+<p>Desbloqueia o veículo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ACCVIRT,ON#</code></pre></div>
+<p>Liga a ignição virtual por movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ACCVIRT,OFF#</code></pre></div>
+<p>Desliga a ignição virtual por movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>DELAYACC,60,300#</code></pre></div>
+<p>Atraso para detectar ignição ligada/desligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>jdqmd,0#</code></pre></div>
+<p>Ativa sirene.</p>
+<h3 id="alertas-e-sensores">Alertas e sensores</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SPEED,ON,5,40,1#</code></pre></div>
+<p>Limite de velocidade.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>voltup,1#</code></pre></div>
+<p>Alerta de aumento de tensão ao receber alimentação.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ACCALM,OFF#</code></pre></div>
+<p>Desativa o alarme de ignição (ACC).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ACCOFFALM,OFF#</code></pre></div>
+<p>Desativa o alerta de ignição desligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>EACCELE,OFF#</code></pre></div>
+<p>Desativa alerta de aceleração brusca.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>EDECELE,OFF#</code></pre></div>
+<p>Desativa alerta de desaceleração brusca (freada forte).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>EANGLE,OFF#</code></pre></div>
+<p>Desativa alerta de inclinação.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVING,ON,1000,0#</code></pre></div>
+<p>Alerta de movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENALM,OFF#</code></pre></div>
+<p>Desativa alarme do sensor de vibração.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SENLEVEL,5#</code></pre></div>
+<p>Sensibilidade do sensor de vibração.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>BATALM,ON,1#</code></pre></div>
+<p>Alarme de bateria.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>POWERALM,ON,0,60,60#</code></pre></div>
+<p>Alarme de corte de alimentação.</p>
+<h3 id="outros">Outros</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>#QHXY=1</code></pre></div>
+<p>Algoritmo interno de correção de posicionamento GPS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>protmd,0#</code></pre></div>
+<p>Modo de protocolo de comunicação.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>hdopgl,123456,80#</code></pre></div>
+<p>Filtro de HDOP.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>nobspot,123456,1</code></pre></div>
+<p>Parâmetro de ponto cego (blind spot).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SYSRST,1#</code></pre></div>
+<p>Reinício automático em blind zone (<code>SYSRST,0#</code> desativa).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FORMAT#</code></pre></div>
+<p>Restaura/formata as configurações (também <code>FORMAT</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FACTORY#</code></pre></div>
+<p>Restaura padrão de fábrica.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="configuracao-basica">Configuração básica</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2410,0#
+APN,tmax.m2m.vivo.com.br,vivo,vivo#
+TIMER,60,0#
+#SLEEPT=5
+HBT,300,300#
+GMT,W,0,0#</code></pre></div>
+<h3 id="reconfigurar-equipamento">Reconfigurar equipamento</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SYSRST,1#
+FREQ,123456,60#
+GMT,W,0,0#
+ANGLEVAL,30#
+#ACC_OFF_FREQ=1800
+#FREQ=60</code></pre></div>
+<h3 id="configuracao-completa-apos-atualizacao-de-firmware">Configuração completa (após atualização de firmware)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2410,0#
+APN,trackmax.br,max,max#
+SYSRST,1#
+FREQ,123456,60#
+#FREQ=60
+GMT,W,0,0#
+#SLEEPT=5
+voltup,1#
+ACCOFFALM,OFF#
+ACCALM,OFF#
+EACCELE,OFF#
+EDECELE,OFF#
+EANGLE,OFF#
+DELAYACC,60,300#
+MOVING,ON,1000,0#
+ANGLEVAL,30#
+HBT,300,300#
+SENLEVEL,5#
+DEFENSE,60#
+#ACC_OFF_FREQ=1800
+FREQ,123456,60#
+hdopgl,123456,80#
+nobspot,123456,1
+#SLPDISCONNECT=1
+BATALM,ON,1#
+POWERALM,ON,0,60,60#</code></pre></div>
+<h3 id="sequencia-curta-pos-format">Sequência curta pós-FORMAT</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FORMAT
+FREQ,123456,60#
+SERVER,1,dns.trackmax.com.br,2410,0#
+APN,trackmax.br,max,max#
+GMT,W,0,0#
+ANGLEVAL,30#
+protmd,0#
+#QHXY=1
+#ACC_OFF_FREQ=3600
+#FREQ=60</code></pre></div>
+<h3 id="forma-rapida-para-enviar">Forma rápida para enviar</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SERVER,1,dns.trackmax.com.br,2410,0#
+APN,trackmax.br,max,max#
+#SLPDISCONNECT=1
+GMT,W,0,0#
+tzw03
+EACCELE,OFF#
+EDECELE,OFF#
+EANGLE,OFF#
+ANGLEVAL,45#
+voltup,1#
+#QHXY=1
+protmd,0#
+HBT,600,600#
+SENALM,OFF#
+SENLEVEL,5#
+ACCALM,OFF#
+ACCOFFALM,OFF#
+DELAYACC,60,300#
+TIMER,120,0#
+FREQ,123456,120#
+#FREQ=120
+#ACC_OFF_FREQ=600
+FORMAT#</code></pre></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<p><strong>SPEED com autoconsumo / histórico com excesso de posições (solução em teste):</strong></p>
+<ol><li>Enviar o link de firmware e aguardar 3 minutos:</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>FOTAURL,http://183.57.42.234:888/uploadfile/dt16/70sa_lasc_cd/09/track.bin#</code></pre></div>
+<p>(variante anotada: <code>FOTAURL:http://183.57.42.234:888/uploadfile/dt16/70sa_lasc_cd/09/track.bin</code>; consultar com <code>fotaurl#</code>)</p>
+<ol><li>Enviar o comando de ajuste de firmware e aguardar 3 minutos:</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>OTASTART#</code></pre></div>
+<ol><li>Enviar <code>RESET#</code>, depois <code>FORMAT</code> e depois <code>FACTORY#</code>.</li><li>Iniciar as configurações (ver &quot;Configuração completa&quot; ou &quot;Forma rápida&quot; acima).</li></ol>
+    
+    <nav class="pager"><a href="trackmax-4g-sl44.html">← SL44</a><a href="v1-2g.html">V1 2G →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

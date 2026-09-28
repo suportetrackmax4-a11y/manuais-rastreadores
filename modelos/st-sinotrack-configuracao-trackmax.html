@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SinoTrack — Configuração TrackMax · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / ST / SinoTrack — Configuração TrackMax</p>
+    <h1>SinoTrack — Configuração TrackMax</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> receita genérica para rastreadores SinoTrack (o arquivo não cita um modelo específico; o exemplo de RCONF vem de um ST-902 e há link para o manual do ST902 OBD)</li><li><strong>Pasta:</strong> ST</li><li><strong>Fabricante/Protocolo:</strong> SinoTrack (comandos SMS numéricos com senha padrão 0000), configurado para a plataforma TrackMax</li><li><strong>Arquivos-fonte:</strong> <code>SINOTRACK TRACKMAX (1).txt</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RCONF</code></pre></div>
+<p>Retorna as configurações do rastreador (a explicação dos campos está abaixo).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>6690000</code></pre></div>
+<p>Responde com o link da localização no Google Maps.</p>
+<h3 id="explicacao-da-resposta-do-rconf-exemplo-do-arquivo">Explicação da resposta do RCONF (exemplo do arquivo)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-902,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:
+45.112.204.245:8090,GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td>ST-902</td><td>versão do software</td></tr><tr><td>ID: 8160528336</td><td>ID do rastreador</td></tr><tr><td>UP:0000</td><td>senha (padrão 0000)</td></tr><tr><td>U1: / U2: / U3:</td><td>1º, 2º e 3º números de controle</td></tr><tr><td>MODE:GPRS</td><td>modo de trabalho (padrão GPRS)</td></tr><tr><td>DAILY:OFF</td><td>relatório diário em horário fixo (padrão desligado)</td></tr><tr><td>GEO FENCE: OFF</td><td>cerca eletrônica (padrão desligada)</td></tr><tr><td>OVER SPEED:OFF</td><td>excesso de velocidade (padrão desligado)</td></tr><tr><td>VOICE:ON</td><td>modo de chamada (padrão ligado)</td></tr><tr><td>SHAKE ALARM:OFF</td><td>alarme de vibração (padrão desligado)</td></tr><tr><td>SLEEP MODE : OFF</td><td>modo sleep (padrão desligado)</td></tr><tr><td>APN:CMNET,,,</td><td>APN (padrão CMNET)</td></tr><tr><td>IP:45.112.204.245:8090</td><td>IP e porta do servidor</td></tr><tr><td>GPRS UPLOAD TIME:20</td><td>intervalo de envio</td></tr><tr><td>TIME ZONE:E00</td><td>fuso horário (padrão +0)</td></tr></tbody></table></div>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="sequencia-trackmax-na-ordem-do-arquivo">Sequência TrackMax (na ordem do arquivo)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 179.127.23.86 5013</code></pre></div>
+<p>Servidor TrackMax: IP 179.127.23.86, porta 5013.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 tmax.m2m.vivo.com.br vivo vivo</code></pre></div>
+<p>APN do chip Vivo M2M da TrackMax (usuário <code>vivo</code>, senha <code>vivo</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7100000</code></pre></div>
+<p>Ativa a conexão de dados do rastreador (modo GPRS).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8050000 60</code></pre></div>
+<p>Envia a posição a cada 1 minuto com a chave ligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8090000 120</code></pre></div>
+<p>Envia a posição a cada 2 minutos com a chave desligada.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 10</code></pre></div>
+<p>Liga o modo sleep. O tempo é em minutos (aqui, 10).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 0</code></pre></div>
+<p>Cancela o sleep.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T180</code></pre></div>
+<p>Alerta de movimento sem pós-chave, de 3 em 3 minutos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T10</code></pre></div>
+<p>Alarme de vibração (shock).</p>
+<h3 id="bloqueio">Bloqueio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>9400000</code></pre></div>
+<p>Bloqueia (corta o motor).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>9410000</code></pre></div>
+<p>Desbloqueia (restaura o motor).</p>
+<h3 id="manutencao">Manutenção</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET</code></pre></div>
+<p>Volta às configurações de fábrica.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESTART</code></pre></div>
+<p>Reinicia o equipamento. O arquivo recomenda enviar este comando quando o rastreador não estiver aceitando os comandos de configuração.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7770000 0000</code></pre></div>
+<p>Troca a senha do equipamento. Este é o exemplo exatamente como está no arquivo. O formato dos manuais SinoTrack é 777 + senha nova + senha antiga, tudo junto (ex.: <code>77712340000</code>).</p>
+<h3 id="modos-de-trabalho-aparelhos-com-bateria">Modos de trabalho (aparelhos com bateria)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WORK0000</code></pre></div>
+<p>Modo WORK: o rastreador fica sempre ativo e envia dados no intervalo configurado. Autonomia de cerca de 7 dias por 10.000 mAh. Resposta &quot;DEFINIR OK!&quot; (&quot;SET OK!&quot;).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVE0000</code></pre></div>
+<p>Modo MOVE, o padrão de fábrica: o rastreador só trabalha em movimento. Parado, ele dorme (GPS desligado, GSM em baixo consumo). Vibração, SMS ou ligação o acordam por 5 minutos. Autonomia de cerca de 30 dias por 10.000 mAh.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STANDBY0000</code></pre></div>
+<p>Modo STANDBY: GPS desligado e GSM em baixo consumo. SMS ou ligação acordam o rastreador por 5 minutos. Autonomia de cerca de 120 dias por 10.000 mAh.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Destino</th><th>Comando</th></tr></thead><tbody><tr><td>TrackMax</td><td><code>8040000 179.127.23.86 5013</code></td></tr><tr><td>Traccar</td><td><code>8040000 104.237.9.196 5013</code></td></tr><tr><td>APN Vivo M2M (TrackMax)</td><td><code>8030000 tmax.m2m.vivo.com.br vivo vivo</code></td></tr></tbody></table></div>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 104.237.9.196 5013</code></pre></div>
+<p>Aponta para um servidor Traccar (IP 104.237.9.196, porta 5013).</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<h3 id="rastreador-nao-aceita-os-comandos">Rastreador não aceita os comandos</h3>
+<p>O arquivo recomenda enviar:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESTART</code></pre></div>
+<p>e depois repetir a configuração.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Plataforma e apps do fabricante citados no arquivo:<ul><li>site: www.sinotrackpro.com ou <a href="http://45.112.204.245" target="_blank" rel="noopener">http://45.112.204.245</a></li><li>app Android: <a href="https://play.google.com/store/apps/details?id=com.sinotrack.app" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id=com.sinotrack.app</a></li><li>app iOS: <a href="https://apps.apple.com/cn/app/sinotrack-pro/id1450954778" target="_blank" rel="noopener">https://apps.apple.com/cn/app/sinotrack-pro/id1450954778</a></li></ul></li><li>Manual do ST902 OBD (link citado no arquivo): <a href="https://content.gps-trace.com/assets/0aaddbd0-64c2-4ea3-942b-087efb643a5e" target="_blank" rel="noopener">https://content.gps-trace.com/assets/0aaddbd0-64c2-4ea3-942b-087efb643a5e</a></li><li>O arquivo tem uma anotação &quot;Bom AJUSTE DE GMT A <em>TESTAR</em>&quot;: o ajuste de fuso (GMT) ainda não foi testado e não há comando para ele no arquivo.</li><li>Os modos WORK/MOVE/STANDBY só se aplicam aos modelos portáteis com bateria (linha ST-903/904/905/915/925), não aos rastreadores ligados fixos no veículo.</li><li>A receita da planilha do ST901 4G é diferente: IP 35.230.168.225 e APN smart.m2m.vivo.com.br. Veja a página &quot;ST — ST-901 4G&quot;.</li></ul>
+    
+    <nav class="pager"><a href="rastrek-rk-4g.html">← RK-4G</a><a href="st-st-900.html">ST-900 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

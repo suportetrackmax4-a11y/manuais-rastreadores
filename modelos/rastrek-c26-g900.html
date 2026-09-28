@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>C26 G900 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / RASTREK / C26 G900</p>
+    <h1>C26 / G900 (Rastrek)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> C26, G900 (linha Rastrek)</li><li><strong>Pasta:</strong> RASTREK</li><li><strong>Fabricante/Protocolo:</strong> Rastrek (protocolo ajustado por <code>WKMD,1#</code>; o arquivo não nomeia o protocolo)</li><li><strong>Arquivos-fonte:</strong> <code>RASTREK/C26 G900 RASTREK.txt</code> e <code>RASTREK/C26 G900 RASTREK (1).txt</code> (cópias idênticas)</li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>PARAM</code></pre></div>
+<p>Retorna as configurações do equipamento e o IMEI. (No arquivo original está escrito sem <code>#</code> no final.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WHERE#</code></pre></div>
+<p>Força a leitura de GPS / solicita a posição atual.</p>
+<h2 id="configuracao">Configuração</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>IP,DNS.TRACKMAX.COM.BR,5064#</code></pre></div>
+<p>Define o servidor TrackMax (DNS) e a porta 5064.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN,tmax.m2m.vivo.com.br,vivo,vivo#</code></pre></div>
+<p>Define a APN do chip Vivo TrackMax (APN, usuário, senha).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TIMER,60#</code></pre></div>
+<p>Tempo de transmissão: uma posição a cada 60 segundos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WKMD,1#</code></pre></div>
+<p>Ajuste de protocolo (modo de trabalho 1), conforme o manual.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET#</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Servidor TrackMax</td><td><code>DNS.TRACKMAX.COM.BR</code> porta <code>5064</code></td></tr><tr><td>APN Vivo TrackMax</td><td><code>tmax.m2m.vivo.com.br</code> / usuário <code>vivo</code> / senha <code>vivo</code></td></tr></tbody></table></div>
+<p>Sequência sugerida (na ordem do arquivo): <code>IP,...#</code> → <code>APN,...#</code> → <code>TIMER,60#</code> → <code>WKMD,1#</code> → <code>RESET#</code> → <code>PARAM</code> para conferir.</p>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Os dois arquivos da pasta são cópias idênticas; o conteúdo foi considerado uma vez só.</li></ul>
+    
+    <nav class="pager"><a href="pg12.html">← PG12</a><a href="rastrek-cr4000-carcell.html">CR4000 CARCELL →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

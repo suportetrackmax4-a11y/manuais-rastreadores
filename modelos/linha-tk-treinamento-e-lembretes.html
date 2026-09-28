@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Treinamento e lembretes · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#configuracao">Configuração</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / LINHA TK / Treinamento e lembretes</p>
+    <h1>Linha TK — Treinamento e lembretes</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Linha TK em geral (rastreadores TK com comandos <code>...123456</code>, padrão TK103/TK303)</li><li><strong>Pasta:</strong> LINHA TK</li><li><strong>Fabricante/Protocolo:</strong> Linha TK — comandos SMS com senha <code>123456</code></li><li><strong>Arquivos-fonte:</strong> <code>TREINAMENTO CONFIGURAR O TK.txt</code> (parte geral), <code>LEMBRETES DO TK.txt</code>, <code>RASTREADORES - Atalho.lnk</code> (apenas atalho para pasta local; sem conteúdo)</li></ul>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="tabela-do-treinamento">Tabela do treinamento</h3>
+<div class="table-wrap"><table><thead><tr><th>Função</th><th>Comando</th></tr></thead><tbody><tr><td>Reset de senha e geral</td><td><code>adminpassword13142324</code></td></tr><tr><td>Limpar memória</td><td><code>clear123456</code></td></tr><tr><td>Iniciar programação</td><td><code>begin123456</code></td></tr><tr><td>Configurar porta TCP</td><td><code>gprs123456,0,0</code></td></tr><tr><td>Ativar GPRS</td><td><code>gprs123456</code></td></tr><tr><td>Ativar GPRS (forçar)</td><td><code>gprs123456 on</code></td></tr><tr><td>Ajuste de horário</td><td><code>time zone123456 0</code> (ou <code>-3</code> para Brasília)</td></tr><tr><td>IP e porta</td><td><code>adminip123456 179.127.23.86 5001</code></td></tr><tr><td>APN universal Vivo/Claro</td><td><code>apn123456 transmeet.br</code> ou <code>apn123456 trackmax.br</code></td></tr><tr><td>Usuário e senha do APN</td><td><code>up123456 vivo vivo</code> ou <code>up123456 max max</code></td></tr><tr><td>Posições temporizadas</td><td><code>fix060S003m***n123456</code></td></tr><tr><td>Ativar rastreamento</td><td><code>tracker123456</code></td></tr><tr><td>Posições por ângulo</td><td><code>angle123456 30</code></td></tr><tr><td>Remover alarme de pós-chave</td><td><code>noacc123456</code></td></tr><tr><td>Ajuste pós-chave</td><td><code>protocol123456 18</code></td></tr><tr><td>Forçar GPS</td><td><code>gpssignal123456 on</code></td></tr><tr><td>Resetar equipamento</td><td><code>reset123456</code></td></tr></tbody></table></div>
+<h3 id="configuracao-trackmax-sequencia">Configuração TrackMax (sequência)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>dns123456 dns.trackmax.com.br 5001</code></pre></div>
+<p>DNS e porta TrackMax.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 35.230.168.225 5001</code></pre></div>
+<p>IP e porta TrackMax (alternativa: <code>adminip123456 35.196.17.221 5001</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 smart.m2m.vivo.com.br</code></pre></div>
+<p>APN Vivo Smart (alternativa: <code>apn123456 transmeet.br</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>up123456 vivo vivo</code></pre></div>
+<p>Usuário e senha do APN.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456
+gprs123456 on
+tracker123456</code></pre></div>
+<p>Ativa GPRS, força GPRS e ativa rastreamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>fix060S003m***n123456</code></pre></div>
+<p>Posições temporizadas (60 s chave ligada / 3 min chave desligada).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>angle123456 30</code></pre></div>
+<p>Posições por ângulo (30 graus).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>time zone123456 -3</code></pre></div>
+<p>Ajuste de horário (Brasília).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>protocol123456 18
+gpssignal123456 on</code></pre></div>
+<p>Ajuste de pós-chave e forçar GPS.</p>
+<h3 id="bloqueio">Bloqueio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Quickstop123456</code></pre></div>
+<p>Bloqueio instantâneo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>stop123456</code></pre></div>
+<p>Bloqueio normal (no arquivo original aparece digitado como <code>stop1234656</code>; a senha padrão é <code>123456</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>resume123456</code></pre></div>
+<p>Desbloqueio.</p>
+<h3 id="alarmes-e-alertas">Alarmes e alertas</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>noadmin123456</code></pre></div>
+<p>Remover o número autorizado após reset.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>noacc123456</code></pre></div>
+<p>Remover alarme de pós-chave.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>xtime123456 005</code></pre></div>
+<p>Limitar alarmes via SMS a somente 5.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>extpower123456 off</code></pre></div>
+<p>Remover alerta de bateria principal.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>lowbattery123456 on</code></pre></div>
+<p>Alerta de bateria fraca.</p>
+<h3 id="modos-sleep">Modos sleep</h3>
+<div class="table-wrap"><table><thead><tr><th>Função</th><th>Comando</th></tr></thead><tbody><tr><td>Ativar sleep por pós-chave</td><td><code>sleep123456 on</code></td></tr><tr><td>Desativar sleep</td><td><code>sleep123456 off</code></td></tr><tr><td>Ativar sleep por movimento</td><td><code>sleep123456 shock</code></td></tr><tr><td>Ajuste de sensor</td><td><code>sensitivity123456 1</code></td></tr><tr><td>Desconectar GPRS no sleep</td><td><code>less gprs123456 on</code></td></tr><tr><td>Desativar</td><td><code>less gprs123456 off</code></td></tr><tr><td>Desconectar GPS</td><td><code>suppress123456</code></td></tr><tr><td>Desativar</td><td><code>nosuppress123456</code></td></tr><tr><td>Posições após sleep</td><td><code>schedule123456 1h</code></td></tr><tr><td>Desativar posições após sleep</td><td><code>noschedule123456</code></td></tr></tbody></table></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<h3 id="comando-para-forcar-a-conexao">Comando para forçar a conexão</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>clear123456
+gprs123456 on
+gprs123456,0,0
+gprs123456</code></pre></div>
+<p>Limpa a memória, força GPRS, configura TCP e ativa GPRS.</p>
+<h3 id="lembretes">Lembretes</h3>
+<ul><li>Sempre abrir a plataforma original primeiro: se o equipamento for configurado com o IP errado, ele volta para a plataforma original.</li><li>Se, assim que configurar, o equipamento não subir, faça um reset para voltar de fábrica e reconfigure.</li><li>Sempre conferir o ID do equipamento.</li></ul>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<p>Os LEDs precisam estar <strong>piscando</strong>:</p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Função</th></tr></thead><tbody><tr><td>Laranja</td><td>GPRS/Internet</td></tr><tr><td>Azul</td><td>GPS</td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Comandos específicos do TK905/TK915/TK913 e do TK303/TK311 estão nas páginas próprias desses modelos.</li></ul>
+    
+    <nav class="pager"><a href="linha-tk-tk905-tk915-tk913.html">← TK905 TK915 TK913</a><a href="lv12-lv12-rk101.html">LV12 RK101 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

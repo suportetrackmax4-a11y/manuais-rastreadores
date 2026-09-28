@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TK303 TK311 · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / LINHA TK / TK303 TK311</p>
+    <h1>TK303 / TK311</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> TK303, TK311</li><li><strong>Pasta:</strong> LINHA TK</li><li><strong>Fabricante/Protocolo:</strong> Linha TK (Xexun/Coban-like) — comandos SMS com senha <code>123456</code></li><li><strong>Arquivos-fonte:</strong> <code>TREINAMENTO CONFIGURAR O TK.txt</code> (seção &quot;Segue configurações para TK303 E TK311&quot;)</li></ul>
+<blockquote>Para evitar problemas: confira a APN do seu chip antes de configurar.</blockquote>
+<h2 id="configuracao">Configuração</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminpassword13142324</code></pre></div>
+<p>Restaurar senha de fábrica e equipamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>clear123456</code></pre></div>
+<p>Apagar memória.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>erase123456</code></pre></div>
+<p>Formatar memória.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>begin123456</code></pre></div>
+<p>Restaurar padrão de fábrica e iniciar programação.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset123456</code></pre></div>
+<p>Reiniciar o aparelho.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 35.230.168.225 5001</code></pre></div>
+<p>Apontar IP e porta (TrackMax).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 tmax.algar.br</code></pre></div>
+<p>Configurar APN.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>up123456 algar algar</code></pre></div>
+<p>Usuário e senha do APN.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456</code></pre></div>
+<p>Ativar GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gprs123456 on</code></pre></div>
+<p>Forçar GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>tracker123456</code></pre></div>
+<p>Ativar rastreamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>angle123456 015</code></pre></div>
+<p>Envio de posição por ângulo (15 graus).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>time zone123456 -3</code></pre></div>
+<p>Fuso horário Brasil.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>gpssignal123456 on</code></pre></div>
+<p>Forçar GPS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>protocol123456 18</code></pre></div>
+<p>Ajuste de parâmetros e pós-chave.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>fix060S005m***n123456</code></pre></div>
+<p>Envio de posição com chave ligada (60 s) e desligada (5 min).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sleep123456 shock</code></pre></div>
+<p>Entrar em sleep por falta de movimento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sensitivity123456 1</code></pre></div>
+<p>Sensibilidade do acelerômetro/sensor de movimento (1 a 3).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>less gprs123456 on</code></pre></div>
+<p>Desliga o GPRS após ativar o sleep.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>schedule123456 60m</code></pre></div>
+<p>Envio de posição após estar em sleep (acorda o equipamento a cada 60 min).</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Servidor TrackMax</td><td>35.230.168.225 porta 5001</td></tr><tr><td>APN Algar</td><td>tmax.algar.br — usuário/senha algar/algar</td></tr></tbody></table></div>
+    
+    <nav class="pager"><a href="jimi.html">← JIMI</a><a href="linha-tk-tk905-tk915-tk913.html">TK905 TK915 TK913 →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

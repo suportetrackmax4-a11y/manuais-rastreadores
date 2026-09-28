@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ENTools (perfis de configuração) · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / 4G / ENTools (perfis de configuração)</p>
+    <h1>4G — ENTools (perfis de configuração via cabo)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Rastreadores 4G configurados pelo software ENTools V1067 (seleção de protocolo TQ / 808 / GT06)</li><li><strong>Pasta:</strong> 4G</li><li><strong>Fabricante/Protocolo:</strong> Ferramenta ENTools (configuração por porta serial/COM); protocolo selecionado nos perfis: GT06</li><li><strong>Arquivos-fonte:</strong> <code>ENTools_V1067.exe</code> (duas cópias idênticas: raiz da pasta e <code>ENTools_V1067/</code>), <code>Config/ParamInfo.ini</code> (perfil TrackMax), <code>ENTools_V1067/Config/ParamInfo.ini</code> (perfil padrão/modelo)</li></ul>
+<h2 id="configuracao">Configuração</h2>
+<p>O ENTools é um programa Windows que conversa com o rastreador pela porta serial (COM1 a COM20). Ele lê (&quot;Read Param&quot;) e grava os parâmetros; o arquivo <code>Config/ParamInfo.ini</code> guarda o perfil que será aplicado. Para cada parâmetro existe um par <code>NOME_EN</code> (1 = campo habilitado/marcado para gravar, 0 = não) e <code>NOME_VALUE</code> (valor).</p>
+<p>Campos disponíveis na ferramenta incluem: intervalo (Freq), heartbeat, velocidade máxima, servidor/porta principal e secundário, APN/usuário/senha, sensibilidade de vibração, tempo de sleep, envio por ângulo, envio de posições da memória (blind), alertas de SOS/corte de energia/vibração/excesso de velocidade por SMS ou ligação, números SOS, fuso horário, modo de funcionamento e seleção de protocolo (&quot;Ptl Select&quot;: TQ, 808, GT06; &quot;808 Select&quot;: 2011/2013).</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="perfil-trackmax-4g-config-paraminfo-ini">Perfil TrackMax (<code>4G/Config/ParamInfo.ini</code>)</h3>
+<div class="table-wrap"><table><thead><tr><th>Parâmetro</th><th>Valor</th><th>Significado</th></tr></thead><tbody><tr><td>SERVERADDR</td><td>dns.trackmax.com.br</td><td>Servidor principal TrackMax</td></tr><tr><td>SERVERPORT</td><td>2204</td><td>Porta TrackMax</td></tr><tr><td>SECONDIP / SECONDPORT</td><td>3.18.1.84 / 3002</td><td>Servidor secundário</td></tr><tr><td>APN</td><td>tmax.algar.br</td><td>APN Algar TrackMax</td></tr><tr><td>APNUSER / APNPWASSWORD</td><td>algar / algar</td><td>Usuário e senha do APN</td></tr><tr><td>FREQ</td><td>60</td><td>Intervalo de envio (s) com ignição ligada</td></tr><tr><td>ACC_OFF_FREQ</td><td>1800</td><td>Intervalo de envio (s) com ignição desligada</td></tr><tr><td>HEART</td><td>1800</td><td>Heartbeat (s)</td></tr><tr><td>ANGLEVALUE</td><td>10 / 030</td><td>Envio por ângulo (30 graus)</td></tr><tr><td>VIBPARAM</td><td>12</td><td>Parâmetro de vibração</td></tr><tr><td>VIBLEVEL</td><td>5</td><td>Nível de sensibilidade de vibração</td></tr><tr><td>SLEEPTIME</td><td>3</td><td>Tempo para sleep</td></tr><tr><td>COURSESEND</td><td>1</td><td>Envio por mudança de curso ativo</td></tr><tr><td>BLINDSEND</td><td>1</td><td>Envio de posições armazenadas (área sem sinal)</td></tr><tr><td>SOURCEOFF</td><td>1</td><td>Alerta de corte de alimentação</td></tr><tr><td>GPSFINTER</td><td>1</td><td>Filtro de GPS</td></tr><tr><td>PTLSELECT</td><td>2 (habilitado)</td><td>Protocolo GT06</td></tr><tr><td>TIMEZONE</td><td>1 / 0 / 0</td><td>Fuso horário</td></tr><tr><td>MULPRM</td><td><code>#sleepupdate=0</code></td><td>Parâmetro extra: não enviar atualização durante sleep</td></tr><tr><td>VERSION_EN / IMIE_EN</td><td>1</td><td>Lê versão e IMEI do equipamento</td></tr></tbody></table></div>
+<h3 id="perfil-padrao-modelo-4g-entools-v1067-config-paraminfo-ini">Perfil padrão/modelo (<code>4G/ENTools_V1067/Config/ParamInfo.ini</code>)</h3>
+<div class="table-wrap"><table><thead><tr><th>Parâmetro</th><th>Valor</th></tr></thead><tbody><tr><td>FREQ</td><td>30</td></tr><tr><td>ACC_OFF_FREQ</td><td>3600</td></tr><tr><td>HEART</td><td>180</td></tr><tr><td>APN / APNUSER / APNPWASSWORD</td><td>vazios, mas marcados para gravar (EN=1)</td></tr><tr><td>SERVERADDR / SERVERPORT</td><td>valores de teste (não usar)</td></tr><tr><td>ANGLEVALUE</td><td>10 / 015</td></tr><tr><td>VIBPARAM</td><td>12 / 5</td></tr><tr><td>PTLSELECT</td><td>2 (GT06)</td></tr><tr><td>TIMEZONE</td><td>0 / 2 / 4</td></tr><tr><td>MULPRM</td><td><code>#GT06IEXVOL=2#GT06SEL=0</code></td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>O IMEI gravado nos perfis é um valor de exemplo; o programa lê o IMEI real do equipamento (<code>IMEI_DO_EQUIPAMENTO</code>).</li><li>Use o perfil TrackMax (<code>4G/Config/ParamInfo.ini</code>) e apenas ajuste APN/servidor conforme o chip.</li></ul>
+    
+    <nav class="pager"><span></span><a href="4g-one.html">4G ONE →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

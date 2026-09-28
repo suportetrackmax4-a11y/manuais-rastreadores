@@ -76,6 +76,8 @@ input[type="search"]:focus { border-color: var(--accent); box-shadow: 0 0 0 3px 
 mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
 
 .sec { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 32px 0 12px; }
+.sec .count { font-size: 12px; text-transform: none; letter-spacing: 0; font-weight: 500; margin-left: 6px; }
+section[hidden] { display: none; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
 .card {
   display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; background: var(--surface);

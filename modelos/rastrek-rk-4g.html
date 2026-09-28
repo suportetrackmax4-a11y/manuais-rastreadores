@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RK-4G · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / RASTREK / RK-4G</p>
+    <h1>RK-4G (Rastrek)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> Rastrek RK-4G</li><li><strong>Pasta:</strong> RASTREK</li><li><strong>Fabricante/Protocolo:</strong> Rastrek. Comandos no estilo TK (<code>comando</code> + senha <code>123456</code>)</li><li><strong>Arquivos-fonte:</strong> <code>RASTREK/RASTREK RK-4G.txt</code></li></ul>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="configuracao-trackmax">Configuração TrackMax</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>begin123456</code></pre></div>
+<p>Inicia/reinicializa as configurações.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>APN123456 trackmax.br max max</code></pre></div>
+<p>Define APN, usuário e senha. O arquivo avisa: usar a APN do chip instalado.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 35.230.168.225 2416</code></pre></div>
+<p>Define IP e porta do servidor TrackMax (35.230.168.225:2416).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>fix060s030m***n123456</code></pre></div>
+<p>Intervalo de envio de posições (60 s e 30 min, repetição ilimitada <code>***n</code>). O arquivo não explica cada campo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>time zone123456 0</code></pre></div>
+<p>Fuso horário 0 (UTC).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>GPRS123456</code></pre></div>
+<p>Ativa o modo GPRS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>tracker123456</code></pre></div>
+<p>Ativa o rastreamento.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>angle123456 30</code></pre></div>
+<p>Envia posição a cada mudança de direção de 30 graus.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sensitivity123456 1</code></pre></div>
+<p>Sensibilidade do sensor de vibração em 1.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sleep123456 on</code></pre></div>
+<p>Ativa o modo sleep.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>reset123456</code></pre></div>
+<p>Reinicia o equipamento.</p>
+<h3 id="padrao-rastrek">Padrão Rastrek</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>begin123456</code></pre></div>
+<p>Inicia as configurações.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>adminip123456 68.183.63.49 14413</code></pre></div>
+<p>Servidor da plataforma Rastrek (68.183.63.49:14413).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>apn123456 trackmax.br max max</code></pre></div>
+<p>APN <code>trackmax.br</code>, usuário <code>max</code>, senha <code>max</code>.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>fix030s060m***n123456</code></pre></div>
+<p>Intervalo de envio (30 s e 60 min, repetição ilimitada).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>time zone123456 0</code></pre></div>
+<p>Fuso horário 0.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>acc123456 1</code></pre></div>
+<p>Ativa a detecção de ignição (ACC).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>LBS123456 1</code></pre></div>
+<p>Ativa a localização por LBS (antenas de celular).</p>
+<h3 id="economia-de-energia-dados">Economia de energia/dados</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>sleep123456 on</code></pre></div>
+<p>Ativa o modo sleep.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>Less gprs123456 on</code></pre></div>
+<p>Ativa o modo de GPRS reduzido (menos tráfego de dados).</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Destino</th><th>Servidor</th><th>APN</th></tr></thead><tbody><tr><td>TrackMax</td><td><code>35.230.168.225</code> porta <code>2416</code></td><td>APN do chip (exemplo: <code>trackmax.br max max</code>)</td></tr><tr><td>Plataforma Rastrek</td><td><code>68.183.63.49</code> porta <code>14413</code></td><td><code>trackmax.br</code> / <code>max</code> / <code>max</code></td></tr></tbody></table></div>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Senha padrão do equipamento: <code>123456</code>.</li><li>O arquivo escreve o comando de APN de duas formas (<code>APN123456</code> e <code>apn123456</code>).</li></ul>
+    
+    <nav class="pager"><a href="rastrek-mini-tracker.html">← MINI TRACKER</a><a href="st-sinotrack-configuracao-trackmax.html">SinoTrack — Configuração TrackMax →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>

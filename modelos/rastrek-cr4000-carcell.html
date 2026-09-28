@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>CR4000 CARCELL · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#observacoes">Observações</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / RASTREK / CR4000 CARCELL</p>
+    <h1>CR4000 CARCELL</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> CR4000 (ou réplica); a segunda parte do arquivo cobre também CR 1000, CR 2000, CR 3000, CR 4000 e CR 250</li><li><strong>Pasta:</strong> RASTREK</li><li><strong>Fabricante/Protocolo:</strong> Carcell (linha CR). Dois formatos de comando no mesmo arquivo: <code>ZD1234,...#</code> e <code>AS7777AT+...;</code></li><li><strong>Arquivos-fonte:</strong> <code>RASTREK/CR4000 CARCELL.txt</code></li></ul>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,IMEI#</code></pre></div>
+<p>Consulta o IMEI (formato ZD1234).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+IMEI;</code></pre></div>
+<p>Consulta o IMEI (formato AS7777AT).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+ICCID;</code></pre></div>
+<p>Consulta o ICCID do chip.</p>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="formato-zd1234-configuracao-trackmax">Formato ZD1234 (configuração TrackMax)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,APN*SS.ALGAR.BR,ALGAR,ALGAR#</code></pre></div>
+<p>Define APN, usuário e senha (chip Algar).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,DNS*DNS.TRACKMAX.COM.BR,5023#</code></pre></div>
+<p>Define DNS e porta do servidor TrackMax (5023).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ZD1234,ANG*30#</code></pre></div>
+<p>Envia posição a cada mudança de direção de 30 graus.</p>
+<h3 id="formato-as7777at-cr-1000-2000-3000-4000-250">Formato AS7777AT (CR 1000 / 2000 / 3000 / 4000 / 250)</h3>
+<p>1º Envio de posição por ângulo (ajustável entre 30 e 80 graus; padrão de fábrica 30):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>A7777AT+ANG=30;</code></pre></div>
+<p>Configura o ângulo em 30 graus. (No arquivo está escrito <code>A7777AT</code>, sem o &quot;S&quot;, diferente dos demais comandos <code>AS7777AT</code>.)</p>
+<p>2º Tempos de envio e sleep:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+TIMESLOT=30,5,30;</code></pre></div>
+<p>X = 30 segundos: intervalo de transmissão com a ignição ligada. Y = 5 minutos: tempo para entrar em sleep depois que a ignição é desligada. Z = 30 minutos: tempo que permanece em sleep.</p>
+<p>4º APN da operadora (usar a APN, o usuário e a senha corretos do fornecedor do chip):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+APN=smart.m2m.vivo.com.br,vivo,vivo;</code></pre></div>
+<p>APN Vivo Smart M2M.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+APN=trasnmeet.br,vivo,vivo;</code></pre></div>
+<p>APN Transmeet (escrito &quot;trasnmeet.br&quot; no arquivo; provável erro de digitação de <code>transmeet.br</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+APN=allcom.br,allcom,allcom;</code></pre></div>
+<p>APN Allcom.</p>
+<p>5º DNS ou IP e porta (o manual recomenda usar DNS e, se não conectar, usar o IP):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+DNS=www.smartlocaliza.com,6023;</code></pre></div>
+<p>Servidor 01 por DNS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+MSERVER=159.69.75.184,6023,1;</code></pre></div>
+<p>Servidor 01 por IP.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+DNS=www.localizasmart.com,6023;</code></pre></div>
+<p>Servidor 02 por DNS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+MSERVER=69.164.205.211,6023,1;</code></pre></div>
+<p>Servidor 02 por IP.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+DNS=www.localizamobile.com,6023;</code></pre></div>
+<p>Servidor 03 por DNS.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+MSERVER=139.177.205.165,6023,1;</code></pre></div>
+<p>Servidor 03 por IP.</p>
+<h3 id="comandos-especiais">Comandos especiais</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+RESET;</code></pre></div>
+<p>Reinicia o rastreador.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+HBT=ON;</code></pre></div>
+<p>Liga o HeartBeat (padrão de fábrica, para veículos leves e pesados): envia uma mensagem de status a cada 5 minutos, mesmo em hibernação. Consumo de bateria e dados muito baixo.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>AS7777AT+HBT=OFF;</code></pre></div>
+<p>Desliga o HeartBeat. Recomendado para motos, porque a bateria de baixa amperagem pode ser afetada depois de longos períodos sem partida.</p>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<div class="table-wrap"><table><thead><tr><th>Uso</th><th>Comando</th></tr></thead><tbody><tr><td>TrackMax + chip Algar (formato ZD1234)</td><td><code>ZD1234,APN*SS.ALGAR.BR,ALGAR,ALGAR#</code> → <code>ZD1234,DNS*DNS.TRACKMAX.COM.BR,5023#</code> → <code>ZD1234,ANG*30#</code></td></tr><tr><td>Vivo Smart M2M</td><td><code>AS7777AT+APN=smart.m2m.vivo.com.br,vivo,vivo;</code></td></tr><tr><td>Transmeet</td><td><code>AS7777AT+APN=trasnmeet.br,vivo,vivo;</code> (conferir a grafia <code>transmeet.br</code>)</td></tr><tr><td>Allcom</td><td><code>AS7777AT+APN=allcom.br,allcom,allcom;</code></td></tr><tr><td>Servidor 01</td><td><code>www.smartlocaliza.com</code> / <code>159.69.75.184</code>, porta 6023</td></tr><tr><td>Servidor 02</td><td><code>www.localizasmart.com</code> / <code>69.164.205.211</code>, porta 6023</td></tr><tr><td>Servidor 03</td><td><code>www.localizamobile.com</code> / <code>139.177.205.165</code>, porta 6023</td></tr></tbody></table></div>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<ul><li><strong>Não conecta pelo DNS:</strong> usar o comando <code>AS7777AT+MSERVER=IP,PORTA,1;</code> com o IP correspondente.</li><li><strong>Moto descarregando a bateria parada:</strong> desligar o HeartBeat com <code>AS7777AT+HBT=OFF;</code>.</li></ul>
+<h2 id="observacoes">Observações</h2>
+<ul><li>Os servidores 01/02/03 (porta 6023) vêm do manual genérico do fabricante; não são servidores da TrackMax. Para a TrackMax, usar <code>DNS.TRACKMAX.COM.BR</code> porta 5023 (formato ZD1234).</li><li>A numeração do manual original pula o passo 3 (vai de 2º para 5º e depois 4º).</li><li>Senhas padrão que aparecem nos comandos: <code>1234</code> (prefixo ZD1234) e <code>7777</code> (prefixo AS7777AT).</li><li>Há um arquivo separado para a variante &quot;CR4000 CLONE&quot; (página própria).</li></ul>
+    
+    <nav class="pager"><a href="rastrek-c26-g900.html">← C26 G900</a><a href="rastrek-cr4000-clone.html">CR4000 CLONE →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 28/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>
