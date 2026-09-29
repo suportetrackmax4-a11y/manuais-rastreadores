@@ -1,1 +1,413 @@
-<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex"><title>ST</title><meta http-equiv="refresh" content="0; url=../index.html#g-st"><script>location.replace("../index.html#g-st")</script><p><a href="../index.html#g-st">ST mudou de lugar — clique aqui</a></p>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ST · Manuais</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>try{var t=localStorage.getItem('tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+</head>
+<body class="model">
+<header class="topbar">
+  <a class="brand" href="../index.html"><span class="logo" aria-hidden="true">◎</span> Manuais de Rastreadores</a>
+  <button class="theme" type="button" aria-label="Alternar tema claro/escuro">◐</button>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="Nesta página">
+    <a class="back" href="../index.html">← Todos os modelos</a>
+    <p class="toc-title">Nesta página</p>
+    <ul><li><a href="#especificacoes">Especificações</a></li><li><a href="#consultas">Consultas</a></li><li><a href="#configuracao">Configuração</a></li><li><a href="#receitas-por-operadora-servidor">Receitas por operadora/servidor</a></li><li><a href="#problemas-e-solucoes">Problemas e soluções</a></li><li><a href="#ligacao-leds">Ligação/LEDs</a></li><li><a href="#observacoes">Observações</a></li><li><a href="#manuais-pdf">Manuais em PDF</a></li></ul>
+  </nav>
+  <main class="doc">
+    <p class="crumb"><a href="../index.html">Início</a> / ST</p>
+    <h1>ST — SinoTrack (ST-900 a ST-909)</h1>
+    <div class="filter"><input type="search" id="filtro" placeholder="Filtrar comandos nesta página…" autocomplete="off"></div>
+    <ul><li><strong>Modelo(s):</strong> ST-900; ST-901 (3 fios); ST-901 4PIN / ST-901L (4G, 4 fios, com relé de bloqueio); ST-901A (2G); ST-901AL (4G); ST-901M; ST901 4G (planilha &quot;RASTREADOR ST901&quot;); ST-902 (2G) / ST-902L (4G) — OBD; ST-902A (2G) / ST-902AL (4G) — OBD; ST-903 (2G/GSM) / ST-903L (4G) — mini portátil; ST-904 (2G) / ST-904L (4G) — mini portátil; ST-905 / ST-915 / ST-925 — portáteis com bateria grande e ímã (manual compartilhado); ST-906 / ST-906L; ST-907 (formato relé, com corte de combustível embutido); ST-909 (2G) / ST-909L (4G) — acendedor de cigarro com carregador USB</li><li><strong>Pasta:</strong> ST</li><li><strong>Fabricante/Protocolo:</strong> SinoTrack (protocolo SinoTrack, comandos SMS numéricos com senha padrão 0000; servidor do fabricante 45.112.204.246 porta 8090). Receitas próprias para a plataforma TrackMax (chip Vivo M2M) e Traccar.</li><li><strong>Arquivos-fonte:</strong><ul><li><code>ST-900 User Manual 246.pdf</code></li><li><code>ST-901 User Manual 246.pdf</code></li><li><code>ST-901 4PIN User Manual 246 (1).pdf</code></li><li><code>ST-901A User Manual 246.pdf</code></li><li><code>ST-901AL User Manual 246 (1).pdf</code></li><li><code>ST-901M User Manual 246.pdf</code></li><li><code>ST-902 User Manual 246.pdf</code></li><li><code>ST-902A User Manual 246.pdf</code></li><li><code>ST-903 User Manual 246.pdf</code></li><li><code>ST-904(L) User Manual 246.pdf</code></li><li><code>ST-905 User Manual 246.pdf</code></li><li><code>ST-906 User Manual 246 (1).pdf</code></li><li><code>ST-907 User Manual 246.pdf</code></li><li><code>ST-909 User Manual 246.pdf</code></li><li><code>MANUAL ST901 4G SINOTRUCK (5).xls</code> (planilha &quot;Plan1&quot;: &quot;Configuração chip M2M e plataforma&quot;, versão do manual 17/10/2022)</li><li><code>SINOTRACK TRACKMAX (1).txt</code> (receita genérica TrackMax; o exemplo de RCONF vem de um ST-902 e há link para o manual do ST902 OBD)</li></ul></li></ul>
+<p>Todos os modelos usam a mesma família de comandos SMS (formato código + senha 0000). Onde um comando, valor ou observação só aparece no manual de alguns modelos, isso está indicado entre parênteses.</p>
+<h2 id="especificacoes">Especificações</h2>
+<p>Os manuais dos modelos veiculares (ST-900, ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M, ST-902, ST-902A, ST-906, ST-907, ST-909) não trazem tabela de especificações técnicas; os dados abaixo aparecem no texto/imagens. Os portáteis (ST-903, ST-904, ST-905) trazem tabela (detalhada mais abaixo).</p>
+<div class="table-wrap"><table><thead><tr><th>Modelo</th><th>Tipo / instalação</th><th>Rede</th><th>Chip</th><th>Alimentação / bateria</th><th>Fios / saídas</th><th>ACC (entrada)</th><th>Bloqueio por SMS (940/941)</th></tr></thead><tbody><tr><td>ST-900</td><td>fixo com fios</td><td>não informada</td><td>SIM tamanho normal (padrão), sem PIN</td><td>externa, bateria do veículo 12 V / 24 V (diagrama); bateria interna informada de 0 a 100%</td><td>vermelho, preto</td><td>não</td><td>não</td></tr><tr><td>ST-901</td><td>fixo com fios (3 fios)</td><td>não informada</td><td>SIM normal, sem PIN (tampa superior com parafuso)</td><td>12 V / 24 V; bateria interna Bat:5 = 100%, Bat:4 = 80%, Bat:3 = 60%, Bat:2 = 40%, Bat:1 = 20%</td><td>vermelho, preto, laranja</td><td>sim (laranja)</td><td>não</td></tr><tr><td>ST-901 4PIN (ST-901L)</td><td>fixo, chicote 4 pinos</td><td>4G (capa: &quot;ST-901L — 4G, 4PIN&quot;)</td><td>SIM normal, sem PIN (tampa com parafuso)</td><td>12 V ou 24 V, fusível 2 A; Bat:5 = 100% … Bat:1 = 20%</td><td>vermelho, preto, laranja, amarelo (relé)</td><td>sim</td><td>sim (só abaixo de 20 km/h)</td></tr><tr><td>ST-901A</td><td>fixo, 4 fios</td><td>2G</td><td>Micro SIM, sem PIN (tampa com parafuso)</td><td>12 V ou 24 V, fusível 2 A</td><td>vermelho, preto, laranja, amarelo (relé)</td><td>sim</td><td>não há comando no manual</td></tr><tr><td>ST-901AL</td><td>fixo, 4 fios (manual compartilhado com ST-901A; capa &quot;ST-901A / ST-901AL 4G&quot;)</td><td>4G</td><td>Micro SIM, sem PIN (tampa com parafuso)</td><td>12 V ou 24 V, fusível 2 A</td><td>vermelho, preto, laranja, amarelo (relé)</td><td>sim</td><td>não há comando no manual</td></tr><tr><td>ST-901M</td><td>fixo, 4 fios</td><td>não informada</td><td>SIM normal, sem PIN (tampa com parafuso)</td><td>12 V ou 24 V, fusível 2 A; bateria nível 1 a 5 (5 = 100%, 1 = 20%)</td><td>vermelho, preto, laranja, amarelo (relé)</td><td>sim</td><td>sim (&quot;função exclusiva do ST-901M&quot;, segundo o manual)</td></tr><tr><td>ST901 4G (planilha)</td><td>—</td><td>4G</td><td>chip Vivo M2M</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>ST-902 / ST-902L</td><td>OBD (plug and play)</td><td>2G / 4G</td><td>Micro SIM, sem PIN</td><td>conector OBD; Bat:5 = 100% … Bat:1 = 20%</td><td>sem fios</td><td>—</td><td>não</td></tr><tr><td>ST-902A / ST-902AL</td><td>OBD (plug and play)</td><td>2G / 4G</td><td>Micro SIM, sem PIN</td><td>conector OBD; Bat:5 = 100% … Bat:1 = 20%</td><td>sem fios</td><td>—</td><td>não</td></tr><tr><td>ST-903 / ST-903L</td><td>mini portátil</td><td>GSM/GPRS 850/900/1800/1900 MHz (ST-903L usa chip 4G)</td><td>sem PIN (ST-903 só chip GSM 2G)</td><td>bateria 3,7 V 1050 mAh; standby 7–15 dias; recarga 5 V</td><td>sem fios</td><td>—</td><td>não</td></tr><tr><td>ST-904 / ST-904L</td><td>mini portátil</td><td>GSM/GPRS/LTE</td><td>sem PIN</td><td>bateria 3,7 V 1200 mAh; standby 7–15 dias; recarga 5 V</td><td>sem fios</td><td>—</td><td>não</td></tr><tr><td>ST-905 / ST-915 / ST-925</td><td>portátil com ímã, sensor anti-remoção</td><td>GSM/GPRS 850/900/1800/1900 MHz</td><td>sem PIN (só chip GSM; 3G/4G precisa ter função GSM)</td><td>5000 / 10.000 / 20.800 mAh; carga DC 5 V 1 A (USB-C)</td><td>sem fios</td><td>—</td><td>não</td></tr><tr><td>ST-906 / ST-906L</td><td>fixo com fios; chave OFF/ON interna</td><td>não informada</td><td>Micro SIM, sem PIN (tampa abre com a mão)</td><td>12 V ou 24 V, fusível 2 A; bateria interna 100% cheia, alarme de bateria fraca em 20%</td><td>vermelho, preto, amarelo (Fuel Cut), laranja; microfone, botão SOS, alto-falante</td><td>sim</td><td>sim</td></tr><tr><td>ST-907</td><td>caixa tipo relé (corte de combustível embutido)</td><td>não informada</td><td>SIM normal, sem PIN (abrir a carcaça)</td><td>10–40 V DC; bateria 0% a 100% (também Bat:5 = 100% … Bat:1 = 20%)</td><td>vermelho, preto, azul, verde (bomba)</td><td>não</td><td>sim</td></tr><tr><td>ST-909 / ST-909L</td><td>plugado no acendedor de cigarro</td><td>2G / 4G</td><td>Micro SIM, sem PIN</td><td>acendedor; Bat:5 = 100% … Bat:1 = 20%</td><td>USB (ver abaixo)</td><td>—</td><td>não</td></tr></tbody></table></div>
+<h3 id="dados-comuns-dos-manuais-veiculares">Dados comuns dos manuais veiculares</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Senha padrão</td><td>0000</td></tr><tr><td>Modo padrão</td><td>trabalho normal (modo ACC); GPRS (ST-900, ST-901, ST-901 4PIN, ST-901M, ST-906); trabalho normal; GPRS (ST-907); GPRS (ST-901A, ST-901AL); trabalho normal (sleep desligado) (ST-902, ST-902A) — ver contradições de modo padrão em Observações (ST-902, ST-902A, ST-909)</td></tr><tr><td>Status GPS no SMS</td><td>A = posição válida / com posição; V = posição inválida (ST-900, ST-901, ST-901 4PIN, ST-901M, ST-902, ST-902A, ST-906, ST-907)</td></tr></tbody></table></div>
+<h3 id="st-903-st-903l-tabela-do-manual">ST-903 / ST-903L (tabela do manual)</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Dimensões</td><td>48 × 28 × 20 mm</td></tr><tr><td>Peso</td><td>50 g</td></tr><tr><td>Rede</td><td>GSM/GPRS (ST-903L usa chip 4G)</td></tr><tr><td>Bandas</td><td>850/900/1800/1900 MHz</td></tr><tr><td>Sensibilidade GPS</td><td>−159 dBm</td></tr><tr><td>Precisão GPS</td><td>5 m</td></tr><tr><td>Bateria</td><td>3,7 V 1050 mAh</td></tr><tr><td>Standby</td><td>7–15 dias</td></tr><tr><td>Umidade</td><td>5%–95% sem condensação</td></tr><tr><td>Carregador veicular</td><td>entrada 12–24 V; saída 5 V 1 A</td></tr><tr><td>Carregador de parede</td><td>entrada 110–220 V; saída 5 V 1 A</td></tr><tr><td>Posicionamento</td><td>GPS + AGPS; sem GPS usa LBS</td></tr></tbody></table></div>
+<h3 id="st-904-st-904l-tabela-do-manual">ST-904 / ST-904L (tabela do manual)</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Dimensões</td><td>58 × 39 × 20 mm</td></tr><tr><td>Peso</td><td>52 g</td></tr><tr><td>Rede</td><td>GSM/GPRS/LTE</td></tr><tr><td>Bandas</td><td>GSM 850/900/1800/1900 MHz; LTE-FDD B1/B2/B3/B4/B5/B7/B8/B28/B66</td></tr><tr><td>Sensibilidade GPS</td><td>−159 dBm</td></tr><tr><td>Precisão GPS</td><td>5 m</td></tr><tr><td>Bateria</td><td>3,7 V 1200 mAh</td></tr><tr><td>Standby</td><td>7–15 dias</td></tr><tr><td>Temperatura de armazenamento</td><td>−40 °C a +85 °C</td></tr><tr><td>Temperatura de operação</td><td>−20 °C a +55 °C</td></tr><tr><td>Umidade</td><td>5%–95% sem condensação</td></tr><tr><td>Carregador veicular</td><td>entrada 12–24 V; saída 5 V 1 A</td></tr><tr><td>Carregador de parede</td><td>entrada 110–220 V; saída 5 V 1 A</td></tr><tr><td>Posicionamento</td><td>GPS + AGPS; sem GPS usa LBS/WIFI</td></tr></tbody></table></div>
+<h3 id="st-905-st-915-st-925-tabela-do-manual">ST-905 / ST-915 / ST-925 (tabela do manual)</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>ST-905</th><th>ST-915</th><th>ST-925</th></tr></thead><tbody><tr><td>Dimensões</td><td>80 × 68 × 22 mm</td><td>80 × 68 × 40 mm</td><td>112 × 78 × 45 mm</td></tr><tr><td>Peso</td><td>150 g</td><td>300 g</td><td>500 g</td></tr><tr><td>Bateria</td><td>3,7 V 5000 mAh</td><td>3,7 V 10.000 mAh</td><td>3,7 V 20.800 mAh</td></tr><tr><td>Standby</td><td>60 dias</td><td>120 dias</td><td>240 dias</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Item comum</th><th>Valor</th></tr></thead><tbody><tr><td>Rede</td><td>GSM/GPRS</td></tr><tr><td>Bandas</td><td>850/900/1800/1900 MHz</td></tr><tr><td>Sensibilidade GPS</td><td>−159 dBm</td></tr><tr><td>Precisão GPS</td><td>5 m</td></tr><tr><td>Entrada de carga</td><td>DC 5 V 1,0 A (conector USB-C na imagem)</td></tr><tr><td>Temperatura de armazenamento</td><td>−40 °C a +85 °C</td></tr><tr><td>Temperatura de operação</td><td>−20 °C a +55 °C</td></tr><tr><td>Umidade</td><td>5%–95% sem condensação</td></tr><tr><td>Posicionamento</td><td>GPS + AGPS; sem GPS usa LBS</td></tr></tbody></table></div>
+<h3 id="st-906-acessorios">ST-906 — acessórios</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Acessórios</td><td>cabo de alimentação (padrão); relé, microfone e botão SOS (opcionais); saída para alto-falante</td></tr></tbody></table></div>
+<h3 id="st-909-saidas-usb">ST-909 — saídas USB</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Saídas USB ST-909 2G</td><td>TYPE-A 5V/2A; TYPE-C 5V/2A</td></tr><tr><td>Saídas USB ST-909 4G</td><td>TYPE-A 5V/2A; 9V/2A; TYPE-C 5V/2A; 9V/2A</td></tr></tbody></table></div>
+<h3 id="plataforma-do-fabricante">Plataforma do fabricante</h3>
+<div class="table-wrap"><table><thead><tr><th>Item</th><th>Valor</th></tr></thead><tbody><tr><td>Site (PC)</td><td>Pro.SinoTrack.com (os manuais veiculares também citam www.SinoTrack.com e <a href="http://45.112.204.246;" target="_blank" rel="noopener">http://45.112.204.246;</a> o arquivo TrackMax cita www.sinotrackpro.com or <a href="http://45.112.204.245" target="_blank" rel="noopener">http://45.112.204.245</a>)</td></tr><tr><td>App</td><td>&quot;SinoTrack PRO&quot; na App Store (iOS) e Google Play (Android); servidor &quot;Pro.SinoTrack&quot;</td></tr><tr><td>Usuário</td><td>ID impresso no rastreador (ID do rastreador)</td></tr><tr><td>Senha</td><td>123456</td></tr></tbody></table></div>
+<p>Para gerenciar vários rastreadores numa única conta é preciso pedir ao fabricante a criação de uma conta (manuais veiculares).</p>
+<h2 id="consultas">Consultas</h2>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>6690000</code></pre></div>
+<p>Pede a localização (669+senha). O rastreador lê o GPS e responde com um link do Google Maps (todos os modelos; no arquivo TrackMax: &quot;LINK GOOGLE LOCALIZAÇÃO&quot;).</p>
+<p><strong>Por ligação:</strong> ligue de qualquer celular para o número do chip do rastreador; ele desliga e responde por SMS com o link do Google Maps. Se estiver sem posição válida, envia a última posição válida e, quando obtiver nova posição, manda um segundo SMS. (Nos portáteis ST-903/904/905 o manual diz apenas que ligar para o número do chip também retorna o link.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RCONF</code></pre></div>
+<p>Lê a configuração do rastreador: ID, modo de trabalho, IP e porta, APN (ver explicação da resposta abaixo). Na planilha ST901 4G e no arquivo TrackMax: &quot;RETORNA CONFIGURAÇÕES&quot;. Todos os modelos.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESTART</code></pre></div>
+<p>Reinicia o rastreador / &quot;Reinicia o Equipamento&quot; (ST-900, ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M, ST-902, ST-902A, ST-906, ST-907, ST-909, planilha ST901 4G — OPCIONAL, TESTE OK — e arquivo TrackMax). Os manuais dos portáteis ST-903/904/905 não trazem RESTART (eles têm <code>RESET</code>).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1430000</code></pre></div>
+<p>Consulta o hodômetro (ST-902, ST-902A, ST-906, ST-907) — ver &quot;Hodômetro&quot; em Configuração.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>66</code></pre></div>
+<p>Escuta (monitor de voz) — somente ST-904/904L e ST-906/906L. Enviado <strong>a partir de um número de controle</strong>, faz o rastreador ligar de volta para esse número (escuta ambiente). Só funciona se o número de controle estiver cadastrado. No ST-904 também é possível ligar do número admin para o rastreador para escutar.</p>
+<h3 id="resposta-do-rconf-exemplos-dos-manuais">Resposta do RCONF — exemplos dos manuais</h3>
+<p>ST-900:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST900,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKEALARM:OFF,SLEEP:OFF,APN:INTERNET,,,IP:45.1
+12.204.246:8090, GPRSUPLOAD TIME:20,TIME ZONE:E00</code></pre></div>
+<p>ST-901 e ST-901 4PIN (idênticos):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST901,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKEALARM:OFF,SLEEP:OFF,APN:INTERNET,,,IP:45.1
+12.204.246:8090, GPRSUPLOAD TIME:20,TIME ZONE:E00</code></pre></div>
+<p>ST-901A e ST-901AL (idênticos):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-901A,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:45.112.204.246:8090,
+GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<p>ST-901M (o exemplo mostra o modelo como &quot;ST-901&quot;):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-901,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:45.112.204.246:8090,
+GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<p>ST-902:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-902,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:
+45.112.204.246:8090,GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<p>ST-902A (sem o campo DAILY):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-902A,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+GEO FENCE: OFF,OVER SPEED:OFF, VOICE:ON, SHAKE
+ALARM:OFF,SLEEP:OFF,APN:INTERNET,,,IP:45.112.204.246:8090,
+GPRSUPLOAD TIME:20, TIME ZONE:E00</code></pre></div>
+<p>ST-906L (dois intervalos: ACC ligada, ACC desligada):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST906L,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:INTERNET,,,IP:45.112.204.246:8090,
+GPRSUPLOAD TIME:20,120
+TIME ZONE:E00</code></pre></div>
+<p>ST-907:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-907,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:45.112.204.246:8090,
+GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<p>ST-909:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-909,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:
+45.112.204.246:8090,GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<p>ST-904 — exemplo real de resposta mostrado no manual (imagem):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST904(M),ID:7026015803,UP:0000,U1
+:,U2:,U3:,MODE:GPRS-
+MOVE,GEO FENCE:OFF,OVER
+SPEED:ON,VOICE:OFF,SHAKE
+ALARM:ON,SLEEP
+MODE:ON,APN:interne
+t,,,IP:45.112.204.242:8090,GPRS
+UPLOAD TIME:30TIME ZONE:+8.0</code></pre></div>
+<h4 id="campos-do-rconf-modelos-veiculares-obd-acendedor">Campos do RCONF (modelos veiculares/OBD/acendedor)</h4>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td>ST900 / ST901 / ST-901A / ST-901 / ST-902 / ST-902A / ST906L / ST-907 / ST-909</td><td>versão do software / modelo</td></tr><tr><td>ID: 8160528336</td><td>ID do rastreador (exemplo)</td></tr><tr><td>UP:0000</td><td>senha (padrão 0000)</td></tr><tr><td>U1: / U2: / U3:</td><td>1º, 2º e 3º números de controle</td></tr><tr><td>MODE:GPRS</td><td>modo de trabalho (padrão GPRS)</td></tr><tr><td>DAILY:OFF</td><td>relatório em horário diário (padrão desligado) — ausente no exemplo do ST-902A</td></tr><tr><td>GEO FENCE: OFF</td><td>cerca eletrônica (padrão desligada)</td></tr><tr><td>OVER SPEED:OFF</td><td>excesso de velocidade (padrão desligado)</td></tr><tr><td>VOICE:ON</td><td>modo de chamada (padrão ligado)</td></tr><tr><td>SHAKE ALARM:OFF</td><td>alarme de vibração (padrão desligado)</td></tr><tr><td>SLEEP MODE : OFF</td><td>modo sleep (padrão desligado)</td></tr><tr><td>APN:INTERNET,,,</td><td>APN (padrão INTERNET) — ST-900, ST-901, ST-901 4PIN, ST-902A, ST-906</td></tr><tr><td>APN:CMNET,,,</td><td>APN (padrão CMNET) — ST-901A, ST-901AL, ST-901M, ST-902, ST-907, ST-909</td></tr><tr><td>IP:45.112.204.246:8090</td><td>IP e porta do servidor</td></tr><tr><td>GPRS UPLOAD TIME:20</td><td>intervalo de envio</td></tr><tr><td>GPRS UPLOAD TIME:20,120</td><td>intervalo de envio (ACC ligada, ACC desligada) — somente ST-906</td></tr><tr><td>TIME ZONE:E00</td><td>fuso horário (padrão +0)</td></tr></tbody></table></div>
+<h4 id="campos-do-rconf-portateis-st-903-st-904-st-905-915-925">Campos do RCONF (portáteis ST-903, ST-904, ST-905/915/925)</h4>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Significado</th></tr></thead><tbody><tr><td>ST-903/ST-903L; ST-904/ST-904L; ST-915 (exemplo do manual do ST-905)</td><td>modelo do rastreador</td></tr><tr><td>ID:7028313929 (ST-903, ST-904); ID:6180127780 (ST-905/915)</td><td>ID do rastreador (exemplo)</td></tr><tr><td>UP:0000</td><td>senha dos SMS</td></tr><tr><td>U1:,U2:,U3:</td><td>números de controle</td></tr><tr><td>MODE: GPRS-MOVE</td><td>modo de trabalho</td></tr><tr><td>DAILY:OFF, GEO FENCE:OFF, OVER SPEED:OFF, VOICE:ON, SHAKE ALARM:OFF, SLEEP:ON</td><td>estados das funções</td></tr><tr><td>APN: internet</td><td>APN do chip</td></tr><tr><td>IP:45.112.204.246:8090</td><td>IP e porta do servidor</td></tr><tr><td>GPRS UPLOAD TIME:30</td><td>intervalo de envio GPS</td></tr><tr><td>TIME ZONE:E3.0 (ST-903, ST-904); TIME ZONE:0.0 (ST-905/915)</td><td>fuso horário</td></tr></tbody></table></div>
+<h4 id="rconf-explicacao-da-resposta-texto-do-arquivo-sinotrack-trackmax-1-txt">RCONF — explicação da resposta (texto do arquivo <code>SINOTRACK TRACKMAX (1).txt</code>)</h4>
+<p>RCONF — Read the configure of tracker / Leia a configuração do rastreador.</p>
+<p>O rastreador responderá (Tracker will reply):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-902,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODE:GPRS
+DAILY:OFF,GEO FENCE: OFF,OVER SPEED:OFF
+VOICE:ON,SHAKE
+ALARM:OFF,SLEEP:OFF,APN:CMNET,,,IP:
+45.112.204.245:8090,GPRSUPLOAD TIME:20
+TIME ZONE:E00</code></pre></div>
+<p>O arquivo também traz a resposta traduzida:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>ST-902,ID: 8160528336,UP:0000,U1:,U2:,U3:,MODO:GPRS
+DIÁRIO: DESLIGADO, GEO FENCE: DESLIGADO, ACIMA DA VELOCIDADE: DESLIGADO
+VOZ:ON, SHAKE
+ALARME:DESLIGADO,SONO:DESLIGADO,APN:CMNET,,,IP:
+45.112.204.245:8090,GPRSUPLOAD TIME:20
+FUSO HORÁRIO:E00</code></pre></div>
+<div class="table-wrap"><table><thead><tr><th>Campo</th><th>Original (inglês)</th><th>Tradução do arquivo</th></tr></thead><tbody><tr><td>ST-902</td><td>software version</td><td>versão do software</td></tr><tr><td>ID: 8160528336</td><td>Tracker ID</td><td>ID do rastreador</td></tr><tr><td>UP:0000</td><td>password, default is 0000</td><td>senha, o padrão é 0000</td></tr><tr><td>U1:</td><td>the first control number</td><td>o primeiro número de controle</td></tr><tr><td>U2:</td><td>the second control number</td><td>o segundo número de controle</td></tr><tr><td>U3:</td><td>the third control number</td><td>o terceiro número de controle</td></tr><tr><td>MODE:GPRS</td><td>working mode, default is GPRS</td><td>modo de trabalho, o padrão é GPRS</td></tr><tr><td>DAILY:OFF</td><td>Daily time to report, default off</td><td>horário diário para relatório, padrão desativado</td></tr><tr><td>GEO FENCE: OFF</td><td>Geo Fence, default off</td><td>Geo Fence, padrão desativado</td></tr><tr><td>OVER SPEED:OFF</td><td>over speed, default off</td><td>sobrevelocidade, padrão desligado</td></tr><tr><td>VOICE:ON</td><td>Call mode, default on</td><td>modo de chamada, padrão ativado</td></tr><tr><td>SHAKE ALARM:OFF</td><td>Shock Alarm, default off</td><td>alarme de choque, padrão desativado</td></tr><tr><td>SLEEP MODE : OFF</td><td>sleep mode, default off</td><td>modo de espera, padrão desativado</td></tr><tr><td>APN:CMNET,,,</td><td>APN, default is CMNET</td><td>APN, o padrão é CMNET</td></tr><tr><td>IP:45.112.204.245:8090</td><td>The IP and Port</td><td>o IP e a porta</td></tr><tr><td>GPRS UPLOAD TIME:20</td><td>time interval</td><td>intervalo de tempo</td></tr><tr><td>TIME ZONE:E00</td><td>Time zone, default is +0</td><td>Fuso horário, o padrão é +0</td></tr></tbody></table></div>
+<h2 id="configuracao">Configuração</h2>
+<h3 id="primeira-configuracao-modelos-veiculares-obd-e-acendedor-passo-a-passo-dos-manuais">Primeira configuração — modelos veiculares, OBD e acendedor (passo a passo dos manuais)</h3>
+<p>Vale para ST-900, ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M, ST-902, ST-902A, ST-906, ST-907, ST-909.</p>
+<ol><li>Usar chip sem código PIN: <strong>SIM de tamanho normal</strong> (ST-900, ST-901, ST-901 4PIN, ST-901M, ST-907) ou <strong>Micro SIM</strong> (ST-901A, ST-901AL — 4G no ST-901AL —, ST-902, ST-902A, ST-906, ST-909).</li><li>Abrir o aparelho e inserir o chip corretamente — o rastreador liga; conectar a alimentação externa:<ul><li>ST-900: abrir a tampa superior;</li><li>ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M: abrir a tampa superior (parafuso);</li><li>ST-906: abrir a tampa com a mão, deslizar para abrir o porta-chip, inserir o chip, fechar e <strong>ligar a chave ON</strong>;</li><li>ST-907: abrir a carcaça (passos 1–6 da imagem);</li><li>ST-902, ST-902A: inserir o chip e conectar à alimentação (OBD);</li><li>ST-909: inserir o chip e plugar o ST-909 no acendedor de cigarro.</li></ul></li><li>Deixar o aparelho em área aberta por cerca de 30 s; LEDs acesos fixos = funcionando normalmente.</li><li>Ligar para o número do aparelho: ele desliga e responde com a posição (latitude/longitude válidas).</li><li>Configurar o APN (o espaço entre os campos é um espaço em branco; SMS enviado do seu celular para o chip do rastreador):</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 APN
+8030000 APN APNuser APNpassword</code></pre></div>
+<p>Exemplo do manual (Vodafone pré-pago, Reino Unido — APN pp.vodafone.co.uk, usuário wap, senha wap) (ST-902, ST-902A, ST-909):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 pp.vodafone.co.uk wap wap</code></pre></div>
+<ol><li>Apontar para o servidor do fabricante (no ST-902, ST-902A e ST-909 já é o padrão, normalmente não precisa alterar):</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 45.112.204.246 8090</code></pre></div>
+<ol><li>Pronto — o rastreador aparece online / rastreamento online.</li></ol>
+<h3 id="configuracao-rapida-st-903-e-st-904-passo-a-passo-dos-manuais">Configuração rápida — ST-903 e ST-904 (passo a passo dos manuais)</h3>
+<ol><li><strong>Ativar o chip:</strong> coloque o chip com rede 2G (GSM) ou 4G (ST-903) / 2G/4G (ST-904) num celular e ative-o; confirme que ele faz ligação, envia SMS e tem internet. Depois insira no rastreador (chip sem PIN).</li><li><strong>Ligar o rastreador:</strong> carregue por cerca de 1 hora. Os LEDs amarelo e azul piscam enquanto buscam rede e GPS. Aguarde 5 minutos em local com boa recepção (janela ou área externa) até os dois ficarem acesos fixos. Se o amarelo continuar piscando, não achou rede — mude de lugar. Com GPS usa posição GPS; sem GPS usa LBS (ST-903) / LBS/WIFI (ST-904).</li><li><strong>Configurar o APN</strong> (SMS enviado de outro celular para o número do chip do rastreador). Exemplo do manual (APN &quot;everywhere&quot;, usuário &quot;eesecure&quot;, senha &quot;secure&quot;):</li></ol>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 everywhere</code></pre></div>
+<p>Sem usuário/senha: 8030000+espaço+APN. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 everywhere eesecure secure</code></pre></div>
+<p>Com usuário e senha: 8030000+espaço+APN+espaço+usuário+espaço+senha. Aplique a fórmula com o APN real do seu chip.</p>
+<ol><li><strong>Modo GPRS:</strong> enviar <code>7100000</code>. Aguarde ~30 s; os LEDs azul e laranja/amarelo devem ficar acesos. Entre no site/app SinoTrack Pro (usuário = ID escrito no aparelho, senha 123456). Se aparecer online mas com posição na China, leve o aparelho para área externa com bom sinal para atualizar a posição.</li></ol>
+<h3 id="ligar-o-aparelho-e-servidor-st-905-915-925">Ligar o aparelho e servidor — ST-905/915/925</h3>
+<p>Abra a tampa de borracha e insira o chip (contatos para cima) no slot. O LED acende quando o chip é inserido. Com GPS usa posição GPS; sem GPS usa LBS. <strong>O aparelho desliga automaticamente quando o chip é removido.</strong> Há também chave OFF/ON e entrada de carga ao lado do slot.</p>
+<p>APN e servidor (seção &quot;Start online tracking&quot;): formato <code>8030000 APN</code> / <code>8030000 APN APNuser APNpassword</code> e <code>8040000 IP PORTA</code> (servidor do fabricante <code>8040000 45.112.204.246 8090</code>). Exemplos do manual:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 internet</code></pre></div>
+<p>MTN (África do Sul): APN &quot;internet&quot;, sem usuário/senha.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 prepay.tesco-mobile.com tescowap password</code></pre></div>
+<p>Tesco Mobile (Reino Unido): APN, usuário e senha.</p>
+<h3 id="numero-de-controle-admin">Número de controle (admin)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>NUMERO_CELULAR0000 1</code></pre></div>
+<ul><li><strong>Veiculares/OBD/acendedor</strong> (ST-900, ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M, ST-902, ST-902A, ST-906, ST-907, ST-909): formato número + senha + espaço + posição (1 a 3). Cadastra o celular como 1º número de controle (no exemplo do manual o número vem com o código do país; 0000 é a senha e 1 é a posição). Resposta &quot;SET OK&quot;. Da mesma forma se cadastram o 2º e o 3º números. Os alarmes são enviados aos números de controle.</li><li><strong>Portáteis</strong> (ST-903, ST-904, ST-905): formato número do seu celular (não o do chip do rastreador) + senha + espaço + 1. 0000 é a senha e 1 é a posição (1º número). Resposta &quot;SET OK!&quot;. Depois de cadastrado, todas as operações por SMS ficam restritas a esse número. Alarmes de excesso de velocidade, vibração e bateria fraca vão para o número admin.</li></ul>
+<p>Apagar números de controle:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>D101#
+D102#
+D103#</code></pre></div>
+<p>Apagam, respectivamente, o 1º, o 2º e o 3º número de controle (ST-902A, ST-906, ST-909). Nos portáteis ST-903, ST-904 e ST-905 o manual traz só <code>D101#</code>: cancela o número admin, resposta &quot;SET OK!&quot;.</p>
+<h3 id="modo-de-trabalho-sms-gprs">Modo de trabalho SMS / GPRS</h3>
+<p>(ST-900, ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M, ST-902, ST-902A, ST-906/906L, ST-907, ST-909.) Modos SMS (controle só pelo celular, recebendo link do Google Maps) e GPRS (monitoramento online em tempo real na plataforma, com histórico).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7000000</code></pre></div>
+<p>Modo SMS (formato 700+senha). Resposta &quot;SET OK&quot;. <strong>Padrão de fábrica segundo os manuais do ST-902, ST-902A e ST-909</strong> (contradição — ver Observações).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7100000</code></pre></div>
+<p>Modo GPRS (formato 710+senha) — ativa a conexão de dados (&quot;Ativar conexão de Dados do Rastreador&quot; — planilha: NECESSÁRIO, TESTE OK). Resposta &quot;SET OK&quot;. <strong>Padrão de fábrica</strong> (ST-900, ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M, ST-906, ST-907). Também usado na configuração rápida do ST-903/904.</p>
+<h3 id="trocar-a-senha">Trocar a senha</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>77712340000</code></pre></div>
+<p>Formato: 777 + senha nova + senha antiga. No exemplo, 1234 é a senha nova e 0000 a antiga (senha padrão 0000). Resposta &quot;SET OK&quot;. (Manuais veiculares/OBD/acendedor.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>7770000 0000</code></pre></div>
+<p>&quot;Mudar senha do equipamento&quot; — exemplo exatamente como está no arquivo TrackMax (&quot;EX: 7770000 0000&quot;). O formato dos manuais SinoTrack é 777 + senha nova + senha antiga, tudo junto (ex.: <code>77712340000</code>).</p>
+<h3 id="fuso-horario">Fuso horário</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8960000E00</code></pre></div>
+<p>Formato: 896+senha+E/W+HH (E = leste (+), W = oeste (−), HH = horas). 8960000E00 é o padrão (GMT 0). Para GMT+2: 8960000E02 (exemplo do ST-900, ST-901, ST-901 4PIN). Resposta &quot;SET OK&quot; / &quot;SET OK!&quot;. Todos os modelos.</p>
+<p>Exemplos dos manuais dos portáteis (ST-903, ST-904; o ST-905 repete também <code>8960000E00</code> na lista):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8960000E01
+8960000W01
+8960000E00</code></pre></div>
+<h3 id="envio-de-posicao-em-horario-fixo-diario-somente-st-901a-st-902">Envio de posição em horário fixo diário (somente ST-901A, ST-902)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>66500001219</code></pre></div>
+<p>Formato: 665+senha+HHMM (HH de 00 a 23, MM de 00 a 59). Envia a posição todo dia no horário definido para o 1º número de controle. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>6650000OFF</code></pre></div>
+<p>Desliga a função (padrão). Resposta &quot;SET OK&quot;.</p>
+<h3 id="cerca-eletronica-alarme-so-para-o-1-numero">Cerca eletrônica (alarme só para o 1º número)</h3>
+<p>(Veiculares/OBD/acendedor; não consta nos portáteis.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>2110000</code></pre></div>
+<p>Liga a cerca (211+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>2100000</code></pre></div>
+<p>Desliga a cerca (210+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>0050000 1000</code></pre></div>
+<p>Define o raio da cerca em metros (no exemplo, 1000 m). Resposta &quot;SET OK&quot;. O fabricante recomenda raio acima de 1000 m.</p>
+<h3 id="alarme-de-excesso-de-velocidade">Alarme de excesso de velocidade</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 120</code></pre></div>
+<p>(Veiculares/OBD/acendedor — alarme para os números de controle.) Formato: 122+senha+espaço+XXX. XXX = velocidade de 0 a 999 km/h. Com XXX = 0 o alarme é desligado. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 070</code></pre></div>
+<p>(ST-903, ST-904, ST-905.) Define o limite (exemplo 70 km/h). Acima do limite envia &quot;speed alarm!&quot; ao admin a cada 5 minutos. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1220000 0</code></pre></div>
+<p>(ST-903, ST-904, ST-905.) Cancela o alarme de velocidade. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="hodometro-quilometragem-somente-st-902-st-902a-st-906-st-907">Hodômetro (quilometragem) (somente ST-902, ST-902A, ST-906, ST-907)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1420000</code></pre></div>
+<p>Zera o hodômetro. Resposta &quot;MILEAGE RESET OK&quot; (comando escrito só no manual do ST-907; os manuais do ST-902, ST-902A e ST-906 indicam essa resposta para o formato 142+senha).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1420000M1000</code></pre></div>
+<p>Define a quilometragem inicial (formato 142+senha+M+X; X em metros). Resposta &quot;SET OK, CURRENT: 1000&quot;.</p>
+<p><code>1430000</code> — consulta a quilometragem total atual (143+senha). Resposta &quot;CURRENT TOTAL MILEAGE:XX&quot; (XX em metros). Ver Consultas.</p>
+<h3 id="alarme-de-vibracao-choque">Alarme de vibração/choque</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T10</code></pre></div>
+<ul><li>Veiculares/OBD/acendedor (SMS para o 1º número): liga o alarme (181+senha+T). T = tempo de vibração em segundos, de 0 a 120. Resposta &quot;SET OK&quot;.</li><li>Portáteis ST-903, ST-904, ST-905: liga o alarme de vibração. O aparelho precisa ficar parado por 5 minutos para a função armar; ao ser sacudido envia &quot;Shock alarm!&quot; ao admin. Resposta &quot;SET OK!&quot;.</li><li>Arquivo TrackMax: &quot;ALARME DE SHOCK&quot;.</li></ul>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1800000</code></pre></div>
+<p>Desliga / cancela o alarme de vibração (180+senha). Resposta &quot;SET OK&quot; (&quot;SET OK!&quot; nos portáteis). Todos os manuais.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1810000T180</code></pre></div>
+<p>&quot;Alerta de Movimento sem Pós chave de 3 em 3 minutos&quot; (planilha ST901 4G — NECESSÁRIO, TESTE OK — e arquivo TrackMax).</p>
+<h3 id="alarme-de-bateria-fraca-automatico">Alarme de bateria fraca (automático)</h3>
+<p>Quando a bateria chega em Bat:1 (20%), envia SMS &quot;Low Power Alarm&quot; ao 1º número (ST-901, ST-901 4PIN, ST-902, ST-902A, ST-907, ST-909; no ST-906 &quot;com a bateria em 20%&quot;). Nos portáteis, o alarme de bateria fraca vai ao número admin.</p>
+<h3 id="alarme-de-corte-de-alimentacao-automatico-somente-st-901a-st-901al-st-901m">Alarme de corte de alimentação (automático) (somente ST-901A, ST-901AL, ST-901M)</h3>
+<p>Quando a bateria (alimentação) é desconectada, envia o alarme de corte de energia ao servidor e SMS ao 1º número.</p>
+<h3 id="alarme-de-ignicao-acc-ligada-somente-st-901-st-901-4pin-st-901a-st-901al-st-901m">Alarme de ignição (ACC ligada) (somente ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8860000</code></pre></div>
+<p>Liga o aviso de ACC ligada por SMS (886+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8870000</code></pre></div>
+<p>Desliga o aviso de ACC ligada por SMS (887+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8880000</code></pre></div>
+<p>Liga o aviso de ACC ligada por ligação telefônica (888+senha). Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8890000</code></pre></div>
+<p>Desliga o aviso de ACC ligada por ligação (889+senha). Resposta &quot;SET OK&quot;.</p>
+<h3 id="modo-de-chamada-alarmes-com-ligacao">Modo de chamada (alarmes com ligação)</h3>
+<p>(Veiculares/OBD/acendedor.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1500000</code></pre></div>
+<p>Liga o modo de chamada (150+senha): os alarmes ligam <strong>e</strong> mandam SMS para os números de controle. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>1510000</code></pre></div>
+<p>Desliga o modo de chamada (151+senha): os alarmes só mandam SMS. Resposta &quot;SET OK&quot;.</p>
+<h3 id="corte-restauracao-do-motor-bloqueio-st-901-4pin-st-901m-st-906-st-907-arquivo-trackmax">Corte / restauração do motor (bloqueio) (ST-901 4PIN, ST-901M, ST-906, ST-907; arquivo TrackMax)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>9400000</code></pre></div>
+<p>Corta o motor (940+senha) — &quot;Bloquear&quot; no arquivo TrackMax. O rastreador responde &quot;SET OK&quot;.</p>
+<ul><li>ST-901 4PIN: <strong>Atenção:</strong> o corte só acontece com o veículo abaixo de 20 km/h (para em poucos segundos após o SMS); acima de 20 km/h o motor não é cortado.</li><li>ST-901M: &quot;função exclusiva do ST-901M&quot;, segundo o manual.</li></ul>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>9410000</code></pre></div>
+<p>Restaura o motor (941+senha) — &quot;Desbloquear&quot; no arquivo TrackMax. Resposta &quot;SET OK&quot;. No ST-901M, ST-906 e ST-907 o manual não traz o exemplo escrito; este é o formato aplicado à senha padrão 0000 (no ST-901 4PIN o exemplo consta).</p>
+<p>Os manuais do ST-901 (3 fios), ST-901A e ST-901AL <strong>não têm comando de corte de motor</strong> (ST-901A/AL mostram o relé no diagrama mesmo assim).</p>
+<h3 id="alarme-de-remocao-take-off-padrao-ligado-somente-st-905-915-925">Alarme de remoção (take off) — padrão ligado (somente ST-905/915/925)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TAKEOFF0000 1</code></pre></div>
+<p>Liga o alarme de remoção. Há um sensor anti-remoção na traseira do aparelho; se ele deixar de estar coberto, envia &quot;Take off Alarms!&quot; por SMS ao admin e ao número SOS. Resposta &quot;SET OK!&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>TAKEOFF0000 0</code></pre></div>
+<p>Cancela o alarme de remoção. Resposta &quot;SET OK!&quot;.</p>
+<h3 id="apn">APN</h3>
+<p>Formato: 803+senha+espaço+APN / 803+senha+espaço+APN+espaço+usuário+espaço+senha do APN. Resposta &quot;SET OK&quot;. Os manuais usam dois exemplos:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 INTERNET
+8030000 INTERNET INTERNET INTERNET</code></pre></div>
+<p>(ST-900, ST-901, ST-901 4PIN, ST-906.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 CMNET
+8030000 CMNET CMNET CMNET</code></pre></div>
+<p>(ST-901A, ST-901AL, ST-901M, ST-902, ST-902A, ST-907, ST-909.)</p>
+<p>Exemplos com operadoras reais: ver &quot;Primeira configuração&quot; (Vodafone), &quot;Configuração rápida&quot; (everywhere/eesecure), ST-905 (MTN, Tesco) e as Receitas (Vivo M2M).</p>
+<h3 id="servidor-ip-e-porta">Servidor (IP e porta)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 45.112.204.246 8090</code></pre></div>
+<p>Formato: 804+senha+espaço+IP+espaço+porta. Exemplo com o servidor do fabricante (SinoTrack). Resposta &quot;SET OK&quot;. Segundo os manuais do ST-902, ST-902A e ST-909, esse já é o padrão e normalmente não precisa ser alterado. Os manuais do ST-903 e ST-904 não trazem comando de IP/porta.</p>
+<h3 id="intervalos-de-envio">Intervalos de envio</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8050000 20</code></pre></div>
+<p>Intervalo de envio (805+senha+espaço+T), em segundos. Padrão 20 s; intervalo mínimo 10 s; T = 0 desliga o GPRS. Resposta &quot;SET OK&quot;.</p>
+<ul><li>Com <strong>ACC ligada</strong> (há um segundo intervalo para ACC desligada): ST-901, ST-901 4PIN, ST-906 (T de 0 a 180); ST-901A, ST-901M (T de 10 a 18000); ST-901AL (T de 10 a 180).</li><li>Intervalo único: ST-902 e ST-909 (T de 0 a 18000); ST-902A (T de 0 a 180); ST-907 (T de 10 a 18000).</li></ul>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8090000 180</code></pre></div>
+<p>Intervalo de envio com <strong>ACC desligada</strong> (809+senha+espaço+T), em segundos. Padrão 180 s (no ST-906 o texto diz padrão 300 s). Faixa: 0 a 180 (ST-901, ST-901 4PIN, ST-906); 10 a 18000 (ST-901A, ST-901M); 10 a 180 (ST-901AL). T = 0 desliga o GPRS. Intervalo mínimo: 10 s. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8090000 30</code></pre></div>
+<p>(Somente ST-900 — o manual só tem este intervalo.) Intervalo de envio GPRS (809+senha+espaço+T), em segundos, de 0 a 180. T = 0 desliga o GPRS. Intervalo mínimo: 10 s. Resposta &quot;SET OK&quot;.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8050000 60</code></pre></div>
+<p>Envia posições de 1/1 minuto com chave on (planilha ST901 4G — NECESSÁRIO, TESTE OK — e arquivo TrackMax).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8090000 120</code></pre></div>
+<p>Envia posições de 2/2 minutos com chave off (planilha ST901 4G — NECESSÁRIO, TESTE OK — e arquivo TrackMax).</p>
+<h3 id="modo-sleep-dormir">Modo sleep (dormir)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 5</code></pre></div>
+<p>Formato: SLEEP+senha+espaço+T (minutos). O rastreador dorme quando o veículo fica parado por 5 minutos. Resposta &quot;SET OK&quot;. (ST-900, ST-901, ST-901 4PIN, ST-901M, ST-906, ST-907; no ST-902 como &quot;variante com tempo&quot;.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 0</code></pre></div>
+<p>Desliga o modo sleep — o rastreador trabalha o tempo todo. Resposta &quot;SET OK&quot;. (&quot;CANCELAR SLEEP&quot; no arquivo TrackMax.) (ST-900, ST-901, ST-901 4PIN, ST-901M, ST-902, ST-902A, ST-906, ST-907, ST-909.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 1</code></pre></div>
+<p>Liga o modo sleep (liga/desliga com 1/0). Resposta &quot;SET OK&quot;. (Somente ST-902, ST-902A, ST-909.)</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>SLEEP0000 10</code></pre></div>
+<p>Sleep de 10 minutos — &quot;NECESSÁRIO SLEEP 10 MINUTOS&quot; (planilha ST901 4G, formato <code>SLEEP0000 TEMPO EM MINUTO</code>, TESTE OK); no arquivo TrackMax: &quot;SLEEP0000 10 — TEMPO EM MINUTO&quot; (liga o modo sleep; aqui, 10 minutos).</p>
+<p>Os manuais do ST-901A e ST-901AL não trazem comando de modo sleep.</p>
+<h3 id="modos-de-trabalho-work-move-standby-portateis-com-bateria-st-903-st-904-st-905-915-925-tambem-no-arquivo-trackmax-item-4-6-configuracao-do-modo-de-trabalho-do-dispositivo">Modos de trabalho WORK / MOVE / STANDBY (portáteis com bateria: ST-903, ST-904, ST-905/915/925; também no arquivo TrackMax, item &quot;4.6. Configuração do modo de trabalho do dispositivo&quot;)</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>WORK0000</code></pre></div>
+<p>Modo WORK / &quot;WORK-Keep&quot; (sempre ativo): o rastreador continuará funcionando e enviará dados por intervalo de tempo configurado. Resposta &quot;SET OK!&quot; (&quot;DEFINIR OK!&quot; no arquivo TrackMax). Autonomia: 18 a 24 horas (ST-903, ST-904); 7 dias por 10.000 mAh (ST-905/915/925 e arquivo TrackMax).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>MOVE0000</code></pre></div>
+<p>Modo MOVE / &quot;MOVE-Work quando o rastreador está em movimento&quot; (<strong>padrão de fábrica</strong> — &quot;A configuração de fábrica é o modo MOVE&quot;): só trabalha em movimento; parado ele dorme (GPS desligado, GSM em baixo consumo). Vibração, SMS (comando) ou ligação acordam o aparelho para funcionar por 5 minutos. Resposta &quot;SET OK!&quot; / &quot;DEFINIR OK!&quot;. Autonomia: 3 a 10 dias (ST-903, ST-904); 30 dias por 10.000 mAh (ST-905/915/925 e arquivo TrackMax).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>STANDBY0000</code></pre></div>
+<p>Modo STANDBY (&quot;STANDBY-SMS ou chamada para rastreador, funcionará 5 minutos&quot;): GPS desligado, GSM em baixo consumo; SMS ou ligação acordam o rastreador para funcionar por 5 minutos. Resposta &quot;SET OK!&quot; / &quot;DEFINIR OK!&quot;. Autonomia: até 15 dias (ST-903, ST-904); 120 dias por 10.000 mAh (ST-905/915/925 e arquivo TrackMax).</p>
+<ul><li><strong>Atenção (ST-903, ST-904):</strong> em modo MOVE, se o veículo roda o dia todo, não há economia — vale o mesmo que o modo WORK (18–24 h).</li><li>ST-905: na versão 4G a autonomia é cerca de 20% menor.</li></ul>
+<h3 id="reset">Reset</h3>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>RESET</code></pre></div>
+<ul><li>ST-903, ST-904, ST-905: reset do hardware. Resposta &quot;SET OK!&quot;.</li><li>Planilha ST901 4G e arquivo TrackMax: &quot;Inicia de Fabrica&quot; (volta às configurações de fábrica) — OPCIONAL.</li></ul>
+<h2 id="receitas-por-operadora-servidor">Receitas por operadora/servidor</h2>
+<h3 id="servidor-do-fabricante-todos-os-manuais">Servidor do fabricante (todos os manuais)</h3>
+<p>Os manuais em PDF (ST-900 a ST-909) só trazem o servidor do próprio fabricante:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 45.112.204.246 8090</code></pre></div>
+<p>Os manuais do ST-903 e ST-904 não trazem comando de IP/porta; seus exemplos mostram 45.112.204.246:8090 (o print de RCONF do ST-904 mostra 45.112.204.242:8090).</p>
+<h3 id="trackmax-traccar-arquivo-sinotrack-trackmax-1-txt">TrackMax / Traccar — arquivo <code>SINOTRACK TRACKMAX (1).txt</code></h3>
+<p>Receita genérica para rastreadores SinoTrack (o arquivo não cita um modelo específico; o exemplo de RCONF vem de um ST-902). Sequência na ordem do arquivo:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 179.127.23.86 5013</code></pre></div>
+<p>Servidor TrackMax: IP 179.127.23.86, porta 5013.</p>
+<p>TRACCAR:</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 104.237.9.196 5013</code></pre></div>
+<p>Aponta para um servidor Traccar (IP 104.237.9.196, porta 5013).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 tmax.m2m.vivo.com.br vivo vivo</code></pre></div>
+<p>APN do chip Vivo M2M da TrackMax (usuário <code>vivo</code>, senha <code>vivo</code>).</p>
+<p>Depois, na ordem do arquivo:</p>
+<ol><li><code>7100000</code> — Ativar conexão de Dados do Rastreador.</li><li><code>8050000 60</code> — Envia posições de 1/1 minuto com chave on.</li><li><code>8090000 120</code> — Envia posições de 2/2 minutos com chave off.</li><li><code>SLEEP0000 10</code> — TEMPO EM MINUTO (liga o modo sleep; aqui, 10 minutos).</li><li><code>SLEEP0000 0</code> — CANCELAR SLEEP.</li><li><code>1810000T180</code> — Alerta de Movimento sem Pós chave de 3 em 3 minutos.</li><li><code>1810000T10</code> — ALARME DE SHOCK.</li><li>Bloqueio: Bloquear <code>9400000</code>; Desbloquear <code>9410000</code>.</li><li>Manutenção: <code>RESET</code> — Inicia de Fabrica (volta às configurações de fábrica); <code>RESTART</code> — Reinicia o Equipamento (&quot;caso tente configurar e não esteja acatando os comandos, mandar&quot; RESTART); mudar senha do equipamento <code>7770000 0000</code> (ver &quot;Trocar a senha&quot;).</li><li>Item &quot;4.6. Configuração do modo de trabalho do dispositivo&quot;: <code>WORK0000</code>, <code>MOVE0000</code>, <code>STANDBY0000</code> (texto completo em &quot;Modos de trabalho WORK / MOVE / STANDBY&quot;).</li></ol>
+<div class="table-wrap"><table><thead><tr><th>Destino</th><th>Comando</th></tr></thead><tbody><tr><td>TrackMax</td><td><code>8040000 179.127.23.86 5013</code></td></tr><tr><td>Traccar</td><td><code>8040000 104.237.9.196 5013</code></td></tr><tr><td>APN Vivo M2M (TrackMax)</td><td><code>8030000 tmax.m2m.vivo.com.br vivo vivo</code></td></tr></tbody></table></div>
+<h3 id="vivo-m2m-trackmax-planilha-manual-st901-4g-sinotruck-5-xls-st901-4g">Vivo M2M + TrackMax — planilha <code>MANUAL ST901 4G SINOTRUCK (5).xls</code> (ST901 4G)</h3>
+<p>Na coluna &quot;Atenção&quot; a planilha marca cada comando como NECESSÁRIO ou OPCIONAL. Na última coluna, &quot;TESTE OK&quot; indica que o comando foi testado.</p>
+<div class="table-wrap"><table><thead><tr><th>Modelo do comando</th><th>Comando a enviar</th><th>Atenção</th><th>Teste</th></tr></thead><tbody><tr><td><code>8040000 000.000.000.000 0000</code></td><td><code>8040000 35.230.168.225 5013</code></td><td>NECESSÁRIO IP E PORTA TRACKMAX</td><td>TESTE OK</td></tr><tr><td><code>8030000 suaapn.com.br</code></td><td><code>8030000 smart.m2m.vivo.com.br</code></td><td>NECESSÁRIO APN CHIP VIVO M2M</td><td>TESTE OK</td></tr><tr><td><code>8030000 APN USUARIO SENHA</code></td><td><code>8030000 smart.m2m.vivo.com.br vivo vivo</code></td><td>NECESSÁRIO USUÁRIO CHIP VIVO M2M</td><td>TESTE OK</td></tr><tr><td><code>7100000</code></td><td>Ativar conexão de Dados do Rastreador</td><td>NECESSÁRIO</td><td>TESTE OK</td></tr><tr><td><code>8050000 60</code></td><td>Envia posições de 1/1 minuto com chave on</td><td>NECESSÁRIO</td><td>TESTE OK</td></tr><tr><td><code>8090000 120</code></td><td>Envia posições de 2/2 minutos com chave off</td><td>NECESSÁRIO</td><td>TESTE OK</td></tr><tr><td><code>SLEEP0000 TEMPO EM MINUTO</code></td><td><code>SLEEP0000 10</code></td><td>NECESSÁRIO SLEEP 10 MINUTOS</td><td>TESTE OK</td></tr><tr><td><code>1810000T180</code></td><td>Alerta de Movimento sem Pós chave de 3 em 3 minutos</td><td>NECESSÁRIO</td><td>TESTE OK</td></tr><tr><td><code>RESET</code></td><td>Inicia de Fabrica</td><td>OPCIONAL</td><td>—</td></tr><tr><td><code>RESTART</code></td><td>Reinicia o Equipamento</td><td>OPCIONAL</td><td>TESTE OK</td></tr><tr><td><code>RCONF</code></td><td>RETORNA CONFIGURAÇÕES</td><td>—</td><td>—</td></tr></tbody></table></div>
+<p>Sequência (na ordem da planilha):</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8040000 35.230.168.225 5013</code></pre></div>
+<p>Servidor TrackMax: IP 35.230.168.225, porta 5013.</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 smart.m2m.vivo.com.br</code></pre></div>
+<p>APN do chip Vivo M2M (sem usuário/senha).</p>
+<div class="code"><button class="copy" type="button" aria-label="Copiar">Copiar</button><pre><code>8030000 smart.m2m.vivo.com.br vivo vivo</code></pre></div>
+<p>APN do chip Vivo M2M com usuário <code>vivo</code> e senha <code>vivo</code>.</p>
+<p>Depois: <code>7100000</code> (ativar dados), <code>8050000 60</code>, <code>8090000 120</code>, <code>SLEEP0000 10</code>, <code>1810000T180</code>, <code>RESET</code> (OPCIONAL), <code>RESTART</code> (OPCIONAL), <code>RCONF</code>.</p>
+<div class="table-wrap"><table><thead><tr><th>Operadora / servidor</th><th>APN</th><th>Usuário / senha</th><th>IP e porta</th><th>Fonte</th></tr></thead><tbody><tr><td>Vivo M2M + TrackMax</td><td>smart.m2m.vivo.com.br</td><td>vivo / vivo</td><td>35.230.168.225 porta 5013</td><td>planilha ST901 4G</td></tr><tr><td>Vivo M2M + TrackMax</td><td>tmax.m2m.vivo.com.br</td><td>vivo / vivo</td><td>179.127.23.86 porta 5013</td><td>arquivo TrackMax (.txt)</td></tr><tr><td>Traccar</td><td>—</td><td>—</td><td>104.237.9.196 porta 5013</td><td>arquivo TrackMax (.txt)</td></tr><tr><td>Fabricante SinoTrack</td><td>—</td><td>—</td><td>45.112.204.246 porta 8090</td><td>manuais PDF</td></tr></tbody></table></div>
+<p><strong>Atenção:</strong> as duas receitas TrackMax usam IP e APN diferentes (planilha: 35.230.168.225 / smart.m2m.vivo.com.br; .txt: 179.127.23.86 / tmax.m2m.vivo.com.br).</p>
+<h2 id="problemas-e-solucoes">Problemas e soluções</h2>
+<h3 id="rastreador-nao-fica-online-manuais-veiculares-obd-acendedor">Rastreador não fica online (manuais veiculares/OBD/acendedor)</h3>
+<p>O manual manda enviar <code>RCONF</code> e conferir na resposta:</p>
+<ol><li>se o APN está correto;</li><li>se o IP e a porta estão corretos;</li><li>se o ID cadastrado na plataforma está correto;</li><li>o modo de trabalho do aparelho (SMS ou GPRS) — para online precisa estar em GPRS (<code>7100000</code>).</li></ol>
+<p>Suporte do fabricante citado nos manuais do ST-901M, ST-902 e ST-907: deixar mensagem no pedido ou e-mail sino@sinotrack.com.</p>
+<h3 id="rastreador-nao-aceita-os-comandos-arquivo-trackmax">Rastreador não aceita os comandos (arquivo TrackMax)</h3>
+<p>&quot;caso tente configurar e não esteja acatando os comandos, mandar&quot; <code>RESTART</code> e depois repetir a configuração.</p>
+<h3 id="bloqueio-nao-funciona-em-movimento-st-901-4pin">Bloqueio não funciona em movimento (ST-901 4PIN)</h3>
+<p>Comportamento previsto: acima de 20 km/h o comando <code>9400000</code> não corta o motor.</p>
+<h3 id="nao-liga-depois-de-colocar-o-chip-st-906">Não liga depois de colocar o chip (ST-906)</h3>
+<p>Verifique se a chave interna OFF/ON (ao lado do porta-chip) está em ON.</p>
+<h3 id="aparece-online-mas-com-posicao-na-china-st-903-st-904">Aparece online mas com posição na China (ST-903, ST-904)</h3>
+<p>Leve o aparelho para área externa com bom sinal para atualizar a posição.</p>
+<h3 id="faq-dos-manuais-dos-portateis-st-903-st-904-st-905">FAQ dos manuais dos portáteis (ST-903, ST-904, ST-905)</h3>
+<div class="table-wrap"><table><thead><tr><th>Problema</th><th>Solução</th></tr></thead><tbody><tr><td>Não liga</td><td>Verifique se a bateria está carregada. (ST-905: verifique também se o chip está bem instalado e se é de rede GSM.)</td></tr><tr><td>Sem sinal GSM</td><td>Verifique se o chip está instalado corretamente e tem rede GSM; não use chip com PIN; desative o desvio de chamadas; verifique se a tensão de alimentação está normal.</td></tr><tr><td>Sem GPS</td><td>Recomenda-se local com visão mais aberta do céu para o aparelho receber o sinal GPS.</td></tr><tr><td>Não responde SMS</td><td>Senha errada ou formato do comando errado.</td></tr><tr><td>Não responde à ligação / não recebe alarme</td><td>O número autorizado/admin está incorreto ou não foi cadastrado.</td></tr><tr><td>Posição por SMS OK, mas não aparece no app/site</td><td>Verifique se o APN está configurado corretamente e descubra o APN correto do chip.</td></tr><tr><td>Posição da plataforma diferente da real</td><td>Ainda não chegou o tempo de envio ou está sem GPS: ligue para o aparelho e receba a posição. Sem GPS, a posição é a última posição GPS válida; com GPS, significa que ainda não atingiu o intervalo de envio.</td></tr></tbody></table></div>
+<h3 id="avisos-dos-manuais-dos-portateis-st-903-st-904-st-905">Avisos dos manuais dos portáteis (ST-903, ST-904, ST-905)</h3>
+<ol><li>O rastreamento GPS funciona ao ar livre.</li><li>O chip precisa permitir ligações, SMS e dados (GPRS).</li><li>O chip precisa ter saldo suficiente.</li><li>Desative o desvio de chamadas no chip.</li><li>Insira o chip corretamente.</li><li>Não desmonte o aparelho.</li></ol>
+<h2 id="ligacao-leds">Ligação/LEDs</h2>
+<h3 id="leds-padrao-st-900-st-901-st-901-4pin-st-902-st-902a-st-907-st-909-tambem-st-901m-e-st-906-que-acrescentam-o-led-vermelho">LEDs — padrão (ST-900, ST-901, ST-901 4PIN, ST-902, ST-902A, ST-907, ST-909; também ST-901M e ST-906, que acrescentam o LED vermelho)</h3>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Piscando</th><th>Aceso fixo</th></tr></thead><tbody><tr><td>Azul — GPS</td><td>sem sinal de GPS ou GPS iniciando</td><td>GPS OK</td></tr><tr><td>Laranja — GSM</td><td>sem chip ou GSM iniciando</td><td>GSM OK</td></tr></tbody></table></div>
+<p>LED vermelho (somente ST-901M e ST-906):</p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Estado</th><th>Significado</th></tr></thead><tbody><tr><td>Vermelho</td><td>apagado</td><td>rastreador desligado ou em sleep</td></tr><tr><td>Vermelho</td><td>piscando</td><td>rastreador funcionando</td></tr></tbody></table></div>
+<h3 id="instalacao-modelos-com-fio-st-900-st-901-st-901-4pin-st-901a-st-901al-st-901m-st-906-st-907">Instalação — modelos com fio (ST-900, ST-901, ST-901 4PIN, ST-901A, ST-901AL, ST-901M, ST-906, ST-907)</h3>
+<ul><li>O lado da antena GPS (frente do aparelho) deve ficar voltado para o céu. Não instalar sob metal; vidro e plástico não atrapalham.</li><li>Locais sugeridos no desenho (ST-900, ST-901A): sob o para-brisa dianteiro, sob o vidro traseiro ou em volta do painel.</li></ul>
+<h3 id="st-900">ST-900</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Ligação</th></tr></thead><tbody><tr><td>Vermelho</td><td>positivo (+) da bateria 12 V / 24 V</td></tr><tr><td>Preto</td><td>negativo (−) da bateria</td></tr></tbody></table></div>
+<p>O texto do manual diz apenas &quot;Connect the wires:&quot;; as cores acima vêm do desenho da página de instalação, que mostra só vermelho e preto.</p>
+<h3 id="st-901-3-fios">ST-901 (3 fios)</h3>
+<p>Fios conforme diagrama &quot;Connect the wires&quot; do manual:</p>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Ligação</th></tr></thead><tbody><tr><td>Vermelho</td><td>positivo (+) da bateria 12 V / 24 V</td></tr><tr><td>Preto</td><td>negativo (−) da bateria</td></tr><tr><td>Laranja</td><td>ACC — pós-chave (posição ACC da ignição)</td></tr></tbody></table></div>
+<p>Este manual do ST-901 (3 fios) <strong>não tem comando de corte de motor</strong>. Para a versão com relé de bloqueio veja ST-901 4PIN.</p>
+<h3 id="st-901-4pin-st-901l-4g">ST-901 4PIN (ST-901L 4G)</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Ligação</th></tr></thead><tbody><tr><td>Vermelho</td><td>positivo (+) da bateria 12 V ou 24 V, passando por fusível de 2 A</td></tr><tr><td>Preto</td><td>negativo (−) da bateria</td></tr><tr><td>Laranja</td><td>ACC (pós-chave)</td></tr><tr><td>Amarelo</td><td>bobina do relé 12/24 V de bloqueio</td></tr></tbody></table></div>
+<p>Relé: a outra ponta da bobina vai ao positivo da bateria; os contatos do relé interrompem o fio da bomba de combustível (&quot;Oil Pump&quot;) — corte o fio da bomba e passe-o pelos contatos do relé.</p>
+<h3 id="st-901a-st-901al-e-st-901m">ST-901A, ST-901AL e ST-901M</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Ligação</th></tr></thead><tbody><tr><td>Vermelho</td><td>positivo (+) da bateria 12 V ou 24 V, com fusível de 2 A</td></tr><tr><td>Preto</td><td>negativo (−) da bateria</td></tr><tr><td>Laranja</td><td>ACC (pós-chave)</td></tr><tr><td>Amarelo</td><td>bobina do relé 12/24 V (relé liga a bomba de combustível — &quot;oil pump&quot;)</td></tr></tbody></table></div>
+<p>A outra ponta da bobina do relé vai ao positivo da bateria; os contatos do relé interrompem o fio da bomba de combustível.</p>
+<p>Instalação (ST-901A; o ST-901AL traz os dois primeiros itens): 1. Abrir o rastreador e colocar o chip. 2. Lado da antena GPS voltado para o céu; não instalar sob metal (vidro/plástico ok). Locais sugeridos: sob o para-brisa, sob o vidro traseiro ou em volta do painel. 3. Ligar os fios.</p>
+<p>LEDs do ST-901A (diferentes do padrão):</p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Piscando</th><th>Aceso fixo</th></tr></thead><tbody><tr><td>Amarelo — GPS</td><td>sem sinal de GPS ou GPS iniciando</td><td>GPS OK</td></tr><tr><td>Vermelho — GSM</td><td>sem chip ou GSM iniciando</td><td>GSM OK</td></tr></tbody></table></div>
+<p>ST-901AL: o texto do manual não traz a tabela de LEDs. ST-901M: LEDs padrão + vermelho (acima).</p>
+<h3 id="st-902-st-902a-obd">ST-902 / ST-902A (OBD)</h3>
+<p>Aparelho &quot;plug and play&quot;: basta conectar no conector OBD do veículo. O manual mostra 6 locais possíveis do conector OBD (na maioria dos carros fica no local 1, sob o painel do lado do motorista).</p>
+<h3 id="st-906-st-906l">ST-906 / ST-906L</h3>
+<p>Fios (diagrama &quot;Wiring installation diagram&quot; do manual):</p>
+<div class="table-wrap"><table><thead><tr><th>Cor / conector</th><th>Ligação</th></tr></thead><tbody><tr><td>Vermelho</td><td>positivo (+) da bateria 12 V ou 24 V, via fusível de 2 A</td></tr><tr><td>Preto</td><td>negativo (−) da bateria</td></tr><tr><td>Amarelo</td><td>&quot;Fuel Cut&quot; — ao fio amarelo do relé de corte de combustível</td></tr><tr><td>Laranja</td><td>ACC (pós-chave)</td></tr><tr><td>Conector separado</td><td>microfone (escuta)</td></tr><tr><td>Conector separado</td><td>botão SOS</td></tr><tr><td>Par +/−</td><td>alto-falante (speaker)</td></tr></tbody></table></div>
+<p>Relé (pinos 85/86/30/87a): o amarelo vai ao pino 86, o 85 ao positivo; os contatos 30/87a interrompem o circuito da bomba de combustível. <strong>Nota do manual:</strong> a tensão de segurança do relé não pode passar de 12 V.</p>
+<h3 id="st-907-formato-rele">ST-907 (formato relé)</h3>
+<div class="table-wrap"><table><thead><tr><th>Cor</th><th>Ligação</th></tr></thead><tbody><tr><td>Vermelho</td><td>positivo (+) da bateria do carro (com fusível no chicote)</td></tr><tr><td>Preto</td><td>negativo (−) da bateria</td></tr><tr><td>Azul</td><td>ao lado &quot;linha&quot; do fio da bomba de combustível cortado (Oil Pump Line)</td></tr><tr><td>Verde</td><td>ao lado da bomba de combustível (Oil Pump)</td></tr></tbody></table></div>
+<p>O corte de combustível é feito pelo próprio ST-907: corte o fio da bomba e ligue as duas pontas no azul e no verde. Tensão de trabalho 10–40 V DC; o manual recomenda instalação por profissional/oficina.</p>
+<h3 id="st-909-acendedor">ST-909 (acendedor)</h3>
+<p>Sem fios: basta plugar no acendedor de cigarro do veículo.</p>
+<h3 id="st-903-st-904-portateis">ST-903 / ST-904 (portáteis)</h3>
+<p>Aparelho portátil, sem fios de instalação (alimentação pela bateria interna, recarga 5 V).</p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Estado</th><th>Significado</th></tr></thead><tbody><tr><td>Amarelo</td><td>aceso</td><td>conexão GPRS</td></tr><tr><td>Amarelo</td><td>piscando</td><td>sem sinal GPRS</td></tr><tr><td>Azul</td><td>aceso</td><td>conexão GPS</td></tr><tr><td>Azul</td><td>piscando</td><td>sem sinal GPS</td></tr><tr><td>Vermelho</td><td>aceso</td><td>carregando</td></tr><tr><td>Vermelho</td><td>apagado</td><td>não está carregando</td></tr></tbody></table></div>
+<p>Chip: o ST-903 só funciona com chip GSM (2G); o ST-903L usa chip 4G. No ST-904 versão 2G só funciona chip GSM (se usar chip 3G/4G, ele precisa ter função GSM). Chip sem PIN.</p>
+<h3 id="st-905-st-915-st-925-portateis">ST-905 / ST-915 / ST-925 (portáteis)</h3>
+<p>Aparelho portátil, sem fios de instalação (bateria interna; carga DC 5 V 1 A).</p>
+<div class="table-wrap"><table><thead><tr><th>LED</th><th>Estado</th><th>Significado</th></tr></thead><tbody><tr><td>Amarelo</td><td>aceso fixo</td><td>conexão GPRS</td></tr><tr><td>Amarelo</td><td>piscando</td><td>sem sinal GPRS</td></tr><tr><td>Azul</td><td>aceso fixo</td><td>conexão GPS</td></tr><tr><td>Azul</td><td>piscando</td><td>sem sinal GPS</td></tr></tbody></table></div>
+<p>(Descrição de hardware feita pelo manual usando o ST-915 como exemplo.) Só funciona com chip GSM; chip 3G/4G precisa ter função GSM. Chip sem PIN.</p>
+<h2 id="observacoes">Observações</h2>
+<h3 id="gerais">Gerais</h3>
+<ul><li>Alarmes são enviados aos 3 números de controle; cerca e vibração vão só para o 1º (ST-900); cerca, vibração e bateria fraca só para o 1º (ST-901).</li><li>Nota da página do arquivo TrackMax: os modos WORK/MOVE/STANDBY só se aplicam aos modelos portáteis com bateria (linha ST-903/904/905/915/925), não aos rastreadores ligados fixos no veículo.</li><li>Os exemplos de APN variam entre manuais: INTERNET (ST-900, ST-901, ST-901 4PIN, ST-906) ou CMNET (demais). No ST-902A o exemplo dos comandos é CMNET mas o APN padrão no RCONF é INTERNET.</li></ul>
+<h3 id="por-modelo">Por modelo</h3>
+<ul><li><strong>ST-900:</strong> o RCONF de exemplo mostra APN padrão INTERNET e intervalo de envio 20 s (o manual só documenta o comando 809 para intervalo).</li><li><strong>ST-901:</strong> APN padrão no RCONF de exemplo: INTERNET. Manual de 3 fios, sem bloqueio.</li><li><strong>ST-901 4PIN:</strong> manual específico da versão 4 fios / 4G (ST-901L). Não confundir com o ST-901 de 3 fios (sem bloqueio).</li><li><strong>ST-901A:</strong> o manual lista o fio amarelo/relé no diagrama, mas <strong>não traz comando SMS de corte de motor</strong> nem comando de modo sleep. Na explicação do RCONF o manual traz o IP com erro de digitação (45.112.201.246); o correto, igual ao resto do manual, é 45.112.204.246.</li><li><strong>ST-901AL:</strong> manual não traz comando SMS de corte de motor, de modo sleep nem de envio diário (665), embora o diagrama mostre o relé no fio amarelo. Intervalos de envio aqui vão de 10 a 180 s (no manual do ST-901A 2G constam 10 a 18000 s). Na explicação do RCONF o IP aparece com erro de digitação (45.112.201.246); o correto é 45.112.204.246.</li><li><strong>ST-901M:</strong> o RCONF de exemplo mostra o modelo como &quot;ST-901&quot;; o IP na explicação tem erro de digitação (45.112.201.246 → correto 45.112.204.246).</li><li><strong>ST901 4G (planilha):</strong> a planilha tem só a aba &quot;Plan1&quot; preenchida; &quot;Plan2&quot; e &quot;Plan3&quot; estão vazias. A receita TrackMax do arquivo <code>SINOTRACK TRACKMAX (1).txt</code> usa outro IP e outro APN (ver Receitas).</li><li><strong>ST-902:</strong> <strong>contradição no manual:</strong> a seção de modos marca o modo <strong>SMS</strong> como padrão, mas a explicação do RCONF diz que o padrão é GPRS. Na dúvida, envie <code>7100000</code> para garantir o modo GPRS (online). O manual lista dois itens de sleep (liga/desliga com 1/0 e com tempo em minutos).</li><li><strong>ST-902A:</strong> <strong>contradição no manual:</strong> os modos marcam <strong>SMS</strong> como padrão, mas o RCONF diz padrão GPRS. Envie <code>7100000</code> para garantir o modo online. Exemplo de APN nos comandos: CMNET; APN padrão no RCONF: INTERNET.</li><li><strong>ST-903:</strong> mini rastreador de 1.050 mAh. Para autonomia maior o fabricante sugere ST-905 (5.000 mAh), ST-915 (10.400 mAh) ou ST-925 (20.800 mAh) — são aparelhos maiores. Contato do fabricante: support@sinotrack.com (Amazon), sino@sinotrack.com (AliExpress).</li><li><strong>ST-904:</strong> mini rastreador de 1.200 mAh. Para autonomia maior o fabricante sugere ST-905/ST-905L (5.000 mAh), ST-915/ST-915L (10.000 mAh) ou ST-925 (20.800 mAh). Contato do fabricante: support@sinotrack.com (Amazon), sino@sinotrack.com (AliExpress). O print de RCONF mostra IP 45.112.204.242:8090 (no resto do manual 45.112.204.246:8090).</li><li><strong>ST-905:</strong> apesar de o arquivo se chamar ST-905, o manual cobre ST-905, ST-915 e ST-925; o exemplo de RCONF é de um ST-915. Aviso do manual: o chip deve ter identificação de chamadas ativa e desvio de chamadas desativado. (Capacidade do ST-915: 10.000 mAh na tabela do ST-905/ST-904, 10.400 mAh no manual do ST-903.)</li><li><strong>ST-906:</strong> padrão do intervalo com ACC desligada: o texto diz 300 s, mas o exemplo usa 180 s e a faixa indicada é 0–180 s; o RCONF de exemplo mostra &quot;20,120&quot;.</li><li><strong>ST-907:</strong> este manual não traz fio de ACC nem comandos de alarme de ACC.</li><li><strong>ST-909:</strong> <strong>contradição no manual:</strong> os modos marcam <strong>SMS</strong> como padrão, mas o RCONF diz padrão GPRS. Envie <code>7100000</code> para garantir o modo online. Na explicação do RCONF o IP aparece como 45.112.204.242:8090 (no resto do manual: 45.112.204.246:8090).</li></ul>
+<h3 id="arquivo-trackmax-sinotrack-trackmax-1-txt">Arquivo TrackMax (<code>SINOTRACK TRACKMAX (1).txt</code>)</h3>
+<ul><li>Plataforma e apps do fabricante citados no arquivo:<ul><li>site: www.sinotrackpro.com or <a href="http://45.112.204.245" target="_blank" rel="noopener">http://45.112.204.245</a></li><li>APP ANDROID: <a href="https://play.google.com/store/apps/details?id=com.sinotrack.app" target="_blank" rel="noopener">https://play.google.com/store/apps/details?id=com.sinotrack.app</a></li><li>APP IOS: <a href="https://apps.apple.com/cn/app/sinotrack-pro/id1450954778" target="_blank" rel="noopener">https://apps.apple.com/cn/app/sinotrack-pro/id1450954778</a></li></ul></li><li>MANUAL OBD ST902 (link citado no arquivo): <a href="https://content.gps-trace.com/assets/0aaddbd0-64c2-4ea3-942b-087efb643a5e" target="_blank" rel="noopener">https://content.gps-trace.com/assets/0aaddbd0-64c2-4ea3-942b-087efb643a5e</a></li><li>O arquivo tem a anotação &quot;Bom AJUSTE DE GMT A <em>TESTAR</em>&quot;: o ajuste de fuso (GMT) ainda não foi testado e não há comando para ele no arquivo (o formato dos manuais é <code>8960000E00</code>).</li><li>O RCONF de exemplo do arquivo mostra o IP 45.112.204.245:8090 (os manuais usam 45.112.204.246:8090).</li><li>A receita da planilha do ST901 4G é diferente: IP 35.230.168.225 e APN smart.m2m.vivo.com.br.</li></ul>
+    <section class="downloads"><h2 id="manuais-pdf">Manuais em PDF</h2><ul><li><a href="../pdf/st/ST-900%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-900 User Manual 246.pdf</a> <span class="muted">754 KB</span></li><li><a href="../pdf/st/ST-901%204PIN%20User%20Manual%20246%20(1).pdf" target="_blank" rel="noopener">ST-901 4PIN User Manual 246 (1).pdf</a> <span class="muted">655 KB</span></li><li><a href="../pdf/st/ST-901%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-901 User Manual 246.pdf</a> <span class="muted">774 KB</span></li><li><a href="../pdf/st/ST-901A%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-901A User Manual 246.pdf</a> <span class="muted">842 KB</span></li><li><a href="../pdf/st/ST-901AL%20User%20Manual%20246%20(1).pdf" target="_blank" rel="noopener">ST-901AL User Manual 246 (1).pdf</a> <span class="muted">837 KB</span></li><li><a href="../pdf/st/ST-901M%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-901M User Manual 246.pdf</a> <span class="muted">713 KB</span></li><li><a href="../pdf/st/ST-902%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-902 User Manual 246.pdf</a> <span class="muted">655 KB</span></li><li><a href="../pdf/st/ST-902A%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-902A User Manual 246.pdf</a> <span class="muted">699 KB</span></li><li><a href="../pdf/st/ST-903%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-903 User Manual 246.pdf</a> <span class="muted">452 KB</span></li><li><a href="../pdf/st/ST-904(L)%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-904(L) User Manual 246.pdf</a> <span class="muted">591 KB</span></li><li><a href="../pdf/st/ST-905%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-905 User Manual 246.pdf</a> <span class="muted">460 KB</span></li><li><a href="../pdf/st/ST-906%20User%20Manual%20246%20(1).pdf" target="_blank" rel="noopener">ST-906 User Manual 246 (1).pdf</a> <span class="muted">795 KB</span></li><li><a href="../pdf/st/ST-907%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-907 User Manual 246.pdf</a> <span class="muted">722 KB</span></li><li><a href="../pdf/st/ST-909%20User%20Manual%20246.pdf" target="_blank" rel="noopener">ST-909 User Manual 246.pdf</a> <span class="muted">694 KB</span></li></ul></section>
+    <nav class="pager"><a href="rastrek-rk-4g.html">← RK-4G</a><a href="suntech-st4315u-4g.html">ST4315U 4G →</a></nav>
+  </main>
+</div>
+<footer class="foot">Uso pessoal · gerado em 29/09/2026</footer>
+<script src="../assets/app.js"></script>
+</body>
+</html>
